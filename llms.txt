@@ -1,0 +1,20 @@
+# Avery & Bryant
+
+## About
+Avery & Bryant (ALYT) is a real estate AI infrastructure company based in Little Rock, Arkansas. We build AI systems that automate and scale real estate operations — from AI voice agents and virtual staging to listing media automation and content systems.
+
+## Products
+- Answr: AI answering service with Voice AI and Chat AI for businesses. 24/7 coverage, appointment booking, call routing. Starting at $147/mo.
+- StudioAI: AI-powered listing media platform with virtual staging, smart cleanup, style advisor, and quality scoring.
+- Creative Studio: Brand identity, content systems, social media frameworks, and web development for real estate professionals.
+- Listing Media: Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans.
+
+## Services
+We serve real estate agents, brokerages, and property managers across Arkansas and nationally. Our systems are designed to run without human intervention, reducing costs by up to 80% while increasing response rates and lead conversion.
+
+## Contact
+- Website: https://averyandbryant.com
+- Email: hello@averyandbryant.com
+- Phone: (501) 502-2925
+- Location: Little Rock, Arkansas
+- Instagram: @averyandbryant.lr
