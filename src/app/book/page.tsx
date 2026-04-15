@@ -1,33 +1,14 @@
 export const metadata = {
-  title: "Book a Shoot | Central & NW Arkansas | Avery & Bryant",
+  title: "Book a Shoot | Little Rock, AR | Avery & Bryant",
   description:
-    "Book professional real estate media in Central Arkansas or Northwest Arkansas. HDR photography, drone, video tours, and more. Book online in under 2 minutes.",
+    "Book professional real estate media in Central Arkansas. HDR photography, drone, video tours, and more. Book online in under 2 minutes.",
 };
-
-const locations = [
-  {
-    region: "Central Arkansas",
-    areas: "Little Rock, Benton, Conway, Hot Springs & surrounding areas",
-    address: "12521 Kanis Rd, Little Rock, AR 72211",
-    phone: "(501) 502-2925",
-    bookingUrl: "https://homes.averyandbryant.com/order",
-    buttonLabel: "Book Central Arkansas",
-  },
-  {
-    region: "Northwest Arkansas",
-    areas: "Bentonville, Fayetteville, Rogers, Springdale & surrounding areas",
-    address: "Bentonville, AR 72712",
-    phone: "(479) 364-5502",
-    bookingUrl: "https://homes.averyandbryant.com/order",
-    buttonLabel: "Book NW Arkansas",
-  },
-];
 
 const expectations = [
   "Book online in under 2 minutes",
   "Confirmation text with shoot details",
   "We show up on time, every time",
-  "Photos delivered within 24-48 hours via Aryeo",
+  "Photos delivered within 24-48 hours",
 ];
 
 export default function BookPage() {
@@ -54,39 +35,34 @@ export default function BookPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
-            Choose your area to get started. Book in under 2 minutes.
+            Book in under 2 minutes. Serving Little Rock, Benton, Conway, Hot Springs & surrounding areas.
           </p>
         </div>
       </section>
 
-      {/* Location Picker */}
+      {/* Booking Card */}
       <section className="border-t border-border py-16 md:py-24">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {locations.map((location) => (
-              <a
-                key={location.region}
-                href={location.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-lg border border-white/5 bg-card p-8 transition-all hover:border-crimson/30 hover:bg-crimson/5 md:p-10"
-              >
-                <h2 className="font-display text-2xl font-extralight text-white-90 transition-colors group-hover:text-crimson md:text-3xl">
-                  {location.region}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-white-50">
-                  {location.areas}
-                </p>
-                <div className="mt-6 space-y-2 text-sm text-white-40">
-                  <p>{location.address}</p>
-                  <p>{location.phone}</p>
-                </div>
-                <div className="mt-8 inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all group-hover:bg-crimson-dark group-hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]">
-                  {location.buttonLabel}
-                </div>
-              </a>
-            ))}
-          </div>
+        <div className="mx-auto max-w-[700px] px-6 md:px-12">
+          <a
+            href="https://homes.averyandbryant.com/order"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-lg border border-white/5 bg-card p-10 text-center transition-all hover:border-crimson/30 hover:bg-crimson/5 md:p-14"
+          >
+            <h2 className="font-display text-3xl font-extralight text-white-90 transition-colors group-hover:text-crimson md:text-4xl">
+              Central Arkansas
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-white-50">
+              Little Rock, Benton, Conway, Hot Springs & surrounding areas
+            </p>
+            <div className="mt-4 space-y-1 text-sm text-white-40">
+              <p>12521 Kanis Rd, Little Rock, AR 72211</p>
+              <p>(501) 502-2925</p>
+            </div>
+            <div className="mt-8 inline-block rounded bg-crimson px-10 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all group-hover:bg-crimson-dark group-hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]">
+              Book a Shoot
+            </div>
+          </a>
         </div>
       </section>
 
@@ -117,20 +93,12 @@ export default function BookPage() {
           </div>
           <div className="mt-8 border-t border-border pt-8">
             <p className="text-sm text-white-40">Or call us directly</p>
-            <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-8">
-              <a
-                href="tel:+15015022925"
-                className="text-sm text-white-70 transition-colors hover:text-crimson"
-              >
-                Central AR: (501) 502-2925
-              </a>
-              <a
-                href="tel:+14793645502"
-                className="text-sm text-white-70 transition-colors hover:text-crimson"
-              >
-                NW AR: (479) 364-5502
-              </a>
-            </div>
+            <a
+              href="tel:+15015022925"
+              className="mt-3 inline-block text-lg text-white-70 transition-colors hover:text-crimson"
+            >
+              (501) 502-2925
+            </a>
           </div>
         </div>
       </section>

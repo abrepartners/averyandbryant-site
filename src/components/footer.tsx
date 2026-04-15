@@ -8,12 +8,6 @@ const locations = [
     phone: "(501) 502-2925",
     phoneHref: "tel:+15015022925",
   },
-  {
-    city: "NW Arkansas",
-    address: "Bentonville, AR",
-    phone: "(479) 364-5502",
-    phoneHref: "tel:+14793645502",
-  },
 ];
 
 const socials = [

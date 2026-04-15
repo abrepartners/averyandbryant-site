@@ -25,7 +25,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Avery & Bryant | Real Estate Media & AI Infrastructure | Arkansas",
   description:
-    "Professional real estate media, AI voice agents, virtual staging, and content systems for modern real estate operations. Little Rock & NW Arkansas.",
+    "Professional real estate media, AI voice agents, virtual staging, and content systems for modern real estate operations. Little Rock, Arkansas.",
   metadataBase: new URL("https://averyandbryant.com"),
   openGraph: {
     type: "website",
