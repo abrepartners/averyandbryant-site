@@ -5,8 +5,8 @@ interface HeroProps {
   title: string;
   titleAccent?: string;
   subtitle: string;
-  primaryCta?: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
+  primaryCta?: { label: string; href: string; external?: boolean };
+  secondaryCta?: { label: string; href: string; external?: boolean };
   backgroundImage?: string;
 }
 
@@ -68,6 +68,7 @@ export function Hero({
             {primaryCta && (
               <Link
                 href={primaryCta.href}
+                {...(primaryCta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
               >
                 {primaryCta.label}
@@ -76,6 +77,7 @@ export function Hero({
             {secondaryCta && (
               <Link
                 href={secondaryCta.href}
+                {...(secondaryCta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
               >
                 {secondaryCta.label}
