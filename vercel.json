@@ -13,10 +13,7 @@
       ]
     }
   ],
-  "redirects": [
-    { "source": "/virtual-staging", "destination": "/", "permanent": true },
-    { "source": "/photos", "destination": "/", "permanent": true },
-    { "source": "/book-services", "destination": "/", "permanent": true },
-    { "source": "/twilight-photography", "destination": "/", "permanent": true }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -525,11 +525,42 @@ img{max-width:100%;display:block}
 </div></footer>
 
 <script>
-function navigate(p){document.querySelectorAll('.page').forEach(function(e){e.classList.remove('active')});document.getElementById('page-'+p).classList.add('active');window.scrollTo(0,0);document.getElementById('mobile-menu').classList.remove('open');setTimeout(initReveal,100);var t={home:'Avery & Bryant | Real Estate AI Infrastructure | Arkansas',answr:'Answr AI Answering Service | Avery & Bryant',studioai:'StudioAI | AI Virtual Staging Platform | Avery & Bryant',services:'Services | Listing Media & Creative Studio | Avery & Bryant',about:'About | Avery & Bryant',insights:'Agent AI Lab | Resources & Tutorials | Avery & Bryant',contact:'Contact | Book a Discovery Call | Avery & Bryant'};document.title=t[p]||t.home}
+var pageTitles={home:'Avery & Bryant | Real Estate AI Infrastructure | Arkansas',answr:'Answr AI Answering Service | Avery & Bryant',studioai:'StudioAI | AI Virtual Staging Platform | Avery & Bryant',services:'Services | Listing Media & Creative Studio | Avery & Bryant',about:'About | Avery & Bryant',insights:'Agent AI Lab | Resources & Tutorials | Avery & Bryant',contact:'Contact | Book a Discovery Call | Avery & Bryant'};
+var validPages=['home','answr','studioai','services','about','insights','contact'];
+var pathAliases={lab:'insights',learn:'insights'};
+
+function pageFromPath(path){
+  var slug=path.replace(/^\//,'').replace(/\/$/,'').toLowerCase()||'home';
+  if(pathAliases[slug])slug=pathAliases[slug];
+  return validPages.indexOf(slug)!==-1?slug:'home';
+}
+
+function pathForPage(p){return p==='home'?'/':'/'+p;}
+
+function navigate(p,skipPush){
+  document.querySelectorAll('.page').forEach(function(e){e.classList.remove('active')});
+  document.getElementById('page-'+p).classList.add('active');
+  window.scrollTo(0,0);
+  document.getElementById('mobile-menu').classList.remove('open');
+  setTimeout(initReveal,100);
+  document.title=pageTitles[p]||pageTitles.home;
+  if(!skipPush){history.pushState({page:p},document.title,pathForPage(p));}
+}
+
+window.addEventListener('popstate',function(e){
+  var p=(e.state&&e.state.page)?e.state.page:pageFromPath(window.location.pathname);
+  navigate(p,true);
+});
+
 function toggleMobile(){document.getElementById('mobile-menu').classList.toggle('open')}
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)});
 function initReveal(){var e=document.querySelectorAll('.page.active .reveal');var o=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target)}})},{threshold:.15});e.forEach(function(el){if(!el.classList.contains('visible'))o.observe(el)})}
-document.addEventListener('DOMContentLoaded',initReveal);
+
+document.addEventListener('DOMContentLoaded',function(){
+  var p=pageFromPath(window.location.pathname);
+  navigate(p,true);
+  history.replaceState({page:p},document.title,pathForPage(p));
+});
 </script>
 </body>
 </html>
