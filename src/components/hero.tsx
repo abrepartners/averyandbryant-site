@@ -1,12 +1,18 @@
 import Link from "next/link";
 
+interface CtaProps {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
 interface HeroProps {
   tag?: string;
   title: string;
   titleAccent?: string;
   subtitle: string;
-  primaryCta?: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
+  primaryCta?: CtaProps;
+  secondaryCta?: CtaProps;
   backgroundImage?: string;
 }
 
@@ -76,6 +82,7 @@ export function Hero({
             {secondaryCta && (
               <Link
                 href={secondaryCta.href}
+                {...(secondaryCta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
               >
                 {secondaryCta.label}
