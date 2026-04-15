@@ -15,8 +15,8 @@
 <meta name="twitter:title" content="Avery & Bryant | Real Estate AI Infrastructure">
 <meta name="twitter:description" content="AI voice agents, virtual staging, listing media automation. Arkansas based, nationally scaled.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta property="og:image" content="https://averyandbryant.com/og-image.svg">
-<meta name="twitter:image" content="https://averyandbryant.com/og-image.svg">
+<meta property="og:image" content="https://averyandbryant.com/images/staging-twilight.jpg">
+<meta name="twitter:image" content="https://averyandbryant.com/images/staging-twilight.jpg">
 <meta name="theme-color" content="#C41230">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" href="/favicon.svg">
@@ -73,6 +73,7 @@ img{max-width:100%;display:block}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .blueprint-bg{background-image:linear-gradient(rgba(196,18,48,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(196,18,48,.03) 1px,transparent 1px);background-size:80px 80px}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:url('/images/staging-twilight.jpg') center/cover no-repeat;opacity:.12;pointer-events:none}
 .hero-glow{position:absolute;top:33%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:rgba(196,18,48,.05);border-radius:50%;filter:blur(150px);pointer-events:none}
 .hero-corner{position:absolute;width:80px;height:80px}
 .hero-corner.tl{top:96px;left:32px;border-left:1px solid rgba(196,18,48,.2);border-top:1px solid rgba(196,18,48,.2)}
@@ -202,6 +203,12 @@ img{max-width:100%;display:block}
 .page-hero{padding:160px 0 80px;position:relative;overflow:hidden}
 @media(min-width:768px){.page-hero{padding:200px 0 96px}}
 .page-hero .glow{position:absolute;top:20%;left:30%;width:600px;height:600px;background:rgba(196,18,48,.04);border-radius:50%;filter:blur(150px);pointer-events:none}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.1;pointer-events:none}
+.about-photo{width:100%;max-width:320px;border-radius:4px;border:1px solid var(--white-10);margin-bottom:32px}
+@media(min-width:768px){.about-photo{max-width:280px}}
+.studioai-showcase{margin-top:48px;display:grid;gap:16px}
+@media(min-width:768px){.studioai-showcase{grid-template-columns:1fr 1fr}}
+.studioai-showcase img{width:100%;border-radius:4px;border:1px solid var(--white-05)}
 .page-hero-content{position:relative;z-index:1;max-width:720px}
 .page-hero h1{font-size:clamp(32px,6vw,56px);font-weight:200;letter-spacing:-.02em;line-height:1.15}
 .page-hero h1 .accent{color:var(--crimson);font-weight:300}
@@ -396,6 +403,7 @@ img{max-width:100%;display:block}
   <h1 style="margin-top:24px">Stage it. Clean it.<br>Market it. <span class="accent">Ship it.</span></h1>
   <p>StudioAI is an AI-powered listing media platform that handles virtual staging, smart cleanup, quality scoring, and one-click marketing kits.</p>
   <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px"><a class="btn-primary" onclick="navigate('contact')">Request Early Access</a><a class="btn-outline" onclick="navigate('contact')">See a Demo</a></div>
+  <div class="studioai-showcase reveal" style="margin-top:48px"><img src="/images/staging-twilight.jpg" alt="AI virtual staging - twilight exterior by StudioAI"><img src="/images/staging-interior.jpg" alt="AI virtual staging - property showcase by StudioAI"></div>
 </div></div></section>
 <section class="features-section"><div class="container">
   <div class="section-label reveal">Platform Features</div><div class="section-title reveal" style="max-width:600px">Six tools. One platform.<br><span>Zero manual work.</span></div>
@@ -421,7 +429,7 @@ img{max-width:100%;display:block}
 
 <!-- SERVICES PAGE -->
 <div class="page" id="page-services">
-<section class="page-hero blueprint-bg"><div class="glow"></div><div class="container"><div class="page-hero-content">
+<section class="page-hero blueprint-bg"><div class="page-hero-bg" style="background-image:url('/images/hero-drone-2.jpg')"></div><div class="glow"></div><div class="container"><div class="page-hero-content">
   <div class="tag"><div class="tag-dot"></div> Services</div>
   <h1 style="margin-top:24px">Premium media.<br>Intelligent <span class="accent">systems.</span></h1>
   <p>From listing photography to full brand ecosystems, we combine traditional real estate media production with AI-powered content systems that scale.</p>
@@ -458,6 +466,7 @@ img{max-width:100%;display:block}
 </div></div></section>
 <section class="about-section"><div class="container"><div class="about-grid">
   <div class="about-text reveal">
+    <img src="/images/thomas-headshot.jpg" alt="Thomas Brown, Founder of Avery & Bryant" class="about-photo">
     <p>Thomas Brown is a U.S. Army veteran who built Avery & Bryant from the ground up in Arkansas. What started as listing photography evolved into something much bigger when Thomas realized the real estate industry's technology gap wasn't just an inconvenience. It was a competitive moat waiting to be built.</p>
     <p>Today, ALYT operates four integrated service lines: AI communications (Answr), AI-powered listing media (StudioAI), traditional media production, and brand content systems (Creative Studio). Every product is designed with one principle: build it once, automate it, and let it scale without adding headcount.</p>
     <p>We're not a software reseller. We're not a virtual assistant company. We're a real estate AI infrastructure company that builds proprietary technology and integrates it into the daily operations of agents, brokerages, and property managers.</p>
@@ -515,7 +524,7 @@ img{max-width:100%;display:block}
       </div>
     </div>
   </div>
-  <div class="contact-embed reveal" style="transition-delay:.2s"><iframe src="https://go.averyandbryant.com/book" title="Book a consultation with Avery &amp; Bryant" loading="lazy" allow="payment" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="contact-embed-fallback"><a href="mailto:hello@averyandbryant.com">Prefer email? Reach us at hello@averyandbryant.com</a></div></div>
+  <div class="contact-embed reveal" style="transition-delay:.2s"><iframe src="https://link.averyandbryant.com/widget/bookings/biz-disc" title="Book a consultation with Avery &amp; Bryant" loading="lazy" allow="payment" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="contact-embed-fallback"><a href="mailto:hello@averyandbryant.com">Prefer email? Reach us at hello@averyandbryant.com</a></div></div>
 </div></div></section>
 </div>
 
@@ -560,7 +569,7 @@ window.addEventListener('popstate',function(e){
 
 function toggleMobile(){document.getElementById('mobile-menu').classList.toggle('open')}
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)});
-function initReveal(){var e=document.querySelectorAll('.page.active .reveal');var o=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target)}})},{threshold:.15});e.forEach(function(el){if(!el.classList.contains('visible'))o.observe(el)})}
+function initReveal(){var e=document.querySelectorAll('.page.active .reveal');var o=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target)}})},{threshold:.05,rootMargin:'0px 0px 100px 0px'});e.forEach(function(el){if(!el.classList.contains('visible')){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){el.classList.add('visible')}else{o.observe(el)}}})}
 
 document.addEventListener('DOMContentLoaded',function(){
   var p=pageFromPath(window.location.pathname);
