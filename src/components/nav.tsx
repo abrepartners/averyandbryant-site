@@ -110,6 +110,12 @@ export function Nav() {
             >
               Client Portal
             </a>
+            <Link
+              href="/referral"
+              className="text-[11px] uppercase tracking-[0.15em] text-crimson transition-colors hover:text-white"
+            >
+              Referrals
+            </Link>
 
             <Link
               href="/book"
@@ -181,6 +187,13 @@ export function Nav() {
           >
             Client Portal
           </a>
+          <Link
+            href="/referral"
+            onClick={() => setMobileOpen(false)}
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-crimson hover:text-white"
+          >
+            Referrals
+          </Link>
           <Link
             href="/book"
             onClick={() => setMobileOpen(false)}
