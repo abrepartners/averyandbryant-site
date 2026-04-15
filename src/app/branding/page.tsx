@@ -92,9 +92,9 @@ export default function BrandingPage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)]"
+                className="pricing-card group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)]"
               >
-                <span className="font-display text-3xl font-light text-crimson">
+                <span className="pricing-price font-display text-3xl font-light text-crimson">
                   {service.price}
                 </span>
                 <h3 className="mt-4 font-display text-lg font-medium text-white-90">

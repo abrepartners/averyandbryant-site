@@ -156,10 +156,10 @@ export default function HomePage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-white/10"
+                className="pricing-card group overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-white/10"
               >
                 {/* Image area */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="image-loading relative h-48 w-full overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -175,7 +175,7 @@ export default function HomePage() {
                     <h3 className="font-display text-lg font-medium text-white-90">
                       {service.title}
                     </h3>
-                    <span className="text-sm font-semibold text-crimson">
+                    <span className="pricing-price text-sm font-semibold text-crimson">
                       {service.price}
                     </span>
                   </div>

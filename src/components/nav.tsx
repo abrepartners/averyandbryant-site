@@ -121,7 +121,7 @@ export function Nav() {
 
           {/* Mobile Toggle */}
           <button
-            className="flex items-center p-2 text-white-70 md:hidden"
+            className="flex h-11 w-11 items-center justify-center text-white-70 md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -135,7 +135,7 @@ export function Nav() {
         <div className="border-t border-border bg-[rgba(10,10,10,0.97)] px-6 py-8 backdrop-blur-2xl md:hidden">
           <button
             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-            className="flex w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-white-60"
+            className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-white-60"
           >
             Services
             <ChevronDown
@@ -151,7 +151,7 @@ export function Nav() {
                   key={s.href}
                   href={s.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-2.5 text-sm uppercase tracking-[0.12em] text-white-50 hover:text-white"
+                  className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-white-50 hover:text-white"
                 >
                   {s.label}
                 </Link>
@@ -161,14 +161,14 @@ export function Nav() {
           <Link
             href="/studioai"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
           >
             StudioAI
           </Link>
           <Link
             href="/answr"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
           >
             Answr
           </Link>
@@ -177,14 +177,14 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
           >
             Client Portal
           </a>
           <Link
             href="/book"
             onClick={() => setMobileOpen(false)}
-            className="mt-4 block w-full rounded bg-crimson py-3 text-center text-sm uppercase tracking-[0.15em] text-white"
+            className="mt-4 block w-full rounded bg-crimson py-3.5 text-center text-sm uppercase tracking-[0.15em] text-white"
           >
             Book Now
           </Link>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { Footer } from "@/components/footer";
 
 const manrope = Manrope({
@@ -155,6 +156,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <Nav />
         <main>{children}</main>
+        <ScrollToTop />
         <Footer />
       </body>
     </html>

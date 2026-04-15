@@ -77,3 +77,36 @@ body {
 
 .border-brand { border-color: rgba(255, 255, 255, 0.05); }
 .border-brand-hover { border-color: rgba(196, 18, 48, 0.2); }
+
+/* Page transition fade-in */
+main {
+  animation: fadeIn 0.4s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Image loading shimmer placeholder */
+.image-loading {
+  background: linear-gradient(135deg, rgba(17,17,17,0.8), rgba(17,17,17,0.4));
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Pricing / package card hover enhancements */
+.pricing-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pricing-card:hover {
+  border-color: rgba(196, 18, 48, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.pricing-card:hover .pricing-price {
+  text-shadow: 0 0 24px rgba(196, 18, 48, 0.5);
+}

@@ -106,7 +106,7 @@ export default function AirbnbRentalsPage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
+                className="pricing-card group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
               >
                 <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
                   {pkg.tag}
@@ -114,7 +114,7 @@ export default function AirbnbRentalsPage() {
                 <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
                   {pkg.name}
                 </h3>
-                <span className="mt-2 block font-display text-4xl font-light text-crimson">
+                <span className="pricing-price mt-2 block font-display text-4xl font-light text-crimson">
                   {pkg.price}
                 </span>
                 <ul className="mt-6 space-y-3">
@@ -142,7 +142,7 @@ export default function AirbnbRentalsPage() {
             {standaloneServices.map((service) => (
               <div
                 key={service.title}
-                className="flex items-center justify-between rounded border border-white/5 bg-[rgba(17,17,17,0.5)] px-6 py-4 transition-all duration-500 hover:border-crimson/20"
+                className="pricing-card flex items-center justify-between rounded border border-white/5 bg-[rgba(17,17,17,0.5)] px-6 py-4 transition-all duration-500 hover:border-crimson/20"
               >
                 <span className="text-sm font-medium text-white/60">
                   {service.title}
