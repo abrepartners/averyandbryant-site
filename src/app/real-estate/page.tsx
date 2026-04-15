@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Hero } from "@/components/hero";
 
 export const metadata = {
@@ -91,7 +90,7 @@ export default function RealEstatePage() {
         title="Real Estate Media"
         titleAccent="that closes deals."
         subtitle="HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans. Everything your listing needs to stand out."
-        primaryCta={{ label: "Book a Shoot", href: "/book" }}
+        primaryCta={{ label: "Book a Shoot", href: "https://homes.averyandbryant.com/order-forms/01918da6-2d38-7375-8fe1-96d7d74f812a", external: true }}
         secondaryCta={{ label: "View Gallery", href: "https://homes.averyandbryant.com" }}
         backgroundImage="/images/hero-drone.jpg"
       />
@@ -130,12 +129,14 @@ export default function RealEstatePage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/book"
+                <a
+                  href="https://homes.averyandbryant.com/order-forms/01918da6-2d38-7375-8fe1-96d7d74f812a"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
                   Book Now
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -170,12 +171,14 @@ export default function RealEstatePage() {
                 <p className="mt-2 text-sm leading-relaxed text-white/40">
                   {service.description}
                 </p>
-                <Link
-                  href="/book"
+                <a
+                  href="https://homes.averyandbryant.com/order-forms/01918da6-2d38-7375-8fe1-96d7d74f812a"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
                 >
                   Book Now &rarr;
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -223,12 +226,14 @@ export default function RealEstatePage() {
             Book a shoot in under 2 minutes. Choose your area to get started.
           </p>
           <div className="mt-10">
-            <Link
-              href="/book"
+            <a
+              href="https://homes.averyandbryant.com/order-forms/01918da6-2d38-7375-8fe1-96d7d74f812a"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book Now
-            </Link>
+            </a>
           </div>
         </div>
       </section>

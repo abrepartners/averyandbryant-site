@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Hero } from "@/components/hero";
 
 export const metadata = {
@@ -87,7 +86,7 @@ export default function LotLandPage() {
         title="Sell the vision,"
         titleAccent="not just the dirt."
         subtitle="Professional aerial drone photography, ground-level coverage, and cinematic flyover video for lots, land, and development sites across Arkansas."
-        primaryCta={{ label: "Book Now", href: "/book" }}
+        primaryCta={{ label: "Book Now", href: "https://homes.averyandbryant.com/order-forms/d6f632d8-1b59-4163-a63a-aeff8decce83", external: true }}
         secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
         backgroundImage="/images/portfolio-drone-3.jpg"
       />
@@ -126,12 +125,14 @@ export default function LotLandPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/book"
+                <a
+                  href="https://homes.averyandbryant.com/order-forms/d6f632d8-1b59-4163-a63a-aeff8decce83"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
                   Book Now
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -216,12 +217,14 @@ export default function LotLandPage() {
             Book a shoot in under 2 minutes. Aerial media that helps buyers see what you already know.
           </p>
           <div className="mt-10">
-            <Link
-              href="/book"
+            <a
+              href="https://homes.averyandbryant.com/order-forms/d6f632d8-1b59-4163-a63a-aeff8decce83"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book Now
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Hero } from "@/components/hero";
 
 export const metadata = {
@@ -87,7 +86,7 @@ export default function AirbnbRentalsPage() {
         title="More bookings start"
         titleAccent="with better photos."
         subtitle="Professional photography, video tours, drone, and twilight media that turn browsers into guests. Built for Airbnb, VRBO, and short-term rental hosts."
-        primaryCta={{ label: "Book Now", href: "/book" }}
+        primaryCta={{ label: "Book Now", href: "https://homes.averyandbryant.com/order-forms/01918dcc-0824-72a8-abbe-61a9c9d9edb1", external: true }}
         secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
         backgroundImage="/images/portfolio-interior-1.jpg"
       />
@@ -126,12 +125,14 @@ export default function AirbnbRentalsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/book"
+                <a
+                  href="https://homes.averyandbryant.com/order-forms/01918dcc-0824-72a8-abbe-61a9c9d9edb1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
                   Book Now
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -233,12 +234,14 @@ export default function AirbnbRentalsPage() {
             Book a shoot in under 2 minutes. Professional media that pays for itself in one booking.
           </p>
           <div className="mt-10">
-            <Link
-              href="/book"
+            <a
+              href="https://homes.averyandbryant.com/order-forms/01918dcc-0824-72a8-abbe-61a9c9d9edb1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book Now
-            </Link>
+            </a>
           </div>
         </div>
       </section>
