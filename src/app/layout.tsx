@@ -68,19 +68,88 @@ export default function RootLayout({
       className={`dark ${manrope.variable} ${inter.variable} ${spaceGrotesk.variable}`}
     >
       <head>
-        {/* GHL Voice AI Widget
-            To get your widget ID:
-            1. Go to GHL > Sites > Chat Widget > New
-            2. Select "Voice AI" as the widget type
-            3. Configure your voice agent
-            4. Click "Get Code" and copy the widget ID
-            5. Replace YOUR_VOICE_WIDGET_ID below
-        */}
+        {/* GHL Voice AI Widget - create at GHL > Sites > Chat Widget > New > Voice AI type, then paste widget ID below */}
         <script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="YOUR_VOICE_WIDGET_ID"
+          data-widget-id="YOUR_WIDGET_ID"
           async
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Avery & Bryant - Real Estate Media",
+              "@id": "https://averyandbryant.com",
+              "url": "https://averyandbryant.com",
+              "telephone": "(501) 502-2925",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "12521 Kanis Rd",
+                "addressLocality": "Little Rock",
+                "addressRegion": "AR",
+                "postalCode": "72211",
+                "addressCountry": "US",
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 34.7465,
+                "longitude": -92.3582,
+              },
+              "priceRange": "$$",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "24",
+              },
+              "areaServed": [
+                { "@type": "City", "name": "Little Rock" },
+                { "@type": "City", "name": "Benton" },
+                { "@type": "City", "name": "Conway" },
+                { "@type": "City", "name": "Hot Springs" },
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Real Estate Media Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Real Estate Photography",
+                      "description": "Professional HDR listing photography",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Real Estate Video Tours",
+                      "description": "Cinematic property video tours with drone footage",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Drone Photography",
+                      "description": "FAA-licensed aerial photography and videography",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Virtual Staging",
+                      "description": "AI-powered virtual staging via StudioAI",
+                    },
+                  },
+                ],
+              },
+            }),
+          }}
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">

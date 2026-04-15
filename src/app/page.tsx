@@ -289,6 +289,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── REFERRAL PROGRAM ── */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="rounded-lg border border-crimson/10 bg-gradient-to-br from-crimson/5 to-transparent p-10 md:p-16">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                Referral Program
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-white-90">
+                Know an agent? Get paid.
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-white/40">
+                Every agent you refer who books a shoot earns you cash. Not a gift card. Not a thank you email. Actual money. We believe in thanking with more than just words.
+              </p>
+              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <a
+                  href="tel:+15015022925"
+                  className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+                >
+                  Call to Learn More
+                </a>
+                <a
+                  href="mailto:hello@averyandbryant.com?subject=Referral%20Program"
+                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+                >
+                  Email Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA SECTION ── */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
