@@ -67,6 +67,15 @@ export default function RootLayout({
       lang="en"
       className={`dark ${manrope.variable} ${inter.variable} ${spaceGrotesk.variable}`}
     >
+      <head>
+        {/* GHL Chat Widget - replace YOUR_WIDGET_ID with actual widget ID from GHL Settings > Chat Widget */}
+        <script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="YOUR_WIDGET_ID"
+          async
+        />
+      </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <Nav />
         <main>{children}</main>

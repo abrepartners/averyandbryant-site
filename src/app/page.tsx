@@ -7,37 +7,37 @@ const services = [
     title: "Photos",
     price: "$162",
     description: "Professional HDR interior & exterior photography",
-    image: "/images/staging-interior.jpg",
+    image: "/images/portfolio-interior-1.jpg",
   },
   {
     title: "Twilight",
     price: "$60",
     description: "Day-to-dusk exterior conversions",
-    image: "/images/showcase-dusk-after.jpg",
+    image: "/images/staging-twilight.jpg",
   },
   {
     title: "Drone",
     price: "$80",
     description: "FAA-licensed aerial photography",
-    image: "/images/hero-drone.jpg",
+    image: "/images/portfolio-drone-3.jpg",
   },
   {
     title: "Video Tours",
     price: "$250",
     description: "Cinematic walkthrough videos",
-    image: "/images/hero-drone-2.jpg",
+    image: "/images/portfolio-exterior-1.jpg",
   },
   {
     title: "3D Tours",
     price: "$150",
     description: "Interactive virtual walkthroughs",
-    image: "/images/showcase-staging-after.jpg",
+    image: "/images/portfolio-interior-2.jpg",
   },
   {
     title: "Virtual Staging",
     price: "$25/room",
     description: "AI-powered furniture placement",
-    image: "/images/showcase-staging-before.jpg",
+    image: "/images/showcase-staging-after.jpg",
   },
 ];
 
@@ -127,10 +127,15 @@ export default function HomePage() {
               <span className="rounded border border-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
                 BBB A+
               </span>
-              <span className="flex items-center gap-1.5 text-[11px] text-white/40">
+              <a
+                href="https://g.page/r/CQxxxxxxxxxx/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-[11px] text-white/40 transition-colors hover:text-white/60"
+              >
                 <span className="text-crimson">★★★★★</span>
                 <span>Google (24)</span>
-              </span>
+              </a>
             </div>
           </div>
         </div>

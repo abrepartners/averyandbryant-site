@@ -103,12 +103,12 @@ export function Nav() {
               Answr
             </Link>
             <a
-              href="https://homes.averyandbryant.com"
+              href="https://homes.averyandbryant.com/portal"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
             >
-              Gallery
+              Client Portal
             </a>
 
             <Link
@@ -173,13 +173,13 @@ export function Nav() {
             Answr
           </Link>
           <a
-            href="https://homes.averyandbryant.com"
+            href="https://homes.averyandbryant.com/portal"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="block py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
           >
-            Gallery
+            Client Portal
           </a>
           <Link
             href="/book"
