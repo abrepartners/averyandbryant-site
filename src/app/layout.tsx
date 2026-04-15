@@ -68,11 +68,18 @@ export default function RootLayout({
       className={`dark ${manrope.variable} ${inter.variable} ${spaceGrotesk.variable}`}
     >
       <head>
-        {/* GHL Chat Widget - replace YOUR_WIDGET_ID with actual widget ID from GHL Settings > Chat Widget */}
+        {/* GHL Voice AI Widget
+            To get your widget ID:
+            1. Go to GHL > Sites > Chat Widget > New
+            2. Select "Voice AI" as the widget type
+            3. Configure your voice agent
+            4. Click "Get Code" and copy the widget ID
+            5. Replace YOUR_VOICE_WIDGET_ID below
+        */}
         <script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="YOUR_WIDGET_ID"
+          data-widget-id="YOUR_VOICE_WIDGET_ID"
           async
         />
       </head>
