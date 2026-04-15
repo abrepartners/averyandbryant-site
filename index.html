@@ -209,6 +209,15 @@ img{max-width:100%;display:block}
 .studioai-showcase{margin-top:48px;display:grid;gap:16px}
 @media(min-width:768px){.studioai-showcase{grid-template-columns:1fr 1fr}}
 .studioai-showcase img{width:100%;border-radius:4px;border:1px solid var(--white-05)}
+.showcase-pair{margin-top:48px}
+.showcase-pair-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.showcase-pair-title{color:var(--white-60);font-size:14px;font-weight:300}
+.showcase-pair-tag{color:rgba(196,18,48,.6);font-size:9px;letter-spacing:.2em;text-transform:uppercase}
+.showcase-pair-grid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.showcase-pair-grid img{width:100%;border-radius:4px;border:1px solid var(--white-10)}
+.showcase-pair-grid .label{color:var(--white-20);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-top:8px;text-align:center}
+.demo-video{width:100%;max-width:800px;border-radius:8px;border:1px solid var(--white-10);margin-top:32px}
+.pricing-highlight{color:var(--crimson);font-size:11px;letter-spacing:.1em;margin-top:8px}
 .page-hero-content{position:relative;z-index:1;max-width:720px}
 .page-hero h1{font-size:clamp(32px,6vw,56px);font-weight:200;letter-spacing:-.02em;line-height:1.15}
 .page-hero h1 .accent{color:var(--crimson);font-weight:300}
@@ -319,7 +328,7 @@ img{max-width:100%;display:block}
   <div class="reveal"><div class="section-label">Solutions</div><div class="section-title">Four pillars.<br><span>One integrated ecosystem.</span></div></div>
   <div class="solutions-grid">
     <div class="card solution-card reveal" onclick="navigate('answr')"><span class="ghost">01</span><div style="display:flex;align-items:center;gap:12px"><div class="dot"></div><div class="solution-tagline">AI Answering Service</div></div><div class="solution-name">Answr</div><div class="solution-desc">Voice AI that picks up every call. Chat AI that handles every message. 24/7. Sounds human. Books appointments. Never takes a day off.</div><div class="solution-features"><span class="solution-feature">Voice AI</span><span class="solution-feature">Conversation AI</span><span class="solution-feature">Agent Studio</span></div><div class="solution-footer"><span class="solution-price">From $147/mo</span><span class="solution-cta">Start Free Trial &rarr;</span></div></div>
-    <div class="card solution-card reveal" onclick="navigate('studioai')"><span class="ghost">02</span><div style="display:flex;align-items:center;gap:12px"><div class="dot"></div><div class="solution-tagline">Listing Media Platform</div></div><div class="solution-name">StudioAI</div><div class="solution-desc">Virtual staging, smart cleanup, style advisor, quality scoring, batch processing, and one-click marketing kits.</div><div class="solution-features"><span class="solution-feature">Virtual Staging</span><span class="solution-feature">Smart Cleanup</span><span class="solution-feature">Marketing Kit</span></div><div class="solution-footer"><span class="solution-price">Coming Soon</span><span class="solution-cta">Request Demo &rarr;</span></div></div>
+    <div class="card solution-card reveal" onclick="navigate('studioai')"><span class="ghost">02</span><div style="display:flex;align-items:center;gap:12px"><div class="dot"></div><div class="solution-tagline">AI Photo Editing</div></div><div class="solution-name">StudioAI</div><div class="solution-desc">Virtual staging, smart cleanup, day-to-dusk, sky replacement, batch processing, and one-click marketing kits. Photorealistic AI output in seconds.</div><div class="solution-features"><span class="solution-feature">Virtual Staging</span><span class="solution-feature">Day to Dusk</span><span class="solution-feature">Smart Cleanup</span></div><div class="solution-footer"><span class="solution-price">Free to Start</span><span class="solution-cta">Try StudioAI &rarr;</span></div></div>
     <div class="card solution-card reveal" onclick="navigate('services')"><span class="ghost">03</span><div style="display:flex;align-items:center;gap:12px"><div class="dot"></div><div class="solution-tagline">Brand & Content Systems</div></div><div class="solution-name">Creative Studio</div><div class="solution-desc">End-to-end brand identity, content systems, social media frameworks, and web development. Built to run without you.</div><div class="solution-features"><span class="solution-feature">Brand Identity</span><span class="solution-feature">Content Systems</span><span class="solution-feature">Web Development</span></div><div class="solution-footer"><span class="solution-price">Custom</span><span class="solution-cta">See Work &rarr;</span></div></div>
     <div class="card solution-card reveal" onclick="navigate('services')"><span class="ghost">04</span><div style="display:flex;align-items:center;gap:12px"><div class="dot"></div><div class="solution-tagline">Photography & Video</div></div><div class="solution-name">Listing Media</div><div class="solution-desc">Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans.</div><div class="solution-features"><span class="solution-feature">HDR Photography</span><span class="solution-feature">Video Tours</span><span class="solution-feature">Drone / 3D</span></div><div class="solution-footer"><span class="solution-price">From $175</span><span class="solution-cta">Book a Shoot &rarr;</span></div></div>
   </div>
@@ -399,32 +408,54 @@ img{max-width:100%;display:block}
 <!-- STUDIOAI PAGE -->
 <div class="page" id="page-studioai">
 <section class="page-hero blueprint-bg"><div class="glow"></div><div class="container"><div class="page-hero-content">
-  <div class="tag"><div class="tag-dot"></div> Listing Media Platform</div>
+  <div class="tag"><div class="tag-dot"></div> AI Photo Editing for Real Estate</div>
   <h1 style="margin-top:24px">Stage it. Clean it.<br>Market it. <span class="accent">Ship it.</span></h1>
-  <p>StudioAI is an AI-powered listing media platform that handles virtual staging, smart cleanup, quality scoring, and one-click marketing kits.</p>
-  <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px"><a class="btn-primary" onclick="navigate('contact')">Request Early Access</a><a class="btn-outline" onclick="navigate('contact')">See a Demo</a></div>
-  <div class="studioai-showcase reveal" style="margin-top:48px"><img src="/images/staging-twilight.jpg" alt="AI virtual staging - twilight exterior by StudioAI"><img src="/images/staging-interior.jpg" alt="AI virtual staging - property showcase by StudioAI"></div>
+  <p>StudioAI is a live AI-powered listing media platform. Virtual staging, smart cleanup, day-to-dusk, sky replacement, batch processing, and one-click marketing kits. Upload a photo, get results in seconds.</p>
+  <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px"><a class="btn-primary" href="https://studioai.averyandbryant.com" target="_blank">Start Free with Google</a><a class="btn-outline" onclick="navigate('contact')">Book a Demo</a></div>
+  <video class="demo-video reveal" autoplay muted loop playsinline><source src="/images/demo-video.mp4" type="video/mp4"></video>
 </div></div></section>
+
+<section class="features-section" style="border-top:1px solid var(--white-05)"><div class="container">
+  <div class="section-label reveal">Real Results</div><div class="section-title reveal" style="max-width:600px">See what StudioAI does<br><span>to real listings.</span></div>
+  <div class="showcase-pair reveal">
+    <div class="showcase-pair-label"><span class="showcase-pair-title">Virtual Staging</span><span class="showcase-pair-tag">AI Generated</span></div>
+    <div class="showcase-pair-grid"><div><img src="/images/showcase-staging-before.jpg" alt="Empty room before staging"><div class="label">Before</div></div><div><img src="/images/showcase-staging-after.jpg" alt="Room after AI staging"><div class="label">After</div></div></div>
+  </div>
+  <div class="showcase-pair reveal">
+    <div class="showcase-pair-label"><span class="showcase-pair-title">Smart Cleanup</span><span class="showcase-pair-tag">AI Generated</span></div>
+    <div class="showcase-pair-grid"><div><img src="/images/showcase-cleanup-before.jpg" alt="Room with clutter before cleanup"><div class="label">Before</div></div><div><img src="/images/showcase-cleanup-after.jpg" alt="Room after AI cleanup"><div class="label">After</div></div></div>
+  </div>
+  <div class="showcase-pair reveal">
+    <div class="showcase-pair-label"><span class="showcase-pair-title">Day to Dusk</span><span class="showcase-pair-tag">AI Generated</span></div>
+    <div class="showcase-pair-grid"><div><img src="/images/showcase-dusk-before.jpg" alt="Property in daylight"><div class="label">Before</div></div><div><img src="/images/showcase-dusk-after.jpg" alt="Property at twilight"><div class="label">After</div></div></div>
+  </div>
+</div></section>
+
 <section class="features-section"><div class="container">
-  <div class="section-label reveal">Platform Features</div><div class="section-title reveal" style="max-width:600px">Six tools. One platform.<br><span>Zero manual work.</span></div>
+  <div class="section-label reveal">Platform</div><div class="section-title reveal" style="max-width:600px">Eight tools. One platform.<br><span>Upload. Style. Export. Done.</span></div>
   <div class="features-grid">
-    <div class="card feature-card reveal"><div class="icon">VS</div><h3>Virtual Staging</h3><p>AI-generated furniture placed into empty rooms. Multiple style packs. Photorealistic output in seconds.</p></div>
-    <div class="card feature-card reveal" style="transition-delay:.1s"><div class="icon">SC</div><h3>Smart Cleanup</h3><p>Six auto-detect modes that remove clutter, wires, personal items from listing photos. One click.</p></div>
-    <div class="card feature-card reveal" style="transition-delay:.2s"><div class="icon">SA</div><h3>Style Advisor</h3><p>AI analyzes rooms and recommends staging styles based on architecture and target buyer demographic.</p></div>
-    <div class="card feature-card reveal" style="transition-delay:.3s"><div class="icon">QS</div><h3>Quality Scoring</h3><p>Automated quality assessment before photos go live. Catches lighting, composition, distortion issues.</p></div>
-    <div class="card feature-card reveal" style="transition-delay:.4s"><div class="icon">BP</div><h3>Batch Processing</h3><p>Upload entire listing photo sets and process everything at once with consistent quality.</p></div>
-    <div class="card feature-card reveal" style="transition-delay:.5s"><div class="icon">MK</div><h3>Marketing Kit</h3><p>One-click social posts, flyer layouts, and property highlight reels from your staged photos.</p></div>
+    <div class="card feature-card reveal"><div class="icon">VS</div><h3>Virtual Staging</h3><p>12+ design styles from Coastal Modern to Mid-Century. Photorealistic output powered by Gemini Pro.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.1s"><div class="icon">SC</div><h3>Smart Cleanup</h3><p>Six auto-detect modes remove clutter, personal items, realtor signs, and yard debris. One click.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.2s"><div class="icon">TD</div><h3>Day to Dusk</h3><p>Convert any daytime exterior to a dramatic twilight shot. No reshoots, no scheduling golden hour.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.3s"><div class="icon">SR</div><h3>Sky Replacement</h3><p>Overcast day? Replace with blue sky, sunset, or dramatic clouds. One click.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.4s"><div class="icon">FR</div><h3>Furniture Removal</h3><p>Paint-to-remove interface. Select what goes, AI fills in floors and walls naturally.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.5s"><div class="icon">BP</div><h3>Batch Processing</h3><p>Upload 25+ photos, apply one style across the entire set. Consistent quality at scale.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.6s"><div class="icon">RV</div><h3>Reveal Videos</h3><p>Before/after wipe animations exported as shareable video. Built for Instagram and social proof.</p></div>
+    <div class="card feature-card reveal" style="transition-delay:.7s"><div class="icon">MK</div><h3>Marketing Kit</h3><p>Staged image + MLS copy + social captions + hashtags. One-click export, ready to post.</p></div>
   </div>
 </div></section>
+
 <section class="pricing-section"><div class="container">
-  <div style="text-align:center" class="reveal"><div class="section-label">Roadmap</div><div class="section-title" style="margin-top:16px">Coming to brokerages soon.</div><p style="margin-top:12px;color:var(--white-30);font-size:14px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto">StudioAI is in Phase 1 development. Join the early access list to be first in line.</p></div>
+  <div style="text-align:center" class="reveal"><div class="section-label">Pricing</div><div class="section-title" style="margin-top:16px">Start free. Upgrade when you're ready.</div><p style="margin-top:12px;color:var(--white-30);font-size:14px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto">Sign in with Google. No credit card required. Cancel anytime.</p></div>
   <div class="pricing-grid">
-    <div class="card pricing-card reveal"><div class="pricing-name">Starter</div><div class="pricing-amount">$199</div><div class="pricing-period">/month</div><div class="pricing-features"><div class="pricing-feature">10 agent seats</div><div class="pricing-feature">200 generations/month</div><div class="pricing-feature">All 6 tools included</div><div class="pricing-feature">MLS-ready export</div></div><div class="pricing-cta"><a class="btn-outline" onclick="navigate('contact')" style="width:100%;text-align:center">Join Waitlist</a></div></div>
-    <div class="card pricing-card featured reveal" style="transition-delay:.15s"><div class="pricing-name">Growth</div><div class="pricing-amount">$499</div><div class="pricing-period">/month</div><div class="pricing-features"><div class="pricing-feature">30 agent seats</div><div class="pricing-feature">600 generations/month</div><div class="pricing-feature">White-label branding</div><div class="pricing-feature">Custom domain</div><div class="pricing-feature">Admin dashboard</div></div><div class="pricing-cta"><a class="btn-primary" onclick="navigate('contact')" style="width:100%;text-align:center">Join Waitlist</a></div></div>
-    <div class="card pricing-card reveal" style="transition-delay:.3s"><div class="pricing-name">Enterprise</div><div class="pricing-amount">Custom</div><div class="pricing-period">50+ seats</div><div class="pricing-features"><div class="pricing-feature">Unlimited seats</div><div class="pricing-feature">Unlimited generations</div><div class="pricing-feature">API access</div><div class="pricing-feature">Dedicated account manager</div></div><div class="pricing-cta"><a class="btn-outline" onclick="navigate('contact')" style="width:100%;text-align:center">Contact Us</a></div></div>
+    <div class="card pricing-card reveal"><div class="pricing-name">Free</div><div class="pricing-amount">$0</div><div class="pricing-period">/month</div><div class="pricing-features"><div class="pricing-feature">5 generations/month</div><div class="pricing-feature">All tools included</div><div class="pricing-feature">Gemini Flash model</div><div class="pricing-feature">Standard rendering</div></div><div class="pricing-cta"><a class="btn-outline" href="https://studioai.averyandbryant.com" target="_blank" style="width:100%;text-align:center">Start Free</a></div></div>
+    <div class="card pricing-card featured reveal" style="transition-delay:.15s"><div class="pricing-name">Pro</div><div class="pricing-amount">$29</div><div class="pricing-period">/month</div><div class="pricing-features"><div class="pricing-feature">Unlimited generations</div><div class="pricing-feature">Gemini Pro (photorealistic)</div><div class="pricing-feature">Batch processing (25+ photos)</div><div class="pricing-feature">Priority rendering</div><div class="pricing-feature">Reveal video export</div><div class="pricing-feature">MLS-ready export</div></div><div class="pricing-cta"><a class="btn-primary" href="https://studioai.averyandbryant.com" target="_blank" style="width:100%;text-align:center">Start Free, Upgrade Anytime</a></div></div>
+    <div class="card pricing-card reveal" style="transition-delay:.3s"><div class="pricing-name">Brokerage</div><div class="pricing-amount">$299</div><div class="pricing-period">/month &middot; 15 agents</div><div class="pricing-features"><div class="pricing-feature">Everything in Pro</div><div class="pricing-feature">Team management</div><div class="pricing-feature">Admin dashboard</div><div class="pricing-feature">Dedicated support</div></div><div class="pricing-cta"><a class="btn-outline" onclick="navigate('contact')" style="width:100%;text-align:center">Contact Us</a></div></div>
   </div>
+  <div style="text-align:center;margin-top:24px" class="reveal"><p style="color:var(--white-20);font-size:13px;font-weight:300">First 20 users lock in Early Bird pricing at $14/mo forever. <a href="https://studioai.averyandbryant.com" target="_blank" style="color:var(--crimson)">Claim your spot.</a></p></div>
 </div></section>
-<section class="cta-section"><div class="container"><div class="cta-inner reveal"><div class="section-label">Early Access</div><h2 style="margin-top:16px">Be the first brokerage on StudioAI.</h2><p>Founding partners get 50% off Year 1. Limited spots.</p><div class="cta-buttons"><a class="btn-primary" onclick="navigate('contact')">Request Early Access</a></div></div></div></section>
+
+<section class="cta-section"><div class="container"><div class="cta-inner reveal"><div class="section-label">Get Started</div><h2 style="margin-top:16px">Stop paying $300 per staging.</h2><p>Upload a photo. Pick a style. Get photorealistic results in seconds. Free to start.</p><div class="cta-buttons"><a class="btn-primary" href="https://studioai.averyandbryant.com" target="_blank">Open StudioAI</a><span class="cta-or">or</span><a class="btn-outline" onclick="navigate('contact')">Book a Demo</a></div></div></div></section>
 </div>
 
 <!-- SERVICES PAGE -->
