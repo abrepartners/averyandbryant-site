@@ -5,19 +5,19 @@ import { Hero } from "@/components/hero";
 const services = [
   {
     title: "Photos",
-    price: "$162",
-    description: "Professional HDR interior & exterior photography",
+    price: "$162+",
+    description: "Professional HDR photography. Priced by square footage.",
     image: "/images/portfolio-interior-1.jpg",
   },
   {
-    title: "Twilight",
-    price: "$60",
-    description: "Day-to-dusk exterior conversions",
+    title: "Reels Pack",
+    price: "$450",
+    description: "4 reels: Listing, Virality, Trailer, Teaser",
     image: "/images/staging-twilight.jpg",
   },
   {
     title: "Drone",
-    price: "$80",
+    price: "$80+",
     description: "FAA-licensed aerial photography",
     image: "/images/portfolio-drone-3.jpg",
   },
@@ -35,8 +35,8 @@ const services = [
   },
   {
     title: "Virtual Staging",
-    price: "$25/room",
-    description: "AI-powered furniture placement",
+    price: "$65/image",
+    description: "AI-powered staging via StudioAI. 12+ styles.",
     image: "/images/showcase-staging-after.jpg",
   },
 ];
@@ -90,7 +90,7 @@ export default function HomePage() {
         tag="Arkansas Real Estate Media Co."
         title="Premium Listing Media"
         titleAccent="for Arkansas Real Estate"
-        subtitle="Professional photography, cinematic video tours, aerial drone, twilight exteriors, and virtual staging. Serving Central & Northwest Arkansas."
+        subtitle="Professional photography, cinematic video tours, aerial drone, twilight exteriors, and virtual staging. Serving Central Arkansas."
         primaryCta={{ label: "Book a Shoot", href: "/book" }}
         secondaryCta={{
           label: "View Portfolio",
@@ -312,7 +312,7 @@ export default function HomePage() {
               href="/book"
               className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
             >
-              Northwest Arkansas
+              Call Us: (501) 502-2925
             </Link>
           </div>
         </div>

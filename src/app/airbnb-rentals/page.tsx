@@ -7,31 +7,46 @@ export const metadata = {
     "Professional photography, video tours, drone, and twilight media for Airbnb and short-term rental properties across Arkansas. More bookings start with better photos.",
 };
 
-const services = [
+const packages = [
   {
-    title: "Photos",
-    price: "$162",
-    description:
-      "Professional HDR photography that highlights every room, amenity, and detail guests care about.",
+    name: "Starter",
+    price: "$275",
+    tag: "Get your listing live fast",
+    features: [
+      "25 photos (HDR)",
+      "Floor plan",
+    ],
   },
   {
-    title: "Video Tours",
-    price: "$250",
-    description:
-      "Cinematic walkthrough videos that let guests experience your property before they book.",
+    name: "Revenue Boost",
+    price: "$475",
+    tag: "Optimized for bookings",
+    features: [
+      "40 photos (HDR)",
+      "Drone",
+      "Social reel",
+      "Floor plan",
+    ],
   },
   {
-    title: "Drone / Aerial",
-    price: "$80",
-    description:
-      "Aerial shots showcasing your property's location, outdoor spaces, and surrounding area.",
+    name: "Full Showcase",
+    price: "$875",
+    tag: "Maximum occupancy",
+    features: [
+      "Photos (HDR)",
+      "Drone",
+      "Video tour",
+      "Reels pack (4 reels)",
+      "Floor plan",
+      "Virtual staging (3 rooms)",
+    ],
   },
-  {
-    title: "Twilight Exteriors",
-    price: "$60",
-    description:
-      "Day-to-dusk conversions that make your property glow and stand out in search results.",
-  },
+];
+
+const standaloneServices = [
+  { title: "Photos Only", price: "From $195" },
+  { title: "Single Reel", price: "$150" },
+  { title: "Drone", price: "$120" },
 ];
 
 const sellingPoints = [
@@ -77,38 +92,63 @@ export default function AirbnbRentalsPage() {
         backgroundImage="/images/portfolio-interior-1.jpg"
       />
 
-      {/* ── SERVICES & PRICING ── */}
+      {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Services & Pricing
+            Packages
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Everything your rental needs.{" "}
             <span className="text-white-40">One shoot.</span>
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {packages.map((pkg) => (
               <div
-                key={service.title}
-                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)]"
+                key={pkg.name}
+                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
               >
-                <span className="font-display text-3xl font-light text-crimson">
-                  {service.price}
+                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+                  {pkg.tag}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
-                  {service.title}
+                <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
+                  {pkg.name}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">
-                  {service.description}
-                </p>
+                <span className="mt-2 block font-display text-4xl font-light text-crimson">
+                  {pkg.price}
+                </span>
+                <ul className="mt-6 space-y-3">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-white/50">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   href="/book"
-                  className="mt-6 inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                  className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
-                  Book Now &rarr;
+                  Book Now
                 </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Standalone options */}
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {standaloneServices.map((service) => (
+              <div
+                key={service.title}
+                className="flex items-center justify-between rounded border border-white/5 bg-[rgba(17,17,17,0.5)] px-6 py-4 transition-all duration-500 hover:border-crimson/20"
+              >
+                <span className="text-sm font-medium text-white/60">
+                  {service.title}
+                </span>
+                <span className="text-sm font-semibold text-crimson">
+                  {service.price}
+                </span>
               </div>
             ))}
           </div>

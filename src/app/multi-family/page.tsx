@@ -7,30 +7,39 @@ export const metadata = {
     "Professional photography, drone aerials, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas.",
 };
 
-const services = [
+const packages = [
   {
-    title: "Photos",
-    price: "$162+",
-    description:
-      "Professional HDR photography for model units, amenity spaces, lobbies, and exteriors.",
+    name: "Leasing Essentials",
+    price: "$650",
+    tag: "Get leasing assets fast",
+    features: [
+      "Model unit photos (HDR)",
+      "Drone aerial",
+      "3D virtual tour",
+    ],
   },
   {
-    title: "Drone / Aerial",
-    price: "$80",
-    description:
-      "Aerial photography and video showcasing the full complex, parking, landscaping, and neighborhood.",
+    name: "Full Property",
+    price: "$1,200",
+    tag: "Complete media coverage",
+    features: [
+      "Photos (HDR)",
+      "Drone video",
+      "3D tour",
+      "Floor plans (per unit type)",
+      "Reels pack (4 reels)",
+    ],
   },
   {
-    title: "Video Tours",
-    price: "$250",
-    description:
-      "Cinematic video walkthroughs of model units and common areas for leasing pages and social media.",
-  },
-  {
-    title: "Virtual Staging",
-    price: "$25/room",
-    description:
-      "AI-powered furniture placement for vacant units. Show prospects what the space can become.",
+    name: "Marketing Suite",
+    price: "Custom",
+    tag: "Starting at $2,000",
+    features: [
+      "Ongoing content",
+      "Multiple unit types",
+      "Amenity showcase",
+      "Custom scope",
+    ],
   },
 ];
 
@@ -88,26 +97,34 @@ export default function MultiFamilyPage() {
             <span className="text-white-40">Not just agents.</span>
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {packages.map((pkg) => (
               <div
-                key={service.title}
-                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)]"
+                key={pkg.name}
+                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
               >
-                <span className="font-display text-3xl font-light text-crimson">
-                  {service.price}
+                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+                  {pkg.tag}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
-                  {service.title}
+                <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
+                  {pkg.name}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">
-                  {service.description}
-                </p>
+                <span className="mt-2 block font-display text-4xl font-light text-crimson">
+                  {pkg.price}
+                </span>
+                <ul className="mt-6 space-y-3">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-white/50">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   href="/book"
-                  className="mt-6 inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                  className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
-                  Book Now &rarr;
+                  Book Now
                 </Link>
               </div>
             ))}

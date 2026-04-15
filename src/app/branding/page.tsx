@@ -9,28 +9,28 @@ export const metadata = {
 
 const services = [
   {
-    title: "Headshot Session",
+    title: "Headshots",
     price: "$200",
     description:
-      "Professional headshots with multiple backgrounds and poses. Retouched and delivered in both web and print formats.",
+      "In-studio, 3 final images, backdrop selection.",
   },
   {
-    title: "Lifestyle Branding",
+    title: "Lifestyle Brand",
     price: "$350",
     description:
-      "On-location lifestyle shoot that tells your story — at properties, in your office, or wherever your brand lives.",
+      "On-location, personal brand content, social-ready.",
   },
   {
-    title: "Team Photos",
-    price: "$400+",
+    title: "Team Package",
+    price: "$500+",
     description:
-      "Consistent headshots and group photos for your entire team. Individual and group configurations included.",
+      "Group headshots + brand content.",
   },
   {
-    title: "Content Creation",
+    title: "Content Retainer",
     price: "Custom",
     description:
-      "Ongoing visual content for social media, websites, and marketing materials. Monthly packages available.",
+      "Monthly brand content creation.",
   },
 ];
 

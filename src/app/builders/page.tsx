@@ -7,30 +7,45 @@ export const metadata = {
     "Professional photography, drone aerials, and video tours for builders, construction projects, and model homes across Arkansas. Document the build. Market the result.",
 };
 
-const services = [
+const packages = [
   {
-    title: "Progress Documentation",
-    price: "$162/visit",
-    description:
-      "Scheduled photo documentation of construction milestones — foundation, framing, finishes, and completion.",
+    name: "Single Visit",
+    price: "$400",
+    tag: "One-time documentation",
+    features: [
+      "Progress photos",
+      "Drone",
+    ],
   },
   {
-    title: "Completed Home Package",
-    price: "$250+",
-    description:
-      "Full interior and exterior photography of the finished product, ready for your website and marketing.",
+    name: "Marketing Package",
+    price: "$950",
+    tag: "For completed or model homes",
+    features: [
+      "Photos (HDR)",
+      "Drone video",
+      "Reels pack (4 reels)",
+    ],
   },
   {
-    title: "Drone / Aerial",
-    price: "$80",
-    description:
-      "Aerial views of the build site, lot layout, development progress, and surrounding neighborhood context.",
+    name: "Progress Program",
+    price: "$599/mo",
+    tag: "Track the build",
+    features: [
+      "Monthly visits",
+      "Documentation",
+      "Aerial updates",
+    ],
   },
   {
-    title: "Video Tours",
-    price: "$250",
-    description:
-      "Cinematic walkthrough video for model homes, spec homes, and completed custom builds.",
+    name: "Model Home Launch",
+    price: "$1,200+",
+    tag: "The finished product",
+    features: [
+      "Full media package",
+      "Photos + drone + video",
+      "Reels + floor plan",
+    ],
   },
 ];
 
@@ -89,25 +104,33 @@ export default function BuildersPage() {
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
+            {packages.map((pkg) => (
               <div
-                key={service.title}
-                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)]"
+                key={pkg.name}
+                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
               >
-                <span className="font-display text-3xl font-light text-crimson">
-                  {service.price}
+                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+                  {pkg.tag}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
-                  {service.title}
+                <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
+                  {pkg.name}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">
-                  {service.description}
-                </p>
+                <span className="mt-2 block font-display text-4xl font-light text-crimson">
+                  {pkg.price}
+                </span>
+                <ul className="mt-6 space-y-3">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-white/50">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   href="/book"
-                  className="mt-6 inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                  className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
-                  Book Now &rarr;
+                  Book Now
                 </Link>
               </div>
             ))}
