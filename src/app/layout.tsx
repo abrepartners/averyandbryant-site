@@ -4,6 +4,7 @@ import "./globals.css";
 import { Nav } from "@/components/nav";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { Footer } from "@/components/footer";
+import { Analytics, AnalyticsNoScript } from "@/components/analytics";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -69,13 +70,6 @@ export default function RootLayout({
       className={`dark ${manrope.variable} ${inter.variable} ${spaceGrotesk.variable}`}
     >
       <head>
-        {/* GHL Voice AI Widget - create at GHL > Sites > Chat Widget > New > Voice AI type, then paste widget ID below */}
-        <script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="YOUR_WIDGET_ID"
-          async
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -154,6 +148,8 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <AnalyticsNoScript />
+        <Analytics />
         <Nav />
         <main>{children}</main>
         <ScrollToTop />
