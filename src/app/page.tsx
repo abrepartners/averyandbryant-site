@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "@/components/hero";
+import { GoogleReviews } from "@/components/google-reviews";
 
 const services = [
   {
@@ -127,15 +128,17 @@ export default function HomePage() {
               <span className="rounded border border-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
                 BBB A+
               </span>
-              <a
-                href="https://g.page/r/CQxxxxxxxxxx/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[11px] text-white/40 transition-colors hover:text-white/60"
-              >
-                <span className="text-crimson">★★★★★</span>
-                <span>Google (24)</span>
-              </a>
+              {process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ? (
+                <a
+                  href={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-[11px] text-white/40 transition-colors hover:text-white/60"
+                >
+                  <span className="text-crimson">★★★★★</span>
+                  <span>Google</span>
+                </a>
+              ) : null}
             </div>
           </div>
         </div>
@@ -288,6 +291,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── GOOGLE REVIEWS (renders only when GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID set) ── */}
+      <GoogleReviews />
 
       {/* ── REFERRAL PROGRAM ── */}
       <section className="border-t border-white/5 py-24 md:py-32">

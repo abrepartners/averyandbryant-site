@@ -92,7 +92,7 @@ export default function RealEstatePage() {
         titleAccent="that closes deals."
         subtitle="HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans. Everything your listing needs to stand out."
         primaryCta={{ label: "Book a Shoot", vertical: "real-estate" }}
-        secondaryCta={{ label: "View Gallery", href: "https://homes.averyandbryant.com" }}
+        secondaryCta={{ label: "View Gallery", href: "/gallery" }}
         backgroundImage="/images/hero-drone.jpg"
       />
 

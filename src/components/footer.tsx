@@ -113,14 +113,12 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <a
-                  href="https://homes.averyandbryant.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/gallery"
                   className="text-sm text-white-50 transition-colors hover:text-white"
                 >
                   Gallery
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
