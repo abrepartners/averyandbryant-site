@@ -5,6 +5,7 @@ import { Nav } from "@/components/nav";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { Footer } from "@/components/footer";
 import { Analytics, AnalyticsNoScript } from "@/components/analytics";
+import { UtmCapture } from "@/components/utm-capture";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -150,6 +151,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <AnalyticsNoScript />
         <Analytics />
+        <UtmCapture />
         <Nav />
         <main>{children}</main>
         <ScrollToTop />

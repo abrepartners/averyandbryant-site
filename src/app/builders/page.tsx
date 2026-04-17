@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
   title: "Builder & Construction Photography | Arkansas | Avery & Bryant",
@@ -86,7 +87,7 @@ export default function BuildersPage() {
         title="Document the build."
         titleAccent="Market the result."
         subtitle="Professional photography, drone aerials, and cinematic video for builders, developers, and construction companies across Arkansas."
-        primaryCta={{ label: "Book Now", href: "https://homes.averyandbryant.com/order-forms/01914ab4-8713-72aa-b503-63ed6d4a11a5", external: true }}
+        primaryCta={{ label: "Book Now", vertical: "builders" }}
         secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
         backgroundImage="/images/portfolio-exterior-1.jpg"
       />
@@ -125,14 +126,12 @@ export default function BuildersPage() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="https://homes.averyandbryant.com/order-forms/01914ab4-8713-72aa-b503-63ed6d4a11a5"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <OrderLink
+                  vertical="builders"
                   className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
                   Book Now
-                </a>
+                </OrderLink>
               </div>
             ))}
           </div>
@@ -217,14 +216,12 @@ export default function BuildersPage() {
             Book a shoot in under 2 minutes. Professional media that sells homes before the sign goes up.
           </p>
           <div className="mt-10">
-            <a
-              href="https://homes.averyandbryant.com/order-forms/01914ab4-8713-72aa-b503-63ed6d4a11a5"
-              target="_blank"
-              rel="noopener noreferrer"
+            <OrderLink
+              vertical="builders"
               className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book Now
-            </a>
+            </OrderLink>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
   title: "Multi-Family & Apartment Photography | Arkansas | Avery & Bryant",
@@ -80,7 +81,7 @@ export default function MultiFamilyPage() {
         title="Fill vacancies faster"
         titleAccent="with premium media."
         subtitle="Professional photography, aerial drone, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas."
-        primaryCta={{ label: "Book Now", href: "https://homes.averyandbryant.com/order-forms/01914ab7-5488-710c-b2c9-62a929eed936", external: true }}
+        primaryCta={{ label: "Book Now", vertical: "multi-family" }}
         secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
         backgroundImage="/images/hero-drone-2.jpg"
       />
@@ -119,14 +120,12 @@ export default function MultiFamilyPage() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="https://homes.averyandbryant.com/order-forms/01914ab7-5488-710c-b2c9-62a929eed936"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <OrderLink
+                  vertical="multi-family"
                   className="mt-8 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                 >
                   Book Now
-                </a>
+                </OrderLink>
               </div>
             ))}
           </div>
@@ -211,14 +210,12 @@ export default function MultiFamilyPage() {
             Book a shoot in under 2 minutes. Professional media that fills units faster.
           </p>
           <div className="mt-10">
-            <a
-              href="https://homes.averyandbryant.com/order-forms/01914ab7-5488-710c-b2c9-62a929eed936"
-              target="_blank"
-              rel="noopener noreferrer"
+            <OrderLink
+              vertical="multi-family"
               className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book Now
-            </a>
+            </OrderLink>
           </div>
         </div>
       </section>
