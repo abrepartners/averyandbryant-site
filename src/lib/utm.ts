@@ -45,12 +45,15 @@ export function enrichHref(
   extra: Record<string, string>,
 ): string {
   try {
-    const url = new URL(baseHref);
+    const isRelative = baseHref.startsWith("/");
+    const origin =
+      typeof window !== "undefined" ? window.location.origin : "http://local";
+    const url = new URL(baseHref, origin);
     const merged = { ...readAttribution(), ...extra };
     for (const [k, v] of Object.entries(merged)) {
       if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
     }
-    return url.toString();
+    return isRelative ? `${url.pathname}${url.search}${url.hash}` : url.toString();
   } catch {
     return baseHref;
   }

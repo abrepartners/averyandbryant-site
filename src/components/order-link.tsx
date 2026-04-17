@@ -6,8 +6,8 @@ import {
   type AnchorHTMLAttributes,
   type ReactNode,
 } from "react";
-import { orderFormUrl, type Vertical } from "@/lib/order-forms";
 import { enrichHref } from "@/lib/utm";
+import type { Vertical } from "@/lib/order-forms";
 
 type OrderLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -17,25 +17,17 @@ type OrderLinkProps = Omit<
   children: ReactNode;
 };
 
-export function OrderLink({
-  vertical,
-  children,
-  target = "_blank",
-  rel = "noopener noreferrer",
-  ...rest
-}: OrderLinkProps) {
-  const baseHref = orderFormUrl(vertical);
+export function OrderLink({ vertical, children, ...rest }: OrderLinkProps) {
+  const baseHref = `/order/${vertical}`;
   const staticHref = `${baseHref}?source=averyandbryant.com&vertical=${vertical}`;
   const [href, setHref] = useState(staticHref);
 
   useEffect(() => {
-    setHref(
-      enrichHref(baseHref, { source: "averyandbryant.com", vertical }),
-    );
+    setHref(enrichHref(baseHref, { source: "averyandbryant.com", vertical }));
   }, [baseHref, vertical]);
 
   return (
-    <a href={href} target={target} rel={rel} {...rest}>
+    <a href={href} {...rest}>
       {children}
     </a>
   );
