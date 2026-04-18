@@ -8,6 +8,16 @@ export const metadata = {
 
 const categories = [
   {
+    name: "CRE Listings",
+    tag: "For commercial brokers",
+    features: [
+      "Facade + drone overview",
+      "Proximity & demographic context",
+      "Interior walkthroughs + floor plans",
+      "Fast-turn for new listings",
+    ],
+  },
+  {
     name: "Dealerships",
     tag: "Ongoing programs · inventory + brand",
     features: [
@@ -19,32 +29,22 @@ const categories = [
   },
   {
     name: "Offices & Retail",
-    tag: "Exterior + interior + team content",
+    tag: "Exterior + interior + team",
     features: [
       "Facade + signage",
-      "Interior workspace / floor coverage",
+      "Interior workspace coverage",
       "Team & leadership portraits",
       "Drone context shots",
     ],
   },
   {
-    name: "Hospitality",
-    tag: "Restaurants, venues, hotels, churches",
+    name: "Hospitality & Specialty",
+    tag: "Restaurants, venues, industrial, other",
     features: [
       "Ambience + lifestyle styling",
       "Food + beverage photography",
-      "Exterior + twilight",
+      "Industrial facility tours",
       "Event-ready galleries",
-    ],
-  },
-  {
-    name: "Industrial & Other",
-    tag: "Warehouses, facilities, specialty",
-    features: [
-      "Facility aerial tours",
-      "Compliance + documentation",
-      "Equipment + process shots",
-      "Custom scope",
     ],
   },
 ];

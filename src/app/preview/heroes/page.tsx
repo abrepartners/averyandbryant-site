@@ -47,7 +47,7 @@ const heroes: HeroEntry[] = [
     vertical: "Commercial",
     template: "Mosaic · 2x2 category grid",
     psychology:
-      "Commercial = a category of categories; mosaic answers 'what counts?' visually",
+      "Commercial = category of categories; mosaic welcomes CRE brokers AND owners/operators in one hero",
     Component: HeroCommercial,
   },
   {
@@ -58,8 +58,9 @@ const heroes: HeroEntry[] = [
   },
   {
     vertical: "Personal Branding",
-    template: "Portrait-First · warm backlight",
-    psychology: "Warmth + human — portrait does the heavy lifting",
+    template: "Content Engine · reel stack",
+    psychology:
+      "Motion sells branding — 3 phone-framed reels prove we make scroll-worthy content, not just headshots",
     Component: HeroBranding,
   },
 ];

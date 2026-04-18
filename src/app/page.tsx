@@ -70,7 +70,7 @@ const verticals = [
   },
   {
     title: "Commercial",
-    description: "Dealerships, offices, retail",
+    description: "CRE listings, dealerships, offices",
     href: "/commercial",
   },
   {

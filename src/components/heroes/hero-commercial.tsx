@@ -53,9 +53,10 @@ export function HeroCommercial() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
-            Dealerships, office parks, retail, restaurants, industrial, and
-            hospitality. Custom-scope photography, drone, video, and ongoing
-            content programs for commercial properties across Arkansas.
+            Commercial real estate listings, dealerships, office parks, retail,
+            restaurants, industrial, and hospitality. Custom-scope photography,
+            drone, video, and ongoing content programs for commercial brokers,
+            owners, and operators across Arkansas.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
