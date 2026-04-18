@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const words = ["Real", "Estate", "Media"];
 
-export function HeroRealEstateV1() {
+export function HeroRealEstate() {
   return (
     <section
       aria-label="Real Estate Media hero"
