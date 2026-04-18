@@ -1,6 +1,6 @@
 # A3: Native Order Form → Aryeo Integration
 
-**Status:** Scaffolded and deployed to `averyandbryant-site.vercel.app`. Not yet end-to-end tested (blocked on `ARYEO_API_KEY`).
+**Status:** Live at `averyandbryant-site.vercel.app`. End-to-end validated — native form → Aryeo session → prefilled Aryeo form → client record created in Aryeo automatically. Tested through the full checkout up to the payment step on 2026-04-17.
 
 **Owners:** Avery & Bryant (marketing site), Aryeo (orders system of record), GHL (CRM / chat / nurture).
 
@@ -99,6 +99,7 @@ Order lands in Aryeo natively.
 We redirect the browser to `data.url`. Aryeo's form loads with everything prefilled.
 
 **Fields available but NOT currently sent** (from Aryeo schema):
+- `address_data` — the OpenAPI doc lists `latitude`/`longitude` as optional, but the **live API enforces them as required whenever `address_data` is present** (HTTP 422 otherwise). We don't geocode yet, so we omit `address_data` entirely — Aryeo's form collects the address in step 1. Revisit if we add browser-side Place Autocomplete or server-side geocoding.
 - `address_id` / `customer_id` (UUIDs to reuse existing records)
 - `customer_group_id`
 - `coupon_ids: []`
@@ -188,14 +189,15 @@ Template in `.env.example`.
 
 ## Testing checklist (pre-DNS-flip)
 
-- [ ] Add `ARYEO_API_KEY` to Vercel env (production + preview).
-- [ ] Trigger redeploy (any push to `main`, or `vercel --prod`).
-- [ ] Visit `averyandbryant-site.vercel.app/order/real-estate`.
-- [ ] Submit with a test email.
-- [ ] Confirm redirect lands on a prefilled Aryeo form with email/name/address filled in.
-- [ ] Repeat for each vertical.
-- [ ] Confirm test orders appear in Aryeo dashboard.
-- [ ] Confirm no duplicate in GHL (the whole point of A3).
+- [x] Add `ARYEO_API_KEY` to Vercel env (production + development). *Preview pending CLI upgrade.*
+- [x] Trigger redeploy.
+- [x] Visit `averyandbryant-site.vercel.app/order/real-estate` and submit.
+- [x] Confirm redirect lands on a prefilled Aryeo form with email/name/phone filled in.
+- [x] Confirm client record is created in Aryeo automatically.
+- [ ] Repeat end-to-end for each vertical (real-estate done; builders, airbnb-rentals, lot-land, multi-family untested).
+- [ ] Confirm no duplicate in GHL (verify the aryeo-ghl-bridge handles this, or that GHL isn't double-receiving).
 - [ ] Add `NEXT_PUBLIC_GHL_WIDGET_ID` and verify chat widget loads on every page.
 - [ ] (Optional) Set `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` and verify reviews render on home page.
+- [ ] Decide `branding` vertical — add form UUID or drop from order flow.
+- [ ] Decide `success_url` behavior — where does user land after paying in Aryeo?
 - [ ] Only then: flip DNS for `averyandbryant.com` to this Vercel project.
