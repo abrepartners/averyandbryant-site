@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero";
+import { HeroAirbnbRentals } from "@/components/heroes/hero-airbnb-rentals";
 import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
@@ -82,15 +82,7 @@ export default function AirbnbRentalsPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <Hero
-        tag="Short-Term Rental Media"
-        title="More bookings start"
-        titleAccent="with better photos."
-        subtitle="Professional photography, video tours, drone, and twilight media that turn browsers into guests. Built for Airbnb, VRBO, and short-term rental hosts."
-        primaryCta={{ label: "Book Now", vertical: "airbnb-rentals" }}
-        secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
-        backgroundImage="/images/portfolio-interior-1.jpg"
-      />
+      <HeroAirbnbRentals />
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

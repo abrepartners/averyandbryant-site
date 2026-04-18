@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero";
+import { HeroMultiFamily } from "@/components/heroes/hero-multi-family";
 import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
@@ -76,15 +76,7 @@ export default function MultiFamilyPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <Hero
-        tag="Multi-Family Media"
-        title="Fill vacancies faster"
-        titleAccent="with premium media."
-        subtitle="Professional photography, aerial drone, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas."
-        primaryCta={{ label: "Book Now", vertical: "multi-family" }}
-        secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
-        backgroundImage="/images/hero-drone-2.jpg"
-      />
+      <HeroMultiFamily />
 
       {/* ── SERVICES & PRICING ── */}
       <section className="py-24 md:py-32">

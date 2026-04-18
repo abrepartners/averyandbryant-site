@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero";
+import { HeroRealEstate } from "@/components/heroes/hero-real-estate";
 import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
@@ -86,15 +86,7 @@ const addOns = [
 export default function RealEstatePage() {
   return (
     <>
-      <Hero
-        tag="Core Service"
-        title="Real Estate Media"
-        titleAccent="that closes deals."
-        subtitle="HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans. Everything your listing needs to stand out."
-        primaryCta={{ label: "Book a Shoot", vertical: "real-estate" }}
-        secondaryCta={{ label: "View Gallery", href: "/gallery" }}
-        backgroundImage="/images/hero-drone.jpg"
-      />
+      <HeroRealEstate />
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

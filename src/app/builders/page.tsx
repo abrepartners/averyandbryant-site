@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero";
+import { HeroBuilders } from "@/components/heroes/hero-builders";
 import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
@@ -82,15 +82,7 @@ export default function BuildersPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <Hero
-        tag="Builder & Business Media"
-        title="Document the build."
-        titleAccent="Market the result."
-        subtitle="Professional photography, drone aerials, and cinematic video for builders, developers, and construction companies across Arkansas."
-        primaryCta={{ label: "Book Now", vertical: "builders" }}
-        secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
-        backgroundImage="/images/portfolio-exterior-1.jpg"
-      />
+      <HeroBuilders />
 
       {/* ── SERVICES & PRICING ── */}
       <section className="py-24 md:py-32">

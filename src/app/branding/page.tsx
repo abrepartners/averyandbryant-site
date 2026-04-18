@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Hero } from "@/components/hero";
+import Image from "next/image";
+import { HeroBranding } from "@/components/heroes/hero-branding";
 
 export const metadata = {
   title: "Agent Headshots & Personal Branding | Arkansas | Avery & Bryant",
@@ -63,19 +64,101 @@ const steps = [
   { number: "03", title: "Get Your Media", description: "Retouched images delivered within 48 hours." },
 ];
 
+// Placeholder reel thumbnails — swap for real vertical reel frames when shot.
+const reelThumbs = [
+  "/images/portfolio-headshot-1.jpg",
+  "/images/staging-twilight.jpg",
+  "/images/portfolio-interior-1.jpg",
+  "/images/portfolio-headshot-2.jpg",
+  "/images/showcase-staging-after.jpg",
+  "/images/portfolio-twilight-2.jpg",
+  "/images/thomas-headshot.jpg",
+  "/images/portfolio-interior-2.jpg",
+  "/images/showcase-dusk-after.jpg",
+  "/images/staging-interior.jpg",
+];
+
 export default function BrandingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <Hero
-        tag="Personal Branding"
-        title="Your brand is"
-        titleAccent="your business card."
-        subtitle="Professional headshots, lifestyle branding, team photos, and content creation for agents and businesses across Arkansas."
-        primaryCta={{ label: "Book a Session", href: "/book" }}
-        secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
-        backgroundImage="/images/portfolio-headshot-1.jpg"
-      />
+      <HeroBranding />
+
+      {/* ── REEL MARQUEE — what a content day produces ── */}
+      <section className="relative border-t border-white/5 bg-[#0a0a0a] py-16 md:py-20">
+        <div className="mx-auto mb-10 max-w-[1280px] px-6 md:mb-14 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-rose-200/60">
+            What a content day produces
+          </p>
+          <h2 className="mt-3 font-display text-[clamp(22px,3.5vw,38px)] font-light tracking-tight text-white-90">
+            One shoot.{" "}
+            <span className="text-white-40">A month of content to post.</span>
+          </h2>
+        </div>
+
+        <div className="relative overflow-hidden">
+          {/* Edge fades */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent md:w-40"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent md:w-40"
+          />
+
+          <div className="reel-marquee flex gap-4 px-6 md:gap-5 md:px-12">
+            {reelThumbs.concat(reelThumbs).map((src, i) => (
+              <div
+                key={i}
+                className="relative aspect-[9/16] w-[150px] shrink-0 overflow-hidden rounded-xl border border-white/10 bg-[#111] md:w-[180px]"
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  aria-hidden
+                  fill
+                  sizes="180px"
+                  className="object-cover"
+                />
+                {/* Subtle reel-play indicator */}
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2 py-1 backdrop-blur-sm">
+                  <span className="h-1 w-1 rounded-full bg-rose-300" />
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-white/70">
+                    Reel
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-[1280px] px-6 md:px-12">
+          <a
+            href="mailto:hello@averyandbryant.com?subject=Personal%20Branding%20Session"
+            className="text-[11px] uppercase tracking-[0.2em] text-rose-200 transition-colors hover:text-white"
+          >
+            Book your content day &rarr;
+          </a>
+        </div>
+
+        <style>{`
+          .reel-marquee {
+            width: max-content;
+            animation: reelMarquee 55s linear infinite;
+          }
+          section:hover .reel-marquee {
+            animation-play-state: paused;
+          }
+          @keyframes reelMarquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .reel-marquee { animation: none; }
+          }
+        `}</style>
+      </section>
 
       {/* ── SERVICES & PRICING ── */}
       <section className="py-24 md:py-32">

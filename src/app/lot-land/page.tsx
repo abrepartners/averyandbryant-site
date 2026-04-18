@@ -1,4 +1,4 @@
-import { Hero } from "@/components/hero";
+import { HeroLotLand } from "@/components/heroes/hero-lot-land";
 import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
@@ -82,15 +82,7 @@ export default function LotLandPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <Hero
-        tag="Lot & Land Media"
-        title="Sell the vision,"
-        titleAccent="not just the dirt."
-        subtitle="Professional aerial drone photography, ground-level coverage, and cinematic flyover video for lots, land, and development sites across Arkansas."
-        primaryCta={{ label: "Book Now", vertical: "lot-land" }}
-        secondaryCta={{ label: "View Portfolio", href: "https://homes.averyandbryant.com", external: true }}
-        backgroundImage="/images/portfolio-drone-3.jpg"
-      />
+      <HeroLotLand />
 
       {/* ── SERVICES & PRICING ── */}
       <section className="py-24 md:py-32">
