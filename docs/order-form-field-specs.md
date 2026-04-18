@@ -80,6 +80,18 @@ Nurture sequences run
 - [ ] `vertical:airbnb-rental`
 - [ ] `vertical:branding`
 
+### Service tags (one per service — applied based on what's ordered, regardless of vertical)
+- [ ] `service:photos`
+- [ ] `service:video`
+- [ ] `service:drone` *(already exists as `drone` — keep both or rename)*
+- [ ] `service:3d-tour`
+- [ ] `service:floor-plan`
+- [ ] `service:reels`
+- [ ] `service:virtual-staging`
+- [ ] `service:twilight` *(already exists as `twilight`)*
+- [ ] `service:headshots`
+- [ ] `service:content-day`
+
 ### Universal custom fields (every form should populate)
 - [ ] **`Listing Address`** (text) — the property being shot, distinct from contact mailing address
 - [ ] **`UTM Source`** (text) — first-touch source from URL params
@@ -90,6 +102,76 @@ Nurture sequences run
 - [ ] **`Special Instructions`** (large text) — gate codes, lockboxes, pet warnings, etc.
 
 ### Per-vertical custom fields (see each section below for exact list)
+
+---
+
+## Cross-Vertical Service Catalog (NEW — important architectural rule)
+
+**Rule:** every vertical's form must let buyers select **packages OR à la carte services** — not just packages. The same underlying service exists across verticals (photos, video, drone, 3D tour, floor plan, reels, virtual staging, twilight) but is **priced differently** because:
+
+- **Multi-Family** = bigger property, more units, more time → higher price
+- **Lot & Land** = aerial-only, no interior → lower price for "Drone Only"
+- **Commercial** = often custom scope, brand consistency required → tier-pricing or custom quote
+- **Airbnb** = fewer rooms but lifestyle styling matters → priced between residential and luxury
+- **Real Estate** = sqft-based tiering already in place
+- **Builders** = recurring vs one-time pricing
+- **Branding** = per-person, per-day rate (different model entirely)
+
+### The catalog (what to offer in every relevant vertical)
+
+| Service | Tag applied | Notes |
+| --- | --- | --- |
+| **Photos** | `service:photos` | Always offered. Sqft tier or property scope drives price. |
+| **Cinematic Video** | `service:video` | Walkthrough video, 60–90s edit |
+| **Social Reel** | `service:reels` | Single short-form vertical reel |
+| **Reels Pack (4)** | `service:reels` | Listing/Virality/Trailer/Teaser |
+| **Drone Photos** | `service:drone` | Stills only |
+| **Drone Video** | `service:drone` | Aerial cinematic |
+| **3D Tour** | `service:3d-tour` | Matterport-style virtual tour |
+| **Floor Plan (2D)** | `service:floor-plan` | Schematic |
+| **Floor Plan (3D)** | `service:floor-plan` | Rendered |
+| **Virtual Staging** | `service:virtual-staging` | Per image |
+| **Twilight Shoot** | `service:twilight` | Real twilight |
+| **Virtual Twilight** | `service:twilight` | Day-to-dusk conversion |
+
+### Which verticals offer which services
+
+| Service | Real Estate | Multi-Fam | Lot & Land | Builders | Commercial | Airbnb | Branding |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Photos | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ (headshots) |
+| Cinematic Video | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Social Reels | ✅ | ✅ | optional | ✅ | ✅ | ✅ | ✅ |
+| Drone | ✅ | ✅ | ✅ (default) | ✅ | ✅ | ✅ | ❌ |
+| 3D Tour | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Floor Plan | ✅ | ✅ (per unit type) | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Virtual Staging | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ |
+| Twilight | ✅ | ✅ | ✅ (rare) | ✅ | ✅ | ✅ | ❌ |
+
+### Form structure pattern (apply to every vertical)
+
+Each form should have **three buying paths** on the products step:
+
+1. **Packages** — pre-bundled at vertical-specific price (BASE / PRO / PRO+ analog)
+2. **À la carte** — single-service selectors with vertical-specific pricing
+3. **Add-ons** — optional modifiers on top (twilight, virtual staging, extra reels, rush turnaround)
+
+In Aryeo, each "service" can be the **same product entity** with different price overrides per form (Aryeo supports this natively). The bridge can tag based on the line items in the order regardless of which form was used.
+
+### GHL implication
+
+The bridge already populates `Aryeo Products` (large text) with line items. To make this useful for automation, also add:
+
+- [ ] **`Services Selected`** custom field (multiple-options) — derived from Aryeo Products at sync time
+  - Picklist values match the catalog above (`Photos`, `Video`, `Reels`, `Drone`, etc.)
+  - Used for upsell logic ("they bought photos but no drone — send drone upsell at T+30")
+
+And tag application becomes additive based on services in the order:
+- Order has photos → add `service:photos`
+- Order has drone → add `service:drone`
+- Order has video → add `service:video`
+- ...etc.
+
+This means a single contact can carry multiple `service:*` tags and the nurture engine can target on combinations (e.g. "ordered photos AND drone, no video → upsell video").
 
 ---
 
@@ -391,6 +473,7 @@ GHL workflows that should fire based on Aryeo events:
 - [ ] When new Aryeo form UUIDs are ready, update `src/lib/order-forms.ts` (single commit)
 - [ ] Add Commercial + Branding to `ORDER_FORMS` map
 - [ ] Switch their site CTAs from contact (mailto/tel) to `/order/<vertical>`
+- [ ] Add **À la carte / Standalone Services + Add-ons** sections to each vertical page (mirrors what `/real-estate` already does). Pulls vertical-specific service pricing once Aryeo product catalog is finalized. Right now only `/real-estate` shows this; non-real-estate verticals should match.
 
 ---
 
@@ -401,3 +484,4 @@ GHL workflows that should fire based on Aryeo events:
 3. **Photographer assignment** — do shoots get assigned to a specific photographer (custom field for "Assigned Photographer"), or always team-pool?
 4. **Branding pipeline placement** — currently routing to "One-Off Fulfillment" but it could arguably live in "Listing Media" since it follows the same shoot → edit → deliver flow. Decide once.
 5. **Commercial first-touch** — should new commercial inquiries land in Sales Pipeline OR jump straight to Listing Media if they pay through the order form? Confirm.
+6. **Service catalog pricing** — need a price-matrix per service per vertical (or "same price across" / "custom quote" rules). Without this we can't ship the à la carte sections on Multi-Family, Lot & Land, Builders, Commercial, Airbnb, or Branding pages. Suggested format: `service × vertical → $price` table.
