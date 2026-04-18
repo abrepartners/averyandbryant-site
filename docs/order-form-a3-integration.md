@@ -110,14 +110,21 @@ We redirect the browser to `data.url`. Aryeo's form loads with everything prefil
 
 Source of truth: `src/lib/order-forms.ts`.
 
-| Vertical | Aryeo form UUID |
-| --- | --- |
-| `real-estate` | `01918da6-2d38-7375-8fe1-96d7d74f812a` |
-| `builders` | `01914ab4-8713-72aa-b503-63ed6d4a11a5` |
-| `airbnb-rentals` | `01918dcc-0824-72a8-abbe-61a9c9d9edb1` |
-| `lot-land` | `d6f632d8-1b59-4163-a63a-aeff8decce83` |
-| `multi-family` | `01914ab7-5488-710c-b2c9-62a929eed936` |
-| `branding` | **missing — decision needed** |
+> **Heads up (2026-04-18):** All Aryeo forms will be rebuilt. Every UUID
+> below is subject to change. When the new forms exist, swap all UUIDs
+> here in a single commit. Commercial and Branding have **no form yet**
+> — their site pages use contact CTAs (mailto / tel) instead of
+> `/order/<vertical>` until forms exist.
+
+| Vertical | Aryeo form UUID | Status |
+| --- | --- | --- |
+| `real-estate` | `01918da6-2d38-7375-8fe1-96d7d74f812a` | live, will be rebuilt |
+| `builders` | `01914ab4-8713-72aa-b503-63ed6d4a11a5` | live, will be rebuilt |
+| `airbnb-rentals` | `01918dcc-0824-72a8-abbe-61a9c9d9edb1` | live, will be rebuilt |
+| `lot-land` | `d6f632d8-1b59-4163-a63a-aeff8decce83` | live, will be rebuilt |
+| `multi-family` | `01914ab7-5488-710c-b2c9-62a929eed936` | live, will be rebuilt |
+| `commercial` | *(none)* | **not yet created** — page routes to contact CTAs |
+| `branding` | *(none)* | **not yet created** — no order flow wired |
 
 ## Form field strategy (native side)
 

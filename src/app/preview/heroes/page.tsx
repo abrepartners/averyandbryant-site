@@ -2,6 +2,7 @@ import { HeroRealEstate } from "@/components/heroes/hero-real-estate";
 import { HeroLotLand } from "@/components/heroes/hero-lot-land";
 import { HeroMultiFamily } from "@/components/heroes/hero-multi-family";
 import { HeroBuilders } from "@/components/heroes/hero-builders";
+import { HeroCommercial } from "@/components/heroes/hero-commercial";
 import { HeroAirbnbRentals } from "@/components/heroes/hero-airbnb-rentals";
 import { HeroBranding } from "@/components/heroes/hero-branding";
 
@@ -41,6 +42,13 @@ const heroes: HeroEntry[] = [
     template: "V2-variant · Documentary timeline",
     psychology: "Proof-of-work + premium marketing framing",
     Component: HeroBuilders,
+  },
+  {
+    vertical: "Commercial",
+    template: "Mosaic · 2x2 category grid",
+    psychology:
+      "Commercial = a category of categories; mosaic answers 'what counts?' visually",
+    Component: HeroCommercial,
   },
   {
     vertical: "Airbnb & Rentals",

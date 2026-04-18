@@ -64,9 +64,14 @@ const verticals = [
     href: "/lot-land",
   },
   {
-    title: "Builders & Businesses",
-    description: "Construction & commercial",
+    title: "Builders",
+    description: "Construction & development",
     href: "/builders",
+  },
+  {
+    title: "Commercial",
+    description: "Dealerships, offices, retail",
+    href: "/commercial",
   },
   {
     title: "Personal Branding",

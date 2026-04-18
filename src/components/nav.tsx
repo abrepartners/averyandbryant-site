@@ -8,6 +8,7 @@ const services = [
   { label: "Real Estate", href: "/real-estate" },
   { label: "Airbnb Rentals", href: "/airbnb-rentals" },
   { label: "Multi-Family", href: "/multi-family" },
+  { label: "Commercial", href: "/commercial" },
   { label: "Lot & Land", href: "/lot-land" },
   { label: "Builders", href: "/builders" },
   { label: "Branding", href: "/branding" },
