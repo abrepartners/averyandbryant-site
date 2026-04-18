@@ -37,13 +37,6 @@ export async function submitOrder(
         last_name: str(formData, "last_name") || undefined,
         phone: str(formData, "phone") || undefined,
       },
-      address: {
-        street_number: str(formData, "street_number") || undefined,
-        street_name: str(formData, "street_name") || undefined,
-        city: str(formData, "city") || undefined,
-        state_or_province: str(formData, "state") || undefined,
-        postal_code: str(formData, "postal_code") || undefined,
-      },
     });
   } catch (err) {
     if (err instanceof AryeoApiError) {

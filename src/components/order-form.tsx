@@ -76,71 +76,9 @@ export function OrderForm({ vertical }: { vertical: Vertical }) {
         </div>
       </fieldset>
 
-      <fieldset className="space-y-4 pt-2" disabled={pending}>
-        <legend className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-          Property address
-        </legend>
-        <div className="grid gap-4 md:grid-cols-[1fr_2fr]">
-          <div className="space-y-2">
-            <label htmlFor="street_number" className={labelClass}>
-              Street #
-            </label>
-            <input
-              id="street_number"
-              name="street_number"
-              autoComplete="address-line1"
-              className={inputClass}
-            />
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="street_name" className={labelClass}>
-              Street name
-            </label>
-            <input
-              id="street_name"
-              name="street_name"
-              className={inputClass}
-            />
-          </div>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="space-y-2">
-            <label htmlFor="city" className={labelClass}>
-              City
-            </label>
-            <input
-              id="city"
-              name="city"
-              autoComplete="address-level2"
-              className={inputClass}
-            />
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="state" className={labelClass}>
-              State
-            </label>
-            <input
-              id="state"
-              name="state"
-              defaultValue="AR"
-              autoComplete="address-level1"
-              className={inputClass}
-            />
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="postal_code" className={labelClass}>
-              ZIP
-            </label>
-            <input
-              id="postal_code"
-              name="postal_code"
-              autoComplete="postal-code"
-              inputMode="numeric"
-              className={inputClass}
-            />
-          </div>
-        </div>
-      </fieldset>
+      <p className="text-xs text-white/30">
+        You&apos;ll enter the property address on the next step.
+      </p>
 
       {state.error ? (
         <p

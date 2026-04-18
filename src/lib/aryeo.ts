@@ -19,6 +19,8 @@ export type AddressInput = {
   state_or_province?: string;
   postal_code?: string;
   country?: string;
+  latitude?: number;
+  longitude?: number;
 };
 
 export type CreateSessionInput = {
@@ -69,7 +71,15 @@ export async function createOrderFormSession({
   }
   if (address) {
     const a = compact(address);
-    if (Object.keys(a).length > 0) body.address_data = a;
+    // Aryeo rejects address_data without lat+lng. We don't geocode yet,
+    // so only send address_data when the caller has supplied coords.
+    if (
+      typeof a.latitude === "number" &&
+      typeof a.longitude === "number" &&
+      Object.keys(a).length > 0
+    ) {
+      body.address_data = a;
+    }
   }
   if (successUrl) body.success_url = successUrl;
 
