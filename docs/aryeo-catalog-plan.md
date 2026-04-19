@@ -311,6 +311,27 @@ ARYEO_API_KEY='...' node scripts/aryeo/create-products.mjs --execute
 - Leaves everything **unattached** to any order form — so they can't be ordered until we explicitly wire them up
 - Stores product IDs in Aryeo; we reference them when we build the new forms
 
+### 🚧 Blocker — token needs write scope (2026-04-19)
+
+First `--execute` attempt failed:
+
+```
+POST /product-categories → HTTP 401 Unauthorized
+POST /products           → HTTP 401 Unauthorized
+GET  /me                 → HTTP 200 (valid, returns book@averyandbryant.com)
+GET  /products           → HTTP 200 (reads fine)
+```
+
+The supplied token is valid but has **read-only scope**. Aryeo's public API rejects writes without explicit write permission (or they may require a different partner/admin API path).
+
+**To unblock, pick one:**
+
+1. **Regenerate the token with write scope** — Aryeo Dashboard → Settings → Integrations → API. Look for "products: write" / "categories: write" (or equivalent) when creating a new token. Paste the new token and rerun `create-products.mjs --execute`.
+2. **Ask Aryeo support** whether POST /products and POST /product-categories are available on the public API tier, or if they require partner-tier access.
+3. **Manual entry in Aryeo UI** — the manifest in `scripts/aryeo/new-products.json` has every title, description, price, and duration. Use it as a copy-paste checklist while clicking through the dashboard.
+
+Keep this note until the products are created. Once they're live, delete this subsection.
+
 ---
 
 ## 4 · Existing Packages — Updates (DEFERRED — may not happen)
