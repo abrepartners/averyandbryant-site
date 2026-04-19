@@ -1,0 +1,183 @@
+{
+  "$schema_note": "Source-of-truth manifest for NEW Aryeo products. None of these are attached to an order form — that's how they stay non-orderable until we flip them live. Run scripts/aryeo/create-products.mjs --execute to create. Without --execute, dry-runs and prints the planned requests.",
+
+  "categories_to_create": [
+    { "key": "multi-family", "title": "Multi-Family" },
+    { "key": "commercial", "title": "Commercial" },
+    { "key": "builders", "title": "Builders" }
+  ],
+
+  "categories_existing": {
+    "residential": "Residential/Commercial",
+    "airbnb": "Airbnb & Rentals",
+    "land": "Land/Vacant Lot",
+    "branding": "Agent Branding"
+  },
+
+  "products": [
+    {
+      "title": "2026 — Multi-Family Leasing Essentials",
+      "description": "For lease-up and refresh shoots. Includes:\n✓ 25-30 photos of one model unit (interior + exterior)\n✓ Drone aerial of complex\n✓ Amenity coverage — up to 5 amenity zones (pool, clubhouse, gym, etc.)\n✓ 3D virtual tour of the model unit\n\n24-hour photo delivery. 48-hour 3D tour delivery.",
+      "type": "MAIN",
+      "categories": ["multi-family"],
+      "price": 89500,
+      "duration": 90
+    },
+    {
+      "title": "2026 — Multi-Family Full Property",
+      "description": "For complete property marketing. Includes:\n✓ 40+ MLS-grade photos\n✓ Drone video (60-90 sec)\n✓ 3D virtual tour (model unit)\n✓ Floor plan per unit type (up to 3 unit types)\n✓ 4-reel social pack (Listing / Virality / Trailer / Teaser)",
+      "type": "MAIN",
+      "categories": ["multi-family"],
+      "price": 149500,
+      "duration": 180
+    },
+    {
+      "title": "2026 — Multi-Family Marketing Suite",
+      "description": "Custom scope for ongoing content. Includes:\n✓ Everything in Full Property\n✓ Ongoing monthly content\n✓ Multiple model units\n✓ Full amenity showcase video\n✓ Community lifestyle shoot\n\nPriced individually per property. Starts at $2,495.",
+      "type": "MAIN",
+      "categories": ["multi-family"],
+      "price": 249500,
+      "duration": 240
+    },
+
+    {
+      "title": "2026 — CRE Listing Base",
+      "description": "For commercial brokers listing office, retail, industrial, etc. Includes:\n✓ Facade + signage photos\n✓ Interior walkthrough (up to 15 images)\n✓ Drone aerial (exterior + context)\n✓ Virtual twilight hero shot",
+      "type": "MAIN",
+      "categories": ["commercial"],
+      "price": 89500,
+      "duration": 75
+    },
+    {
+      "title": "2026 — CRE Listing Pro",
+      "description": "Full commercial listing package. Includes:\n✓ 30+ photos: facade, interior, amenities\n✓ Drone video (60 sec)\n✓ Interior walkthrough video\n✓ 2D floor plan\n✓ Real twilight shoot\n✓ Proximity highlights",
+      "type": "MAIN",
+      "categories": ["commercial"],
+      "price": 149500,
+      "duration": 150
+    },
+    {
+      "title": "2026 — Dealership Monthly Retainer",
+      "description": "One visit per month for dealerships. Includes:\n✓ Monthly lot drone overview\n✓ Inventory photography (up to 30 vehicles)\n✓ Showroom + service bay interior refresh\n✓ 1 social reel per month\n\n12-month commitment, cancellable after 6.",
+      "type": "MAIN",
+      "categories": ["commercial"],
+      "price": 89500,
+      "duration": 90
+    },
+    {
+      "title": "2026 — Hospitality Package",
+      "description": "For restaurants, venues, hotels, churches. Includes:\n✓ 30+ photos: interior ambience, food/beverage, exterior\n✓ Cinematic video (60-90 sec)\n✓ Twilight exterior shoot\n✓ 2-reel pack (lifestyle + food highlight)",
+      "type": "MAIN",
+      "categories": ["commercial"],
+      "price": 129500,
+      "duration": 120
+    },
+    {
+      "title": "2026 — Industrial / Custom Commercial",
+      "description": "Scope-dependent for warehouses, facilities, and specialty commercial. Starting at $1,495.\n\nDeliverables defined per quote — typically includes facility aerial tours, equipment photography, compliance documentation, and custom media.",
+      "type": "MAIN",
+      "categories": ["commercial"],
+      "price": 149500,
+      "duration": 180
+    },
+
+    {
+      "title": "2026 — Builders Single Visit",
+      "description": "One-time documentation for investor updates, warranty records, or marketing. Includes:\n✓ Progress photos (15-20 images)\n✓ Drone aerial (site overview)",
+      "type": "MAIN",
+      "categories": ["builders"],
+      "price": 29500,
+      "duration": 60
+    },
+    {
+      "title": "2026 — Builders Monthly Progress Program",
+      "description": "Track the build over time. Includes:\n✓ Monthly photo documentation (15 images)\n✓ Quarterly drone aerial\n\n12-month commitment. Same photographer every visit where possible.",
+      "type": "MAIN",
+      "categories": ["builders"],
+      "price": 32500,
+      "duration": 60
+    },
+    {
+      "title": "2026 — Builders Marketing Package",
+      "description": "For completed model homes or builder marketing campaigns. Includes:\n✓ HDR photos (25 images)\n✓ Drone video (60 sec)\n✓ 4-reel social pack",
+      "type": "MAIN",
+      "categories": ["builders"],
+      "price": 119500,
+      "duration": 150
+    },
+    {
+      "title": "2026 — Builders Model Home Launch",
+      "description": "Full media for a model home launch. Includes:\n✓ Everything in Marketing Package\n✓ Twilight shoot\n✓ 3D virtual tour\n✓ Floor plan",
+      "type": "MAIN",
+      "categories": ["builders"],
+      "price": 149500,
+      "duration": 180
+    },
+
+    {
+      "title": "2026 — Airbnb Starter",
+      "description": "For STR hosts going live. Includes:\n✓ 25 HDR photos\n✓ 2D floor plan\n\nOptimized for Airbnb, VRBO, Booking.com.",
+      "type": "MAIN",
+      "categories": ["airbnb"],
+      "price": 39900,
+      "duration": 60
+    },
+    {
+      "title": "2026 — Airbnb Revenue Boost",
+      "description": "For hosts ready to compete at higher nightly rates. Includes:\n✓ 40 HDR photos\n✓ Drone aerial\n✓ 1 social reel\n✓ 2D floor plan",
+      "type": "MAIN",
+      "categories": ["airbnb"],
+      "price": 59500,
+      "duration": 90
+    },
+    {
+      "title": "2026 — Airbnb Full Showcase",
+      "description": "Maximum occupancy package. Includes:\n✓ 40 HDR photos\n✓ Drone aerial + video\n✓ Cinematic video tour\n✓ 4-reel social pack\n✓ 2D floor plan\n✓ Virtual staging (3 rooms)",
+      "type": "MAIN",
+      "categories": ["airbnb"],
+      "price": 99500,
+      "duration": 150
+    },
+
+    {
+      "title": "2026 — Headshot Essentials",
+      "description": "Studio headshot session. Includes:\n✓ 30-min studio session\n✓ Backdrop selection\n✓ 5 final retouched images\n✓ Review on-camera during session",
+      "type": "MAIN",
+      "categories": ["branding"],
+      "price": 24900,
+      "duration": 45
+    },
+    {
+      "title": "2026 — Brand Session",
+      "description": "Single-look brand portraits. Includes:\n✓ 1-hour session (studio OR on-location)\n✓ 1 look / wardrobe\n✓ 10 final retouched images\n✓ Delivered within 48 hours",
+      "type": "MAIN",
+      "categories": ["branding"],
+      "price": 44900,
+      "duration": 60
+    },
+    {
+      "title": "2026 — Content Day",
+      "description": "Half-day shoot built for a month of content. Includes:\n✓ On-location, half-day shoot\n✓ Headshots + lifestyle + reels\n✓ 20+ retouched images\n✓ 4 social reels\n✓ Multiple wardrobe / outfit changes",
+      "type": "MAIN",
+      "categories": ["branding"],
+      "price": 149500,
+      "duration": 240
+    },
+    {
+      "title": "2026 — Team Day",
+      "description": "Full-day team branding shoot. Includes:\n✓ Full-day on-location\n✓ Solo headshots for entire team\n✓ Group shots + brand content\n\nScales with team size — $1,995 base up to 5 people, +$250 per additional person.",
+      "type": "MAIN",
+      "categories": ["branding"],
+      "price": 199500,
+      "duration": 480
+    },
+    {
+      "title": "2026 — Content Retainer",
+      "description": "Monthly half-day content day. Includes:\n✓ One half-day shoot per month\n✓ 20+ photos + 4 reels per month\n✓ Brand consistency across every delivery",
+      "type": "MAIN",
+      "categories": ["branding"],
+      "price": 89500,
+      "duration": 240
+    }
+  ]
+}

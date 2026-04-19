@@ -1,6 +1,12 @@
 # Aryeo Catalog Plan
 
-Action plan to update A&B's Aryeo product catalog: reconcile with website, fill vertical gaps, tighten deliverables, migrate pricing.
+**Approach (revised 2026-04-18): build new, don't update existing.**
+
+To avoid disturbing live orders and brokerage-specific deals, we are NOT modifying any existing Aryeo product. Instead, we're creating **new `2026 —` prefixed products** in parallel. They start life **non-orderable** (not attached to any order form) and become live only when we manually flip them onto new/updated order forms.
+
+When the flip happens, the existing products can be archived or deprecated. Until then, nothing changes for current clients.
+
+This doc is now the **blueprint** for those new products. The executable is `scripts/aryeo/create-products.mjs` with the manifest at `scripts/aryeo/new-products.json`.
 
 **Snapshot taken:** 2026-04-18
 **Total products in Aryeo:** 47 (counted live via `GET /products`)
@@ -289,7 +295,25 @@ Aryeo currently has **no dedicated packages** for Multi-Family, Commercial, Buil
 
 ---
 
-## 4 · Existing Packages — Recommended Updates
+## 3.5 · Running the creator
+
+```bash
+# Dry-run (default) — prints what would be created, doesn't touch Aryeo
+node scripts/aryeo/create-products.mjs
+
+# Actually create in Aryeo
+ARYEO_API_KEY='...' node scripts/aryeo/create-products.mjs --execute
+```
+
+- Dedupes by product title (rerun-safe)
+- Creates the 3 missing categories (Multi-Family, Commercial, Builders) first
+- Creates 20 products (4 Airbnb-dedicated, 3 Multi-Family, 5 Commercial, 4 Builders, 5 Branding)
+- Leaves everything **unattached** to any order form — so they can't be ordered until we explicitly wire them up
+- Stores product IDs in Aryeo; we reference them when we build the new forms
+
+---
+
+## 4 · Existing Packages — Updates (DEFERRED — may not happen)
 
 Changes that need to happen to products that already exist in Aryeo. The migration strategy from [`pricing-matrix.md`](./pricing-matrix.md) staggers these across 90 days.
 
@@ -337,22 +361,15 @@ Changes that need to happen to products that already exist in Aryeo. The migrati
 
 ## 5 · Action Checklist
 
-### In Aryeo — Create new products
-- [ ] Multi-Family: Leasing Essentials, Full Property, Marketing Suite
-- [ ] Commercial: CRE Listing Base, CRE Listing Pro, Dealership Monthly, Hospitality, Industrial
-- [ ] Builders: Single Visit, Progress Program, Marketing, Model Home Launch
-- [ ] Airbnb: Starter, Revenue Boost, Full Showcase (if distinct from residential is desired)
-- [ ] Branding: Content Day, Team Day, Content Retainer
+### In Aryeo — Create new (via `scripts/aryeo/create-products.mjs --execute`)
+- [ ] 3 new categories (Multi-Family, Commercial, Builders)
+- [ ] 20 new `2026 —` products (all verticals)
+- [ ] Verify none are attached to an order form yet (= non-orderable, as intended)
+- [ ] Record the new product IDs for form wiring later
 
-### In Aryeo — Update existing products
-- [ ] Phase 1 price changes (15 products)
-- [ ] Clarify deliverable descriptions on every core package
-- [ ] Add "licensed music" / "color-graded" / "48hr delivery" specifics where missing
-
-### In Aryeo — Create categories
-- [ ] Multi-Family category (currently missing)
-- [ ] Commercial category (currently missing)
-- [ ] Builders category (currently products route to Residential/Commercial + brokerage-specific)
+### In Aryeo — Existing products
+- [ ] **Do not modify.** Phase-1 price updates described in §4 are deferred until new products are in place and working.
+- [ ] Existing brokerage-specific packages (BPR, Clark & Co, McGraw, CJC, Rackley, PorchLight, Hines, Sumbles, CounterTop) stay as-is permanently.
 
 ### In the bridge (aryeo-ghl-bridge)
 - [ ] When Aryeo product categories map to GHL `vertical:*` tags, update the mapping
