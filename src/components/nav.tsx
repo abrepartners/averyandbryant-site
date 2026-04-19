@@ -92,6 +92,12 @@ export function Nav() {
             </div>
 
             <Link
+              href="/studio"
+              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
+            >
+              Studio
+            </Link>
+            <Link
               href="/studioai"
               className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
             >
@@ -165,6 +171,13 @@ export function Nav() {
               ))}
             </div>
           )}
+          <Link
+            href="/studio"
+            onClick={() => setMobileOpen(false)}
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
+          >
+            Studio
+          </Link>
           <Link
             href="/studioai"
             onClick={() => setMobileOpen(false)}
