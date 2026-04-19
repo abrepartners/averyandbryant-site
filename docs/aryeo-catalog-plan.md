@@ -311,26 +311,29 @@ ARYEO_API_KEY='...' node scripts/aryeo/create-products.mjs --execute
 - Leaves everything **unattached** to any order form — so they can't be ordered until we explicitly wire them up
 - Stores product IDs in Aryeo; we reference them when we build the new forms
 
-### 🚧 Blocker — token needs write scope (2026-04-19)
+### 🚧 Blocker — Aryeo public API can't create products (2026-04-19)
 
-First `--execute` attempt failed:
+**Final answer:** `POST /products` and `POST /product-categories` **do not exist on Aryeo's public API** (confirmed via `docs.aryeo.com/api/aryeo` endpoint inventory, 2026-04-19). Our automated creator can't run — not a token-scope issue, the endpoints aren't exposed.
 
-```
-POST /product-categories → HTTP 401 Unauthorized
-POST /products           → HTTP 401 Unauthorized
-GET  /me                 → HTTP 200 (valid, returns book@averyandbryant.com)
-GET  /products           → HTTP 200 (reads fine)
-```
+**What the public API CAN write (for reference):**
+- Orders, order-items, order-form-sessions, order payments/refunds
+- Customers, customer-users, addresses, listings, appointments
+- Tags (can apply to products — can't create products)
+- Blocks, tasks, discounts, taxes
 
-The supplied token is valid but has **read-only scope**. Aryeo's public API rejects writes without explicit write permission (or they may require a different partner/admin API path).
+**What must be done in the Aryeo dashboard UI:**
+- Create products
+- Create product categories
+- Attach products to order forms
+- Manage form workflow / steps / pricing overrides
 
-**To unblock, pick one:**
+**Path forward:**
+1. **Manual entry in Aryeo UI** is the only option without partner-API access. The manifest at `scripts/aryeo/new-products.json` is the copy-paste source-of-truth. Each product entry includes: title, description (with deliverables bulleted), price (in cents — divide by 100), duration (minutes), and target category.
+2. **To potentially unlock API automation:** contact Aryeo support/sales and ask about partner-tier API access. Not necessary if we're only doing this once.
 
-1. **Regenerate the token with write scope** — Aryeo Dashboard → Settings → Integrations → API. Look for "products: write" / "categories: write" (or equivalent) when creating a new token. Paste the new token and rerun `create-products.mjs --execute`.
-2. **Ask Aryeo support** whether POST /products and POST /product-categories are available on the public API tier, or if they require partner-tier access.
-3. **Manual entry in Aryeo UI** — the manifest in `scripts/aryeo/new-products.json` has every title, description, price, and duration. Use it as a copy-paste checklist while clicking through the dashboard.
+The script `scripts/aryeo/create-products.mjs` stays in the repo for when the existing products need **GET-based audits** (price drift checks, catalog diff reports). It's still useful as a read-only tool even if it can't write.
 
-Keep this note until the products are created. Once they're live, delete this subsection.
+Delete this subsection once the 20 products are in Aryeo.
 
 ---
 
