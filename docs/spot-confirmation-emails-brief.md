@@ -170,6 +170,7 @@ Once env vars are set + webhook is configured + workflows built:
   | 4 | AB · Studio — Post-Shoot Follow-Up | `69e64058ba2aaa590cc37195` |
   | 5 | AB · Studio — Credit Redemption Details | `69e6406bb81c38b59ea9a57d` |
   | 6 | AB · Studio — Scheduling Link After Payment | `69e6407db9bf9139fd4ad9e5` |
+  | 7 | AB · Studio — Files Ready to Review | `69e65acd79eb79452b993ebd` |
 
 - ✅ **Webhook auto-enrolls contacts in existing GHL workflows**:
 

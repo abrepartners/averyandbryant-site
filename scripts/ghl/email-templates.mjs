@@ -324,6 +324,42 @@ const templates = [
   },
 
   {
+    title: "AB · Studio — Files Ready to Review",
+    preview_text: "Your files are ready — review, comment, and approve.",
+    html: shell({
+      preheader:
+        "Your files are uploaded. Review them, leave comments, approve when ready.",
+      hero: {
+        tag: "The Spot · Review Ready",
+        title: "Your files are ready, {{contact.first_name}}.",
+        subtitle:
+          "Edits uploaded to your private review space. Watch in the browser, drop timestamped comments, approve what works, flag what needs another pass.",
+      },
+      body: `
+        <div style="margin:0 0 24px;padding:20px;background:${CARD};border:1px solid ${BORDER};border-radius:4px;">
+          <div style="color:${AMBER};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Your review link</div>
+          <div style="font-size:14px;color:${TEXT};line-height:1.6;word-break:break-all;">
+            <a href="{{contact.frame_io_review_url}}" style="color:${TEXT};">{{contact.frame_io_review_url}}</a>
+          </div>
+          <div style="margin-top:10px;font-size:12px;color:${SUBTLE};">Bookmark this — it stays live until you approve everything.</div>
+        </div>
+        <div style="color:${CRIMSON};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">How to use it</div>
+        <ul style="margin:0 0 24px;padding-left:20px;color:${MUTED};">
+          <li style="margin-bottom:8px;">Click the button below, enter your email (no account needed).</li>
+          <li style="margin-bottom:8px;">Play any clip and leave timestamped comments directly on the frame.</li>
+          <li style="margin-bottom:8px;">Approve clips when you're happy — we'll mark them final on our side.</li>
+          <li style="margin-bottom:8px;">Heads-up: if you&apos;re requesting a revision, bundle notes into one pass so we can batch them.</li>
+        </ul>`,
+      cta: {
+        label: "Open my review space",
+        url: "{{contact.frame_io_review_url}}",
+      },
+      footerNote:
+        "Questions on the edits? Reply to this email and Thomas will jump in.",
+    }),
+  },
+
+  {
     title: "AB · Studio — Scheduling Link After Payment",
     preview_text: "Last step: pick your time.",
     html: shell({
