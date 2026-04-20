@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Member Account | The Spot · Avery & Bryant",
   description:
-    "Member hub for The Spot Creative Studios. Manage your subscription, book sessions, and access your media.",
+    "Member hub for The Spot Creative Studios. Manage your subscription, book sessions, and access your credits.",
   robots: { index: false, follow: false },
 };
 
@@ -11,10 +11,7 @@ const STRIPE_PORTAL_URL =
   process.env.NEXT_PUBLIC_STRIPE_PORTAL_URL ??
   "https://billing.stripe.com/p/login/test-activate-portal";
 
-const CALENDAR_BOOKING_URL =
-  "https://averyandbryant.com/studio#sets";
-
-const ARYEO_CLIENT_PORTAL_URL = "https://homes.averyandbryant.com/portal";
+const CALENDAR_BOOKING_URL = "https://averyandbryant.com/studio#sets";
 
 const cards = [
   {
@@ -36,14 +33,14 @@ const cards = [
     accent: "amber",
   },
   {
-    key: "media",
-    tag: "Deliveries",
-    title: "View past media",
+    key: "credits",
+    tag: "Credits & Add-Ons",
+    title: "Spend monthly credits",
     description:
-      "Access your delivered photos, videos, floor plans, and tours from Aryeo. Download anything from past sessions.",
+      "Redeem your credits on editing rounds, engineer assist, equipment access, extra 30-min blocks, or rush delivery. Reply to any confirmation email to redeem.",
     cta: {
-      label: "Open Media Portal",
-      href: ARYEO_CLIENT_PORTAL_URL,
+      label: "Request a credit redemption",
+      href: "mailto:hello@averyandbryant.com?subject=Credit%20Redemption%20Request",
       external: true,
     },
     accent: "sky",
@@ -94,7 +91,7 @@ export default function MembersPage() {
           <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
             <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              Member Account
+              The Spot · Member Account
             </span>
           </div>
 
@@ -102,14 +99,27 @@ export default function MembersPage() {
             Welcome back.
             <br />
             <span className="text-white-40 italic">
-              Everything in one spot.
+              Manage your studio membership.
             </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
-            Your member hub. Manage billing through Stripe, book studio time,
-            grab past deliverables, or reach us directly. No extra login —
-            Stripe handles identity for billing, Aryeo for media.
+            Your hub for The Spot. Manage billing, book your next session, or
+            redeem monthly credits. Sign in with the email you subscribed with
+            — no extra password to remember.
+          </p>
+
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/35">
+            Looking for your real estate media instead?{" "}
+            <a
+              href="https://homes.averyandbryant.com/portal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-crimson hover:text-white"
+            >
+              That&apos;s a separate portal — open it here
+            </a>
+            .
           </p>
         </div>
       </section>
