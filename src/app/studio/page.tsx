@@ -1,13 +1,23 @@
 import Image from "next/image";
+import { PodcastCarousel } from "@/components/studio/podcast-carousel";
 
 export const metadata = {
-  title: "The Spot — Multi-Set Creative Studios | Little Rock | Avery & Bryant",
+  title: "The Spot — Where Arkansas Records | Little Rock | Avery & Bryant",
   description:
-    "Multi-room content studio in Little Rock — podcast room, dedicated sets, and a garage bay. Book by the hour for podcasts, video, branded content, fashion, vehicle shoots, and more.",
+    "Multi-room content studio in Little Rock where real podcasters record. Book the Podcast Room, alternate sets, or the Garage by the hour — direct booking via our calendar.",
 };
 
 const PEERSPACE_URL =
   "https://www.peerspace.com/pages/listings/673a4251deb5e4e5704eb25b";
+
+// Direct GHL booking widget URLs (calendars activated 2026-04-20).
+const GHL_WIDGET = "https://api.leadconnectorhq.com/widget/booking";
+const CAL_PODCAST_1HR = `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`;
+const CAL_PODCAST_2HR = `${GHL_WIDGET}/9g4b8uFBR4KmJNWJwv9a`;
+const CAL_PODCAST_HALF = `${GHL_WIDGET}/J0gqnGTQFA8eD4EoFHwl`;
+const CAL_ALTSET = `${GHL_WIDGET}/gZIylqnwF2olLvPrqWqR`;
+const CAL_GARAGE = `${GHL_WIDGET}/FVDXuUTLJLD4XKm6lPOp`;
+const CAL_MULTI = `${GHL_WIDGET}/oaOY7LqfIC87tAy881wE`;
 
 // All images are PLACEHOLDERS — swap with real Spot photos when assets are accessible.
 // Source folder: ~/Desktop/THE SPOT IMAGES (currently blocked by macOS TCC).
@@ -18,10 +28,18 @@ type Room = {
   bestFor: string[];
   note?: string;
   image: string;
+  bookUrl: string;
+  bookLabel: string;
   accentClass: string; // tailwind ring + chip color
   pillBg: string;
 };
 
+// Image mapping confirmed via Peerspace listing 2026-04-20:
+// spot-1/2/3 = podcast action shots (used in hero carousel)
+// spot-4 = mic close-up · spot-5 = Main Room lounge interior
+// spot-6 = audio podcast setup · spot-7 = Black Room (alternate)
+// spot-8 = Garage Room · spot-9 = Neutral Room (alternate)
+// spot-10 = full production setup
 const rooms: Room[] = [
   {
     slug: "podcast-room",
@@ -29,25 +47,31 @@ const rooms: Room[] = [
     size: "400 sqft · flagship",
     bestFor: ["Video podcasts", "Talking-head", "Branded interviews"],
     note: "Our flagship room. Pre-configured lighting and controlled acoustics — the one on Peerspace.",
-    image: "/images/studio/spot-1.jpg",
+    image: "/images/studio/spot-5.jpg",
+    bookUrl: CAL_PODCAST_1HR,
+    bookLabel: "Book the Podcast Room",
     accentClass: "border-crimson/30 hover:border-crimson/60",
     pillBg: "bg-crimson/10 text-crimson",
   },
   {
     slug: "set-a",
-    name: "Set A",
+    name: "Set A · The Black Room",
     size: `13'3" × 11'2" · ~150 sqft`,
     bestFor: ["Lifestyle", "Brand content", "Product photography"],
-    image: "/images/studio/spot-3.jpg",
+    image: "/images/studio/spot-7.jpg",
+    bookUrl: CAL_ALTSET,
+    bookLabel: "Book Set A",
     accentClass: "border-amber-400/20 hover:border-amber-400/40",
     pillBg: "bg-amber-400/10 text-amber-200",
   },
   {
     slug: "set-b",
-    name: "Set B",
+    name: "Set B · The Neutral Room",
     size: `11'9" × 11'5" · ~135 sqft`,
     bestFor: ["Editorial", "Fashion", "Headshot variation"],
-    image: "/images/studio/spot-5.jpg",
+    image: "/images/studio/spot-9.jpg",
+    bookUrl: CAL_ALTSET,
+    bookLabel: "Book Set B",
     accentClass: "border-rose-400/20 hover:border-rose-400/40",
     pillBg: "bg-rose-400/10 text-rose-200",
   },
@@ -56,7 +80,9 @@ const rooms: Room[] = [
     name: "Intimate Set",
     size: `7'3" × 10'6" · ~75 sqft`,
     bestFor: ["Solo headshots", "1-on-1 interview", "Single subject"],
-    image: "/images/studio/spot-7.jpg",
+    image: "/images/studio/spot-6.jpg",
+    bookUrl: CAL_ALTSET,
+    bookLabel: "Book the Intimate Set",
     accentClass: "border-rose-400/20 hover:border-rose-400/40",
     pillBg: "bg-rose-400/10 text-rose-200",
   },
@@ -66,7 +92,9 @@ const rooms: Room[] = [
     size: `14'5" × 17' · ~245 sqft`,
     bestFor: ["Vehicle shoots", "Industrial", "Music video", "Fashion editorial"],
     note: "Roll-up door for natural light. Bring vehicles inside.",
-    image: "/images/studio/spot-9.jpg",
+    image: "/images/studio/spot-8.jpg",
+    bookUrl: CAL_GARAGE,
+    bookLabel: "Book the Garage",
     accentClass: "border-sky-400/20 hover:border-sky-400/40",
     pillBg: "bg-sky-400/10 text-sky-200",
   },
@@ -289,23 +317,23 @@ export default async function StudioPage({
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/5 px-4 py-1.5">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-300" />
               <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
-                Multi-Set Studio · Little Rock
+                Where Arkansas records · Little Rock
               </span>
             </div>
 
             <h1 className="mt-8 font-display text-[clamp(40px,7vw,84px)] font-extralight leading-[0.98] tracking-tight text-white-90">
-              The Spot
+              Real podcasters.
               <br />
               <span className="text-white-40 italic">
-                Creative Studios.
+                Real recordings.
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
-              Five rentable sets under one roof — a flagship podcast room,
-              dedicated lifestyle and editorial sets, an intimate
-              single-subject space, and a garage bay big enough for a vehicle.
-              Book one room or the whole facility for a content day.
+              The Spot is where Arkansas creators show up to record. Five
+              rentable sets — a flagship podcast room, two alternate sets, an
+              intimate single-subject space, and a garage bay big enough for a
+              vehicle. Book direct on our calendar or grab a slot via Peerspace.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
@@ -329,44 +357,26 @@ export default async function StudioPage({
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href={PEERSPACE_URL}
+                href={CAL_PODCAST_1HR}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
               >
-                Book on Peerspace
+                Book the Studio
               </a>
               <a
-                href={emailFor()}
+                href={PEERSPACE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
               >
-                Email for Multi-Set Quote
+                Or browse on Peerspace
               </a>
             </div>
           </div>
 
-          {/* Hero image — placeholder, swap with real Spot hero photo */}
-          <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-[0_40px_80px_rgba(0,0,0,0.4)]">
-              <Image
-                src="/images/studio/spot-2.jpg"
-                alt="The Spot creative studios — multi-room facility in Little Rock"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-xl border border-white/10 bg-black/50 p-4 backdrop-blur-md">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-amber-200/70">
-                  Gibraltar Heights · Little Rock
-                </p>
-                <p className="mt-1 text-sm font-medium text-white-90">
-                  Multi-room creative facility
-                </p>
-              </div>
-            </div>
-          </div>
+          {/* Hero — auto-rotating podcast action carousel */}
+          <PodcastCarousel />
         </div>
       </section>
 
@@ -432,10 +442,12 @@ export default async function StudioPage({
                   ) : null}
 
                   <a
-                    href={emailFor(room.name)}
-                    className="mt-auto inline-flex items-center justify-between rounded border border-white/10 px-4 py-2.5 text-[11px] uppercase tracking-[0.2em] text-white/65 transition-all hover:border-white/30 hover:text-white"
+                    href={room.bookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center justify-between rounded border border-white/10 px-4 py-2.5 text-[11px] uppercase tracking-[0.2em] text-white/65 transition-all hover:border-crimson/40 hover:text-white"
                   >
-                    <span>Book this room</span>
+                    <span>{room.bookLabel}</span>
                     <span aria-hidden>&rarr;</span>
                   </a>
                 </div>
