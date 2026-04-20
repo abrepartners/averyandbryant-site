@@ -7,44 +7,52 @@ export const metadata = {
     "Professional photography, drone aerials, and video tours for builders, construction projects, and model homes across Arkansas. Document the build. Market the result.",
 };
 
+// May 1 pricing. Progress Program is CUTTING 34% — was above market and
+// killing deals. Everything else moves up to match regional rates.
 const packages = [
   {
     name: "Single Visit",
-    price: "$400",
+    price: "$295",
+    anchor: "$398 à la carte",
+    savings: "Save $103",
     tag: "One-time documentation",
-    features: [
-      "Progress photos",
-      "Drone",
-    ],
+    features: ["Progress photos (15-20)", "Drone aerial"],
   },
   {
     name: "Marketing Package",
-    price: "$950",
+    price: "$1,195",
+    anchor: "$1,793 à la carte",
+    savings: "Save $598",
     tag: "For completed or model homes",
     features: [
-      "Photos (HDR)",
-      "Drone video",
+      "HDR photos (25)",
+      "Drone video (60s)",
       "Reels pack (4 reels)",
     ],
   },
   {
     name: "Progress Program",
-    price: "$599/mo",
-    tag: "Track the build",
+    price: "$325/mo",
+    anchor: "$398+ per single visit",
+    savings: "Save every month",
+    tag: "Track the build (12-mo)",
     features: [
-      "Monthly visits",
-      "Documentation",
-      "Aerial updates",
+      "Monthly photo documentation",
+      "Quarterly drone aerial",
+      "Same photographer per visit",
     ],
   },
   {
     name: "Model Home Launch",
-    price: "$1,200+",
+    price: "$1,495+",
+    anchor: "$2,800+ à la carte",
+    savings: "Save $1,300+",
     tag: "The finished product",
     features: [
-      "Full media package",
-      "Photos + drone + video",
-      "Reels + floor plan",
+      "Everything in Marketing",
+      "Twilight shoot",
+      "3D virtual tour",
+      "Floor plan",
     ],
   },
 ];
@@ -110,6 +118,14 @@ export default function BuildersPage() {
                 <span className="pricing-price mt-2 block font-display text-4xl font-light text-crimson">
                   {pkg.price}
                 </span>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+                  <span className="text-white/30 line-through">
+                    {pkg.anchor}
+                  </span>
+                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {pkg.savings}
+                  </span>
+                </div>
                 <ul className="mt-6 space-y-3">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-white/50">

@@ -9,6 +9,9 @@ export const metadata = {
 const categories = [
   {
     name: "CRE Listings",
+    price: "From $895",
+    anchor: "$1,400+ à la carte",
+    savings: "Save $505+",
     tag: "For commercial brokers",
     features: [
       "Facade + drone overview",
@@ -19,6 +22,9 @@ const categories = [
   },
   {
     name: "Dealerships",
+    price: "$895/mo",
+    anchor: "$1,500+ per single visit",
+    savings: "Save every month",
     tag: "Ongoing programs · inventory + brand",
     features: [
       "Lot drone overviews",
@@ -29,6 +35,9 @@ const categories = [
   },
   {
     name: "Offices & Retail",
+    price: "From $1,295",
+    anchor: "$1,800+ à la carte",
+    savings: "Save $505+",
     tag: "Exterior + interior + team",
     features: [
       "Facade + signage",
@@ -39,6 +48,9 @@ const categories = [
   },
   {
     name: "Hospitality & Specialty",
+    price: "From $1,295",
+    anchor: "Custom scope",
+    savings: "Priced to fit",
     tag: "Restaurants, venues, industrial, other",
     features: [
       "Ambience + lifestyle styling",
@@ -118,6 +130,17 @@ export default function CommercialPage() {
                 <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
                   {cat.name}
                 </h3>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="font-display text-2xl font-light text-crimson">
+                    {cat.price}
+                  </span>
+                  <span className="text-[11px] text-white/30 line-through">
+                    {cat.anchor}
+                  </span>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {cat.savings}
+                  </span>
+                </div>
                 <ul className="mt-6 space-y-3">
                   {cat.features.map((feature) => (
                     <li

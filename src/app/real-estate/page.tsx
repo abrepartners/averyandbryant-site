@@ -7,36 +7,44 @@ export const metadata = {
     "Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans for real estate listings across Arkansas.",
 };
 
+// May 1 pricing. À-la-carte value column shows what the same components
+// would cost if bought individually — the "anchor" that makes the package
+// price feel like the deal it is.
 const packages = [
   {
     name: "BASE",
-    price: "From $230",
+    price: "From $249",
+    anchor: "$348 à la carte",
+    savings: "Save $99",
     tag: "Best for condos and smaller listings",
-    features: [
-      "25 photos (HDR)",
-      "Schematic floor plan",
-    ],
+    features: ["25 photos (HDR)", "Schematic floor plan"],
   },
   {
     name: "PRO",
-    price: "From $325",
+    price: "From $395",
+    anchor: "$846 à la carte",
+    savings: "Save $451",
     tag: "Most popular",
     features: [
       "40 photos (HDR)",
       "Floor plan",
-      "Drone stills",
+      "Drone stills + video",
+      "3D virtual tour",
     ],
   },
   {
     name: "PRO+",
-    price: "From $695",
+    price: "From $749",
+    anchor: "$1,936 à la carte",
+    savings: "Save $1,187",
     tag: "The full experience",
     features: [
       "40 photos (HDR)",
       "Cinematic video",
-      "Social reel",
+      "Reels pack (4 reels)",
       "Floor plan",
-      "Drone",
+      "Drone photos + video",
+      "3D virtual tour",
     ],
   },
 ];
@@ -44,43 +52,50 @@ const packages = [
 const standaloneServices = [
   {
     title: "Photos Only",
-    price: "From $162",
-    description: "Sqft-based: under 2k=$162, 2-3k=$195, 3-4k=$235, 4-5k=$285, 5k+=$350",
+    price: "From $249",
+    description:
+      "Sqft tiers: <2k=$249 · 2-3k=$299 · 3-4k=$359 · 4-5k=$429 · 5k+=$549",
   },
   {
     title: "Reels Pack",
-    price: "$450",
+    price: "$595",
     description: "4 reels: Listing, Virality, Trailer, Teaser",
   },
   {
     title: "Cinematic Video",
-    price: "$250",
+    price: "$495",
     description: "Full cinematic walkthrough video",
   },
   {
     title: "Social Media Reel",
-    price: "$125",
+    price: "$195",
     description: "Short-form social content reel",
   },
   {
     title: "Drone Stills + Video",
-    price: "$125",
+    price: "$149",
     description: "Aerial photography and video",
   },
   {
     title: "2D Floor Plan",
-    price: "$135",
+    price: "$99",
     description: "Schematic floor plan layout",
+  },
+  {
+    title: "3D Virtual Tour",
+    price: "From $299",
+    description: "Tiered by sqft · Matterport-style interactive walkthrough",
   },
 ];
 
 const addOns = [
-  { title: "Virtual Staging", price: "$65/image" },
-  { title: "Virtual Twilight", price: "$90" },
-  { title: "Twilight Shoot", price: "$190" },
+  { title: "Virtual Staging", price: "$49/image" },
+  { title: "Virtual Twilight", price: "$49/image" },
+  { title: "Twilight Shoot", price: "$295" },
   { title: "Speed Ramp Reel", price: "$100" },
-  { title: "3D Floor Plan", price: "$125" },
-  { title: "Proximity Map", price: "$30" },
+  { title: "3D Floor Plan", price: "$149" },
+  { title: "Proximity Map", price: "$39" },
+  { title: "Rush Delivery (6hr)", price: "$100" },
 ];
 
 export default function RealEstatePage() {
@@ -114,6 +129,14 @@ export default function RealEstatePage() {
                 <span className="pricing-price mt-2 block font-display text-4xl font-light text-crimson">
                   {pkg.price}
                 </span>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+                  <span className="text-white/30 line-through">
+                    {pkg.anchor}
+                  </span>
+                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {pkg.savings}
+                  </span>
+                </div>
                 <ul className="mt-6 space-y-3">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-white/50">

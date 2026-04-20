@@ -7,25 +7,31 @@ export const metadata = {
     "Professional photography, drone aerials, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas.",
 };
 
+// May 1 pricing. Anchor columns reflect à-la-carte equivalent.
 const packages = [
   {
     name: "Leasing Essentials",
-    price: "$650",
+    price: "$895",
+    anchor: "$1,297 à la carte",
+    savings: "Save $402",
     tag: "Get leasing assets fast",
     features: [
       "Model unit photos (HDR)",
       "Drone aerial",
+      "Amenity coverage (up to 5 zones)",
       "3D virtual tour",
     ],
   },
   {
     name: "Full Property",
-    price: "$1,200",
+    price: "$1,495",
+    anchor: "$2,486 à la carte",
+    savings: "Save $991",
     tag: "Complete media coverage",
     features: [
-      "Photos (HDR)",
-      "Drone video",
-      "3D tour",
+      "40+ MLS-grade photos",
+      "Drone video (60-90 sec)",
+      "3D tour (model unit)",
       "Floor plans (per unit type)",
       "Reels pack (4 reels)",
     ],
@@ -33,12 +39,14 @@ const packages = [
   {
     name: "Marketing Suite",
     price: "Custom",
-    tag: "Starting at $2,000",
+    anchor: "Scope-dependent",
+    savings: "Starts at $2,495",
+    tag: "Ongoing content program",
     features: [
-      "Ongoing content",
-      "Multiple unit types",
-      "Amenity showcase",
-      "Custom scope",
+      "Everything in Full Property",
+      "Ongoing monthly content",
+      "Multiple model units",
+      "Full amenity showcase video",
     ],
   },
 ];
@@ -104,6 +112,14 @@ export default function MultiFamilyPage() {
                 <span className="pricing-price mt-2 block font-display text-4xl font-light text-crimson">
                   {pkg.price}
                 </span>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+                  <span className="text-white/30 line-through">
+                    {pkg.anchor}
+                  </span>
+                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {pkg.savings}
+                  </span>
+                </div>
                 <ul className="mt-6 space-y-3">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-white/50">

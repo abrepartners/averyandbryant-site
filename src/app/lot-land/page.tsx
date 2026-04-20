@@ -7,18 +7,21 @@ export const metadata = {
     "Professional aerial drone photography, ground-level photos, and video flyovers for lots, land, and development sites across Arkansas.",
 };
 
+// May 1 pricing with à-la-carte anchor.
 const packages = [
   {
     name: "BASE",
-    price: "$175",
+    price: "$199",
+    anchor: "$249 à la carte",
+    savings: "Save $50",
     tag: "Essential aerials",
-    features: [
-      "6 aerial photos",
-    ],
+    features: ["6 aerial photos"],
   },
   {
     name: "PRO",
-    price: "$275",
+    price: "$349",
+    anchor: "$487 à la carte",
+    savings: "Save $138",
     tag: "Boundaries + context",
     features: [
       "8 aerial photos",
@@ -28,18 +31,22 @@ const packages = [
   },
   {
     name: "PRO+",
-    price: "$450",
+    price: "$549",
+    anchor: "$836 à la carte",
+    savings: "Save $287",
     tag: "Full aerial coverage",
     features: [
       "10 aerial photos",
-      "Drone video",
+      "Drone video (30s)",
       "Boundary overlays",
       "Proximity highlights",
     ],
   },
   {
     name: "Vision Package",
-    price: "$750+",
+    price: "$895+",
+    anchor: "$1,295+ value",
+    savings: "Save $400+",
     tag: "See what could be built",
     features: [
       "Everything in PRO+",
@@ -110,6 +117,14 @@ export default function LotLandPage() {
                 <span className="pricing-price mt-2 block font-display text-4xl font-light text-crimson">
                   {pkg.price}
                 </span>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+                  <span className="text-white/30 line-through">
+                    {pkg.anchor}
+                  </span>
+                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {pkg.savings}
+                  </span>
+                </div>
                 <ul className="mt-6 space-y-3">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-white/50">

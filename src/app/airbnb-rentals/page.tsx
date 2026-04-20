@@ -7,46 +7,50 @@ export const metadata = {
     "Professional photography, video tours, drone, and twilight media for Airbnb and short-term rental properties across Arkansas. More bookings start with better photos.",
 };
 
+// May 1 pricing with à-la-carte anchor.
 const packages = [
   {
     name: "Starter",
-    price: "$275",
+    price: "$399",
+    anchor: "$498 à la carte",
+    savings: "Save $99",
     tag: "Get your listing live fast",
-    features: [
-      "25 photos (HDR)",
-      "Floor plan",
-    ],
+    features: ["25 photos (HDR)", "2D floor plan"],
   },
   {
     name: "Revenue Boost",
-    price: "$475",
+    price: "$595",
+    anchor: "$843 à la carte",
+    savings: "Save $248",
     tag: "Optimized for bookings",
     features: [
       "40 photos (HDR)",
-      "Drone",
+      "Drone aerial",
       "Social reel",
-      "Floor plan",
+      "2D floor plan",
     ],
   },
   {
     name: "Full Showcase",
-    price: "$875",
+    price: "$995",
+    anchor: "$1,838 à la carte",
+    savings: "Save $843",
     tag: "Maximum occupancy",
     features: [
-      "Photos (HDR)",
-      "Drone",
-      "Video tour",
+      "40 photos (HDR)",
+      "Drone photos + video",
+      "Cinematic video tour",
       "Reels pack (4 reels)",
-      "Floor plan",
+      "2D floor plan",
       "Virtual staging (3 rooms)",
     ],
   },
 ];
 
 const standaloneServices = [
-  { title: "Photos Only", price: "From $195" },
-  { title: "Single Reel", price: "$150" },
-  { title: "Drone", price: "$120" },
+  { title: "Photos Only", price: "From $249" },
+  { title: "Single Reel", price: "$195" },
+  { title: "Drone", price: "$149" },
 ];
 
 const sellingPoints = [
@@ -110,6 +114,14 @@ export default function AirbnbRentalsPage() {
                 <span className="pricing-price mt-2 block font-display text-4xl font-light text-crimson">
                   {pkg.price}
                 </span>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+                  <span className="text-white/30 line-through">
+                    {pkg.anchor}
+                  </span>
+                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {pkg.savings}
+                  </span>
+                </div>
                 <ul className="mt-6 space-y-3">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-white/50">

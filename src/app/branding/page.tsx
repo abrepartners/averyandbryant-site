@@ -8,30 +8,47 @@ export const metadata = {
     "Professional headshots, lifestyle branding, team photos, and content creation for real estate agents and businesses across Arkansas.",
 };
 
+// May 1 pricing. New Content Day tier added; existing tiers renamed + repriced.
 const services = [
   {
-    title: "Headshots",
-    price: "$200",
+    title: "Headshot Essentials",
+    price: "$249",
+    anchor: "$395 market rate",
+    savings: "Save $146",
     description:
-      "In-studio, 3 final images, backdrop selection.",
+      "30-min studio session · backdrop selection · 5 final retouched images.",
   },
   {
-    title: "Lifestyle Brand",
-    price: "$350",
+    title: "Brand Session",
+    price: "$449",
+    anchor: "$595 market rate",
+    savings: "Save $146",
     description:
-      "On-location, personal brand content, social-ready.",
+      "1-hour session (studio or on-location) · 10 final images · 48hr delivery.",
   },
   {
-    title: "Team Package",
-    price: "$500+",
+    title: "Content Day",
+    price: "$1,495",
+    anchor: "$2,100 à la carte",
+    savings: "Save $605",
     description:
-      "Group headshots + brand content.",
+      "Half-day · 20+ retouched photos + 4 social reels + multiple wardrobe changes.",
+  },
+  {
+    title: "Team Day",
+    price: "$1,995+",
+    anchor: "Scales per person",
+    savings: "Team rate",
+    description:
+      "Full-day on-location · solo + team headshots · brand content · +$250 per additional person beyond 5.",
   },
   {
     title: "Content Retainer",
-    price: "Custom",
+    price: "$895/mo",
+    anchor: "$1,495 per content day",
+    savings: "Save $600/mo",
     description:
-      "Monthly brand content creation.",
+      "Monthly half-day content day · 20+ photos + 4 reels/month.",
   },
 ];
 
@@ -180,6 +197,14 @@ export default function BrandingPage() {
                 <span className="pricing-price font-display text-3xl font-light text-crimson">
                   {service.price}
                 </span>
+                <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+                  <span className="text-white/30 line-through">
+                    {service.anchor}
+                  </span>
+                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    {service.savings}
+                  </span>
+                </div>
                 <h3 className="mt-4 font-display text-lg font-medium text-white-90">
                   {service.title}
                 </h3>
