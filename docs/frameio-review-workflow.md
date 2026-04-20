@@ -15,18 +15,19 @@ Two different customer types, two different portals. Clients don't need to bounc
 
 ---
 
-## One-time GHL setup (~2 min, done once)
+## One-time GHL setup — already done
 
-### Create the custom field
-
-**GHL → Settings → Custom Fields → Create new field:**
+Custom field created via API on 2026-04-20:
 
 - **Name:** `Frame.io Review URL`
-- **Type:** `Text`
-- **Field key:** `frame_io_review_url` (should auto-generate from the name)
-- **Model:** Contact
+- **GHL ID:** `uNBduZNieAZmIKsXbqt7`
+- **Field key:** `contact.frameio_review_url` *(GHL normalized — no underscore between frame + io)*
+- **Type:** TEXT
+- **Model:** contact
 
-This is where you paste the Frame.io share link per customer. The "Files Ready to Review" email template reads from it via merge tag `{{contact.frame_io_review_url}}`.
+The "Files Ready to Review" email template reads from it via merge tag `{{contact.frameio_review_url}}`.
+
+No manual GHL UI work needed unless you want to rename it.
 
 ### (Optional) Create the trigger tag
 
@@ -79,7 +80,7 @@ When volume justifies the setup work, swap Path A for full automation:
 5. I build `src/lib/frameio.ts` with IMS token-refresh + V4 API helpers
 6. Hook into existing Stripe webhook:
    - On `checkout.session.completed` → auto-create Frame.io project + share link
-   - Write the link back to contact's `frame_io_review_url` custom field
+   - Write the link back to contact's `frameio_review_url` custom field
 7. Thomas's workflow shrinks to: upload edits → tag contact → done
 
 Scoped as a ~45 min build once you have the Adobe credentials. Current code paths (webhook, email template, custom field) already assume this field gets populated — so the Path A → Path C upgrade is additive, not destructive.
@@ -88,9 +89,9 @@ Scoped as a ~45 min build once you have the Adobe credentials. Current code path
 
 ## Status
 
-- ✅ Email template created: `69e65acd79eb79452b993ebd` ("AB · Studio — Files Ready to Review")
+- ✅ Email template created: `69e65acd79eb79452b993ebd` ("AB · Studio — Files Ready to Review") — uses merge tag `{{contact.frameio_review_url}}`
+- ✅ Custom field created in GHL via API: `uNBduZNieAZmIKsXbqt7` / field key `contact.frameio_review_url`
 - ✅ Source template script updated (`scripts/ghl/email-templates.mjs`) so regeneration is consistent
-- ⏳ **You do once:** Create `Frame.io Review URL` custom field in GHL (2 min)
-- ⏳ **You do once per session:** Upload to Frame.io → create share link → paste into GHL → tag or send
+- ⏳ **You do once per session:** Upload to Frame.io → create share link → paste into GHL contact's "Frame.io Review URL" field → trigger email
 
-Path A fully operational once the custom field exists.
+Path A fully operational. Ready to use immediately on the next studio session.

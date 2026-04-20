@@ -339,7 +339,7 @@ const templates = [
         <div style="margin:0 0 24px;padding:20px;background:${CARD};border:1px solid ${BORDER};border-radius:4px;">
           <div style="color:${AMBER};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Your review link</div>
           <div style="font-size:14px;color:${TEXT};line-height:1.6;word-break:break-all;">
-            <a href="{{contact.frame_io_review_url}}" style="color:${TEXT};">{{contact.frame_io_review_url}}</a>
+            <a href="{{contact.frameio_review_url}}" style="color:${TEXT};">{{contact.frameio_review_url}}</a>
           </div>
           <div style="margin-top:10px;font-size:12px;color:${SUBTLE};">Bookmark this — it stays live until you approve everything.</div>
         </div>
@@ -352,7 +352,7 @@ const templates = [
         </ul>`,
       cta: {
         label: "Open my review space",
-        url: "{{contact.frame_io_review_url}}",
+        url: "{{contact.frameio_review_url}}",
       },
       footerNote:
         "Questions on the edits? Reply to this email and Thomas will jump in.",
