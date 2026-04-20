@@ -87,20 +87,24 @@ const memberships = [
   {
     name: "Creator Lite",
     monthly: "$60/mo",
-    credits: "4 credits",
-    perCredit: "Redemption rates custom",
+    discount: "10% off",
+    discountNote: "on all studio time",
+    credits: "4 add-on credits",
+    perks: ["10% member rate on every room", "4 monthly credits for add-ons", "Flexible cancellation"],
     description:
-      "For the independent creator. Light monthly use — credits work across studio time, edits, and production add-ons.",
+      "For the independent creator. Member discount on studio time + credits for the extras.",
     bestFor: "Newcomers and occasional shooters",
     subscribeUrl: "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
   },
   {
     name: "Creator",
     monthly: "$100/mo",
-    credits: "8 credits",
-    perCredit: "Redemption rates custom",
+    discount: "20% off",
+    discountNote: "on all studio time",
+    credits: "8 add-on credits",
+    perks: ["20% member rate on every room", "8 monthly credits for add-ons", "Flexible cancellation"],
     description:
-      "For consistent creators. Monthly credits to spend across studio sessions, editing rounds, and production support.",
+      "For consistent creators. Real savings on regular studio use, plus credits for edits + production.",
     bestFor: "Weekly podcasters / content schedules",
     highlight: true,
     subscribeUrl: "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
@@ -108,45 +112,57 @@ const memberships = [
   {
     name: "Pro",
     monthly: "$180/mo",
-    credits: "16 credits",
-    perCredit: "Redemption rates custom",
+    discount: "30% off",
+    discountNote: "on all studio time",
+    credits: "16 add-on credits",
+    perks: [
+      "30% member rate on every room",
+      "16 monthly credits for add-ons",
+      "Priority booking",
+      "Back-to-back session capacity",
+    ],
     description:
-      "For high-volume production teams. Maximum studio access, priority booking, and member rates on every add-on.",
+      "For high-volume production teams. Maximum discount, priority access, and 16 credits to fuel the month.",
     bestFor: "Content teams and agencies",
     subscribeUrl: "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
   },
 ];
 
+// Pricing: "rate" = non-member retail. "memberRate" = best-tier (Pro 30% off) price.
 const pricing = [
   {
     name: "Podcast Room — 1 Hour",
     rate: "$85",
-    description: "Base studio rental. 1-hour minimum. Members get preferred rates.",
+    memberRate: "Members from $59.50",
+    description: "Base studio rental. 1-hour minimum.",
     highlight: true,
     payUrl: "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m",
   },
   {
     name: "Podcast Room — 2 Hour",
     rate: "$170",
+    memberRate: "Members from $119",
     description: "Standard podcast block.",
     payUrl: "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n",
   },
   {
     name: "Podcast Room — Half Day (4 hr)",
     rate: "$340",
+    memberRate: "Members from $238",
     description: "Multi-episode batch recording or extended interview.",
     payUrl: "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o",
   },
   {
     name: "Each Alternate Set / Garage — 1 Hour",
     rate: "$150",
-    description:
-      "Add Set A, Set B, Intimate Set, or the Garage to your day.",
+    memberRate: "Members from $105",
+    description: "Add Set A, Set B, Intimate Set, or the Garage to your day.",
     payUrl: "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p",
   },
   {
     name: "Multi-Set Day Pass (8 hr)",
     rate: "$1,495",
+    memberRate: "Members from $1,046",
     description:
       "Full day, all rooms unlocked. Build a month of content without relocating.",
     payUrl: "https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q",
@@ -155,24 +171,25 @@ const pricing = [
     name: "Audio Podcast Production",
     rate: "+$40/hr",
     description:
-      "Podcast mics, engineer support, recorded and delivered.",
+      "Podcast mics, engineer support, recorded and delivered. Add-on credit eligible.",
   },
   {
     name: "Engineer Assist",
     rate: "+$40/hr",
     description:
-      "Add an engineer for mixing, lighting, or camera op.",
+      "Add an engineer for mixing, lighting, or camera op. Add-on credit eligible.",
   },
   {
     name: "Equipment Access",
     rate: "+$25/hr",
-    description: "Full equipment suite — lighting, cameras, audio gear.",
+    description:
+      "Full equipment suite — lighting, cameras, audio gear. Add-on credit eligible.",
   },
   {
     name: "Extra 30 Minutes",
     rate: "+$50",
     description:
-      "Extend an active session without rebooking.",
+      "Extend an active session without rebooking. Add-on credit eligible.",
   },
 ];
 
@@ -468,11 +485,12 @@ export default async function StudioPage({
             <span className="text-white-40">Memberships save you 50–80%.</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
-            Each tier comes with monthly{" "}
-            <span className="text-amber-200/80">credits</span> you can spend on
-            studio time, edits, engineer assist, or equipment — plus member
-            rates on everything else. Redemption values are shared in your
-            welcome email so we can match them to what you actually need.
+            Two wins with every membership: a{" "}
+            <span className="text-amber-200/80">member discount</span> on all
+            studio time, plus monthly{" "}
+            <span className="text-amber-200/80">add-on credits</span> you can
+            spend on edits, engineer assist, equipment, extra 30-min blocks,
+            or rush delivery.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -496,12 +514,27 @@ export default async function StudioPage({
                 <p className="mt-3 font-display text-4xl font-light text-crimson">
                   {tier.monthly}
                 </p>
-                <p className="mt-2 text-sm text-amber-200/80">
-                  {tier.credits} · {tier.perCredit}
+                <p className="mt-2 text-sm">
+                  <span className="font-display text-amber-200/90">
+                    {tier.discount}
+                  </span>
+                  <span className="text-white/45"> {tier.discountNote}</span>
                 </p>
+                <p className="mt-1 text-sm text-white/55">+ {tier.credits}</p>
                 <p className="mt-6 text-sm leading-relaxed text-white/55">
                   {tier.description}
                 </p>
+                <ul className="mt-6 space-y-2">
+                  {tier.perks.map((perk) => (
+                    <li
+                      key={perk}
+                      className="flex items-start gap-2 text-sm text-white/60"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-crimson" />
+                      <span>{perk}</span>
+                    </li>
+                  ))}
+                </ul>
                 <p className="mt-6 text-[10px] uppercase tracking-[0.25em] text-white/35">
                   {tier.bestFor}
                 </p>
@@ -589,6 +622,11 @@ export default async function StudioPage({
                     {p.rate}
                   </span>
                 </div>
+                {p.memberRate ? (
+                  <p className="mt-1 text-xs uppercase tracking-[0.15em] text-amber-200/70">
+                    {p.memberRate}
+                  </p>
+                ) : null}
                 <p className="mt-3 text-sm leading-relaxed text-white/50">
                   {p.description}
                 </p>

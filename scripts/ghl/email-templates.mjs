@@ -142,25 +142,26 @@ function shell({ preheader, hero, body, cta, footerNote }) {
 const templates = [
   {
     title: "AB · Studio — Membership Welcome",
-    preview_text: "Welcome to The Spot — here's how to use your credits.",
+    preview_text:
+      "Welcome to The Spot — your member discount + add-on credits are active.",
     html: shell({
       preheader:
-        "Welcome to The Spot. Your monthly credits are ready — here's how to spend them.",
+        "Welcome to The Spot. Your member discount + add-on credits are live.",
       hero: {
         tag: "The Spot · Welcome",
         title: "Welcome to The Spot, {{contact.first_name}}.",
         subtitle:
-          "Your membership is active. Credits are now available every month for studio time, edits, and production support.",
+          "Your membership is active. Two things kicked in today: a member discount on every studio booking, and a monthly bucket of add-on credits.",
       },
       body: `
-        <p style="margin:0 0 16px;color:${MUTED};">Here's how it works:</p>
+        <p style="margin:0 0 16px;color:${MUTED};">Here's how each benefit works:</p>
         <ul style="margin:0 0 24px;padding-left:20px;color:${MUTED};">
-          <li style="margin-bottom:8px;"><strong style="color:${TEXT};">1 credit = 1 hour</strong> of any single set, edit round, or production service.</li>
-          <li style="margin-bottom:8px;">Book the Podcast Room, Set A/B, Intimate Set, or the Garage.</li>
-          <li style="margin-bottom:8px;">Add engineer assist, equipment, or extra 30 minutes to any shoot.</li>
-          <li style="margin-bottom:8px;">Credits reset on your billing date — use them.</li>
+          <li style="margin-bottom:10px;"><strong style="color:${TEXT};">Member discount</strong> on all studio time — podcast room, alternate sets, garage, multi-set day passes. Applied automatically at checkout.</li>
+          <li style="margin-bottom:10px;"><strong style="color:${TEXT};">Add-on credits</strong> spend on edits, engineer assist, equipment access, extra 30-minute blocks, or rush delivery.</li>
+          <li style="margin-bottom:10px;">Credits reset monthly on your billing date — use them.</li>
+          <li style="margin-bottom:10px;">Flexible cancellation on every booking.</li>
         </ul>
-        <p style="margin:0;color:${MUTED};">Ready to schedule your first session? The calendar link below goes straight to booking.</p>`,
+        <p style="margin:0;color:${MUTED};">Ready for your first session? The button below goes straight to booking.</p>`,
       cta: {
         label: "Book your first session",
         url: "https://averyandbryant.com/studio",
@@ -278,33 +279,41 @@ const templates = [
 
   {
     title: "AB · Studio — Credit Redemption Details",
-    preview_text: "Your monthly credits are ready to spend.",
+    preview_text: "Your member discount + monthly add-on credits.",
     html: shell({
       preheader:
-        "How to redeem credits for studio time, edits, and production support.",
+        "Your member discount + monthly add-on credits. Here's how to use them.",
       hero: {
-        tag: "The Spot · Credits",
-        title: "Your credits, {{contact.first_name}}.",
+        tag: "The Spot · Member Benefits",
+        title: "Two wins, {{contact.first_name}}.",
         subtitle:
-          "Here's exactly what you can spend them on — and how to book.",
+          "Discount on studio time. Credits for everything else. Here's the full picture.",
       },
       body: `
         <div style="margin:0 0 20px;padding:20px;background:${CARD};border:1px solid ${BORDER};border-radius:4px;">
           <div style="color:${AMBER};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Your tier</div>
           <div style="font-size:22px;color:${TEXT};font-weight:300;">{{custom_values.membership_tier}}</div>
-          <div style="margin-top:6px;font-size:14px;color:${MUTED};">{{custom_values.monthly_credits}} credits per month · resets {{custom_values.renewal_date}}</div>
+          <div style="margin-top:6px;font-size:14px;color:${MUTED};">{{custom_values.member_discount}} off all studio time · {{custom_values.monthly_credits}} add-on credits per month · resets {{custom_values.renewal_date}}</div>
         </div>
 
-        <div style="color:${CRIMSON};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Spend 1 credit on any of these</div>
+        <div style="color:${CRIMSON};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Your member discount covers</div>
         <ul style="margin:0 0 24px;padding-left:20px;color:${MUTED};">
-          <li style="margin-bottom:6px;">1 hour in the Podcast Room</li>
-          <li style="margin-bottom:6px;">1 hour in Set A, Set B, Intimate Set, or the Garage</li>
-          <li style="margin-bottom:6px;">1 round of basic post-production edits</li>
-          <li style="margin-bottom:6px;">1 hour of engineer assist</li>
-          <li style="margin-bottom:6px;">1 hour of equipment access (lights / cameras / audio)</li>
+          <li style="margin-bottom:6px;">The Podcast Room (1hr / 2hr / half day)</li>
+          <li style="margin-bottom:6px;">Each Alternate Set (Set A, Set B, Intimate Set)</li>
+          <li style="margin-bottom:6px;">The Garage</li>
+          <li style="margin-bottom:6px;">Multi-Set Day Passes</li>
         </ul>
 
-        <p style="margin:0;color:${MUTED};">Credits reset monthly — don't let them expire. Book a session below.</p>`,
+        <div style="color:${AMBER};font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Spend add-on credits on</div>
+        <ul style="margin:0 0 24px;padding-left:20px;color:${MUTED};">
+          <li style="margin-bottom:6px;">Editing rounds (podcast, video, photo)</li>
+          <li style="margin-bottom:6px;">Engineer assist during your session</li>
+          <li style="margin-bottom:6px;">Equipment access (lighting, cameras, audio)</li>
+          <li style="margin-bottom:6px;">Extra 30-minute session blocks</li>
+          <li style="margin-bottom:6px;">Rush delivery</li>
+        </ul>
+
+        <p style="margin:0;color:${MUTED};">Credits reset monthly — don't let them expire. Book a session below and your discount applies automatically at checkout.</p>`,
       cta: {
         label: "Book a session now",
         url: "https://averyandbryant.com/studio",

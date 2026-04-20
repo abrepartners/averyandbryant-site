@@ -143,6 +143,33 @@ Current prices extracted from live codebase 2026-04-18.
 
 ---
 
+## The Spot — Membership model (FINAL, 2026-04-20)
+
+Credits do **not** equate to studio hours. Studio time is billed at a
+member-discounted rate; credits are reserved for add-ons.
+
+| Tier | Monthly | Studio discount | Add-on credits |
+|---|---|---|---|
+| Creator Lite | $60/mo | **10% off** all studio time | 4 credits/mo |
+| Creator | $100/mo | **20% off** all studio time | 8 credits/mo |
+| Pro | $180/mo | **30% off** all studio time + priority booking | 16 credits/mo |
+
+**Member discount applies to:** Podcast Room (1hr/2hr/half-day), Alternate Set,
+The Garage, Multi-Set Day Pass.
+
+**Credits redeemable for:** editing rounds, engineer assist, equipment access,
+extra 30-min blocks, rush delivery. Resets monthly (no rollover).
+
+**Break-even math:**
+- Creator Lite: ~7 hrs studio/mo at full rate vs. $60 membership cost
+- Creator: ~6 hrs studio/mo
+- Pro: ~7 hrs studio/mo
+
+Heavy users get most value. Members save 10–30% on every booking, and the
+add-on credits are effectively free workflow support baked into the subscription.
+
+---
+
 ## Key Moves (ranked by impact)
 
 ### 🟢 High-impact increases (ship these first — biggest upside, low risk)
