@@ -29,7 +29,7 @@ const rooms: Room[] = [
     size: "400 sqft · flagship",
     bestFor: ["Video podcasts", "Talking-head", "Branded interviews"],
     note: "Our flagship room. Pre-configured lighting and controlled acoustics — the one on Peerspace.",
-    image: "/images/portfolio-interior-2.jpg",
+    image: "/images/studio/spot-1.jpg",
     accentClass: "border-crimson/30 hover:border-crimson/60",
     pillBg: "bg-crimson/10 text-crimson",
   },
@@ -38,7 +38,7 @@ const rooms: Room[] = [
     name: "Set A",
     size: `13'3" × 11'2" · ~150 sqft`,
     bestFor: ["Lifestyle", "Brand content", "Product photography"],
-    image: "/images/portfolio-interior-1.jpg",
+    image: "/images/studio/spot-3.jpg",
     accentClass: "border-amber-400/20 hover:border-amber-400/40",
     pillBg: "bg-amber-400/10 text-amber-200",
   },
@@ -47,7 +47,7 @@ const rooms: Room[] = [
     name: "Set B",
     size: `11'9" × 11'5" · ~135 sqft`,
     bestFor: ["Editorial", "Fashion", "Headshot variation"],
-    image: "/images/staging-interior.jpg",
+    image: "/images/studio/spot-5.jpg",
     accentClass: "border-rose-400/20 hover:border-rose-400/40",
     pillBg: "bg-rose-400/10 text-rose-200",
   },
@@ -56,7 +56,7 @@ const rooms: Room[] = [
     name: "Intimate Set",
     size: `7'3" × 10'6" · ~75 sqft`,
     bestFor: ["Solo headshots", "1-on-1 interview", "Single subject"],
-    image: "/images/portfolio-headshot-1.jpg",
+    image: "/images/studio/spot-7.jpg",
     accentClass: "border-rose-400/20 hover:border-rose-400/40",
     pillBg: "bg-rose-400/10 text-rose-200",
   },
@@ -66,7 +66,7 @@ const rooms: Room[] = [
     size: `14'5" × 17' · ~245 sqft`,
     bestFor: ["Vehicle shoots", "Industrial", "Music video", "Fashion editorial"],
     note: "Roll-up door for natural light. Bring vehicles inside.",
-    image: "/images/portfolio-exterior-1.jpg",
+    image: "/images/studio/spot-9.jpg",
     accentClass: "border-sky-400/20 hover:border-sky-400/40",
     pillBg: "bg-sky-400/10 text-sky-200",
   },
@@ -349,8 +349,8 @@ export default async function StudioPage({
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-[0_40px_80px_rgba(0,0,0,0.4)]">
               <Image
-                src="/images/portfolio-interior-2.jpg"
-                alt="The Spot creative studio — placeholder; swap with real podcast room photo"
+                src="/images/studio/spot-2.jpg"
+                alt="The Spot creative studios — multi-room facility in Little Rock"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 45vw"
