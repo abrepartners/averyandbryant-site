@@ -157,7 +157,47 @@ Once env vars are set + webhook is configured + workflows built:
 - ✅ GHL bridge helper built (`src/lib/ghl.ts`)
 - ✅ Post-payment thank-you UI on `/studio?paid=...` and `?subscribed=...`
 - ✅ All 4 env vars set in Vercel (production + development): `STRIPE_SECRET_KEY` (copied from studioai project), `STRIPE_WEBHOOK_SECRET`, `GHL_API_TOKEN`, `GHL_LOCATION_ID`
-- ✅ Stripe webhook endpoint created via API — `we_1TOIvtH4bUQUJwBsIVwef1lC`, listening for `checkout.session.completed`, signing secret `whsec_kBhlJMHXOcmdRSAsk8FYTRqgDnqN718T`
+- ✅ Stripe webhook endpoint created via API — `we_1TOIvtH4bUQUJwBsIVwef1lC`, listening for `checkout.session.completed`, signing secret captured and stored in Vercel
 - ✅ Production redeployed with new env vars
-- ✅ Webhook route verified responding correctly (405 to GET, 400 to unsigned POST → ready for Stripe)
-- ⏳ **Pending:** GHL workflows built in GHL UI (workflow creation is UI-only). Tag triggers documented above.
+- ✅ Webhook verified (405 to GET, 400 to unsigned POST)
+- ✅ **6 branded HTML email templates created in GHL** (dark theme, crimson accents, responsive, merge-tags wired):
+
+  | # | Template | GHL Template ID |
+  |---|---|---|
+  | 1 | AB · Studio — Membership Welcome | `69e64018e5d1f80ec7255297` |
+  | 2 | AB · Studio — Booking Confirmation (Pay First) | `69e6403673be3901eefae5bb` |
+  | 3 | AB · Studio — Day-Before Reminder | `69e640489fa06c1c17d2e49e` |
+  | 4 | AB · Studio — Post-Shoot Follow-Up | `69e64058ba2aaa590cc37195` |
+  | 5 | AB · Studio — Credit Redemption Details | `69e6406bb81c38b59ea9a57d` |
+  | 6 | AB · Studio — Scheduling Link After Payment | `69e6407db9bf9139fd4ad9e5` |
+
+- ✅ **Webhook auto-enrolls contacts in existing GHL workflows**:
+
+  | Purchase metadata | Enrolls in workflow | Workflow ID |
+  |---|---|---|
+  | `tier=creator-lite` | Assign Credits Creator Lite | `8185e8b3-b5a8-4501-a0b7-a3ca5f15dcff` |
+  | `tier=creator` | Assign Credits Creator | `f30f7796-155a-4667-88e6-34e471bcffa5` |
+  | `tier=pro` | Assign Credits Pro | `bf3324aa-5189-4a1e-82db-fbef73da39e9` |
+  | Any one-time `product=*` | Aryeo → New Booking (shared booking flow) | `5a1c01c0-8380-4790-8a3c-e405ac503a87` |
+
+## Final manual step — publish the workflows
+
+All 4 workflows above are currently in **draft** status in GHL. Enrollment succeeds but no email sends until the workflow is published. In GHL UI:
+
+1. Open each workflow
+2. Wire the email steps to use the templates from the table above (match by name: Welcome → template 1, Booking Confirmation → template 2, etc.)
+3. Toggle status to **Published**
+4. Test with a live payment
+
+Suggested mapping (workflow step → template):
+
+**Assign Credits {tier} workflows** (Creator Lite / Creator / Pro):
+- Step 1 (immediate): Send template `AB · Studio — Membership Welcome`
+- Step 2 (wait 5 min, then send): `AB · Studio — Credit Redemption Details`
+- Step 3 (update contact custom values: `membership_tier`, `monthly_credits`, `renewal_date`)
+
+**Aryeo → New Booking** (repurposed for Spot one-time bookings):
+- Step 1 (immediate): Send template `AB · Studio — Booking Confirmation (Pay First)`
+- Step 2 (wait 5 min): Send template `AB · Studio — Scheduling Link After Payment`
+- Step 3 (when appointment scheduled / 24hr before): Send `AB · Studio — Day-Before Reminder` (GHL appointment trigger)
+- Step 4 (when appointment ends / 1hr after): Send `AB · Studio — Post-Shoot Follow-Up`

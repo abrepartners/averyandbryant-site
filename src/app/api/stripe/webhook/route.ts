@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { upsertContact } from "@/lib/ghl";
+import { upsertContact, enrollInWorkflow } from "@/lib/ghl";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,6 +25,18 @@ const PRODUCT_TAGS: Record<string, string[]> = {
   "alternate-set": ["vertical:studio", "studio:booking", "studio:alternate-set"],
   "multi-set-day": ["vertical:studio", "studio:booking", "studio:multi-set-day"],
 };
+
+// Existing GHL workflows to auto-enroll contacts in (IDs captured 2026-04-20).
+// These need to be PUBLISHED in GHL UI before enrollment will fire actions.
+const TIER_WORKFLOWS: Record<string, string> = {
+  "creator-lite": "8185e8b3-b5a8-4501-a0b7-a3ca5f15dcff", // Assign Credits Creator Lite
+  creator: "f30f7796-155a-4667-88e6-34e471bcffa5", // Assign Credits Creator
+  pro: "bf3324aa-5189-4a1e-82db-fbef73da39e9", // Assign Credits Pro
+};
+
+// Fires for any one-time studio booking (currently routes to "Aryeo → New Booking"
+// which covers the same shoot-fulfillment steps — swap to a dedicated Spot flow later).
+const BOOKING_WORKFLOW_ID = "5a1c01c0-8380-4790-8a3c-e405ac503a87";
 
 export async function POST(req: Request) {
   if (!stripe || !WEBHOOK_SECRET) {
@@ -76,6 +88,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ received: true, warning: "no email" });
   }
 
+  let contactId: string | undefined;
   try {
     const result = await upsertContact({
       firstName: firstName || undefined,
@@ -85,15 +98,45 @@ export async function POST(req: Request) {
       source: "stripe-checkout",
       tags,
     });
+    contactId = result.contact?.id;
     console.info(
       "[stripe-webhook] upserted contact",
-      result.contact?.id,
+      contactId,
       "tags",
       tags,
     );
   } catch (err) {
     console.error("[stripe-webhook] GHL upsert failed", err);
     return NextResponse.json({ error: "ghl upsert failed" }, { status: 500 });
+  }
+
+  // Enroll in the corresponding GHL workflow so published drip sequences fire.
+  // Workflows must be PUBLISHED in GHL UI first; enrollment on draft workflows
+  // succeeds silently but no actions run.
+  if (contactId) {
+    const workflowId = tier
+      ? TIER_WORKFLOWS[tier]
+      : product
+        ? BOOKING_WORKFLOW_ID
+        : undefined;
+    if (workflowId) {
+      try {
+        await enrollInWorkflow(contactId, workflowId);
+        console.info(
+          "[stripe-webhook] enrolled",
+          contactId,
+          "in workflow",
+          workflowId,
+        );
+      } catch (err) {
+        // Non-fatal — contact still exists, tags still applied.
+        console.error(
+          "[stripe-webhook] workflow enrollment failed",
+          workflowId,
+          err,
+        );
+      }
+    }
   }
 
   return NextResponse.json({ received: true });

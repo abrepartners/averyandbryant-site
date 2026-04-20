@@ -70,3 +70,16 @@ export async function upsertContact(input: GhlContactInput) {
 export async function addTags(contactId: string, tags: string[]) {
   return ghl("POST", `/contacts/${contactId}/tags`, { tags });
 }
+
+export async function enrollInWorkflow(
+  contactId: string,
+  workflowId: string,
+  eventStartTime?: string,
+) {
+  const path = `/contacts/${contactId}/workflow/${workflowId}`;
+  return ghl(
+    "POST",
+    path,
+    eventStartTime ? { eventStartTime } : undefined,
+  );
+}
