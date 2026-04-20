@@ -555,11 +555,18 @@ export default async function StudioPage({
           </div>
 
           <p className="mt-10 text-center text-sm text-white/35">
-            Not sure yet?{" "}
-            <a href={emailFor("Membership question")} className="text-crimson hover:text-white">
-              Ask us anything
+            Already a member?{" "}
+            <a href="/members" className="text-crimson hover:text-white">
+              Manage your account
             </a>
-            {" "}or scroll down for pay-as-you-go rates.
+            . New here?{" "}
+            <a
+              href={emailFor("Membership question")}
+              className="text-crimson hover:text-white"
+            >
+              Ask us anything
+            </a>{" "}
+            or scroll down for pay-as-you-go rates.
           </p>
         </div>
       </section>

@@ -123,6 +123,12 @@ export function Nav() {
             >
               Referrals
             </Link>
+            <Link
+              href="/members"
+              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
+            >
+              Account
+            </Link>
 
             <Link
               href="/book"
@@ -207,6 +213,13 @@ export function Nav() {
             className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-crimson hover:text-white"
           >
             Referrals
+          </Link>
+          <Link
+            href="/members"
+            onClick={() => setMobileOpen(false)}
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
+          >
+            Account
           </Link>
           <Link
             href="/book"
