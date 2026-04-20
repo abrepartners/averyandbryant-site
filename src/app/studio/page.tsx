@@ -188,9 +188,77 @@ function emailFor(room?: string) {
   return `mailto:hello@averyandbryant.com?subject=${encodeURIComponent(subject)}`;
 }
 
-export default function StudioPage() {
+const PAID_LABELS: Record<string, string> = {
+  "podcast-1hr": "Podcast Room — 1 Hour",
+  "podcast-2hr": "Podcast Room — 2 Hour",
+  "podcast-half": "Podcast Room — Half Day",
+  "alternate-set": "Alternate Set",
+  "multi-set-day": "Multi-Set Day Pass",
+};
+
+const SUBSCRIBED_LABELS: Record<string, string> = {
+  "creator-lite": "Creator Lite",
+  creator: "Creator",
+  pro: "Pro",
+};
+
+export default async function StudioPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ paid?: string; subscribed?: string }>;
+}) {
+  const sp = await searchParams;
+  const paidLabel = sp.paid ? PAID_LABELS[sp.paid] : undefined;
+  const subscribedLabel = sp.subscribed
+    ? SUBSCRIBED_LABELS[sp.subscribed]
+    : undefined;
+
   return (
     <>
+      {/* ── POST-PAYMENT THANK YOU BANNER ── */}
+      {paidLabel || subscribedLabel ? (
+        <div
+          role="status"
+          className="border-b border-amber-400/20 bg-amber-400/[0.04] px-6 py-6 md:px-12 md:py-8"
+        >
+          <div className="mx-auto flex max-w-[1280px] flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
+                {subscribedLabel ? "Subscription active" : "Payment received"}
+              </p>
+              <h2 className="mt-2 font-display text-xl font-light text-white-90 md:text-2xl">
+                {subscribedLabel
+                  ? `You're a ${subscribedLabel} member.`
+                  : `${paidLabel} — paid in full.`}{" "}
+                <span className="text-white/50">
+                  {subscribedLabel
+                    ? "Check your email for credit redemption details."
+                    : "Now pick your time slot."}
+                </span>
+              </h2>
+              <p className="mt-2 text-sm text-white/45">
+                A confirmation email is on its way. Questions?{" "}
+                <a
+                  href={emailFor("Booking confirmation")}
+                  className="text-crimson hover:text-white"
+                >
+                  Email us
+                </a>{" "}
+                or call (501) 502-2925.
+              </p>
+            </div>
+            {paidLabel ? (
+              <a
+                href={emailFor(`Schedule my ${paidLabel}`)}
+                className="inline-flex shrink-0 items-center justify-center rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark"
+              >
+                Schedule my session
+              </a>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
       {/* ── HERO ── */}
       <section
         aria-label="The Spot Creative Studios hero"
