@@ -88,9 +88,9 @@ const memberships = [
     name: "Creator Lite",
     monthly: "$60/mo",
     credits: "4 credits",
-    perCredit: "$15 / credit",
+    perCredit: "Redemption rates custom",
     description:
-      "For the independent creator. Light monthly use — book 4 hours, edits, or production support.",
+      "For the independent creator. Light monthly use — credits work across studio time, edits, and production add-ons.",
     bestFor: "Newcomers and occasional shooters",
     subscribeUrl: "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
   },
@@ -98,9 +98,9 @@ const memberships = [
     name: "Creator",
     monthly: "$100/mo",
     credits: "8 credits",
-    perCredit: "$12.50 / credit",
+    perCredit: "Redemption rates custom",
     description:
-      "For consistent creators. 8 monthly credits to spend across studio time, edits, and add-ons.",
+      "For consistent creators. Monthly credits to spend across studio sessions, editing rounds, and production support.",
     bestFor: "Weekly podcasters / content schedules",
     highlight: true,
     subscribeUrl: "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
@@ -109,9 +109,9 @@ const memberships = [
     name: "Pro",
     monthly: "$180/mo",
     credits: "16 credits",
-    perCredit: "$11.25 / credit",
+    perCredit: "Redemption rates custom",
     description:
-      "For high-volume production teams. Maximum studio access, full add-on flexibility, back-to-back capacity.",
+      "For high-volume production teams. Maximum studio access, priority booking, and member rates on every add-on.",
     bestFor: "Content teams and agencies",
     subscribeUrl: "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
   },
@@ -121,27 +121,27 @@ const pricing = [
   {
     name: "Podcast Room — 1 Hour",
     rate: "$85",
-    description: "Base studio rental. 1-hour minimum. Members redeem 1 credit.",
+    description: "Base studio rental. 1-hour minimum. Members get preferred rates.",
     highlight: true,
     payUrl: "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m",
   },
   {
     name: "Podcast Room — 2 Hour",
     rate: "$170",
-    description: "Standard podcast block. Members redeem 2 credits.",
+    description: "Standard podcast block.",
     payUrl: "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n",
   },
   {
     name: "Podcast Room — Half Day (4 hr)",
     rate: "$340",
-    description: "Multi-episode batch. Members redeem 4 credits.",
+    description: "Multi-episode batch recording or extended interview.",
     payUrl: "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o",
   },
   {
     name: "Each Alternate Set / Garage — 1 Hour",
     rate: "$150",
     description:
-      "Add Set A, Set B, Intimate Set, or the Garage to your day. Members redeem 1 credit.",
+      "Add Set A, Set B, Intimate Set, or the Garage to your day.",
     payUrl: "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p",
   },
   {
@@ -155,24 +155,24 @@ const pricing = [
     name: "Audio Podcast Production",
     rate: "+$40/hr",
     description:
-      "Podcast mics, engineer support, recorded and delivered. Members: 1 credit / hr.",
+      "Podcast mics, engineer support, recorded and delivered.",
   },
   {
     name: "Engineer Assist",
     rate: "+$40/hr",
     description:
-      "Add an engineer for mixing, lighting, or camera op. Members: 1 credit / hr.",
+      "Add an engineer for mixing, lighting, or camera op.",
   },
   {
     name: "Equipment Access",
     rate: "+$25/hr",
-    description: "Full equipment suite — lighting, cameras, audio gear. Members: 1 credit / hr.",
+    description: "Full equipment suite — lighting, cameras, audio gear.",
   },
   {
     name: "Extra 30 Minutes",
     rate: "+$50",
     description:
-      "Extend an active session without rebooking. Members: 0.5 credits.",
+      "Extend an active session without rebooking.",
   },
 ];
 
@@ -470,9 +470,9 @@ export default async function StudioPage({
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
             Each tier comes with monthly{" "}
             <span className="text-amber-200/80">credits</span> you can spend on
-            studio time, edits, engineer assist, or equipment.{" "}
-            <span className="text-white/65">1 credit = 1 hour</span> of any
-            single set, edit round, or production support service.
+            studio time, edits, engineer assist, or equipment — plus member
+            rates on everything else. Redemption values are shared in your
+            welcome email so we can match them to what you actually need.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
