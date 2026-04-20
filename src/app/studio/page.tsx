@@ -92,6 +92,7 @@ const memberships = [
     description:
       "For the independent creator. Light monthly use — book 4 hours, edits, or production support.",
     bestFor: "Newcomers and occasional shooters",
+    subscribeUrl: "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
   },
   {
     name: "Creator",
@@ -102,6 +103,7 @@ const memberships = [
       "For consistent creators. 8 monthly credits to spend across studio time, edits, and add-ons.",
     bestFor: "Weekly podcasters / content schedules",
     highlight: true,
+    subscribeUrl: "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
   },
   {
     name: "Pro",
@@ -111,6 +113,7 @@ const memberships = [
     description:
       "For high-volume production teams. Maximum studio access, full add-on flexibility, back-to-back capacity.",
     bestFor: "Content teams and agencies",
+    subscribeUrl: "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
   },
 ];
 
@@ -120,28 +123,33 @@ const pricing = [
     rate: "$85",
     description: "Base studio rental. 1-hour minimum. Members redeem 1 credit.",
     highlight: true,
+    payUrl: "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m",
   },
   {
     name: "Podcast Room — 2 Hour",
     rate: "$170",
     description: "Standard podcast block. Members redeem 2 credits.",
+    payUrl: "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n",
   },
   {
     name: "Podcast Room — Half Day (4 hr)",
     rate: "$340",
     description: "Multi-episode batch. Members redeem 4 credits.",
+    payUrl: "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o",
   },
   {
     name: "Each Alternate Set / Garage — 1 Hour",
     rate: "$150",
     description:
       "Add Set A, Set B, Intimate Set, or the Garage to your day. Members redeem 1 credit.",
+    payUrl: "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p",
   },
   {
     name: "Multi-Set Day Pass (8 hr)",
     rate: "$1,495",
     description:
       "Full day, all rooms unlocked. Build a month of content without relocating.",
+    payUrl: "https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q",
   },
   {
     name: "Audio Podcast Production",
@@ -430,8 +438,14 @@ export default function StudioPage() {
                   {tier.bestFor}
                 </p>
                 <a
-                  href={emailFor(`Membership inquiry — ${tier.name}`)}
-                  className="mt-auto inline-flex items-center justify-center rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-all hover:border-crimson/40 hover:text-white"
+                  href={tier.subscribeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-auto inline-flex items-center justify-center rounded px-5 py-3 text-[11px] uppercase tracking-[0.2em] transition-all ${
+                    tier.highlight
+                      ? "bg-crimson text-white hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+                      : "border border-white/15 text-white/70 hover:border-crimson/40 hover:text-white"
+                  }`}
                 >
                   Become a Member
                 </a>
@@ -510,6 +524,16 @@ export default function StudioPage() {
                 <p className="mt-3 text-sm leading-relaxed text-white/50">
                   {p.description}
                 </p>
+                {p.payUrl ? (
+                  <a
+                    href={p.payUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                  >
+                    Pay & Book <span aria-hidden>&rarr;</span>
+                  </a>
+                ) : null}
               </div>
             ))}
           </div>

@@ -52,11 +52,28 @@ Half-credits available (Extra 30 Min = 0.5 credits). Multi-set day pass = 8 cred
 - Creator: $100/mo ÷ 8 = $12.50/credit (82% off)
 - Creator Lite: $60/mo ÷ 4 = $15/credit (76% off)
 
+## Stripe Payment Links (live, customer-clickable)
+
+Created 2026-04-20. All on the `pay.averyandbryant.com` custom domain.
+
+| What | Link | Stripe Plink ID |
+|---|---|---|
+| Membership · Creator Lite ($60/mo) | https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j | `plink_1TOIZVH4bUQUJwBsVyNa3EKK` |
+| Membership · Creator ($100/mo) | https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k | `plink_1TOIZWH4bUQUJwBsMjg6Amnk` |
+| Membership · Pro ($180/mo) | https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l | `plink_1TOIZYH4bUQUJwBsPnbjPZ87` |
+| Podcast Room · 1hr ($85) | https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m | `plink_1TOIZaH4bUQUJwBsRRpAzgpU` |
+| Podcast Room · 2hr ($170) | https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n | `plink_1TOIZcH4bUQUJwBs07J29qfN` |
+| Podcast Room · Half Day ($340) | https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o | `plink_1TOIZdH4bUQUJwBssYjvpHWH` |
+| Alternate Set · 1hr ($150) | https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p | `plink_1TOIZfH4bUQUJwBsspXstSfq` |
+| Multi-Set Day Pass ($1,495) | https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q | `plink_1TOIZhH4bUQUJwBsCjRdnUH4` |
+
+After payment, customers redirect to `averyandbryant.com/studio?paid=<sku>` (or `?subscribed=<tier>` for memberships) — useful for analytics events / GTM tracking.
+
 ## Remaining manual steps
 
-1. **Wire calendar → Stripe price** in GHL UI for each of the 6 calendars (the API created them with no payment integration; that field appears to need to be set in the dashboard).
-2. **Activate the 6 calendars** (set `isActive: true` after payment is wired and you've done one test booking).
-3. **(Optional) Build credit-redemption flow** — how members actually consume credits. Easiest version: create discount/coupon codes per credit value, distribute to active subscribers via GHL workflow. More automated version: external balance tracking + custom checkout. **Out of scope for initial launch.**
+1. **Hook up GHL calendar payment integration** (GHL UI → each calendar → Payments → connect Stripe price). This is for the calendar-widget-direct-charge flow. Currently the studio page links to Stripe Payment Links instead, which works without this step — but if you want the calendar widget itself to charge on slot booking, do this.
+2. **Activate the 6 calendars** (set `isActive: true`) once you've decided whether to use direct payment links (current setup, no calendar-payment integration needed) OR calendar widgets with embedded payment.
+3. **(Optional) Build credit-redemption flow** — how members actually consume their monthly credits. Simplest path: create one-time-use Stripe coupon codes per credit value, distribute to active subscribers via GHL workflow when they sign up. **Out of scope for initial launch — members can pay full price and get reimbursed manually for now.**
 
 ---
 
