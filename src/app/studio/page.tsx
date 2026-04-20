@@ -83,28 +83,88 @@ const amenities = [
   "Flexible cancellation",
 ];
 
-const pricing = [
+const memberships = [
   {
-    name: "Podcast Room",
-    rate: "$75–$95/hr",
-    description: "Base studio rental. 1-hour minimum. Bookable on Peerspace.",
+    name: "Creator Lite",
+    monthly: "$60/mo",
+    credits: "4 credits",
+    perCredit: "$15 / credit",
+    description:
+      "For the independent creator. Light monthly use — book 4 hours, edits, or production support.",
+    bestFor: "Newcomers and occasional shooters",
+  },
+  {
+    name: "Creator",
+    monthly: "$100/mo",
+    credits: "8 credits",
+    perCredit: "$12.50 / credit",
+    description:
+      "For consistent creators. 8 monthly credits to spend across studio time, edits, and add-ons.",
+    bestFor: "Weekly podcasters / content schedules",
     highlight: true,
   },
   {
-    name: "Each Alternate Set",
-    rate: "+$150/hr",
+    name: "Pro",
+    monthly: "$180/mo",
+    credits: "16 credits",
+    perCredit: "$11.25 / credit",
     description:
-      "Add Set A, Set B, the Intimate Set, or the Garage. Multi-set days mean you don't have to relocate between shots.",
+      "For high-volume production teams. Maximum studio access, full add-on flexibility, back-to-back capacity.",
+    bestFor: "Content teams and agencies",
+  },
+];
+
+const pricing = [
+  {
+    name: "Podcast Room — 1 Hour",
+    rate: "$85",
+    description: "Base studio rental. 1-hour minimum. Members redeem 1 credit.",
+    highlight: true,
+  },
+  {
+    name: "Podcast Room — 2 Hour",
+    rate: "$170",
+    description: "Standard podcast block. Members redeem 2 credits.",
+  },
+  {
+    name: "Podcast Room — Half Day (4 hr)",
+    rate: "$340",
+    description: "Multi-episode batch. Members redeem 4 credits.",
+  },
+  {
+    name: "Each Alternate Set / Garage — 1 Hour",
+    rate: "$150",
+    description:
+      "Add Set A, Set B, Intimate Set, or the Garage to your day. Members redeem 1 credit.",
+  },
+  {
+    name: "Multi-Set Day Pass (8 hr)",
+    rate: "$1,495",
+    description:
+      "Full day, all rooms unlocked. Build a month of content without relocating.",
   },
   {
     name: "Audio Podcast Production",
     rate: "+$40/hr",
-    description: "Podcast mics, engineer support, recorded and delivered.",
+    description:
+      "Podcast mics, engineer support, recorded and delivered. Members: 1 credit / hr.",
   },
   {
-    name: "Full Video Production",
-    rate: "+$150/hr",
-    description: "Camera op, lighting, audio, and editing — full crew.",
+    name: "Engineer Assist",
+    rate: "+$40/hr",
+    description:
+      "Add an engineer for mixing, lighting, or camera op. Members: 1 credit / hr.",
+  },
+  {
+    name: "Equipment Access",
+    rate: "+$25/hr",
+    description: "Full equipment suite — lighting, cameras, audio gear. Members: 1 credit / hr.",
+  },
+  {
+    name: "Extra 30 Minutes",
+    rate: "+$50",
+    description:
+      "Extend an active session without rebooking. Members: 0.5 credits.",
   },
 ];
 
@@ -321,6 +381,74 @@ export default function StudioPage() {
         </div>
       </section>
 
+      {/* ── MEMBERSHIPS ── */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Memberships
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+            Use the studio every month?{" "}
+            <span className="text-white-40">Memberships save you 50–80%.</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
+            Each tier comes with monthly{" "}
+            <span className="text-amber-200/80">credits</span> you can spend on
+            studio time, edits, engineer assist, or equipment.{" "}
+            <span className="text-white/65">1 credit = 1 hour</span> of any
+            single set, edit round, or production support service.
+          </p>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {memberships.map((tier) => (
+              <div
+                key={tier.name}
+                className={`flex flex-col rounded-lg border p-8 transition-all md:p-10 ${
+                  tier.highlight
+                    ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
+                    : "border-white/10 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
+                }`}
+              >
+                {tier.highlight ? (
+                  <span className="mb-4 inline-flex w-fit items-center gap-1 rounded-full bg-crimson/15 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-crimson">
+                    Most Popular
+                  </span>
+                ) : null}
+                <h3 className="font-display text-2xl font-medium text-white-90">
+                  {tier.name}
+                </h3>
+                <p className="mt-3 font-display text-4xl font-light text-crimson">
+                  {tier.monthly}
+                </p>
+                <p className="mt-2 text-sm text-amber-200/80">
+                  {tier.credits} · {tier.perCredit}
+                </p>
+                <p className="mt-6 text-sm leading-relaxed text-white/55">
+                  {tier.description}
+                </p>
+                <p className="mt-6 text-[10px] uppercase tracking-[0.25em] text-white/35">
+                  {tier.bestFor}
+                </p>
+                <a
+                  href={emailFor(`Membership inquiry — ${tier.name}`)}
+                  className="mt-auto inline-flex items-center justify-center rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-all hover:border-crimson/40 hover:text-white"
+                >
+                  Become a Member
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 text-center text-sm text-white/35">
+            Not sure yet?{" "}
+            <a href={emailFor("Membership question")} className="text-crimson hover:text-white">
+              Ask us anything
+            </a>
+            {" "}or scroll down for pay-as-you-go rates.
+          </p>
+        </div>
+      </section>
+
       {/* ── AMENITIES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
@@ -353,11 +481,15 @@ export default function StudioPage() {
             Pricing
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Studio-only or fully produced.{" "}
-            <span className="text-white-40">Stack sets as you need.</span>
+            Pay-as-you-go.{" "}
+            <span className="text-white-40">Or save with a membership above.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
+            Non-member rates. Members pay nothing extra at booking — credits
+            are redeemed at checkout.
+          </p>
 
-          <div className="mt-16 grid gap-4 md:grid-cols-2">
+          <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {pricing.map((p) => (
               <div
                 key={p.name}

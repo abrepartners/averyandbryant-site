@@ -1,5 +1,69 @@
 # The Spot — GHL Calendars + Stripe Setup Brief
 
+> **Status (2026-04-20): Mostly built. Calendars + Stripe prices created via API.**
+> Remaining manual step: wire each calendar to its Stripe price in the GHL UI
+> (calendar → Payments → Connect Price), then flip `isActive: true`.
+
+## As-built — IDs
+
+**GHL calendars** (location `iXhH37718q9nZnf4tkgF`, group `QSFoMT6VOSNZ288RBDz2 — The Spot — Studio Bookings`)
+
+| Calendar | GHL ID | Slot | Stripe Price | Amount |
+|---|---|---|---|---|
+| Podcast Room (1 Hour) | `7ITuyoouCVIHPpd9g7BX` | 60 min | `price_1TOIOdH4bUQUJwBsF0RHvvis` | $85.00 |
+| Podcast Room (2 Hour) | `9g4b8uFBR4KmJNWJwv9a` | 120 min | `price_1TOIOlH4bUQUJwBsXsxqCtN9` | $170.00 |
+| Podcast Room (Half Day · 4hr) | `J0gqnGTQFA8eD4EoFHwl` | 240 min | `price_1TOIOmH4bUQUJwBsPS589uzc` | $340.00 |
+| Alternate Set (1 Hour) | `gZIylqnwF2olLvPrqWqR` | 60 min | `price_1TOIOoH4bUQUJwBsJkWbIvyh` | $150.00 |
+| The Garage (1 Hour) | `FVDXuUTLJLD4XKm6lPOp` | 60 min | `price_1TOIOoH4bUQUJwBsJkWbIvyh` | $150.00 (shared) |
+| Multi-Set Day Pass | `oaOY7LqfIC87tAy881wE` | 480 min | `price_1TOIOpH4bUQUJwBsZxL2R8ja` | $1,495.00 |
+
+All on the existing **Studio Rental (Hourly Rate)** product (`prod_TcjjVan3Yxljir`).
+
+**Stripe add-on prices** (separate products):
+
+| Add-on | Stripe Price | Product |
+|---|---|---|
+| Audio Production (per hour) — $40 | `price_1TOIOqH4bUQUJwBsrMmr5ZTx` | `prod_Tci8eyz1n5StQV` Podcast Recording \| Audio Only |
+| Engineer Assist (per hour) — $40 | `price_1TOIOrH4bUQUJwBszxlT4e5m` | `prod_TgekiAJu35q5lG` Engineer Assist |
+| Equipment Access (per hour) — $25 | `price_1TOIOtH4bUQUJwBsnf9Di3HN` | `prod_TgekKupcsOrhRA` Equipment Access |
+| Extra 30 Minutes — $50 | `price_1TOIOuH4bUQUJwBsXQ5rNS3r` | `prod_TgejObY5dz9oj1` Extra 30 Minutes |
+
+**Memberships** (already live, untouched):
+
+| Tier | Stripe Product | Stripe Price | Monthly | Credits |
+|---|---|---|---|---|
+| Pro | `prod_Tgf4A4MsIgoTFL` | `price_1SjHjtH4bUQUJwBsHzwvW2EF` | $180/mo | 16 |
+| Creator | `prod_Tgeu4MtyhEOLrZ` | `price_1SjHaHH4bUQUJwBsHiFZ2xnF` | $100/mo | 8 |
+| Creator Lite | `prod_TgerQQpsz2ZJZ0` | `price_1SjHXuH4bUQUJwBsAkdakXgS` | $60/mo | 4 |
+
+## Credit model
+
+**1 credit = 1 hour** of any:
+- Single-set studio time (Podcast Room, Set A/B, Intimate Set, Garage)
+- Engineer assist
+- Audio production
+- Round of basic edits
+- Equipment access
+
+Half-credits available (Extra 30 Min = 0.5 credits). Multi-set day pass = 8 credits.
+
+**Pricing arithmetic:**
+- Pro: $180/mo ÷ 16 = $11.25/credit (84% off non-member $85 rate)
+- Creator: $100/mo ÷ 8 = $12.50/credit (82% off)
+- Creator Lite: $60/mo ÷ 4 = $15/credit (76% off)
+
+## Remaining manual steps
+
+1. **Wire calendar → Stripe price** in GHL UI for each of the 6 calendars (the API created them with no payment integration; that field appears to need to be set in the dashboard).
+2. **Activate the 6 calendars** (set `isActive: true` after payment is wired and you've done one test booking).
+3. **(Optional) Build credit-redemption flow** — how members actually consume credits. Easiest version: create discount/coupon codes per credit value, distribute to active subscribers via GHL workflow. More automated version: external balance tracking + custom checkout. **Out of scope for initial launch.**
+
+---
+
+(Original spec follows for reference.)
+
+---
+
 Hand to an admin or AI agent to set up the booking infrastructure for **The Spot Creative Studios**: 6 GHL service-booking calendars, each integrated with a Stripe product/price for direct in-calendar payment.
 
 Pairs with `docs/aryeo-manual-creation-brief.md` and `docs/ghl-manual-setup-brief.md` — same execution pattern, different system.
