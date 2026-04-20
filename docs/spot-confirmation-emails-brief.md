@@ -156,6 +156,8 @@ Once env vars are set + webhook is configured + workflows built:
 - ✅ Webhook route built (`src/app/api/stripe/webhook/route.ts`)
 - ✅ GHL bridge helper built (`src/lib/ghl.ts`)
 - ✅ Post-payment thank-you UI on `/studio?paid=...` and `?subscribed=...`
-- ⏳ **Pending:** env vars set in Vercel (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, GHL_API_TOKEN, GHL_LOCATION_ID)
-- ⏳ **Pending:** Stripe webhook endpoint configured in dashboard
-- ⏳ **Pending:** GHL workflows built (UI-only)
+- ✅ All 4 env vars set in Vercel (production + development): `STRIPE_SECRET_KEY` (copied from studioai project), `STRIPE_WEBHOOK_SECRET`, `GHL_API_TOKEN`, `GHL_LOCATION_ID`
+- ✅ Stripe webhook endpoint created via API — `we_1TOIvtH4bUQUJwBsIVwef1lC`, listening for `checkout.session.completed`, signing secret `whsec_kBhlJMHXOcmdRSAsk8FYTRqgDnqN718T`
+- ✅ Production redeployed with new env vars
+- ✅ Webhook route verified responding correctly (405 to GET, 400 to unsigned POST → ready for Stripe)
+- ⏳ **Pending:** GHL workflows built in GHL UI (workflow creation is UI-only). Tag triggers documented above.
