@@ -12,17 +12,25 @@ const API = "https://services.leadconnectorhq.com";
 // Every A&B-branded template currently in the location. Stock/default GHL
 // templates are intentionally excluded — they'll be handled separately
 // (either rebranded or deleted).
-// Scope: only the AB Studio set. StudioAI templates use a different
-// (blue) sub-brand; the April-15 batch has a different header structure
-// and will be handled separately.
-// Membership Welcome (first in list) was restored in a one-off earlier.
+// Two sets of templates handled here:
+//   1. AB Studio — custom-built for the pay-first flow (Apr 20 batch).
+//      Uses the "A&B" text badge header. Done in first migration.
+//   2. GHL stock + Apr 15 marketing batch — auto-generated templates
+//      with a centered "AVERY & BRYANT" wordmark and a text-only footer
+//      that uses Thomas's personal contact info.
+// StudioAI templates use a separate blue sub-brand and stay as-is.
 const TEMPLATE_IDS = [
-  "69e6403673be3901eefae5bb", // Booking Confirmation (Pay First)
-  "69e640489fa06c1c17d2e49e", // Day-Before Reminder
-  "69e64058ba2aaa590cc37195", // Post-Shoot Follow-Up
-  "69e6406bb81c38b59ea9a57d", // Credit Redemption Details
-  "69e6407db9bf9139fd4ad9e5", // Scheduling Link After Payment
-  "69e65acd79eb79452b993ebd", // Files Ready to Review
+  // GHL "Default - *" auto-fire transactional templates
+  "6939c454f1d210e3813e1ec9", // Default - Document Sent
+  "6939c5fded5d4c666b36c03a", // Default - Estimate Received
+  "695ed70297316d1d00ce1e2f", // Default - Abandoned Cart
+  "69698be170923e2194e56449", // Default - Invoice payment successful
+  // GHL stock marketing templates (agency boilerplate)
+  "69180d96f18e1f4ed1e8c85b", // Content Marketing
+  "69180d96f18e1f3daee8c85d", // Social Media Management
+  "69180d96f18e1fe690e8c855", // Digital Marketing Services
+  "69180d96f18e1f392ce8c859", // Marketing Campaign
+  "69180d96f18e1f041ce8c857", // Search Engine Optimization
 ];
 
 // Replacement of the "A&B" text-in-red-box placeholder with the real mark.
@@ -33,28 +41,32 @@ const LOGO_IMG = `<img src="{{ custom_values.brand_logo_white_raster_url }}" wid
 // Old header pattern — the inline "A&B" crimson badge span.
 const A_B_BADGE_RE = /<span\s+style="[^"]*background:\s*#C41230[^"]*"\s*>\s*A&amp;B\s*<\/span>/gi;
 
-// Refactor rules (order-sensitive — run specific first, general last).
-// Each entry: [regex or literal, replacement]. Replacements use GHL merge
-// tags — these evaluate at send time.
+// Stock + Apr 15 batch header — centered crimson "AVERY & BRYANT"
+// wordmark inside a <p> tag. Replace with the real mark + business name.
+const STOCK_HEADER_RE = /<p\s+style="margin:0;font-size:16px;font-weight:600;letter-spacing:0\.15em;color:#C41230;">\s*AVERY &amp; BRYANT\s*<\/p>/gi;
+const STOCK_HEADER_NEW = `<img src="{{ custom_values.brand_logo_raster_url }}" width="44" height="48" alt="{{ custom_values.brand_business_name }}" style="display:block;margin:0 auto 10px;border:0;outline:none;max-width:44px;height:auto"/><p style="margin:0;font-size:14px;font-weight:600;letter-spacing:0.15em;color:rgba(255,255,255,0.6);">{{ custom_values.brand_business_name }}</p>`;
+
+// Stock footer — three-line plain text with Thomas's personal contact.
+// Website line may already have been swapped to the URL merge tag by the
+// earlier rule; match both forms for idempotency.
+const STOCK_FOOTER_RE = /Avery &amp; Bryant<br\s*\/?>\(479\) 502-6949\s*&nbsp;\|&nbsp;\s*book@averyandbryant\.com<br\s*\/?>(?:averyandbryant\.com|\{\{\s*custom_values\.brand_website_url\s*\}\})/gi;
+const STOCK_FOOTER_NEW = `{{ custom_values.brand_business_name }}<br>{{ custom_values.brand_phone }} &nbsp;|&nbsp; {{ custom_values.brand_email }}<br>{{ custom_values.brand_website_display }}`;
+
+// Refactor rules (order-sensitive — multi-field patterns first so the
+// more generic single-field rules don't strip them partially).
 const RULES = [
-  // 1. Replace the "A&B" logo badge with the real mark image
+  // --- GHL stock + Apr 15 marketing batch (must run first — their
+  //     footers contain strings the generic rules below would also match) ---
+  [STOCK_HEADER_RE, STOCK_HEADER_NEW],
+  [STOCK_FOOTER_RE, STOCK_FOOTER_NEW],
+
+  // --- AB Studio set (original custom-built templates) ---
   [A_B_BADGE_RE, LOGO_IMG],
-
-  // 2. Header "Avery & Bryant" text (after the logo) — route through
-  //    custom value so rebranding the biz name is a single edit later
   [/>Avery &amp; Bryant<\/span>/g, ">{{ custom_values.brand_business_name }}</span>"],
-
-  // 3. Footer address line
   [/Avery &amp; Bryant · 12521 Kanis Rd, Little Rock, AR 72211/g,
    "{{ custom_values.brand_business_name }} · {{ custom_values.brand_address }}"],
-
-  // 4. Footer phone display (keep tel: href, swap display text)
   [/>\(501\) 502-2925</g, ">{{ custom_values.brand_phone }}<"],
-
-  // 5. Footer email display (keep mailto: href, swap display text)
   [/>hello@averyandbryant\.com</g, ">{{ custom_values.brand_email }}<"],
-
-  // 6. Footer website display
   [/>averyandbryant\.com</g, ">{{ custom_values.brand_website_url }}<"],
 ];
 
