@@ -4,8 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
+// Real Estate is promoted to its own top-level link — the flagship service.
+// The remaining six property verticals live under "Services"; the non-core
+// product offerings live under "Products". Utility links (Client Portal,
+// Account, Referrals) moved to the footer.
 const services = [
-  { label: "Real Estate", href: "/real-estate" },
   { label: "Airbnb Rentals", href: "/airbnb-rentals" },
   { label: "Multi-Family", href: "/multi-family" },
   { label: "Commercial", href: "/commercial" },
@@ -14,12 +17,21 @@ const services = [
   { label: "Branding", href: "/branding" },
 ];
 
+const products = [
+  { label: "The Spot · Studios", href: "/studio" },
+  { label: "StudioAI", href: "/studioai" },
+  { label: "Answr", href: "/answr" },
+];
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const productsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -29,11 +41,11 @@ export function Nav() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
+      }
+      if (productsRef.current && !productsRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -68,18 +80,23 @@ export function Nav() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-7 md:flex">
+            <Link
+              href="/real-estate"
+              className="text-[11px] uppercase tracking-[0.15em] text-white-70 transition-colors hover:text-white"
+            >
+              Real Estate
+            </Link>
+
             {/* Services Dropdown */}
-            <div ref={dropdownRef} className="relative">
+            <div ref={servicesRef} className="relative">
               <button
-                onClick={() => setServicesOpen(!servicesOpen)}
+                onClick={() => { setServicesOpen(!servicesOpen); setProductsOpen(false); }}
                 className="flex items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
               >
                 Services
                 <ChevronDown
-                  className={`h-3 w-3 transition-transform ${
-                    servicesOpen ? "rotate-180" : ""
-                  }`}
+                  className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {servicesOpen && (
@@ -98,44 +115,32 @@ export function Nav() {
               )}
             </div>
 
-            <Link
-              href="/studio"
-              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
-            >
-              Studio
-            </Link>
-            <Link
-              href="/studioai"
-              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
-            >
-              StudioAI
-            </Link>
-            <Link
-              href="/answr"
-              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
-            >
-              Answr
-            </Link>
-            <a
-              href="https://homes.averyandbryant.com/portal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
-            >
-              Client Portal
-            </a>
-            <Link
-              href="/referral"
-              className="text-[11px] uppercase tracking-[0.15em] text-crimson transition-colors hover:text-white"
-            >
-              Referrals
-            </Link>
-            <Link
-              href="/members"
-              className="text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
-            >
-              Account
-            </Link>
+            {/* Products Dropdown */}
+            <div ref={productsRef} className="relative">
+              <button
+                onClick={() => { setProductsOpen(!productsOpen); setServicesOpen(false); }}
+                className="flex items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
+              >
+                Products
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${productsOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {productsOpen && (
+                <div className="absolute left-0 top-full mt-3 w-52 rounded-md border border-border bg-[rgba(10,10,10,0.97)] p-2 backdrop-blur-2xl">
+                  {products.map((p) => (
+                    <Link
+                      key={p.href}
+                      href={p.href}
+                      onClick={() => setProductsOpen(false)}
+                      className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-white-60 transition-colors hover:bg-white/5 hover:text-white"
+                    >
+                      {p.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <a
               href="https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc"
@@ -148,7 +153,7 @@ export function Nav() {
 
             <Link
               href="/book"
-              className="ml-4 rounded bg-crimson px-5 py-2 text-[11px] uppercase tracking-[0.15em] text-white transition-colors hover:bg-crimson-dark"
+              className="ml-2 rounded bg-crimson px-5 py-2 text-[11px] uppercase tracking-[0.15em] text-white transition-colors hover:bg-crimson-dark"
             >
               Book Now
             </Link>
@@ -168,15 +173,21 @@ export function Nav() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-[rgba(10,10,10,0.97)] px-6 py-8 backdrop-blur-2xl md:hidden">
+          <Link
+            href="/real-estate"
+            onClick={() => setMobileOpen(false)}
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-80 hover:text-white"
+          >
+            Real Estate
+          </Link>
+
           <button
             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
             className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-white-60"
           >
             Services
             <ChevronDown
-              className={`h-4 w-4 transition-transform ${
-                mobileServicesOpen ? "rotate-180" : ""
-              }`}
+              className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
             />
           </button>
           {mobileServicesOpen && (
@@ -193,50 +204,31 @@ export function Nav() {
               ))}
             </div>
           )}
-          <Link
-            href="/studio"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
+
+          <button
+            onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+            className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-white-60"
           >
-            Studio
-          </Link>
-          <Link
-            href="/studioai"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
-          >
-            StudioAI
-          </Link>
-          <Link
-            href="/answr"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
-          >
-            Answr
-          </Link>
-          <a
-            href="https://homes.averyandbryant.com/portal"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
-          >
-            Client Portal
-          </a>
-          <Link
-            href="/referral"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-crimson hover:text-white"
-          >
-            Referrals
-          </Link>
-          <Link
-            href="/members"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-white-60 hover:text-white"
-          >
-            Account
-          </Link>
+            Products
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+          {mobileProductsOpen && (
+            <div className="ml-4 border-l border-border pl-4">
+              {products.map((p) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-white-50 hover:text-white"
+                >
+                  {p.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
           <a
             href="https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc"
             target="_blank"
