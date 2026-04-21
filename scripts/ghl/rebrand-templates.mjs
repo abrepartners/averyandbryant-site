@@ -31,6 +31,14 @@ const TEMPLATE_IDS = [
   "69180d96f18e1fe690e8c855", // Digital Marketing Services
   "69180d96f18e1f392ce8c859", // Marketing Campaign
   "69180d96f18e1f041ce8c857", // Search Engine Optimization
+  // Same header/footer structure as the stock set above
+  "6939c939e201d74eeab1899e", // Client Delivery Email
+  // Apr 15 marketing batch — different header (span) + single-line footer
+  "69df6cbc6e4f577cb9e42b63", // Welcome - New Client Onboarding
+  "69df6cd84f723275a73ef65b", // Monthly Report
+  "69df6ce3bac77ef496486d19", // Project Kickoff
+  "69df6ceca29302f180df723d", // Referral Thank You
+  "69df6cf827ace17a42307944", // Win-Back / Reactivation
 ];
 
 // Replacement of the "A&B" text-in-red-box placeholder with the real mark.
@@ -52,6 +60,16 @@ const STOCK_HEADER_NEW = `<img src="{{ custom_values.brand_logo_raster_url }}" w
 const STOCK_FOOTER_RE = /Avery &amp; Bryant<br\s*\/?>\(479\) 502-6949\s*&nbsp;\|&nbsp;\s*book@averyandbryant\.com<br\s*\/?>(?:averyandbryant\.com|\{\{\s*custom_values\.brand_website_url\s*\}\})/gi;
 const STOCK_FOOTER_NEW = `{{ custom_values.brand_business_name }}<br>{{ custom_values.brand_phone }} &nbsp;|&nbsp; {{ custom_values.brand_email }}<br>{{ custom_values.brand_website_display }}`;
 
+// Apr 15 batch header — centered <span> wordmark with a larger font and
+// crimson bottom-border on its parent cell (unlike the stock set which
+// uses a <p>). Replace with logo image + business name span.
+const APR15_HEADER_RE = /<span\s+style="font-size:24px;font-weight:600;color:#C41230;letter-spacing:0\.15em;"\s*>\s*AVERY &amp; BRYANT\s*<\/span>/gi;
+const APR15_HEADER_NEW = `<img src="{{ custom_values.brand_logo_raster_url }}" width="40" height="44" alt="{{ custom_values.brand_business_name }}" style="display:block;margin:0 auto 8px;border:0;outline:none;max-width:40px;height:auto"/><span style="font-size:16px;font-weight:600;color:#C41230;letter-spacing:0.15em;">{{ custom_values.brand_business_name }}</span>`;
+
+// Apr 15 batch footer — single line, pipe-separated, no website.
+const APR15_FOOTER_RE = /Avery &amp; Bryant\s*\|\s*\(479\) 502-6949\s*\|\s*book@averyandbryant\.com/gi;
+const APR15_FOOTER_NEW = `{{ custom_values.brand_business_name }} | {{ custom_values.brand_phone }} | {{ custom_values.brand_email }}`;
+
 // Refactor rules (order-sensitive — multi-field patterns first so the
 // more generic single-field rules don't strip them partially).
 const RULES = [
@@ -59,6 +77,8 @@ const RULES = [
   //     footers contain strings the generic rules below would also match) ---
   [STOCK_HEADER_RE, STOCK_HEADER_NEW],
   [STOCK_FOOTER_RE, STOCK_FOOTER_NEW],
+  [APR15_HEADER_RE, APR15_HEADER_NEW],
+  [APR15_FOOTER_RE, APR15_FOOTER_NEW],
 
   // --- AB Studio set (original custom-built templates) ---
   [A_B_BADGE_RE, LOGO_IMG],
