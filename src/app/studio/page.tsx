@@ -232,7 +232,7 @@ function emailFor(room?: string) {
   const subject = room
     ? `The Spot Inquiry — ${room}`
     : "The Spot Studio Inquiry";
-  return `mailto:hello@averyandbryant.com?subject=${encodeURIComponent(subject)}`;
+  return `mailto:book@averyandbryant.com?subject=${encodeURIComponent(subject)}`;
 }
 
 const PAID_LABELS: Record<string, string> = {

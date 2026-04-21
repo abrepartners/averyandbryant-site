@@ -40,7 +40,7 @@ const cards = [
       "Redeem your credits on editing rounds, engineer assist, equipment access, extra 30-min blocks, or rush delivery. Reply to any confirmation email to redeem.",
     cta: {
       label: "Request a credit redemption",
-      href: "mailto:hello@averyandbryant.com?subject=Credit%20Redemption%20Request",
+      href: "mailto:book@averyandbryant.com?subject=Credit%20Redemption%20Request",
       external: true,
     },
     accent: "sky",
@@ -53,7 +53,7 @@ const cards = [
       "Reply to any confirmation email, or reach Thomas directly — we answer fast during studio hours.",
     cta: {
       label: "Contact support",
-      href: "mailto:hello@averyandbryant.com?subject=Member%20Support",
+      href: "mailto:book@averyandbryant.com?subject=Member%20Support",
       external: true,
     },
     accent: "rose",

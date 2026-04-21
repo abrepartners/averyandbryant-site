@@ -153,7 +153,7 @@ export default function BrandingPage() {
 
         <div className="mx-auto mt-10 max-w-[1280px] px-6 md:px-12">
           <a
-            href="mailto:hello@averyandbryant.com?subject=Personal%20Branding%20Session"
+            href="mailto:book@averyandbryant.com?subject=Personal%20Branding%20Session"
             className="text-[11px] uppercase tracking-[0.2em] text-rose-200 transition-colors hover:text-white"
           >
             Book your content day &rarr;

@@ -160,7 +160,7 @@ export default function CommercialPage() {
           <p className="mt-10 text-center text-sm text-white/35">
             Don&apos;t see your category? It probably still fits.{" "}
             <a
-              href="mailto:hello@averyandbryant.com?subject=Commercial%20Media%20Quote"
+              href="mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote"
               className="text-crimson transition-colors hover:text-white"
             >
               Let&apos;s talk.
@@ -256,7 +256,7 @@ export default function CommercialPage() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:hello@averyandbryant.com?subject=Commercial%20Media%20Quote"
+              href="mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Request a Quote

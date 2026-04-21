@@ -225,7 +225,7 @@ export default function ReferralPage() {
             Ready to start referring?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
-            Call us at (501) 502-2925 or email hello@averyandbryant.com to get
+            Call us at (501) 502-2925 or email book@averyandbryant.com to get
             set up.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -236,7 +236,7 @@ export default function ReferralPage() {
               Call Now
             </a>
             <a
-              href="mailto:hello@averyandbryant.com?subject=Referral%20Program"
+              href="mailto:book@averyandbryant.com?subject=Referral%20Program"
               className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
             >
               Email Us

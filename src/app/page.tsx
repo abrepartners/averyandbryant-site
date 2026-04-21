@@ -322,7 +322,7 @@ export default function HomePage() {
                   Call to Learn More
                 </a>
                 <a
-                  href="mailto:hello@averyandbryant.com?subject=Referral%20Program"
+                  href="mailto:book@averyandbryant.com?subject=Referral%20Program"
                   className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
                 >
                   Email Us

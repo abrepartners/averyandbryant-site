@@ -73,10 +73,10 @@ export default function BookPage() {
             <p>
               <span className="text-white-30">Email</span>{" "}
               <a
-                href="mailto:hello@averyandbryant.com"
+                href="mailto:book@averyandbryant.com"
                 className="text-white-70 transition-colors hover:text-crimson"
               >
-                hello@averyandbryant.com
+                book@averyandbryant.com
               </a>
             </p>
             <p>

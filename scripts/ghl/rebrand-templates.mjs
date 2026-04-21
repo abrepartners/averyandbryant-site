@@ -68,6 +68,9 @@ const RULES = [
   [/>\(501\) 502-2925</g, ">{{ custom_values.brand_phone }}<"],
   [/>hello@averyandbryant\.com</g, ">{{ custom_values.brand_email }}<"],
   [/>averyandbryant\.com</g, ">{{ custom_values.brand_website_url }}<"],
+  // mailto + tel hrefs — keep links functional when the custom value
+  // changes (previously hardcoded to hello@ which was the wrong address)
+  [/mailto:hello@averyandbryant\.com/g, "mailto:{{ custom_values.brand_email }}"],
 ];
 
 async function fetchPreviewHtml(templateId) {

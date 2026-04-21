@@ -111,7 +111,7 @@ export function HeroBranding() {
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
-              href="mailto:hello@averyandbryant.com?subject=Personal%20Branding%20Session"
+              href="mailto:book@averyandbryant.com?subject=Personal%20Branding%20Session"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book a Session
