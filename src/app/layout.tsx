@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { ScrollToTop } from "@/components/scroll-to-top";
@@ -156,6 +157,13 @@ export default function RootLayout({
         <main>{children}</main>
         <ScrollToTop />
         <Footer />
+        {/* GHL visitor tracking — ties site behavior back to contacts in GHL */}
+        <Script
+          id="ghl-tracking"
+          src="https://link.averyandbryant.com/js/external-tracking.js"
+          data-tracking-id="tk_5a641e0f012240c7bedc21fba0692d75"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
