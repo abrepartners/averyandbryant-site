@@ -1,5 +1,6 @@
 import { HeroMultiFamily } from "@/components/heroes/hero-multi-family";
 import { OrderLink } from "@/components/order-link";
+import { ConsultCTA } from "@/components/consult-cta";
 
 export const metadata = {
   title: "Multi-Family & Apartment Photography | Arkansas | Avery & Bryant",
@@ -204,6 +205,12 @@ export default function MultiFamilyPage() {
           </p>
         </div>
       </section>
+
+      <ConsultCTA
+        interest="multi-family"
+        headline="Planning a lease-up or refresh?"
+        subhead="Multi-family scope varies a lot by property size, amenity count, and timeline. Free 30-min call to right-size the package and talk recurring content programs."
+      />
 
       {/* ── CTA ── */}
       <section className="border-t border-white/5">

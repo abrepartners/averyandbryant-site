@@ -1,5 +1,6 @@
 import { HeroLotLand } from "@/components/heroes/hero-lot-land";
 import { OrderLink } from "@/components/order-link";
+import { ConsultCTA } from "@/components/consult-cta";
 
 export const metadata = {
   title: "Lot & Land Photography | Aerial Drone | Arkansas | Avery & Bryant",
@@ -209,6 +210,12 @@ export default function LotLandPage() {
           </p>
         </div>
       </section>
+
+      <ConsultCTA
+        interest="lot-land"
+        headline="Land shoot questions before booking?"
+        subhead="Acreage, boundaries, access, timing — tell us about the property on a quick call and we'll scope the right aerial package in minutes."
+      />
 
       {/* ── CTA ── */}
       <section className="border-t border-white/5">

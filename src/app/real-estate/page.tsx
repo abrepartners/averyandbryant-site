@@ -1,5 +1,6 @@
 import { HeroRealEstate } from "@/components/heroes/hero-real-estate";
 import { OrderLink } from "@/components/order-link";
+import { ConsultCTA } from "@/components/consult-cta";
 
 export const metadata = {
   title: "Real Estate Media | Avery & Bryant",
@@ -224,6 +225,12 @@ export default function RealEstatePage() {
           </div>
         </div>
       </section>
+
+      <ConsultCTA
+        interest="real-estate"
+        headline="Still comparing BASE / PRO / PRO+?"
+        subhead="Book a free 30-minute call. Describe the listing — we'll tell you exactly which package fits and what it'll cost. No pitch, just a clear answer."
+      />
 
       {/* ── CTA ── */}
       <section className="border-t border-white/5">

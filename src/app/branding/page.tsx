@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { HeroBranding } from "@/components/heroes/hero-branding";
+import { ConsultCTA } from "@/components/consult-cta";
 
 export const metadata = {
   title: "Agent Headshots & Personal Branding | Arkansas | Avery & Bryant",
@@ -287,6 +288,12 @@ export default function BrandingPage() {
           </p>
         </div>
       </section>
+
+      <ConsultCTA
+        interest="branding"
+        headline="Personal brand shoot or full brand system?"
+        subhead="Headshots are one thing. Brand kits, content days, and ongoing shoots are another. Free 30-min call to figure out what you actually need."
+      />
 
       {/* ── CTA ── */}
       <section className="border-t border-white/5">

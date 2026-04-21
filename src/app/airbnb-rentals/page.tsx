@@ -1,5 +1,6 @@
 import { HeroAirbnbRentals } from "@/components/heroes/hero-airbnb-rentals";
 import { OrderLink } from "@/components/order-link";
+import { ConsultCTA } from "@/components/consult-cta";
 
 export const metadata = {
   title: "Airbnb & Rental Property Photography | Arkansas | Avery & Bryant",
@@ -223,6 +224,12 @@ export default function AirbnbRentalsPage() {
           </p>
         </div>
       </section>
+
+      <ConsultCTA
+        interest="airbnb-rentals"
+        headline="Running multiple rentals or a whole portfolio?"
+        subhead="One property is easy — ten is a content program. Free 30-min call to talk batch shoots, seasonal refreshes, and recurring rates."
+      />
 
       {/* ── CTA ── */}
       <section className="border-t border-white/5">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PodcastCarousel } from "@/components/studio/podcast-carousel";
+import { ConsultCTA } from "@/components/consult-cta";
 
 export const metadata = {
   title: "The Spot — Where Arkansas Records | Little Rock | Avery & Bryant",
@@ -716,6 +717,12 @@ export default async function StudioPage({
           </p>
         </div>
       </section>
+
+      <ConsultCTA
+        interest="studio"
+        headline="Not sure which room or package fits?"
+        subhead="Podcast one-off vs. membership vs. full production day — each is a different fit. Free 30-min call to walk through your show or shoot and pick the right room."
+      />
 
       {/* ── CTA ── */}
       <section className="border-t border-white/5">
