@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { upsertContact, enrollInWorkflow } from "@/lib/ghl";
+import {
+  upsertContact,
+  enrollInWorkflow,
+  setCustomField,
+} from "@/lib/ghl";
+
+// GHL custom field id for "Studio Schedule URL" (created 2026-04-20).
+const STUDIO_SCHEDULE_URL_FIELD_ID = "MeyPRVtDcNwSFyoh89ma";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,6 +44,18 @@ const TIER_WORKFLOWS: Record<string, string> = {
 // Fires for any one-time studio booking (currently routes to "Aryeo → New Booking"
 // which covers the same shoot-fulfillment steps — swap to a dedicated Spot flow later).
 const BOOKING_WORKFLOW_ID = "5a1c01c0-8380-4790-8a3c-e405ac503a87";
+
+// Map Stripe product metadata → the GHL calendar widget URL the customer
+// should land on after payment. Saved into the contact's
+// `studio_schedule_url` field so the post-payment email can deep-link them.
+const GHL_WIDGET = "https://api.leadconnectorhq.com/widget/booking";
+const PRODUCT_SCHEDULE_URL: Record<string, string> = {
+  "podcast-1hr": `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`,
+  "podcast-2hr": `${GHL_WIDGET}/9g4b8uFBR4KmJNWJwv9a`,
+  "podcast-half-day": `${GHL_WIDGET}/J0gqnGTQFA8eD4EoFHwl`,
+  "alternate-set": `${GHL_WIDGET}/gZIylqnwF2olLvPrqWqR`,
+  "multi-set-day": `${GHL_WIDGET}/oaOY7LqfIC87tAy881wE`,
+};
 
 export async function POST(req: Request) {
   if (!stripe || !WEBHOOK_SECRET) {
@@ -108,6 +127,20 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("[stripe-webhook] GHL upsert failed", err);
     return NextResponse.json({ error: "ghl upsert failed" }, { status: 500 });
+  }
+
+  // For one-time bookings: stash the matching GHL calendar widget URL on
+  // the contact so the post-payment email can deep-link to scheduling.
+  if (contactId && product && PRODUCT_SCHEDULE_URL[product]) {
+    try {
+      await setCustomField(
+        contactId,
+        STUDIO_SCHEDULE_URL_FIELD_ID,
+        PRODUCT_SCHEDULE_URL[product],
+      );
+    } catch (err) {
+      console.error("[stripe-webhook] schedule URL write failed", err);
+    }
   }
 
   // Enroll in the corresponding GHL workflow so published drip sequences fire.

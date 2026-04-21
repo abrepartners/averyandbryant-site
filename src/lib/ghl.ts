@@ -83,3 +83,13 @@ export async function enrollInWorkflow(
     eventStartTime ? { eventStartTime } : undefined,
   );
 }
+
+export async function setCustomField(
+  contactId: string,
+  fieldId: string,
+  value: string,
+) {
+  return ghl("PUT", `/contacts/${contactId}`, {
+    customFields: [{ id: fieldId, field_value: value }],
+  });
+}

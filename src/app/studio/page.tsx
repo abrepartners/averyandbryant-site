@@ -10,14 +10,15 @@ export const metadata = {
 const PEERSPACE_URL =
   "https://www.peerspace.com/pages/listings/673a4251deb5e4e5704eb25b";
 
-// Direct GHL booking widget URLs (calendars activated 2026-04-20).
-const GHL_WIDGET = "https://api.leadconnectorhq.com/widget/booking";
-const CAL_PODCAST_1HR = `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`;
-const CAL_PODCAST_2HR = `${GHL_WIDGET}/9g4b8uFBR4KmJNWJwv9a`;
-const CAL_PODCAST_HALF = `${GHL_WIDGET}/J0gqnGTQFA8eD4EoFHwl`;
-const CAL_ALTSET = `${GHL_WIDGET}/gZIylqnwF2olLvPrqWqR`;
-const CAL_GARAGE = `${GHL_WIDGET}/FVDXuUTLJLD4XKm6lPOp`;
-const CAL_MULTI = `${GHL_WIDGET}/oaOY7LqfIC87tAy881wE`;
+// Pay-first flow: room CTAs go to Stripe Payment Links. After payment,
+// the webhook writes the matching GHL calendar widget URL onto the contact
+// + sends the "Pick my time slot" email so they finish scheduling.
+const PAY_PODCAST_1HR = "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m";
+const PAY_PODCAST_2HR = "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n";
+const PAY_PODCAST_HALF = "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o";
+const PAY_ALTSET = "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p";
+const PAY_GARAGE = PAY_ALTSET; // Same $150 price tier as alternate sets
+const PAY_MULTI = "https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q";
 
 // All images are PLACEHOLDERS — swap with real Spot photos when assets are accessible.
 // Source folder: ~/Desktop/THE SPOT IMAGES (currently blocked by macOS TCC).
@@ -48,8 +49,8 @@ const rooms: Room[] = [
     bestFor: ["Video podcasts", "Talking-head", "Branded interviews"],
     note: "Our flagship room. Pre-configured lighting and controlled acoustics — the one on Peerspace.",
     image: "/images/studio/spot-5.jpg",
-    bookUrl: CAL_PODCAST_1HR,
-    bookLabel: "Book the Podcast Room",
+    bookUrl: PAY_PODCAST_1HR,
+    bookLabel: "Reserve & pay — 1hr",
     accentClass: "border-crimson/30 hover:border-crimson/60",
     pillBg: "bg-crimson/10 text-crimson",
   },
@@ -59,8 +60,8 @@ const rooms: Room[] = [
     size: `13'3" × 11'2" · ~150 sqft`,
     bestFor: ["Lifestyle", "Brand content", "Product photography"],
     image: "/images/studio/spot-7.jpg",
-    bookUrl: CAL_ALTSET,
-    bookLabel: "Book Set A",
+    bookUrl: PAY_ALTSET,
+    bookLabel: "Reserve & pay — Set A",
     accentClass: "border-amber-400/20 hover:border-amber-400/40",
     pillBg: "bg-amber-400/10 text-amber-200",
   },
@@ -70,8 +71,8 @@ const rooms: Room[] = [
     size: `11'9" × 11'5" · ~135 sqft`,
     bestFor: ["Editorial", "Fashion", "Headshot variation"],
     image: "/images/studio/spot-9.jpg",
-    bookUrl: CAL_ALTSET,
-    bookLabel: "Book Set B",
+    bookUrl: PAY_ALTSET,
+    bookLabel: "Reserve & pay — Set B",
     accentClass: "border-rose-400/20 hover:border-rose-400/40",
     pillBg: "bg-rose-400/10 text-rose-200",
   },
@@ -81,8 +82,8 @@ const rooms: Room[] = [
     size: `7'3" × 10'6" · ~75 sqft`,
     bestFor: ["Solo headshots", "1-on-1 interview", "Single subject"],
     image: "/images/studio/spot-6.jpg",
-    bookUrl: CAL_ALTSET,
-    bookLabel: "Book the Intimate Set",
+    bookUrl: PAY_ALTSET,
+    bookLabel: "Reserve & pay — Intimate",
     accentClass: "border-rose-400/20 hover:border-rose-400/40",
     pillBg: "bg-rose-400/10 text-rose-200",
   },
@@ -93,8 +94,8 @@ const rooms: Room[] = [
     bestFor: ["Vehicle shoots", "Industrial", "Music video", "Fashion editorial"],
     note: "Roll-up door for natural light. Bring vehicles inside.",
     image: "/images/studio/spot-8.jpg",
-    bookUrl: CAL_GARAGE,
-    bookLabel: "Book the Garage",
+    bookUrl: PAY_GARAGE,
+    bookLabel: "Reserve & pay — Garage",
     accentClass: "border-sky-400/20 hover:border-sky-400/40",
     pillBg: "bg-sky-400/10 text-sky-200",
   },
@@ -333,7 +334,12 @@ export default async function StudioPage({
               The Spot is where Arkansas creators show up to record. Five
               rentable sets — a flagship podcast room, two alternate sets, an
               intimate single-subject space, and a garage bay big enough for a
-              vehicle. Book direct on our calendar or grab a slot via Peerspace.
+              vehicle.
+            </p>
+            <p className="mt-3 max-w-xl text-sm text-white/35">
+              How booking works: <span className="text-white/55">pay first</span>,
+              then we email you a private calendar link to pick your time slot.
+              Two minutes, both steps. Or browse on Peerspace if you prefer.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
@@ -357,12 +363,12 @@ export default async function StudioPage({
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href={CAL_PODCAST_1HR}
+                href={PAY_PODCAST_1HR}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
               >
-                Book the Studio
+                Reserve the Podcast Room
               </a>
               <a
                 href={PEERSPACE_URL}
