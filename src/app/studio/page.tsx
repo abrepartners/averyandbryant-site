@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { PodcastCarousel } from "@/components/studio/podcast-carousel";
 import { ConsultCTA } from "@/components/consult-cta";
+import { PackageCard } from "@/components/pricing/package-card";
+import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
+import { studioMemberships, studioGuarantee } from "@/lib/pricing";
 
 export const metadata = {
   title: "The Spot — Where Arkansas Records | Little Rock | Avery & Bryant",
@@ -14,9 +17,12 @@ const PEERSPACE_URL =
 // Pay-first flow: room CTAs go to Stripe Payment Links. After payment,
 // the webhook writes the matching GHL calendar widget URL onto the contact
 // + sends the "Pick my time slot" email so they finish scheduling.
-const PAY_PODCAST_1HR = "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m";
-const PAY_PODCAST_2HR = "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n";
-const PAY_PODCAST_HALF = "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o";
+const PAY_PODCAST_1HR =
+  "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m";
+const PAY_PODCAST_2HR =
+  "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n";
+const PAY_PODCAST_HALF =
+  "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o";
 const PAY_ALTSET = "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p";
 const PAY_GARAGE = PAY_ALTSET; // Same $150 price tier as alternate sets
 const PAY_MULTI = "https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q";
@@ -92,7 +98,12 @@ const rooms: Room[] = [
     slug: "garage",
     name: "The Garage",
     size: `14'5" × 17' · ~245 sqft`,
-    bestFor: ["Vehicle shoots", "Industrial", "Music video", "Fashion editorial"],
+    bestFor: [
+      "Vehicle shoots",
+      "Industrial",
+      "Music video",
+      "Fashion editorial",
+    ],
     note: "Roll-up door for natural light. Bring vehicles inside.",
     image: "/images/studio/spot-8.jpg",
     bookUrl: PAY_GARAGE,
@@ -113,50 +124,11 @@ const amenities = [
   "Flexible cancellation",
 ];
 
-const memberships = [
-  {
-    name: "Creator Lite",
-    monthly: "$60/mo",
-    discount: "10% off",
-    discountNote: "on all studio time",
-    credits: "4 add-on credits",
-    perks: ["10% member rate on every room", "4 monthly credits for add-ons", "Flexible cancellation"],
-    description:
-      "For the independent creator. Member discount on studio time + credits for the extras.",
-    bestFor: "Newcomers and occasional shooters",
-    subscribeUrl: "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
-  },
-  {
-    name: "Creator",
-    monthly: "$100/mo",
-    discount: "20% off",
-    discountNote: "on all studio time",
-    credits: "8 add-on credits",
-    perks: ["20% member rate on every room", "8 monthly credits for add-ons", "Flexible cancellation"],
-    description:
-      "For consistent creators. Real savings on regular studio use, plus credits for edits + production.",
-    bestFor: "Weekly podcasters / content schedules",
-    highlight: true,
-    subscribeUrl: "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
-  },
-  {
-    name: "Pro",
-    monthly: "$180/mo",
-    discount: "30% off",
-    discountNote: "on all studio time",
-    credits: "16 add-on credits",
-    perks: [
-      "30% member rate on every room",
-      "16 monthly credits for add-ons",
-      "Priority booking",
-      "Back-to-back session capacity",
-    ],
-    description:
-      "For high-volume production teams. Maximum discount, priority access, and 16 credits to fuel the month.",
-    bestFor: "Content teams and agencies",
-    subscribeUrl: "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
-  },
-];
+const membershipSubscribeUrls: Record<string, string> = {
+  "Creator Pass": "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
+  "Studio Pro Pass": "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
+  "Studio Command": "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
+};
 
 // Pricing: "rate" = non-member retail. "memberRate" = best-tier (Pro 30% off) price.
 const pricing = [
@@ -326,9 +298,7 @@ export default async function StudioPage({
             <h1 className="mt-8 font-display text-[clamp(40px,7vw,84px)] font-extralight leading-[0.98] tracking-tight text-white-90">
               Real podcasters.
               <br />
-              <span className="text-white-40 italic">
-                Real recordings.
-              </span>
+              <span className="text-white-40 italic">Real recordings.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
@@ -338,9 +308,10 @@ export default async function StudioPage({
               vehicle.
             </p>
             <p className="mt-3 max-w-xl text-sm text-white/35">
-              How booking works: <span className="text-white/55">pay first</span>,
-              then we email you a private calendar link to pick your time slot.
-              Two minutes, both steps. Or browse on Peerspace if you prefer.
+              How booking works:{" "}
+              <span className="text-white/55">pay first</span>, then we email
+              you a private calendar link to pick your time slot. Two minutes,
+              both steps. Or browse on Peerspace if you prefer.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
@@ -508,69 +479,24 @@ export default async function StudioPage({
             <span className="text-amber-200/80">member discount</span> on all
             studio time, plus monthly{" "}
             <span className="text-amber-200/80">add-on credits</span> you can
-            spend on edits, engineer assist, equipment, extra 30-min blocks,
-            or rush delivery.
+            spend on edits, engineer assist, equipment, extra 30-min blocks, or
+            rush delivery.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {memberships.map((tier) => (
-              <div
-                key={tier.name}
-                className={`flex flex-col rounded-lg border p-8 transition-all md:p-10 ${
-                  tier.highlight
-                    ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
-                    : "border-white/10 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
-                }`}
-              >
-                {tier.highlight ? (
-                  <span className="mb-4 inline-flex w-fit items-center gap-1 rounded-full bg-crimson/15 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-crimson">
-                    Most Popular
-                  </span>
-                ) : null}
-                <h3 className="font-display text-2xl font-medium text-white-90">
-                  {tier.name}
-                </h3>
-                <p className="mt-3 font-display text-4xl font-light text-crimson">
-                  {tier.monthly}
-                </p>
-                <p className="mt-2 text-sm">
-                  <span className="font-display text-amber-200/90">
-                    {tier.discount}
-                  </span>
-                  <span className="text-white/45"> {tier.discountNote}</span>
-                </p>
-                <p className="mt-1 text-sm text-white/55">+ {tier.credits}</p>
-                <p className="mt-6 text-sm leading-relaxed text-white/55">
-                  {tier.description}
-                </p>
-                <ul className="mt-6 space-y-2">
-                  {tier.perks.map((perk) => (
-                    <li
-                      key={perk}
-                      className="flex items-start gap-2 text-sm text-white/60"
-                    >
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-crimson" />
-                      <span>{perk}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 text-[10px] uppercase tracking-[0.25em] text-white/35">
-                  {tier.bestFor}
-                </p>
-                <a
-                  href={tier.subscribeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-auto inline-flex items-center justify-center rounded px-5 py-3 text-[11px] uppercase tracking-[0.2em] transition-all ${
-                    tier.highlight
-                      ? "bg-crimson text-white hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
-                      : "border border-white/15 text-white/70 hover:border-crimson/40 hover:text-white"
-                  }`}
-                >
-                  Become a Member
-                </a>
-              </div>
+            {studioMemberships.map((pkg) => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                ctaHref={membershipSubscribeUrls[pkg.name]}
+                ctaLabel="Become a Member"
+                ctaTarget="_blank"
+              />
             ))}
+          </div>
+
+          <div className="mt-12">
+            <GuaranteeBadge guarantee={studioGuarantee} />
           </div>
 
           <p className="mt-10 text-center text-sm text-white/35">
@@ -597,8 +523,7 @@ export default async function StudioPage({
             What&apos;s Included
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Walk in, shoot,{" "}
-            <span className="text-white-40">walk out.</span>
+            Walk in, shoot, <span className="text-white-40">walk out.</span>
           </h2>
 
           <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -623,11 +548,13 @@ export default async function StudioPage({
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Pay-as-you-go.{" "}
-            <span className="text-white-40">Or save with a membership above.</span>
+            <span className="text-white-40">
+              Or save with a membership above.
+            </span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
-            Non-member rates. Members pay nothing extra at booking — credits
-            are redeemed at checkout.
+            Non-member rates. Members pay nothing extra at booking — credits are
+            redeemed at checkout.
           </p>
 
           <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

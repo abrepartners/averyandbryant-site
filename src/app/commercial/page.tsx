@@ -1,66 +1,22 @@
 import { HeroCommercial } from "@/components/heroes/hero-commercial";
 import { ConsultCTA } from "@/components/consult-cta";
+import { PackageCard } from "@/components/pricing/package-card";
+import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
+import {
+  commercialPackages,
+  commercialSpecialty,
+  commercialGuarantee,
+} from "@/lib/pricing";
 
 export const metadata = {
-  title: "Commercial Photography | Dealerships, Offices, Retail | Arkansas | Avery & Bryant",
+  title:
+    "Commercial Media — CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
   description:
-    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas.",
+    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Packages from $995.",
 };
 
-const categories = [
-  {
-    name: "CRE Listings",
-    price: "From $895",
-    anchor: "$1,400+ à la carte",
-    savings: "Save $505+",
-    tag: "For commercial brokers",
-    features: [
-      "Facade + drone overview",
-      "Proximity & demographic context",
-      "Interior walkthroughs + floor plans",
-      "Fast-turn for new listings",
-    ],
-  },
-  {
-    name: "Dealerships",
-    price: "$895/mo",
-    anchor: "$1,500+ per single visit",
-    savings: "Save every month",
-    tag: "Ongoing programs · inventory + brand",
-    features: [
-      "Lot drone overviews",
-      "Vehicle inventory photography",
-      "Showroom + service bay interiors",
-      "Monthly refresh options",
-    ],
-  },
-  {
-    name: "Offices & Retail",
-    price: "From $1,295",
-    anchor: "$1,800+ à la carte",
-    savings: "Save $505+",
-    tag: "Exterior + interior + team",
-    features: [
-      "Facade + signage",
-      "Interior workspace coverage",
-      "Team & leadership portraits",
-      "Drone context shots",
-    ],
-  },
-  {
-    name: "Hospitality & Specialty",
-    price: "From $1,295",
-    anchor: "Custom scope",
-    savings: "Priced to fit",
-    tag: "Restaurants, venues, industrial, other",
-    features: [
-      "Ambience + lifestyle styling",
-      "Food + beverage photography",
-      "Industrial facility tours",
-      "Event-ready galleries",
-    ],
-  },
-];
+const QUOTE_EMAIL =
+  "mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote";
 
 const sellingPoints = [
   {
@@ -89,7 +45,8 @@ const steps = [
   {
     number: "01",
     title: "Scope Call",
-    description: "15 minutes to align on property, use cases, and deliverables.",
+    description:
+      "15 minutes to align on property, use cases, and deliverables.",
   },
   {
     number: "02",
@@ -99,7 +56,8 @@ const steps = [
   {
     number: "03",
     title: "Get Your Media",
-    description: "Edited photos and video delivered within 72 hours of the shoot.",
+    description:
+      "Edited photos and video delivered within 72 hours of the shoot.",
   },
 ];
 
@@ -108,59 +66,60 @@ export default function CommercialPage() {
     <>
       <HeroCommercial />
 
-      {/* ── CATEGORIES ── */}
+      {/* ── CRE PACKAGES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            What we cover
+            Commercial Real Estate
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            One media team.{" "}
-            <span className="text-white-40">Every commercial category.</span>
+            CRE listing media.{" "}
+            <span className="text-white-40">Built for brokers.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
-            {categories.map((cat) => (
-              <div
-                key={cat.name}
-                className="rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-sky-400/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
-              >
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-sky-300/70">
-                  {cat.tag}
-                </span>
-                <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
-                  {cat.name}
-                </h3>
-                <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="font-display text-2xl font-light text-crimson">
-                    {cat.price}
-                  </span>
-                  <span className="text-[11px] text-white/30 line-through">
-                    {cat.anchor}
-                  </span>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-amber-200/80">
-                    {cat.savings}
-                  </span>
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {cat.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm text-white/50"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400/60" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {commercialPackages.map((pkg) => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                ctaHref={QUOTE_EMAIL}
+                ctaLabel="Request a Quote"
+              />
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <GuaranteeBadge guarantee={commercialGuarantee} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── SPECIALTY PACKAGES ── */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Specialty Programs
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+            Dealerships. Hospitality.{" "}
+            <span className="text-white-40">Ongoing content.</span>
+          </h2>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2">
+            {commercialSpecialty.map((pkg) => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                ctaHref={QUOTE_EMAIL}
+                ctaLabel="Request a Quote"
+              />
             ))}
           </div>
 
           <p className="mt-10 text-center text-sm text-white/35">
             Don&apos;t see your category? It probably still fits.{" "}
             <a
-              href="mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote"
+              href={QUOTE_EMAIL}
               className="text-crimson transition-colors hover:text-white"
             >
               Let&apos;s talk.
@@ -256,7 +215,7 @@ export default function CommercialPage() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote"
+              href={QUOTE_EMAIL}
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Request a Quote

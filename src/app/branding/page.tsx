@@ -2,56 +2,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { HeroBranding } from "@/components/heroes/hero-branding";
 import { ConsultCTA } from "@/components/consult-cta";
+import { PackageCard } from "@/components/pricing/package-card";
+import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
+import {
+  brandingPackages,
+  brandingTeamPackages,
+  brandingGuarantee,
+} from "@/lib/pricing";
 
 export const metadata = {
-  title: "Agent Headshots & Personal Branding | Arkansas | Avery & Bryant",
+  title:
+    "Branding & Headshots — First Impression Kit, Brand Identity System & Content Command | Avery & Bryant",
   description:
-    "Professional headshots, lifestyle branding, team photos, and content creation for real estate agents and businesses across Arkansas.",
+    "Professional headshots, lifestyle branding, team photos, and content creation for real estate agents and businesses across Arkansas. Packages from $299 with compliment guarantee.",
 };
-
-// May 1 pricing. New Content Day tier added; existing tiers renamed + repriced.
-const services = [
-  {
-    title: "Headshot Essentials",
-    price: "$249",
-    anchor: "$395 market rate",
-    savings: "Save $146",
-    description:
-      "30-min studio session · backdrop selection · 5 final retouched images.",
-  },
-  {
-    title: "Brand Session",
-    price: "$449",
-    anchor: "$595 market rate",
-    savings: "Save $146",
-    description:
-      "1-hour session (studio or on-location) · 10 final images · 48hr delivery.",
-  },
-  {
-    title: "Content Day",
-    price: "$1,495",
-    anchor: "$2,100 à la carte",
-    savings: "Save $605",
-    description:
-      "Half-day · 20+ retouched photos + 4 social reels + multiple wardrobe changes.",
-  },
-  {
-    title: "Team Day",
-    price: "$1,995+",
-    anchor: "Scales per person",
-    savings: "Team rate",
-    description:
-      "Full-day on-location · solo + team headshots · brand content · +$250 per additional person beyond 5.",
-  },
-  {
-    title: "Content Retainer",
-    price: "$895/mo",
-    anchor: "$1,495 per content day",
-    savings: "Save $600/mo",
-    description:
-      "Monthly half-day content day · 20+ photos + 4 reels/month.",
-  },
-];
 
 const sellingPoints = [
   {
@@ -77,12 +41,23 @@ const sellingPoints = [
 ];
 
 const steps = [
-  { number: "01", title: "Book Online", description: "Pick your date and session type in under 2 minutes." },
-  { number: "02", title: "We Shoot", description: "Relaxed, guided session — we handle the posing and lighting." },
-  { number: "03", title: "Get Your Media", description: "Retouched images delivered within 48 hours." },
+  {
+    number: "01",
+    title: "Book Online",
+    description: "Pick your date and session type in under 2 minutes.",
+  },
+  {
+    number: "02",
+    title: "We Shoot",
+    description: "Relaxed, guided session — we handle the posing and lighting.",
+  },
+  {
+    number: "03",
+    title: "Get Your Media",
+    description: "Retouched images delivered within 48 hours.",
+  },
 ];
 
-// Placeholder reel thumbnails — swap for real vertical reel frames when shot.
 const reelThumbs = [
   "/images/portfolio-headshot-1.jpg",
   "/images/staging-twilight.jpg",
@@ -99,10 +74,9 @@ const reelThumbs = [
 export default function BrandingPage() {
   return (
     <>
-      {/* ── HERO ── */}
       <HeroBranding />
 
-      {/* ── REEL MARQUEE — what a content day produces ── */}
+      {/* ── REEL MARQUEE ── */}
       <section className="relative border-t border-white/5 bg-[#0a0a0a] py-16 md:py-20">
         <div className="mx-auto mb-10 max-w-[1280px] px-6 md:mb-14 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-rose-200/60">
@@ -115,7 +89,6 @@ export default function BrandingPage() {
         </div>
 
         <div className="relative overflow-hidden">
-          {/* Edge fades */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent md:w-40"
@@ -139,7 +112,6 @@ export default function BrandingPage() {
                   sizes="180px"
                   className="object-cover"
                 />
-                {/* Subtle reel-play indicator */}
                 <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2 py-1 backdrop-blur-sm">
                   <span className="h-1 w-1 rounded-full bg-rose-300" />
                   <span className="text-[9px] uppercase tracking-[0.2em] text-white/70">
@@ -152,12 +124,12 @@ export default function BrandingPage() {
         </div>
 
         <div className="mx-auto mt-10 max-w-[1280px] px-6 md:px-12">
-          <a
-            href="mailto:book@averyandbryant.com?subject=Personal%20Branding%20Session"
+          <Link
+            href="/book"
             className="text-[11px] uppercase tracking-[0.2em] text-rose-200 transition-colors hover:text-white"
           >
             Book your content day &rarr;
-          </a>
+          </Link>
         </div>
 
         <style>{`
@@ -178,47 +150,53 @@ export default function BrandingPage() {
         `}</style>
       </section>
 
-      {/* ── SERVICES & PRICING ── */}
+      {/* ── INDIVIDUAL PACKAGES ── */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Services & Pricing
+            Packages
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Your image matters.{" "}
             <span className="text-white-40">Invest in it.</span>
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="pricing-card group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)]"
-              >
-                <span className="pricing-price font-display text-3xl font-light text-crimson">
-                  {service.price}
-                </span>
-                <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
-                  <span className="text-white/30 line-through">
-                    {service.anchor}
-                  </span>
-                  <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
-                    {service.savings}
-                  </span>
-                </div>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">
-                  {service.description}
-                </p>
-                <Link
-                  href="/book"
-                  className="mt-6 inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
-                >
-                  Book Now &rarr;
-                </Link>
-              </div>
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {brandingPackages.map((pkg) => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                ctaHref="/book"
+                ctaLabel="Book a Session"
+              />
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <GuaranteeBadge guarantee={brandingGuarantee} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEAM & RETAINER ── */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Teams & Ongoing
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+            Bring the whole team.{" "}
+            <span className="text-white-40">Or show up every month.</span>
+          </h2>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2">
+            {brandingTeamPackages.map((pkg) => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                ctaHref="/book"
+                ctaLabel="Book a Session"
+              />
             ))}
           </div>
         </div>
@@ -260,8 +238,7 @@ export default function BrandingPage() {
             How It Works
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Three steps.{" "}
-            <span className="text-white-40">That&apos;s it.</span>
+            Three steps. <span className="text-white-40">That&apos;s it.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
@@ -305,7 +282,8 @@ export default function BrandingPage() {
             Ready to level up your brand?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
-            Book a session in under 2 minutes. Professional branding that sets you apart from every other agent.
+            Book a session in under 2 minutes. Professional branding that sets
+            you apart from every other agent.
           </p>
           <div className="mt-10">
             <Link
