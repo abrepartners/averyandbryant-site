@@ -17,18 +17,25 @@
 
 ---
 
-## 🟠 CONTENT TRUTH / LEGAL — verify or pull (these are claims, not code)
+## 🟠 CONTENT TRUTH / LEGAL — mostly RESOLVED 2026-06-10
 
-These are stated as fact on the live-bound site. If any isn't true/substantiable, it's a legal + trust risk:
+**✅ Fixed this pass (committed):**
 
-- **Fabricated social proof:** named mock properties — "The Riverhouse · Little Rock" (Airbnb hero, Superhost ★4.9), "The Grove · Little Rock" (multi-family hero, "Lease-up"). Either make them real or remove.
-- **Hardcoded Google rating:** `layout.tsx` LocalBusiness schema asserts `aggregateRating 5.0 / 24 reviews` site-wide, while the homepage widget pulls the _live_ count. Mismatched/static ratings violate Google structured-data policy. Drive it from the live Places value or remove it.
-- **Brokerage logos** (Coldwell Banker, Century 21, KW, Crye-Leike, Engel & Völkers) styled as endorsements on the homepage trust bar. Confirm you've actually shot for agents at each — or switch to neutral "Trusted by agents across Arkansas." Trademark/false-association risk.
-- **Performance stats:** "40% More Bookings" (airbnb, ×3), "50+ Properties" (multi-family), "200+ Arkansas agents", "48-hour avg. delivery". Substantiate or soften.
-- **Tenure claim "Serving Arkansas … since 2018"** appears on airbnb, multi-family, lot-land, builders, branding. Confirm the founding year + that you served each vertical that long.
-- **Reshoot/engagement guarantees** per vertical ("more online engagement than your last listing," "more tour requests within 30 days," "more saves than the average land listing"). Confirm you can honor + track each, or reword to something measurable.
-- **"BBB A+"** — confirm active accreditation.
-- **FAA Part 107 "fully insured"** (lot-land) — confirm.
+- Removed fabricated mock listings — "The Riverhouse · Superhost ★4.96" (airbnb) and "The Grove · Little Rock" (multi-family).
+- Removed hardcoded `aggregateRating 5.0/24` from `layout.tsx` schema (policy risk).
+- Replaced "40% more bookings" with Airbnb's own 2024–25 study (~19% more bookings / ~21% higher earnings, attributed).
+- Dropped unverifiable "since 2018" across all 5 pages.
+- Replaced weak "50+ properties shot" multi-family stat with "Drone / Aerials included."
+- **Kept (you confirmed true):** 200+ agents, 48hr delivery, BBB A+, FAA Part 107 + insured, brokerage logos.
+
+**⚠️ Still needs your call — the per-vertical reshoot/engagement guarantees:**
+These make _measurable_ promises you'd have to honor + track:
+
+- Real estate: free reshoot + $100 credit if a listing doesn't get "more online engagement than your last listing."
+- Multi-family: reshoot if "your leasing team doesn't see more tour requests within 30 days."
+- Lot-land: reshoot if "photos don't get more saves than the average land listing."
+- Builders: "if your model home media doesn't outperform your previous marketing in engagement."
+  → Confirm you can deliver/track each, or tell me to reword to something cleaner (e.g. a flat satisfaction reshoot guarantee). I left these untouched pending your decision.
 
 ---
 
