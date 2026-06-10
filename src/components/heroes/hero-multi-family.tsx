@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 const thumbs = [
-  "/images/portfolio-drone-3.jpg",
-  "/images/portfolio-exterior-1.jpg",
-  "/images/portfolio-interior-1.jpg",
+  "/images/multi-family/thumb-exterior-1.jpg",
+  "/images/multi-family/thumb-exterior-2.jpg",
+  "/images/multi-family/thumb-interior-1.jpg",
 ];
 
 const stats = [
@@ -79,7 +79,7 @@ export function HeroMultiFamily() {
         <div className="flex flex-col gap-4">
           <div className="relative overflow-hidden rounded border border-white/10 bg-[#111] aspect-[4/5] md:aspect-[3/4]">
             <Image
-              src="/images/hero-drone-2.jpg"
+              src="/images/multi-family/hero-exterior.jpg"
               alt="Multi-family property aerial — Avery & Bryant"
               fill
               priority

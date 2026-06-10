@@ -6,17 +6,17 @@ import Image from "next/image";
 const progress = [
   {
     stage: "01 / Foundation",
-    src: "/images/portfolio-exterior-1.jpg",
+    src: "/images/builders/foundation-exterior.jpg",
     label: "Document the build",
   },
   {
     stage: "02 / Build",
-    src: "/images/portfolio-interior-1.jpg",
+    src: "/images/builders/build-interior.jpg",
     label: "Mid-construction",
   },
   {
     stage: "03 / Model Launch",
-    src: "/images/staging-twilight.jpg",
+    src: "/images/builders/model-launch-exterior.jpg",
     label: "Market the result",
   },
 ];

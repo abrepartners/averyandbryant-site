@@ -359,7 +359,7 @@ export default async function StudioPage({
       </section>
 
       {/* ── ROOMS GRID — the heart of the page ── */}
-      <section className="border-t border-white/5 py-24 md:py-32">
+      <section id="sets" className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             The Sets
@@ -384,7 +384,7 @@ export default async function StudioPage({
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={room.image}
-                    alt={`${room.name} — placeholder`}
+                    alt={`${room.name} at The Spot — Avery & Bryant content & podcast studio in Little Rock`}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
