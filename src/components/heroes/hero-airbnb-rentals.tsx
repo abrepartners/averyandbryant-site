@@ -23,7 +23,10 @@ export function HeroAirbnbRentals() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setActive((i) => (i + 1) % slides.length), 4500);
+    const t = setInterval(
+      () => setActive((i) => (i + 1) % slides.length),
+      4500,
+    );
     return () => clearInterval(t);
   }, []);
 
@@ -114,15 +117,17 @@ export function HeroAirbnbRentals() {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm font-medium text-white-90">
-                    The Riverhouse · Little Rock
+                    Your rental, booking-ready
                   </p>
                   <p className="mt-1 text-xs text-white/50">
-                    Entire home · Sleeps 6 · Superhost
+                    Photos · Video · Drone · Twilight
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-amber-200">★ 4.96</p>
-                  <p className="mt-1 text-xs text-white/40">142 reviews</p>
+                  <p className="text-sm font-medium text-amber-200">
+                    Airbnb · VRBO
+                  </p>
+                  <p className="mt-1 text-xs text-white/40">Direct booking</p>
                 </div>
               </div>
               <div className="mt-3 flex items-center gap-1">
