@@ -152,6 +152,12 @@ export default function PricingPage() {
             Select your property type below to see full package details and book
             online. All packages include our delivery guarantee.
           </p>
+          <Link
+            href="/get-started"
+            className="mt-6 inline-flex items-center gap-2 rounded border border-crimson/30 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+          >
+            Not sure which? Find your package &rarr;
+          </Link>
         </div>
       </section>
 

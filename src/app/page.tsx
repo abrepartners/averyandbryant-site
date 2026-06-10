@@ -365,6 +365,15 @@ export default function HomePage() {
             Built for Every Property Type{" "}
             <span className="text-white-40">in Arkansas.</span>
           </h2>
+          <p className="mt-4 text-base text-white/45">
+            Not sure which fits?{" "}
+            <Link
+              href="/get-started"
+              className="text-crimson transition-colors hover:text-white"
+            >
+              Answer 3 questions and we&apos;ll recommend your package &rarr;
+            </Link>
+          </p>
 
           <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {verticals.map((vertical) => (
