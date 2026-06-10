@@ -11,7 +11,7 @@ const thumbs = [
 
 const stats = [
   { value: "24hr", label: "Turnaround" },
-  { value: "50+", label: "Properties shot" },
+  { value: "Drone", label: "Aerials included" },
   { value: "ILS", label: "Platform-ready" },
 ];
 

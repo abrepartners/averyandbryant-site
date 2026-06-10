@@ -146,7 +146,7 @@ export default function BuildersPage() {
           </div>
 
           <p className="mt-12 text-center text-sm text-white/30">
-            Serving Arkansas builders and developers since 2018.
+            Serving Arkansas builders and developers.
           </p>
         </div>
       </section>

@@ -146,7 +146,7 @@ export default function LotLandPage() {
           </div>
 
           <p className="mt-12 text-center text-sm text-white/30">
-            Serving Arkansas land agents and developers since 2018.
+            Serving Arkansas land agents and developers.
           </p>
         </div>
       </section>

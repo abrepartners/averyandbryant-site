@@ -15,9 +15,9 @@ export const metadata = {
 
 const sellingPoints = [
   {
-    title: "40% More Bookings",
+    title: "More Bookings, Proven",
     description:
-      "Properties with professional photography consistently see 40% more bookings than those with phone photos.",
+      "Airbnb's own 2024–25 study of 14,700+ listings found professional photography drove ~19% more bookings and ~21% higher host earnings over the following year.",
   },
   {
     title: "Amenity Showcase",
@@ -146,7 +146,7 @@ export default function AirbnbRentalsPage() {
           </div>
 
           <p className="mt-12 text-center text-sm text-white/30">
-            Serving Arkansas short-term rental hosts since 2018.
+            Serving Arkansas short-term rental hosts.
           </p>
         </div>
       </section>

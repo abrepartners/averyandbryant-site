@@ -81,15 +81,16 @@ export function HeroAirbnbRentals() {
           <div className="mt-12 flex max-w-md items-center gap-6 rounded border border-amber-400/20 bg-amber-400/[0.03] p-6">
             <div className="shrink-0">
               <p className="font-display text-5xl font-light leading-none text-amber-200">
-                40%
+                19%
               </p>
               <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-amber-200/60">
                 More bookings
               </p>
             </div>
             <p className="text-sm leading-relaxed text-white/50">
-              Listings with pro photography consistently outperform phone-shot
-              listings. Your photos pay for themselves in a single booking.
+              Airbnb&apos;s own 2024&ndash;25 study of 14,700+ listings found
+              professional photography drove ~19% more bookings and ~21% higher
+              earnings over the next year. Your photos pay for themselves.
             </p>
           </div>
         </div>

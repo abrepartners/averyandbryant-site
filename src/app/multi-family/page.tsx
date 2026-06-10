@@ -146,7 +146,7 @@ export default function MultiFamilyPage() {
           </div>
 
           <p className="mt-12 text-center text-sm text-white/30">
-            Serving Arkansas property managers and leasing teams since 2018.
+            Serving Arkansas property managers and leasing teams.
           </p>
         </div>
       </section>
