@@ -242,12 +242,14 @@ export default function PricingPage() {
             <span className="text-crimson text-lg">★</span>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-crimson mb-1">
-                Performance Guarantee
+                Satisfaction Reshoot Guarantee
               </p>
               <p className="text-[13px] text-white/50 leading-relaxed">
-                Every package carries a guarantee. If your listing, unit, or
-                profile doesn&apos;t outperform your previous media, we reshoot
-                free. No fine print.
+                Not happy with your media? Tell us within 7 days of delivery and
+                we&apos;ll reshoot it free. &ldquo;Not happy&rdquo; means an
+                issue with our work — exposure, color, composition, or a missed
+                shot from your agreed shot list. It doesn&apos;t cover property
+                condition, weather, or changes made after the shoot.
               </p>
             </div>
           </div>

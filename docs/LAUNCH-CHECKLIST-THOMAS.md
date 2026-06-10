@@ -28,14 +28,8 @@
 - Replaced weak "50+ properties shot" multi-family stat with "Drone / Aerials included."
 - **Kept (you confirmed true):** 200+ agents, 48hr delivery, BBB A+, FAA Part 107 + insured, brokerage logos.
 
-**⚠️ Still needs your call — the per-vertical reshoot/engagement guarantees:**
-These make _measurable_ promises you'd have to honor + track:
-
-- Real estate: free reshoot + $100 credit if a listing doesn't get "more online engagement than your last listing."
-- Multi-family: reshoot if "your leasing team doesn't see more tour requests within 30 days."
-- Lot-land: reshoot if "photos don't get more saves than the average land listing."
-- Builders: "if your model home media doesn't outperform your previous marketing in engagement."
-  → Confirm you can deliver/track each, or tell me to reword to something cleaner (e.g. a flat satisfaction reshoot guarantee). I left these untouched pending your decision.
+**✅ Guarantees — RESOLVED 2026-06-10 (you approved the rewrite):**
+All 7 guarantees (real-estate, builders, airbnb, lot-land, multi-family, commercial, branding) are now one flat **Satisfaction Reshoot Guarantee**: _"Not happy? Tell us within 7 days of delivery and we reshoot free"_ — with an inline disclaimer defining "not happy" (an issue with our work: exposure, color, composition, or a missed shot from the agreed shot list; excludes property condition, weather, and post-shoot changes). No metrics to track, no $100 credit liability. Updated on the `/pricing` guarantee strip + airbnb meta description too.
 
 ---
 
