@@ -1,15 +1,29 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Hero } from "@/components/hero";
 import { GoogleReviews } from "@/components/google-reviews";
+import { ServiceCard, type Service } from "@/components/service-card";
 
-const services = [
+const services: Service[] = [
   {
     title: "Photos",
     price: "$162+",
     description:
       "HDR photography calibrated for MLS, print, and social. Delivered same-day or next-day.",
     image: "/images/portfolio-interior-1.jpg",
+    preview: {
+      kind: "images",
+      items: [
+        { src: "/images/portfolio-interior-1.jpg", label: "Interior · HDR" },
+        {
+          src: "/images/services/photos/game-room.jpg",
+          label: "Feature Space",
+        },
+        {
+          src: "/images/services/photos/styled-bedroom.jpg",
+          label: "Styled Interior",
+        },
+      ],
+    },
   },
   {
     title: "Reels Pack",
@@ -17,6 +31,27 @@ const services = [
     description:
       "4 platform-native reels: listing walkthrough, viral hook, cinematic trailer, teaser. Shot and edited in one visit.",
     image: "/images/staging-twilight.jpg",
+    preview: {
+      kind: "videos",
+      orientation: "vertical",
+      items: [
+        {
+          src: "/images/services/reels/reel-1.mp4",
+          poster: "/images/services/reels/reel-1-poster.jpg",
+          label: "Listing Reel · Bryant",
+        },
+        {
+          src: "/images/services/reels/reel-2.mp4",
+          poster: "/images/services/reels/reel-2-poster.jpg",
+          label: "Listing Reel · Bryant",
+        },
+        {
+          src: "/images/services/reels/reel-3.mp4",
+          poster: "/images/services/reels/reel-3-poster.jpg",
+          label: "Listing Reel · Hot Springs",
+        },
+      ],
+    },
   },
   {
     title: "Drone",
@@ -24,6 +59,20 @@ const services = [
     description:
       "FAA-licensed aerials. Property context, neighborhood scale, lot boundaries.",
     image: "/images/portfolio-drone-3.jpg",
+    preview: {
+      kind: "images",
+      items: [
+        { src: "/images/hero-drone-2.jpg", label: "Property Aerial" },
+        {
+          src: "/images/portfolio-drone-3.jpg",
+          label: "Neighborhood Context",
+        },
+        {
+          src: "/images/services/drone/aerial-ranch.jpg",
+          label: "Lot & Acreage",
+        },
+      ],
+    },
   },
   {
     title: "Video Tours",
@@ -31,6 +80,27 @@ const services = [
     description:
       "Cinematic walkthrough video with music, pacing, and branded intro. MLS and social-ready.",
     image: "/images/portfolio-exterior-1.jpg",
+    preview: {
+      kind: "videos",
+      orientation: "horizontal",
+      items: [
+        {
+          src: "/images/services/video-tours/tour-1.mp4",
+          poster: "/images/services/video-tours/tour-1-poster.jpg",
+          label: "Cinematic Tour · Clinton",
+        },
+        {
+          src: "/images/services/video-tours/tour-2.mp4",
+          poster: "/images/services/video-tours/tour-2-poster.jpg",
+          label: "Cinematic Tour · Hot Springs",
+        },
+        {
+          src: "/images/services/video-tours/tour-3.mp4",
+          poster: "/images/services/video-tours/tour-3-poster.jpg",
+          label: "Cinematic Tour · Hot Springs Village",
+        },
+      ],
+    },
   },
   {
     title: "3D Tours",
@@ -45,6 +115,16 @@ const services = [
     description:
       "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 24 hours.",
     image: "/images/showcase-staging-after.jpg",
+    preview: {
+      kind: "images",
+      items: [
+        { src: "/images/showcase-staging-before.jpg", label: "Before · Empty" },
+        {
+          src: "/images/showcase-staging-after.jpg",
+          label: "After · Virtually Staged",
+        },
+      ],
+    },
   },
 ];
 
@@ -243,40 +323,7 @@ export default function HomePage() {
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <div
-                key={service.title}
-                className="pricing-card group overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-white/10"
-              >
-                <div className="image-loading relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={`Avery & Bryant ${service.title} — Arkansas real estate media`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
-                </div>
-
-                <div className="p-6 md:p-8">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="font-display text-lg font-medium text-white-90">
-                      {service.title}
-                    </h3>
-                    <span className="pricing-price text-sm font-semibold text-crimson">
-                      {service.price}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/40">
-                    {service.description}
-                  </p>
-                  <Link
-                    href="/book"
-                    className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
-                  >
-                    Book Now &rarr;
-                  </Link>
-                </div>
-              </div>
+              <ServiceCard key={service.title} service={service} />
             ))}
           </div>
 

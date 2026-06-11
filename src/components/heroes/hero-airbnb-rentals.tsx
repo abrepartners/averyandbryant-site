@@ -6,16 +6,16 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    src: "/images/airbnb-rentals/interior-styled.jpg",
-    alt: "Warm interior styled for short-term rental",
+    src: "/images/airbnb-rentals/bedroom-styled.jpg",
+    alt: "Bedroom styled for short-term rental guests",
   },
   {
-    src: "/images/airbnb-rentals/interior-living.jpg",
-    alt: "Living room with natural light",
+    src: "/images/airbnb-rentals/bedroom-suite.jpg",
+    alt: "Guest suite with natural light",
   },
   {
     src: "/images/airbnb-rentals/exterior-hero.jpg",
-    alt: "Twilight exterior — rental property",
+    alt: "Historic brick exterior — rental property",
   },
 ];
 
