@@ -10,14 +10,14 @@ export const metadata = {
   title:
     "Airbnb & Rental Media — Revenue Ready Kit, Boost System & 5-Star Showcase | Avery & Bryant",
   description:
-    "Professional photography, video tours, drone, and twilight media for Airbnb and short-term rental properties across Arkansas. Packages from $449 with booking performance guarantee.",
+    "Professional photography, video tours, drone, and twilight media for Airbnb and short-term rental properties across Arkansas. Packages from $449 with a satisfaction reshoot guarantee.",
 };
 
 const sellingPoints = [
   {
-    title: "40% More Bookings",
+    title: "More Bookings, Proven",
     description:
-      "Properties with professional photography consistently see 40% more bookings than those with phone photos.",
+      "Airbnb's own 2024–25 study of 14,700+ listings found professional photography drove ~19% more bookings and ~21% higher host earnings over the following year.",
   },
   {
     title: "Amenity Showcase",
@@ -146,7 +146,7 @@ export default function AirbnbRentalsPage() {
           </div>
 
           <p className="mt-12 text-center text-sm text-white/30">
-            Serving Arkansas short-term rental hosts since 2018.
+            Serving Arkansas short-term rental hosts.
           </p>
         </div>
       </section>

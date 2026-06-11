@@ -47,8 +47,8 @@ export type VerticalPricing = {
 export const realEstatePricing: VerticalPricing = {
   vertical: "real-estate",
   guarantee: {
-    name: "Listing Performance Guarantee",
-    text: "If your listing doesn't get more online engagement than your last listing shot on a phone or by another photographer, we reshoot it free — and give you a $100 credit toward your next order.",
+    name: "Satisfaction Reshoot Guarantee",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the home after the shoot.",
   },
   scarcity:
     "We partner with 5 new agents per month to protect our 24-hour turnaround.",
@@ -193,8 +193,8 @@ export const realEstatePricing: VerticalPricing = {
 export const buildersPricing: VerticalPricing = {
   vertical: "builders",
   guarantee: {
-    name: "Builder Media Guarantee",
-    text: "If your model home media doesn't outperform your previous marketing materials in engagement, we reshoot free.",
+    name: "Satisfaction Reshoot Guarantee",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover site conditions, weather, or changes made to the property after the shoot.",
   },
   packages: [
     {
@@ -291,8 +291,8 @@ export const buildersPricing: VerticalPricing = {
 export const airbnbPricing: VerticalPricing = {
   vertical: "airbnb-rentals",
   guarantee: {
-    name: "Revenue Ready Guarantee",
-    text: "If your listing doesn't see an increase in booking inquiries within 30 days of updating your photos, we reshoot one room of your choice free.",
+    name: "Satisfaction Reshoot Guarantee",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed space from your agreed shot list. It doesn't cover property condition, weather, or changes made to the rental after the shoot.",
   },
   packages: [
     {
@@ -383,8 +383,8 @@ export const airbnbPricing: VerticalPricing = {
 export const lotLandPricing: VerticalPricing = {
   vertical: "lot-land",
   guarantee: {
-    name: "Visibility Guarantee",
-    text: "If your listing photos don't get more saves than the average land listing in your MLS within 60 days, we reshoot free.",
+    name: "Satisfaction Reshoot Guarantee",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed angle from your agreed shot list. It doesn't cover land conditions, weather, or seasonal changes after the shoot.",
   },
   packages: [
     {
@@ -484,8 +484,8 @@ export const lotLandPricing: VerticalPricing = {
 export const multiFamilyPricing: VerticalPricing = {
   vertical: "multi-family",
   guarantee: {
-    name: "Leasing Launch Guarantee",
-    text: "If your leasing team doesn't see more tour requests within 30 days of publishing new media, we reshoot your most-viewed unit free.",
+    name: "Satisfaction Reshoot Guarantee",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed unit or amenity from your agreed shot list. It doesn't cover property condition, weather, or changes made on-site after the shoot.",
   },
   packages: [
     {
@@ -664,8 +664,8 @@ export const commercialSpecialty: Package[] = [
 ];
 
 export const commercialGuarantee: Guarantee = {
-  name: "Commercial Standards Guarantee",
-  text: "If the media doesn't meet your standards for any commercial listing, we reshoot — no questions asked.",
+  name: "Satisfaction Reshoot Guarantee",
+  text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the site after the shoot.",
 };
 
 // ─── Branding ────────────────────────────────────────────────
@@ -808,8 +808,8 @@ export const brandingTeamPackages: Package[] = [
 ];
 
 export const brandingGuarantee: Guarantee = {
-  name: "First Impression Guarantee",
-  text: "If you don't get at least one compliment on your new headshot within a week, we reshoot free.",
+  name: "Satisfaction Reshoot Guarantee",
+  text: "Not happy with your headshots or brand media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, retouching, or a missed look from your agreed shot list. It doesn't cover wardrobe, styling choices, or requests made after the session.",
 };
 
 // ─── The Spot — Studio Membership ────────────────────────────

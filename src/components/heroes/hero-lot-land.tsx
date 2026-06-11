@@ -15,7 +15,7 @@ export function HeroLotLand() {
         loop
         muted
         playsInline
-        poster="/images/hero-drone-2.jpg"
+        poster="/images/lot-land/hero-poster.jpg"
         className="hero-ll-video absolute inset-0 z-0 h-full w-full object-cover"
       >
         <source src="/images/demo-video.mp4" type="video/mp4" />

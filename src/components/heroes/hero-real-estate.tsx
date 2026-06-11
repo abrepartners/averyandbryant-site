@@ -16,7 +16,7 @@ export function HeroRealEstate() {
         loop
         muted
         playsInline
-        poster="/images/hero-drone.jpg"
+        poster="/images/real-estate/hero.jpg"
         className="absolute inset-0 z-0 h-full w-full object-cover"
       >
         <source src="/images/demo-video.mp4" type="video/mp4" />

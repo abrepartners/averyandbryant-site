@@ -261,7 +261,7 @@ export default function BrandingPage() {
           </div>
 
           <p className="mt-12 text-center text-sm text-white/30">
-            Serving Arkansas agents and businesses since 2018.
+            Serving Arkansas agents and businesses.
           </p>
         </div>
       </section>

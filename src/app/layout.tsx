@@ -78,69 +78,66 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Avery & Bryant - Real Estate Media",
+              name: "Avery & Bryant - Real Estate Media",
               "@id": "https://averyandbryant.com",
-              "url": "https://averyandbryant.com",
-              "telephone": "(501) 502-2925",
-              "address": {
+              url: "https://averyandbryant.com",
+              telephone: "(501) 502-2925",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "12521 Kanis Rd",
-                "addressLocality": "Little Rock",
-                "addressRegion": "AR",
-                "postalCode": "72211",
-                "addressCountry": "US",
+                streetAddress: "12521 Kanis Rd",
+                addressLocality: "Little Rock",
+                addressRegion: "AR",
+                postalCode: "72211",
+                addressCountry: "US",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": 34.7465,
-                "longitude": -92.3582,
+                latitude: 34.7465,
+                longitude: -92.3582,
               },
-              "priceRange": "$$",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5",
-                "reviewCount": "24",
-              },
-              "areaServed": [
-                { "@type": "City", "name": "Little Rock" },
-                { "@type": "City", "name": "Benton" },
-                { "@type": "City", "name": "Conway" },
-                { "@type": "City", "name": "Hot Springs" },
+              priceRange: "$$",
+              areaServed: [
+                { "@type": "City", name: "Little Rock" },
+                { "@type": "City", name: "Benton" },
+                { "@type": "City", name: "Conway" },
+                { "@type": "City", name: "Hot Springs" },
               ],
-              "hasOfferCatalog": {
+              hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                "name": "Real Estate Media Services",
-                "itemListElement": [
+                name: "Real Estate Media Services",
+                itemListElement: [
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Real Estate Photography",
-                      "description": "Professional HDR listing photography",
+                      name: "Real Estate Photography",
+                      description: "Professional HDR listing photography",
                     },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Real Estate Video Tours",
-                      "description": "Cinematic property video tours with drone footage",
+                      name: "Real Estate Video Tours",
+                      description:
+                        "Cinematic property video tours with drone footage",
                     },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Drone Photography",
-                      "description": "FAA-licensed aerial photography and videography",
+                      name: "Drone Photography",
+                      description:
+                        "FAA-licensed aerial photography and videography",
                     },
                   },
                   {
                     "@type": "Offer",
-                    "itemOffered": {
+                    itemOffered: {
                       "@type": "Service",
-                      "name": "Virtual Staging",
-                      "description": "AI-powered virtual staging via StudioAI",
+                      name: "Virtual Staging",
+                      description: "AI-powered virtual staging via StudioAI",
                     },
                   },
                 ],

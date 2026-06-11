@@ -4,14 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 const thumbs = [
-  "/images/portfolio-drone-3.jpg",
-  "/images/portfolio-exterior-1.jpg",
-  "/images/portfolio-interior-1.jpg",
+  "/images/multi-family/thumb-exterior-1.jpg",
+  "/images/multi-family/thumb-exterior-2.jpg",
+  "/images/multi-family/thumb-interior-1.jpg",
 ];
 
 const stats = [
   { value: "24hr", label: "Turnaround" },
-  { value: "50+", label: "Properties shot" },
+  { value: "Drone", label: "Aerials included" },
   { value: "ILS", label: "Platform-ready" },
 ];
 
@@ -34,7 +34,10 @@ export function HeroMultiFamily() {
 
           <h1 className="mt-10 font-display text-[clamp(44px,7vw,88px)] font-extralight leading-[0.95] tracking-tight text-white-90">
             Fill vacancies
-            <span aria-hidden className="ml-3 inline-block h-[2px] w-16 translate-y-[-12px] bg-crimson" />
+            <span
+              aria-hidden
+              className="ml-3 inline-block h-[2px] w-16 translate-y-[-12px] bg-crimson"
+            />
             <br />
             faster
             <br />
@@ -42,9 +45,9 @@ export function HeroMultiFamily() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
-            Professional photography, aerial drone, video tours, and leasing-ready
-            assets for apartment complexes across Arkansas. Built for
-            property managers who can&apos;t afford a slow lease-up.
+            Professional photography, aerial drone, video tours, and
+            leasing-ready assets for apartment complexes across Arkansas. Built
+            for property managers who can&apos;t afford a slow lease-up.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -79,7 +82,7 @@ export function HeroMultiFamily() {
         <div className="flex flex-col gap-4">
           <div className="relative overflow-hidden rounded border border-white/10 bg-[#111] aspect-[4/5] md:aspect-[3/4]">
             <Image
-              src="/images/hero-drone-2.jpg"
+              src="/images/multi-family/hero-exterior.jpg"
               alt="Multi-family property aerial — Avery & Bryant"
               fill
               priority
@@ -90,14 +93,14 @@ export function HeroMultiFamily() {
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">
-                  Featured Property
+                  Multi-Family Media
                 </p>
                 <p className="mt-1 text-sm text-white-80">
-                  The Grove · Little Rock
+                  Communities · Apartments · Student Housing
                 </p>
               </div>
               <span className="rounded border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white-70">
-                Lease-up
+                Lease-up ready
               </span>
             </div>
           </div>

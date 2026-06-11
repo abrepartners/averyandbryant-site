@@ -6,15 +6,15 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    src: "/images/staging-interior.jpg",
+    src: "/images/airbnb-rentals/interior-styled.jpg",
     alt: "Warm interior styled for short-term rental",
   },
   {
-    src: "/images/portfolio-interior-2.jpg",
+    src: "/images/airbnb-rentals/interior-living.jpg",
     alt: "Living room with natural light",
   },
   {
-    src: "/images/portfolio-twilight-2.jpg",
+    src: "/images/airbnb-rentals/exterior-hero.jpg",
     alt: "Twilight exterior — rental property",
   },
 ];
@@ -23,7 +23,10 @@ export function HeroAirbnbRentals() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setActive((i) => (i + 1) % slides.length), 4500);
+    const t = setInterval(
+      () => setActive((i) => (i + 1) % slides.length),
+      4500,
+    );
     return () => clearInterval(t);
   }, []);
 
@@ -78,15 +81,16 @@ export function HeroAirbnbRentals() {
           <div className="mt-12 flex max-w-md items-center gap-6 rounded border border-amber-400/20 bg-amber-400/[0.03] p-6">
             <div className="shrink-0">
               <p className="font-display text-5xl font-light leading-none text-amber-200">
-                40%
+                19%
               </p>
               <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-amber-200/60">
                 More bookings
               </p>
             </div>
             <p className="text-sm leading-relaxed text-white/50">
-              Listings with pro photography consistently outperform phone-shot
-              listings. Your photos pay for themselves in a single booking.
+              Airbnb&apos;s own 2024&ndash;25 study of 14,700+ listings found
+              professional photography drove ~19% more bookings and ~21% higher
+              earnings over the next year. Your photos pay for themselves.
             </p>
           </div>
         </div>
@@ -114,15 +118,17 @@ export function HeroAirbnbRentals() {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm font-medium text-white-90">
-                    The Riverhouse · Little Rock
+                    Your rental, booking-ready
                   </p>
                   <p className="mt-1 text-xs text-white/50">
-                    Entire home · Sleeps 6 · Superhost
+                    Photos · Video · Drone · Twilight
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-amber-200">★ 4.96</p>
-                  <p className="mt-1 text-xs text-white/40">142 reviews</p>
+                  <p className="text-sm font-medium text-amber-200">
+                    Airbnb · VRBO
+                  </p>
+                  <p className="mt-1 text-xs text-white/40">Direct booking</p>
                 </div>
               </div>
               <div className="mt-3 flex items-center gap-1">

@@ -2,7 +2,8 @@ import Link from "next/link";
 
 // Free Consultation calendar in GHL (30-min slots, published).
 // We deep-link with ?prefill=<interest> so Thomas sees context before the call.
-const CONSULT_BASE = "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc";
+const CONSULT_BASE =
+  "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc";
 
 type ConsultCTAProps = {
   /**
@@ -20,11 +21,7 @@ type ConsultCTAProps = {
   subhead?: string;
 };
 
-export function ConsultCTA({
-  interest,
-  headline,
-  subhead,
-}: ConsultCTAProps) {
+export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
   const url = `${CONSULT_BASE}?interest=${encodeURIComponent(interest)}`;
 
   return (
@@ -78,7 +75,7 @@ export function ConsultCTA({
               Book a Free Consult
             </a>
             <Link
-              href="/services"
+              href="/pricing"
               className="text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors hover:text-white md:text-right"
             >
               Or compare all services &rarr;
