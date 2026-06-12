@@ -267,7 +267,12 @@ export default function PricingPage() {
             <span className="text-white/40">under 2 minutes.</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <OrderLink vertical="real-estate">Book a Shoot</OrderLink>
+            <OrderLink
+              vertical="real-estate"
+              className="inline-flex items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+            >
+              Book a Shoot
+            </OrderLink>
             <Link
               href="/book"
               className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/30 hover:text-white"
