@@ -77,11 +77,11 @@ export async function enrollInWorkflow(
   eventStartTime?: string,
 ) {
   const path = `/contacts/${contactId}/workflow/${workflowId}`;
-  return ghl(
-    "POST",
-    path,
-    eventStartTime ? { eventStartTime } : undefined,
-  );
+  return ghl("POST", path, eventStartTime ? { eventStartTime } : undefined);
+}
+
+export async function addContactNote(contactId: string, body: string) {
+  return ghl("POST", `/contacts/${contactId}/notes`, { body });
 }
 
 export async function setCustomField(

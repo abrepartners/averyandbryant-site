@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { QuotePopup } from "@/components/quote-popup";
 import { Footer } from "@/components/footer";
 import { Analytics, AnalyticsNoScript } from "@/components/analytics";
 import { UtmCapture } from "@/components/utm-capture";
@@ -153,6 +154,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <ScrollToTop />
+        <QuotePopup />
         <Footer />
         {/* GHL visitor tracking — ties site behavior back to contacts in GHL */}
         <Script

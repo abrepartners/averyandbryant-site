@@ -12,6 +12,7 @@ import {
   type Package,
 } from "@/lib/pricing";
 import { orderFormUrl, type Vertical } from "@/lib/order-forms";
+import { QuoteLeadForm } from "@/components/quote-lead-form";
 
 /**
  * Guided "recommend my package" selector — buyer-enablement tool.
@@ -140,7 +141,12 @@ function pickPackage(
 const cardBase =
   "group flex flex-col items-start rounded-lg border border-white/10 bg-[rgba(17,17,17,0.5)] p-5 text-left transition-all duration-300 hover:border-crimson/40 hover:bg-[rgba(17,17,17,0.8)]";
 
-export function PackageSelector() {
+export function PackageSelector({
+  leadCapture = false,
+}: {
+  /** Show an inline "send me this quote" form on the result step (popup use). */
+  leadCapture?: boolean;
+}) {
   const [step, setStep] = useState(0);
   const [type, setType] = useState<TypeOption | null>(null);
   const [goal, setGoal] = useState<Goal | null>(null);
@@ -268,7 +274,13 @@ export function PackageSelector() {
 
       {/* Result */}
       {step === total && type && (
-        <Result type={type} goal={goal} scope={scope} onReset={reset} />
+        <Result
+          type={type}
+          goal={goal}
+          scope={scope}
+          onReset={reset}
+          leadCapture={leadCapture}
+        />
       )}
     </div>
   );
@@ -291,11 +303,13 @@ function Result({
   goal,
   scope,
   onReset,
+  leadCapture,
 }: {
   type: TypeOption;
   goal: Goal | null;
   scope: Scope | null;
   onReset: () => void;
+  leadCapture?: boolean;
 }) {
   // Consult verticals (commercial / branding) — no self-serve form
   if (!type.pricing || type.route.kind === "consult") {
@@ -326,6 +340,16 @@ function Result({
             See what we do
           </Link>
         </div>
+        {leadCapture && (
+          <QuoteLeadForm
+            quote={{
+              vertical: type.label,
+              package: "Custom — consult requested",
+              goal: goal ?? undefined,
+              scope: scope ?? undefined,
+            }}
+          />
+        )}
         <ResetLink onReset={onReset} />
       </div>
     );
@@ -383,6 +407,17 @@ function Result({
           Book a free consult.
         </Link>
       </p>
+      {leadCapture && (
+        <QuoteLeadForm
+          quote={{
+            vertical: type.label,
+            package: pkg.name,
+            price: pkg.price,
+            goal: goal ?? undefined,
+            scope: scope ?? undefined,
+          }}
+        />
+      )}
       <ResetLink onReset={onReset} />
     </div>
   );
