@@ -108,6 +108,27 @@ const services: Service[] = [
     description:
       "Interactive 3D walkthrough. Buyers explore the home remotely, room by room.",
     image: "/images/portfolio-interior-2.jpg",
+    preview: {
+      kind: "videos",
+      orientation: "horizontal",
+      items: [
+        {
+          src: "/images/services/3d-tours/tour3d-1.mp4",
+          poster: "/images/services/3d-tours/tour3d-1-poster.jpg",
+          label: "Walk Through Room to Room",
+        },
+        {
+          src: "/images/services/3d-tours/tour3d-2.mp4",
+          poster: "/images/services/3d-tours/tour3d-2-poster.jpg",
+          label: "Explore Every Space",
+        },
+        {
+          src: "/images/services/3d-tours/tour3d-3.mp4",
+          poster: "/images/services/3d-tours/tour3d-3-poster.jpg",
+          label: "Self-Guided Walkthrough",
+        },
+      ],
+    },
   },
   {
     title: "Virtual Staging",
