@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "StudioAI | AI Photo Editing for Real Estate | Avery & Bryant",
+  title: "Vellum | AI Photo Editing for Real Estate | Avery & Bryant",
   description:
     "AI-powered listing media platform with virtual staging, smart cleanup, day to dusk, and batch processing. Stage it. Clean it. Market it. Ship it.",
 };
@@ -98,7 +98,7 @@ const pricingPlans = [
   },
 ];
 
-export default function StudioAIPage() {
+export default function VellumPage() {
   return (
     <>
       {/* Hero */}
@@ -128,7 +128,7 @@ export default function StudioAIPage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="https://studioai.averyandbryant.com"
+              href="https://vellum.homes"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
@@ -163,7 +163,7 @@ export default function StudioAIPage() {
               Real Results
             </h2>
             <p className="mt-4 text-white-50">
-              See what StudioAI can do with a single click.
+              See what Vellum can do with a single click.
             </p>
           </div>
 
@@ -277,7 +277,7 @@ export default function StudioAIPage() {
                   ))}
                 </ul>
                 <a
-                  href="https://studioai.averyandbryant.com"
+                  href="https://vellum.homes"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`mt-8 block w-full rounded py-3 text-center text-[11px] uppercase tracking-[0.2em] transition-all ${
@@ -305,12 +305,12 @@ export default function StudioAIPage() {
             Stop paying $300 per staging.
           </h2>
           <a
-            href="https://studioai.averyandbryant.com"
+            href="https://vellum.homes"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
           >
-            Open StudioAI
+            Open Vellum
           </a>
         </div>
       </section>

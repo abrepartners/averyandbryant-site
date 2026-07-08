@@ -79,7 +79,7 @@ const services: Service[] = [
     price: "$250",
     description:
       "Cinematic walkthrough video with music, pacing, and branded intro. MLS and social-ready.",
-    image: "/images/portfolio-exterior-1.jpg",
+    image: "/images/services/video-tours/cover.jpg",
     preview: {
       kind: "videos",
       orientation: "horizontal",
@@ -134,7 +134,7 @@ const services: Service[] = [
     title: "Virtual Staging",
     price: "$65/image",
     description:
-      "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 24 hours.",
+      "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 48 hours.",
     image: "/images/showcase-staging-after.jpg",
     preview: {
       kind: "images",
@@ -158,7 +158,7 @@ const systemSteps = [
   },
   {
     num: "02",
-    title: "StudioAI Post-Production",
+    title: "Vellum Post-Production",
     description:
       "AI-powered color grading, sky replacement, and twilight conversion. Magazine-quality edits in hours, not days.",
   },
@@ -372,51 +372,30 @@ export default function HomePage() {
             <span className="text-white-40">After You Leave.</span>
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            <div className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10">
-              <span className="inline-block rounded-full border border-crimson/30 bg-crimson/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-crimson">
-                StudioAI
-              </span>
-              <h3 className="mt-6 font-display text-2xl font-light text-white-90">
-                Edit Your Own Listing Photos. Instantly.
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/40">
-                Virtual staging, twilight conversion, sky replacement, and
-                object removal. Upload a photo, get a finished asset. No design
-                skills. No waiting on editors.
-              </p>
-              <Link
-                href="https://studioai.averyandbryant.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
-              >
-                Try Free
-              </Link>
-            </div>
-
-            <div className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10">
-              <span className="inline-block rounded-full border border-crimson/30 bg-crimson/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-crimson">
-                Answr
-              </span>
-              <h3 className="mt-6 font-display text-2xl font-light text-white-90">
-                Every Call Answered. Every Lead Qualified.
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/40">
-                AI voice and chat agents that pick up every call, answer listing
-                questions, qualify buyer intent, and book showings. Running 24/7
-                so you don't have to.
-              </p>
-              <div className="mt-6 flex items-center gap-4">
+          <div className="mt-16">
+            <div className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-12">
+              <div className="grid items-center gap-8 md:grid-cols-[1.2fr_auto]">
+                <div>
+                  <span className="inline-block rounded-full border border-crimson/30 bg-crimson/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-crimson">
+                    Vellum
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl font-light text-white-90">
+                    Edit Your Own Listing Photos. Instantly.
+                  </h3>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/40">
+                    Virtual staging, twilight conversion, sky replacement, and
+                    object removal. Upload a photo, get a finished asset. No
+                    design skills. No waiting on editors.
+                  </p>
+                </div>
                 <Link
-                  href="/answr"
-                  className="inline-block rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+                  href="https://vellum.homes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block justify-self-start rounded bg-crimson px-6 py-3 text-center text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)] md:justify-self-end"
                 >
-                  Start Trial
+                  Try Free
                 </Link>
-                <span className="text-[11px] uppercase tracking-[0.15em] text-white/30">
-                  From $147/mo
-                </span>
               </div>
             </div>
           </div>

@@ -10,16 +10,12 @@ export function HeroLotLand() {
       aria-label="Lot & Land Media hero"
       className="relative isolate flex min-h-[85vh] items-center overflow-hidden md:min-h-screen"
     >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/images/lot-land/hero-poster.jpg"
-        className="hero-ll-video absolute inset-0 z-0 h-full w-full object-cover"
-      >
-        <source src="/images/demo-video.mp4" type="video/mp4" />
-      </video>
+      {/* Aerial photo background — real A&B drone capture (1052 Stagecoach, Cabot AR) */}
+      <div
+        aria-hidden
+        className="hero-ll-video absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/lot-land/hero-poster.jpg')" }}
+      />
 
       {/* Heavier gradient — aerial needs the text to read cleanly even over bright sky */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/75 to-[#0a0a0a]/30" />
@@ -73,9 +69,9 @@ export function HeroLotLand() {
         </h1>
 
         <p className="mt-8 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
-          FAA Part 107–licensed aerial drone, boundary overlays, proximity
-          maps, and cinematic flyover video for land, lots, and development
-          sites across Arkansas.
+          FAA Part 107–licensed aerial drone, boundary overlays, proximity maps,
+          and cinematic flyover video for land, lots, and development sites
+          across Arkansas.
         </p>
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">

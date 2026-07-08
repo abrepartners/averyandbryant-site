@@ -1,26 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 const tiles = [
   {
-    src: "/images/portfolio-exterior-1.jpg",
     label: "Dealerships",
     meta: "Inventory · drone · brand",
   },
   {
-    src: "/images/portfolio-interior-1.jpg",
     label: "Offices & Retail",
     meta: "Exterior · interior · team",
   },
   {
-    src: "/images/portfolio-drone-3.jpg",
     label: "Industrial",
     meta: "Aerial · facility tours",
   },
   {
-    src: "/images/staging-twilight.jpg",
     label: "Hospitality",
     meta: "Restaurants · venues · hotels",
   },
@@ -49,7 +44,9 @@ export function HeroCommercial() {
           <h1 className="mt-10 font-display text-[clamp(40px,6.8vw,84px)] font-extralight leading-[0.96] tracking-tight text-white-90">
             Media for everything
             <br />
-            <span className="text-white-40 italic">that isn&apos;t a home.</span>
+            <span className="text-white-40 italic">
+              that isn&apos;t a home.
+            </span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
@@ -83,31 +80,47 @@ export function HeroCommercial() {
           </p>
         </div>
 
-        {/* RIGHT — 2x2 mosaic */}
+        {/* RIGHT — 2x2 category board (editorial cards; real commercial photos wire in as shot) */}
         <div className="grid grid-cols-2 gap-3 md:gap-4">
           {tiles.map((t, i) => (
             <div
               key={t.label}
-              className={`group relative overflow-hidden rounded border border-white/10 bg-[#111] ${
+              className={`group relative flex flex-col justify-between overflow-hidden rounded border border-white/10 bg-[#0d0d0d] p-5 transition-colors hover:border-sky-400/30 md:p-6 ${
                 i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"
               }`}
             >
-              <Image
-                src={t.src}
-                alt={t.label}
-                fill
-                sizes="(max-width: 768px) 45vw, 22vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              {/* Technical grid motif */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-[0.05]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-[#0a0a0a]/10 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="font-display text-lg font-medium text-white-90">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute right-4 top-4 h-8 w-8 rounded-full border border-sky-400/20"
+              />
+
+              <p className="relative font-mono text-[10px] uppercase tracking-[0.25em] text-sky-300/60">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+
+              <div className="relative">
+                <p className="font-display text-lg font-medium text-white-90 md:text-xl">
                   {t.label}
                 </p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/40">
                   {t.meta}
                 </p>
               </div>
+
+              <span
+                aria-hidden
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-sky-400/60 to-transparent transition-all duration-700 group-hover:w-full"
+              />
             </div>
           ))}
         </div>

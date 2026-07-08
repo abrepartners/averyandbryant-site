@@ -1,7 +1,39 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // ── Canonical host: non-www → www (existing Google rankings live on www) ──
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "averyandbryant.com" }],
+        destination: "https://www.averyandbryant.com/:path*",
+        permanent: true,
+      },
+
+      // ── Squarespace → new-site 301 map (docs/seo-migration-checklist.md) ──
+      { source: "/photos", destination: "/gallery", permanent: true },
+      { source: "/Gallery", destination: "/gallery", permanent: true },
+      { source: "/videos", destination: "/gallery", permanent: true },
+      { source: "/book-services", destination: "/book", permanent: true },
+      { source: "/services-pricing", destination: "/pricing", permanent: true },
+      { source: "/agent-branding", destination: "/branding", permanent: true },
+      { source: "/drone-photos", destination: "/real-estate", permanent: true },
+      {
+        source: "/twilight-photography",
+        destination: "/real-estate",
+        permanent: true,
+      },
+      {
+        source: "/virtual-staging",
+        destination: "/real-estate",
+        permanent: true,
+      },
+
+      // ── Product rebrand: StudioAI → Vellum ──
+      { source: "/studioai", destination: "/vellum", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

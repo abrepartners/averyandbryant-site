@@ -8,7 +8,7 @@ const expectations = [
   "Book online in under 2 minutes",
   "Confirmation text with shoot details",
   "We show up on time, every time",
-  "Photos delivered within 24-48 hours",
+  "Photos delivered within 48 hours",
 ];
 
 export default function BookPage() {

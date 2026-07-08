@@ -1,6 +1,7 @@
 import { HeroMultiFamily } from "@/components/heroes/hero-multi-family";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
@@ -50,7 +51,40 @@ const steps = [
   {
     number: "03",
     title: "Get Your Media",
-    description: "Edited photos and video delivered within 24 hours.",
+    description: "Edited photos and video delivered within 48 hours.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does apartment photography cost in Arkansas?",
+    answer:
+      "Multi-family scope varies with property size, amenity count, and how many units you want covered. Packages are listed on this page, you can compare across property types on our pricing page, and for lease-ups or larger communities a quick call is the fastest way to get an exact number.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Standard delivery is within 48 hours of the shoot. If your leasing team is working against a launch date, rush delivery is available.",
+  },
+  {
+    question: "Do you serve Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+  },
+  {
+    question: "Can you fly drones over our apartment community?",
+    answer:
+      "Yes. Every aerial shoot is flown by an FAA Part 107 certified pilot with full insurance coverage, so campus overviews and amenity aerials are handled professionally and by the book.",
+  },
+  {
+    question: "Do you photograph model units and amenities?",
+    answer:
+      "Yes. We shoot your model unit like a luxury listing and give every amenity dedicated coverage, from the pool to the clubhouse. Every asset is formatted for ILS platforms, your website, social media, and print.",
+  },
+  {
+    question: "What if we are not happy with the media?",
+    answer:
+      "Every shoot is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free.",
   },
 ];
 
@@ -150,6 +184,9 @@ export default function MultiFamilyPage() {
           </p>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="multi-family"

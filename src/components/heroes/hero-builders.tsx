@@ -1,23 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 const progress = [
   {
-    stage: "01 / Foundation",
-    src: "/images/builders/foundation-exterior.jpg",
-    label: "Document the build",
+    stage: "01",
+    title: "Foundation",
+    label:
+      "Break ground on the record. Slab, framing, and site progress documented from day one.",
   },
   {
-    stage: "02 / Build",
-    src: "/images/builders/build-interior.jpg",
-    label: "Mid-construction",
+    stage: "02",
+    title: "Vertical Build",
+    label:
+      "Structure, systems, and finishes tracked through every phase of construction.",
   },
   {
-    stage: "03 / Model Launch",
-    src: "/images/builders/model-launch-exterior.jpg",
-    label: "Market the result",
+    stage: "03",
+    title: "Model Launch",
+    label:
+      "Finished-home photography, drone, and cinematic video to market the result.",
   },
 ];
 
@@ -89,37 +91,49 @@ export function HeroBuilders() {
             </dl>
           </div>
 
-          {/* RIGHT — progress timeline */}
+          {/* RIGHT — blueprint progress ladder (photos swap in per stage as builds are shot) */}
           <div className="flex flex-col gap-4">
-            {progress.map((item, i) => (
+            {progress.map((item) => (
               <div
                 key={item.stage}
-                className="group relative flex items-center gap-4 overflow-hidden rounded border border-white/10 bg-[#111] p-3 transition-colors hover:border-amber-500/30 md:gap-6 md:p-4"
-                style={{ animationDelay: `${i * 150}ms` }}
+                className="group relative overflow-hidden rounded border border-white/10 bg-[#0d0d0d] p-6 transition-colors hover:border-amber-500/30 md:p-7"
               >
-                <div className="relative aspect-[4/3] h-24 w-32 shrink-0 overflow-hidden rounded md:h-32 md:w-44">
-                  <Image
-                    src={item.src}
-                    alt={item.label}
-                    fill
-                    sizes="(max-width: 768px) 8rem, 11rem"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber-400/70">
+                {/* Blueprint grid motif */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-[0.06]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+                    backgroundSize: "22px 22px",
+                  }}
+                />
+                {/* Ghost stage number */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-2 -top-6 font-display text-[110px] font-extralight leading-none text-white/[0.04] md:text-[130px]"
+                >
+                  {item.stage}
+                </span>
+
+                <div className="relative flex items-start gap-5">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded border border-amber-500/30 font-mono text-xs text-amber-300/90">
                     {item.stage}
-                  </p>
-                  <p className="mt-2 font-display text-lg font-light text-white-90 md:text-xl">
-                    {item.label}
-                  </p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-display text-xl font-light text-white-90 md:text-2xl">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-white/50">
+                      {item.label}
+                    </p>
+                  </div>
                 </div>
-                <div className="hidden h-full items-center pr-4 md:flex">
-                  <span
-                    aria-hidden
-                    className="h-[1px] w-10 bg-gradient-to-r from-white/20 to-transparent"
-                  />
-                </div>
+
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-amber-500/60 to-transparent transition-all duration-700 group-hover:w-full"
+                />
               </div>
             ))}
           </div>

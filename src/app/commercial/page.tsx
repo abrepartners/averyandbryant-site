@@ -1,5 +1,6 @@
 import { HeroCommercial } from "@/components/heroes/hero-commercial";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import {
@@ -58,6 +59,40 @@ const steps = [
     title: "Get Your Media",
     description:
       "Edited photos and video delivered within 72 hours of the shoot.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does commercial photography cost in Arkansas?",
+    answer:
+      "Every commercial project is scoped custom around the property, the brand, and how the media will be used. Baseline package structures are listed on this page, and a 15 minute scope call gets you a written quote within 24 hours.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Commercial deliverables are edited and delivered within 72 hours of the shoot, and we can typically get your shoot on the calendar within the week of your quote.",
+  },
+  {
+    question: "Do you serve Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+  },
+  {
+    question: "Are you licensed for commercial drone work?",
+    answer:
+      "Yes. Every flight is operated by an FAA Part 107 certified pilot with full insurance coverage and proper permitting for commercial airspace. This is professional aerial work, not a hobby drone over a parking lot.",
+  },
+  {
+    question:
+      "Do you offer ongoing content programs for dealerships and hospitality?",
+    answer:
+      "Yes. Monthly retainer programs keep dealerships and hospitality properties stocked with fresh content: seasonal refreshes, new inventory, updated interiors, and team changes.",
+  },
+  {
+    question: "What if we are not happy with the media?",
+    answer:
+      "Every shoot is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free.",
   },
 ];
 
@@ -193,6 +228,9 @@ export default function CommercialPage() {
           </p>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="commercial"

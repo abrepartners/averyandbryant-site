@@ -124,10 +124,14 @@ const amenities = [
   "Flexible cancellation",
 ];
 
+// Keys must match studioMemberships names in src/lib/pricing.ts.
+// URLs are the LIVE Stripe payment links (verified 2026-07-08); each link's
+// metadata.tier ("creator-lite" / "creator" / "pro") flows to the webhook's
+// TIER_TAGS and redirects back here as ?subscribed=<tier>.
 const membershipSubscribeUrls: Record<string, string> = {
-  "Creator Pass": "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
-  "Studio Pro Pass": "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
-  "Studio Command": "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
+  "Creator Lite": "https://pay.averyandbryant.com/b/5kQ00jgLK5fGdlNd1QbjW0j",
+  Creator: "https://pay.averyandbryant.com/b/dRmdR9dzyaA02H94vkbjW0k",
+  Pro: "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
 };
 
 // Pricing: "rate" = non-member retail. "memberRate" = best-tier (Pro 30% off) price.
@@ -431,35 +435,6 @@ export default async function StudioPage({
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FLOOR PLAN PLACEHOLDER ── */}
-      <section className="border-t border-white/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Plan the Day
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Map out your shoot.{" "}
-            <span className="text-white-40">Then pick your sets.</span>
-          </h2>
-
-          <div className="mt-12 flex flex-col items-center justify-center rounded-lg border border-dashed border-white/10 bg-[rgba(17,17,17,0.4)] px-6 py-20 text-center">
-            <span className="rounded-full border border-amber-400/30 bg-amber-400/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-amber-200/80">
-              Floor plan coming
-            </span>
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-white/45">
-              We&apos;ll publish the labeled floor plan here so you can pick
-              which sets to combine before booking. Want it sooner?{" "}
-              <a
-                href={emailFor("floor plan request")}
-                className="text-crimson transition-colors hover:text-white"
-              >
-                Email us and we&apos;ll send it.
-              </a>
-            </p>
           </div>
         </div>
       </section>

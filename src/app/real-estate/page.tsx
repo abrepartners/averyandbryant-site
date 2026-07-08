@@ -1,6 +1,7 @@
 import { HeroRealEstate } from "@/components/heroes/hero-real-estate";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { EnhancementPacks } from "@/components/pricing/enhancement-packs";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
@@ -12,8 +13,41 @@ export const metadata = {
   title:
     "Real Estate Media — Listing Launch Kit, Domination System & Market Takeover | Avery & Bryant",
   description:
-    "Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans for real estate listings across Arkansas. Packages from $299 with 24-hour delivery guarantee.",
+    "Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans for real estate listings across Arkansas. Packages from $299 with 48-hour delivery guarantee.",
 };
+
+const faqs = [
+  {
+    question: "How much does real estate photography cost in Arkansas?",
+    answer:
+      "Pricing scales with the size of the property and the package you choose. Every package and add-on is listed on this page, and you can compare pricing across all property types on our pricing page. You will see your exact total when you book online, before you confirm anything.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Standard delivery is within 48 hours of the shoot, and most listing media arrives sooner. If you are working against a tight deadline, rush delivery is available as an add-on.",
+  },
+  {
+    question: "Do you serve Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas. One team, one standard, statewide coverage.",
+  },
+  {
+    question: "Are your drone pilots licensed and insured?",
+    answer:
+      "Yes. Every aerial shoot is flown by an FAA Part 107 certified pilot, and we carry full insurance coverage. Your brokerage and your sellers are protected on every flight.",
+  },
+  {
+    question: "Do you offer virtual staging and twilight photography?",
+    answer:
+      "Yes. Virtual staging, virtual twilight conversions, and real golden hour twilight shoots are all available as add-ons to any listing package.",
+  },
+  {
+    question: "What if I am not happy with my listing photos?",
+    answer:
+      "Every shoot is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free. That standard is why more than 200 Arkansas agents shoot with us and why we hold an A+ rating with the Better Business Bureau.",
+  },
+];
 
 export default function RealEstatePage() {
   const { packages, enhancementPacks, addOns, guarantee, scarcity } =
@@ -59,6 +93,9 @@ export default function RealEstatePage() {
 
       {/* ── À LA CARTE ── */}
       <AddOnsGrid addOns={addOns} vertical="real-estate" />
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="real-estate"

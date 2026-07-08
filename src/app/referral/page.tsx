@@ -1,8 +1,9 @@
 import { Hero } from "@/components/hero";
 
 export const metadata = {
-  title: 'Referral Program | Earn Cash for Every Referral | Avery & Bryant',
-  description: 'Refer an agent or property owner to Avery & Bryant and earn cash for every booking. No cap, no expiration. Real money, not gift cards.',
+  title: "Referral Program | Earn Cash for Every Referral | Avery & Bryant",
+  description:
+    "Refer an agent or property owner to Avery & Bryant and earn cash for every booking. No cap, no expiration. Real money, not gift cards.",
 };
 
 const steps = [
@@ -39,7 +40,7 @@ const faqs = [
   {
     question: "How do I refer someone?",
     answer:
-      "Just tell them about us. When they book, they'll see a \"How'd you hear about us?\" field. They select \"Referral\" and type your name. That's it.",
+      'Just tell them about us. When they book, they\'ll see a "How\'d you hear about us?" field. They select "Referral" and type your name. That\'s it.',
   },
   {
     question: "When do I get paid?",
@@ -78,8 +79,7 @@ export default function ReferralPage() {
             How It Works
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Three steps.{" "}
-            <span className="text-white-40">That&apos;s it.</span>
+            Three steps. <span className="text-white-40">That&apos;s it.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -134,8 +134,7 @@ export default function ReferralPage() {
             What You Earn
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Real cash.{" "}
-            <span className="text-white-40">No limits.</span>
+            Real cash. <span className="text-white-40">No limits.</span>
           </h2>
           <div className="mt-10 max-w-3xl space-y-6">
             <div className="flex items-start gap-3">
@@ -203,8 +202,11 @@ export default function ReferralPage() {
                 key={faq.question}
                 className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-crimson/20 [&[open]]:border-crimson/20"
               >
-                <summary className="cursor-pointer px-6 py-5 text-sm font-medium text-white-90 transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-sm font-medium text-white-90 transition-colors hover:text-white list-none [&::-webkit-details-marker]:hidden">
                   {faq.question}
+                  <span className="shrink-0 text-white-30 transition-transform group-open:rotate-45">
+                    +
+                  </span>
                 </summary>
                 <div className="px-6 pb-5 text-sm leading-relaxed text-white/50">
                   {faq.answer}

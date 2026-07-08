@@ -5,7 +5,6 @@ export const metadata = {
   title: "Pricing — Real Estate Media Packages | Avery & Bryant",
   description:
     "Transparent pricing for real estate photography, drone, video, virtual tours, and branding across all property types. Central Arkansas.",
-  robots: { index: false, follow: false },
 };
 
 const verticals = [
@@ -16,7 +15,7 @@ const verticals = [
     headline: "Listing Media",
     range: "From $299",
     description:
-      "HDR photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 24-hour delivery guarantee.",
+      "HDR photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 48-hour delivery guarantee.",
     packages: [
       { name: "Listing Launch Kit", price: "From $299" },
       { name: "Listing Domination System", price: "From $499" },
@@ -131,7 +130,7 @@ const addOns = [
   { name: "Real Twilight Shoot", note: "golden hour" },
   { name: "Virtual Twilight", note: "day-to-dusk AI" },
   { name: "Boundary Overlays", note: "land listings" },
-  { name: "AI Home Rendering", note: "StudioAI" },
+  { name: "AI Home Rendering", note: "Vellum" },
   { name: "Rush Delivery (6hr)", note: "add-on" },
 ];
 

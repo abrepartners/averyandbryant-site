@@ -19,8 +19,7 @@ const services = [
 
 const products = [
   { label: "The Spot · Studios", href: "/studio" },
-  { label: "StudioAI", href: "/studioai" },
-  { label: "Answr", href: "/answr" },
+  { label: "Vellum", href: "/vellum" },
 ];
 
 export function Nav() {
@@ -41,10 +40,16 @@ export function Nav() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(e.target as Node)
+      ) {
         setServicesOpen(false);
       }
-      if (productsRef.current && !productsRef.current.contains(e.target as Node)) {
+      if (
+        productsRef.current &&
+        !productsRef.current.contains(e.target as Node)
+      ) {
         setProductsOpen(false);
       }
     }
@@ -63,7 +68,11 @@ export function Nav() {
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3" aria-label="Avery & Bryant — home">
+          <Link
+            href="/"
+            className="flex items-center gap-3"
+            aria-label="Avery & Bryant — home"
+          >
             <svg
               viewBox="490 281 120 128"
               aria-hidden="true"
@@ -91,7 +100,10 @@ export function Nav() {
             {/* Services Dropdown */}
             <div ref={servicesRef} className="relative">
               <button
-                onClick={() => { setServicesOpen(!servicesOpen); setProductsOpen(false); }}
+                onClick={() => {
+                  setServicesOpen(!servicesOpen);
+                  setProductsOpen(false);
+                }}
                 className="flex items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
               >
                 Services
@@ -118,7 +130,10 @@ export function Nav() {
             {/* Products Dropdown */}
             <div ref={productsRef} className="relative">
               <button
-                onClick={() => { setProductsOpen(!productsOpen); setServicesOpen(false); }}
+                onClick={() => {
+                  setProductsOpen(!productsOpen);
+                  setServicesOpen(false);
+                }}
                 className="flex items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
               >
                 Products
@@ -165,7 +180,11 @@ export function Nav() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>

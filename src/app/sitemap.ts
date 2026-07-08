@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://averyandbryant.com";
+  const baseUrl = "https://www.averyandbryant.com";
   return [
     {
       url: baseUrl,
@@ -13,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/get-started`,
       lastModified: new Date(),
       changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
@@ -64,21 +70,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/members`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/studioai`,
+      url: `${baseUrl}/vellum`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/answr`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
       priority: 0.7,
     },
     {

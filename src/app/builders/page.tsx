@@ -1,6 +1,7 @@
 import { HeroBuilders } from "@/components/heroes/hero-builders";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
@@ -50,7 +51,41 @@ const steps = [
   {
     number: "03",
     title: "Get Your Media",
-    description: "Edited photos and video delivered within 24 hours.",
+    description: "Edited photos and video delivered within 48 hours.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does builder photography cost in Arkansas?",
+    answer:
+      "It depends on the scope. One-time model home shoots and monthly progress documentation are priced differently, so every builder package is listed on this page and you can compare across property types on our pricing page.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Standard delivery is within 48 hours of the shoot. If a model home launch or investor meeting is on the calendar, rush delivery is available.",
+  },
+  {
+    question:
+      "Do you work with builders in Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas. Builders working multiple communities get the same team and standard in both markets.",
+  },
+  {
+    question: "Are your drone pilots licensed for development aerials?",
+    answer:
+      "Yes. Every flight is operated by an FAA Part 107 certified pilot with full insurance coverage, so development overviews, lot inventory aerials, and progress flyovers are all handled by the book.",
+  },
+  {
+    question: "Can you document construction progress every month?",
+    answer:
+      "Yes. Our Build Tracker program provides consistent photo documentation at every stage of construction. Builders use it for investor updates, warranty records, and marketing content.",
+  },
+  {
+    question: "What if we are not happy with the media?",
+    answer:
+      "Every shoot is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free.",
   },
 ];
 
@@ -150,6 +185,9 @@ export default function BuildersPage() {
           </p>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="builders"

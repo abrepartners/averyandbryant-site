@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: "Avery & Bryant | Real Estate Media & AI Infrastructure | Arkansas",
   description:
     "Professional real estate media, AI voice agents, virtual staging, and content systems for modern real estate operations. Little Rock, Arkansas.",
-  metadataBase: new URL("https://averyandbryant.com"),
+  metadataBase: new URL("https://www.averyandbryant.com"),
   openGraph: {
     type: "website",
     title: "Avery & Bryant | Real Estate Media & AI Infrastructure",
@@ -80,8 +80,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Avery & Bryant - Real Estate Media",
-              "@id": "https://averyandbryant.com",
-              url: "https://averyandbryant.com",
+              "@id": "https://www.averyandbryant.com",
+              url: "https://www.averyandbryant.com",
               telephone: "(501) 502-2925",
               address: {
                 "@type": "PostalAddress",
@@ -138,7 +138,7 @@ export default function RootLayout({
                     itemOffered: {
                       "@type": "Service",
                       name: "Virtual Staging",
-                      description: "AI-powered virtual staging via StudioAI",
+                      description: "AI-powered virtual staging via Vellum",
                     },
                   },
                 ],

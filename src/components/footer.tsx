@@ -39,12 +39,15 @@ const services = [
 
 const products = [
   { label: "The Spot · Studios", href: "/studio" },
-  { label: "StudioAI", href: "/studioai" },
-  { label: "Answr", href: "/answr" },
+  { label: "Vellum", href: "/vellum" },
 ];
 
 const account = [
-  { label: "Client Portal", href: "https://homes.averyandbryant.com/portal", external: true },
+  {
+    label: "Client Portal",
+    href: "https://homes.averyandbryant.com/portal",
+    external: true,
+  },
   { label: "Account · Members", href: "/members" },
   { label: "Referrals", href: "/referral" },
   { label: "Gallery", href: "/gallery" },
@@ -194,7 +197,8 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-xs text-white-30">
-            &copy; {new Date().getFullYear()} Avery & Bryant. All rights reserved.
+            &copy; {new Date().getFullYear()} Avery & Bryant. All rights
+            reserved.
           </p>
           <div className="flex gap-6">
             <Link

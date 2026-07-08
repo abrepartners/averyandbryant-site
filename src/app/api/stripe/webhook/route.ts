@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import {
-  upsertContact,
-  enrollInWorkflow,
-  setCustomField,
-} from "@/lib/ghl";
+import { upsertContact, enrollInWorkflow, setCustomField } from "@/lib/ghl";
 
 // GHL custom field id for "Studio Schedule URL" (created 2026-04-20).
 const STUDIO_SCHEDULE_URL_FIELD_ID = "MeyPRVtDcNwSFyoh89ma";
@@ -19,8 +15,19 @@ const stripe = STRIPE_SECRET ? new Stripe(STRIPE_SECRET) : null;
 
 // Map Stripe metadata.tier or metadata.product → GHL tags applied to the contact.
 // When you build GHL workflows, trigger them on these tags.
+// Keys verified against LIVE Stripe payment-link metadata (2026-07-08):
+//   creator-lite = Creator Lite Membership $60/mo (plink_1TOIZVH4bUQUJwBsVyNa3EKK)
+//   creator      = Creator Membership $100/mo     (plink_1TOIZWH4bUQUJwBsMjg6Amnk)
+//   pro          = Pro Membership $180/mo         (plink_1TOIZYH4bUQUJwBsPnbjPZ87)
+// Payment-link metadata is copied onto the Checkout Session, so
+// checkout.session.completed arrives with session.metadata.tier set to one
+// of these keys. Display names live in src/lib/pricing.ts studioMemberships.
 const TIER_TAGS: Record<string, string[]> = {
-  "creator-lite": ["vertical:studio", "studio:member", "studio:tier-creator-lite"],
+  "creator-lite": [
+    "vertical:studio",
+    "studio:member",
+    "studio:tier-creator-lite",
+  ],
   creator: ["vertical:studio", "studio:member", "studio:tier-creator"],
   pro: ["vertical:studio", "studio:member", "studio:tier-pro"],
 };
@@ -28,9 +35,21 @@ const TIER_TAGS: Record<string, string[]> = {
 const PRODUCT_TAGS: Record<string, string[]> = {
   "podcast-1hr": ["vertical:studio", "studio:booking", "studio:podcast-1hr"],
   "podcast-2hr": ["vertical:studio", "studio:booking", "studio:podcast-2hr"],
-  "podcast-half-day": ["vertical:studio", "studio:booking", "studio:podcast-half"],
-  "alternate-set": ["vertical:studio", "studio:booking", "studio:alternate-set"],
-  "multi-set-day": ["vertical:studio", "studio:booking", "studio:multi-set-day"],
+  "podcast-half-day": [
+    "vertical:studio",
+    "studio:booking",
+    "studio:podcast-half",
+  ],
+  "alternate-set": [
+    "vertical:studio",
+    "studio:booking",
+    "studio:alternate-set",
+  ],
+  "multi-set-day": [
+    "vertical:studio",
+    "studio:booking",
+    "studio:multi-set-day",
+  ],
 };
 
 // Existing GHL workflows to auto-enroll contacts in (IDs captured 2026-04-20).
@@ -87,7 +106,8 @@ export async function POST(req: Request) {
 
   const session = event.data.object as Stripe.Checkout.Session;
 
-  const email = session.customer_details?.email ?? session.customer_email ?? undefined;
+  const email =
+    session.customer_details?.email ?? session.customer_email ?? undefined;
   const name = session.customer_details?.name ?? "";
   const [firstName, ...rest] = name.split(" ");
   const lastName = rest.join(" ").trim() || undefined;
@@ -118,12 +138,7 @@ export async function POST(req: Request) {
       tags,
     });
     contactId = result.contact?.id;
-    console.info(
-      "[stripe-webhook] upserted contact",
-      contactId,
-      "tags",
-      tags,
-    );
+    console.info("[stripe-webhook] upserted contact", contactId, "tags", tags);
   } catch (err) {
     console.error("[stripe-webhook] GHL upsert failed", err);
     return NextResponse.json({ error: "ghl upsert failed" }, { status: 500 });

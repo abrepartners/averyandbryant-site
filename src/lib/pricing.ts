@@ -51,12 +51,12 @@ export const realEstatePricing: VerticalPricing = {
     text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the home after the shoot.",
   },
   scarcity:
-    "We partner with 5 new agents per month to protect our 24-hour turnaround.",
+    "We partner with 5 new agents per month to protect our 48-hour turnaround.",
   packages: [
     {
       name: "Listing Launch Kit",
       price: "From $299",
-      tag: "Market-ready in 24 hours",
+      tag: "Market-ready in 48 hours",
       valueItems: [
         { label: "25+ HDR Professional Photos", value: "$299" },
         { label: "2D Floor Plan", value: "$99" },
@@ -71,7 +71,7 @@ export const realEstatePricing: VerticalPricing = {
           isBonus: true,
         },
         {
-          label: "24-Hour Photo Delivery Guarantee",
+          label: "48-Hour Photo Delivery Guarantee",
           value: "$99",
           isBonus: true,
         },
@@ -454,7 +454,7 @@ export const lotLandPricing: VerticalPricing = {
       tag: "AI-rendered home visualization",
       valueItems: [
         { label: "Everything in Vision Blueprint", value: "$1,228" },
-        { label: "AI Rendering — Home on the Lot (StudioAI)", value: "$295" },
+        { label: "AI Rendering — Home on the Lot (Vellum)", value: "$295" },
         { label: "2 Additional AI Rendering Angles", value: "$295" },
         {
           label: "Single-Property Website with Renderings",
@@ -474,7 +474,7 @@ export const lotLandPricing: VerticalPricing = {
   addOns: [
     { title: "Boundary Overlays (up to 2)", price: "$99" },
     { title: "Drone Flyover Video", price: "$195" },
-    { title: "AI Home Rendering (StudioAI)", price: "$295" },
+    { title: "AI Home Rendering (Vellum)", price: "$295" },
     { title: "Proximity Map", price: "$39" },
     { title: "Virtual Twilight", price: "$49/image" },
   ],
@@ -813,10 +813,14 @@ export const brandingGuarantee: Guarantee = {
 };
 
 // ─── The Spot — Studio Membership ────────────────────────────
+// Tier names + prices mirror LIVE Stripe payment links (verified 2026-07-08):
+//   Creator Lite $60/mo (metadata.tier "creator-lite"), Creator $100/mo
+//   ("creator"), Pro $180/mo ("pro"). Names must match the
+//   membershipSubscribeUrls keys in src/app/studio/page.tsx.
 export const studioMemberships: Package[] = [
   {
-    name: "Creator Pass",
-    price: "$75/mo",
+    name: "Creator Lite",
+    price: "$60/mo",
     tag: "Studio access + savings",
     valueItems: [
       { label: "10% Off All Studio Bookings", value: "~$50-100/mo" },
@@ -833,11 +837,11 @@ export const studioMemberships: Package[] = [
       },
     ],
     totalValue: "$258+/mo",
-    savings: "Save $183+/mo",
+    savings: "Save $198+/mo",
   },
   {
-    name: "Studio Pro Pass",
-    price: "$125/mo",
+    name: "Creator",
+    price: "$100/mo",
     tag: "Most popular",
     recommended: true,
     valueItems: [
@@ -860,11 +864,11 @@ export const studioMemberships: Package[] = [
       },
     ],
     totalValue: "$443+/mo",
-    savings: "Save $318+/mo",
+    savings: "Save $343+/mo",
   },
   {
-    name: "Studio Command",
-    price: "$199/mo",
+    name: "Pro",
+    price: "$180/mo",
     tag: "Priority + engineer support",
     valueItems: [
       {
@@ -872,7 +876,7 @@ export const studioMemberships: Package[] = [
         value: "~$150-300/mo",
       },
       { label: "16 Add-On Credits / Month", value: "$240" },
-      { label: "Everything in Studio Pro Pass", value: "Included" },
+      { label: "Everything in Creator", value: "Included" },
       {
         label: "1 Free Engineer-Assisted Session / Month",
         value: "$149",
@@ -885,7 +889,7 @@ export const studioMemberships: Package[] = [
       },
     ],
     totalValue: "$913+/mo",
-    savings: "Save $714+/mo",
+    savings: "Save $733+/mo",
   },
 ];
 

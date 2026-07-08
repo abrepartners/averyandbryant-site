@@ -1,6 +1,7 @@
 import { HeroLotLand } from "@/components/heroes/hero-lot-land";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
@@ -50,7 +51,41 @@ const steps = [
   {
     number: "03",
     title: "Get Your Media",
-    description: "Edited photos and video delivered within 24 hours.",
+    description: "Edited photos and video delivered within 48 hours.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does land photography cost in Arkansas?",
+    answer:
+      "Pricing depends on acreage and the package you choose. Every land package and add-on is listed on this page, and you can compare pricing across all property types on our pricing page. You will see your exact total when you book online.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Standard delivery is within 48 hours of the shoot, and most land shoots arrive sooner. Rush delivery is available if your listing needs to go live fast.",
+  },
+  {
+    question:
+      "Do you shoot land in Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas. Rural parcels are part of the job.",
+  },
+  {
+    question: "Are your drone pilots FAA certified?",
+    answer:
+      "Yes. Every flight is operated by an FAA Part 107 certified pilot with full insurance coverage. Professional, compliant aerial work is the foundation of every land shoot we do.",
+  },
+  {
+    question: "Can you show property boundary lines on aerial photos?",
+    answer:
+      "Yes. Boundary overlays are available as a land add-on. We mark lot lines and lot shape directly on the aerial images so buyers understand exactly what they are looking at.",
+  },
+  {
+    question: "What if I am not happy with the media?",
+    answer:
+      "Every shoot is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free.",
   },
 ];
 
@@ -150,6 +185,9 @@ export default function LotLandPage() {
           </p>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="lot-land"

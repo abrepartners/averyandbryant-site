@@ -10,17 +10,12 @@ export function HeroRealEstate() {
       aria-label="Real Estate Media hero"
       className="relative isolate flex min-h-[85vh] items-center overflow-hidden md:min-h-screen"
     >
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/images/real-estate/hero.jpg"
-        className="absolute inset-0 z-0 h-full w-full object-cover"
-      >
-        <source src="/images/demo-video.mp4" type="video/mp4" />
-      </video>
+      {/* Photo background — real A&B listing (1052 Stagecoach, Cabot AR) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/real-estate/hero.jpg')" }}
+      />
 
       {/* Dark gradient */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-[#0a0a0a]/40" />

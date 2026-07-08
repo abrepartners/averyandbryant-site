@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HeroBranding } from "@/components/heroes/hero-branding";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import {
@@ -69,6 +70,40 @@ const reelThumbs = [
   "/images/portfolio-interior-2.jpg",
   "/images/showcase-dusk-after.jpg",
   "/images/staging-interior.jpg",
+];
+
+const faqs = [
+  {
+    question: "How much do professional headshots cost in Arkansas?",
+    answer:
+      "It depends on whether you need a quick headshot refresh, a full brand session, or a recurring content day. Every individual and team package is listed on this page, and you can compare across services on our pricing page.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Retouched images are delivered within 48 hours of your session, formatted and ready to post.",
+  },
+  {
+    question:
+      "Do you shoot branding sessions in Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer:
+      "Yes. Avery & Bryant carries full insurance coverage, holds an A+ rating with the Better Business Bureau, and our drone pilots are FAA Part 107 certified for any session that calls for aerial footage.",
+  },
+  {
+    question: "What is included in an agent branding session?",
+    answer:
+      "Professional headshots, lifestyle brand content that shows you doing what you do best, and social media assets formatted for Instagram, Facebook, LinkedIn, and your website. More than 200 Arkansas agents have trusted us with their image.",
+  },
+  {
+    question: "What if I am not happy with my photos?",
+    answer:
+      "Every session is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free.",
+  },
 ];
 
 export default function BrandingPage() {
@@ -265,6 +300,9 @@ export default function BrandingPage() {
           </p>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="branding"

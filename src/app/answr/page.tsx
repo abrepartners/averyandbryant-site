@@ -4,6 +4,7 @@ export const metadata = {
   title: "Answr | AI Voice & Chat Agents | Avery & Bryant",
   description:
     "AI answering service with Voice AI and Conversation AI. 24/7 call answering, SMS, web chat, lead qualification, and appointment booking.",
+  robots: { index: false, follow: false },
 };
 
 const products = [
@@ -92,8 +93,7 @@ const faqs = [
   },
   {
     question: "What if I want to cancel?",
-    answer:
-      "No contracts, no commitments. Cancel anytime with a single click.",
+    answer: "No contracts, no commitments. Cancel anytime with a single click.",
   },
 ];
 

@@ -2,69 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 
 const chips = ["Headshots", "Reels & short-form", "Content days"];
-
-// Each phone frame loads the same video but starts at a different offset,
-// so the three reels feel like distinct content. Swap these for real
-// vertical reels once they're shot.
-const reels = [
-  { src: "/images/demo-video.mp4", start: 0.4, offsetClass: "md:mt-0" },
-  { src: "/images/demo-video.mp4", start: 3.2, offsetClass: "md:mt-10" },
-  { src: "/images/demo-video.mp4", start: 6.8, offsetClass: "md:mt-20" },
-];
-
-function ReelPhone({
-  src,
-  start,
-  eager = false,
-}: {
-  src: string;
-  start: number;
-  eager?: boolean;
-}) {
-  const ref = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    const seed = () => {
-      try {
-        v.currentTime = start;
-        v.play().catch(() => {});
-      } catch {
-        /* ignore */
-      }
-    };
-    if (v.readyState >= 1) seed();
-    else v.addEventListener("loadedmetadata", seed, { once: true });
-  }, [start]);
-
-  return (
-    <div className="relative aspect-[9/16] overflow-hidden rounded-[28px] border border-white/15 bg-black shadow-[0_30px_60px_rgba(0,0,0,0.55)]">
-      {/* Notch */}
-      <div className="absolute left-1/2 top-2 z-20 h-4 w-16 -translate-x-1/2 rounded-full bg-black/80" />
-      {/* Subtle inner frame highlight */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-10 rounded-[28px] ring-1 ring-inset ring-white/5"
-      />
-      <video
-        ref={ref}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload={eager ? "auto" : "metadata"}
-        poster="/images/portfolio-headshot-1.jpg"
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src={src} type="video/mp4" />
-      </video>
-    </div>
-  );
-}
 
 export function HeroBranding() {
   return (
@@ -129,42 +68,30 @@ export function HeroBranding() {
           </p>
         </div>
 
-        {/* RIGHT — reel stack (desktop: 3-phone cascade, mobile: single) */}
-        <div className="relative">
-          {/* Mobile: single phone */}
-          <div className="mx-auto w-[240px] md:hidden">
-            <ReelPhone src={reels[1].src} start={reels[1].start} eager />
-          </div>
+        {/* RIGHT — real personal-brand session portrait (Krystal Browning BTS + reels swap in when delivered) */}
+        <div className="relative flex justify-center">
+          <div className="relative w-[280px] md:w-[340px]">
+            <div className="relative aspect-[2/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#111] shadow-[0_30px_60px_rgba(0,0,0,0.55)]">
+              <Image
+                src="/images/thomas-headshot.jpg"
+                alt="Avery & Bryant personal branding session"
+                fill
+                priority
+                sizes="(max-width: 768px) 280px, 340px"
+                className="object-cover"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-[24px] ring-1 ring-inset ring-white/5"
+              />
+            </div>
 
-          {/* Desktop: 3-phone cascade */}
-          <div className="hidden grid-cols-3 gap-4 md:grid">
-            {reels.map((reel, i) => (
-              <div key={i} className={reel.offsetClass}>
-                <ReelPhone
-                  src={reel.src}
-                  start={reel.start}
-                  eager={i === 1}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Floating spec sticker */}
-          <div className="absolute -bottom-6 left-1/2 z-30 hidden -translate-x-1/2 rounded-full border border-white/15 bg-black/70 px-5 py-2 backdrop-blur-md md:block">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-rose-200/80">
-              1-day shoot · 4 reels + 20 photos
-            </span>
-          </div>
-
-          {/* Decorative fallback portrait tucked behind on very large screens */}
-          <div className="pointer-events-none absolute -top-10 left-0 hidden h-24 w-20 overflow-hidden rounded border border-white/10 bg-[#111] opacity-70 shadow-lg lg:block">
-            <Image
-              src="/images/portfolio-headshot-2.jpg"
-              alt="Headshot sample"
-              fill
-              sizes="5rem"
-              className="object-cover grayscale"
-            />
+            {/* Floating spec sticker */}
+            <div className="absolute -bottom-5 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/15 bg-black/70 px-5 py-2 backdrop-blur-md">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-rose-200/80">
+                1-day shoot · 4 reels + 20 photos
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { HeroAirbnbRentals } from "@/components/heroes/hero-airbnb-rentals";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
+import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
@@ -32,7 +33,7 @@ const sellingPoints = [
   {
     title: "Fast Turnaround",
     description:
-      "Photos delivered within 24 hours. Your listing goes live faster, and you start earning sooner.",
+      "Photos delivered within 48 hours. Your listing goes live faster, and you start earning sooner.",
   },
 ];
 
@@ -50,7 +51,42 @@ const steps = [
   {
     number: "03",
     title: "Get Your Media",
-    description: "Edited photos and video delivered within 24 hours.",
+    description: "Edited photos and video delivered within 48 hours.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does Airbnb photography cost in Arkansas?",
+    answer:
+      "Pricing depends on the size of the property and the package you choose. Every package and add-on is listed on this page, and you can compare pricing across all property types on our pricing page. You will see your exact total when you book online.",
+  },
+  {
+    question: "How fast do we get our media?",
+    answer:
+      "Standard delivery is within 48 hours of the shoot, and most rental shoots arrive sooner. Need your listing live for the weekend? Rush delivery is available as an add-on.",
+  },
+  {
+    question:
+      "Do you photograph short term rentals in Little Rock, Bentonville, and Northwest Arkansas?",
+    answer:
+      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+  },
+  {
+    question: "Do you offer drone photos for short term rentals?",
+    answer:
+      "Yes. Aerial photos and video are available on rental packages, and every flight is operated by an FAA Part 107 certified pilot with full insurance coverage.",
+  },
+  {
+    question:
+      "Does professional photography actually increase Airbnb bookings?",
+    answer:
+      "Airbnb's own study of more than 14,700 listings found that professional photography drove roughly 19 percent more bookings and 21 percent higher host earnings over the following year. That is why booking-optimized photography is the core of every rental package we offer.",
+  },
+  {
+    question: "What if I am not happy with the photos?",
+    answer:
+      "Every shoot is backed by our Satisfaction Reshoot Guarantee. Report an issue with our work within 7 days of delivery and we will reshoot it free.",
   },
 ];
 
@@ -150,6 +186,9 @@ export default function AirbnbRentalsPage() {
           </p>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection faqs={faqs} />
 
       <ConsultCTA
         interest="airbnb-rentals"
