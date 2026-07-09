@@ -301,10 +301,6 @@ export default function VellumPage() {
             No subscription? Pay as you go with credits. 25 for $29, or 75 for
             $69.
           </p>
-
-          <p className="mt-3 text-center text-sm text-crimson">
-            First 20 users lock in Early Bird at $14/mo forever
-          </p>
         </div>
       </section>
 
