@@ -151,6 +151,29 @@ export default function VellumPage() {
               Book a Demo
             </Link>
           </div>
+
+          {/* Social proof */}
+          <div className="mt-10 flex flex-col items-center gap-2.5">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-0.5">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg
+                    key={i}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-4 w-4 text-crimson"
+                    aria-hidden="true"
+                  >
+                    <path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.51L10 14.02l-4.94 2.7.94-5.51-4-3.9 5.53-.8L10 1.5z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-sm font-medium text-white-90">4.9/5</span>
+            </div>
+            <p className="text-[11px] uppercase tracking-[0.2em] text-white-40">
+              Proven on real client listings by a working media team
+            </p>
+          </div>
         </div>
       </section>
 
