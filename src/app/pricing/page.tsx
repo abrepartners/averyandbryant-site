@@ -4,7 +4,7 @@ import { OrderLink } from "@/components/order-link";
 export const metadata = {
   title: "Pricing — Real Estate Media Packages | Avery & Bryant",
   description:
-    "Transparent pricing for real estate photography, drone, video, virtual tours, and branding across all property types. Central Arkansas.",
+    "Transparent pricing for real estate photography, drone, video, virtual tours, and branding across all property types. Central and Northwest Arkansas.",
 };
 
 const verticals = [

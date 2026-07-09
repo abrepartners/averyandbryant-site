@@ -63,36 +63,45 @@ const features = [
 const pricingPlans = [
   {
     name: "Free",
+    tagline: "Kick the tires.",
     price: "$0",
     period: "/mo",
+    annualNote: "",
     features: [
-      "5 generations per month",
-      "All tools included",
-      "Gemini Flash model",
+      "5 free to start, then 1 per day",
+      "No credit card required",
+      "Staging + Smart Cleanup",
+      '"Virtually Staged" watermark',
     ],
     featured: false,
   },
   {
     name: "Pro",
-    price: "$29",
+    tagline: "Unlimited listings. Every tool.",
+    price: "$59",
     period: "/mo",
+    annualNote: "or $47/mo billed annually",
     features: [
       "Unlimited generations",
-      "Gemini Pro (photorealistic)",
+      "All Pro AI tools (day to dusk, sky, reno)",
       "Batch processing",
-      "Reveal videos",
-      "MLS export",
+      "Custom-logo watermark",
+      "Priority rendering",
     ],
     featured: true,
   },
   {
-    name: "Brokerage",
-    price: "$299",
+    name: "Team",
+    tagline: "For media shops and small brokerages.",
+    price: "$149",
     period: "/mo",
+    annualNote: "or $119/mo billed annually",
     features: [
-      "15 agent seats",
+      "5 team seats included",
       "Everything in Pro",
+      "Shared brand kits",
       "Admin dashboard",
+      "Priority support",
     ],
     featured: false,
   },
@@ -142,16 +151,6 @@ export default function VellumPage() {
               Book a Demo
             </Link>
           </div>
-
-          <video
-            className="mx-auto mt-8 w-full max-w-3xl rounded-lg border border-white/10"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/images/demo-video.mp4" type="video/mp4" />
-          </video>
         </div>
       </section>
 
@@ -259,12 +258,18 @@ export default function VellumPage() {
                 <h3 className="text-lg font-medium text-white-90">
                   {plan.name}
                 </h3>
+                <p className="mt-1 text-sm text-white-40">{plan.tagline}</p>
                 <div className="mt-4">
                   <span className="text-4xl font-extralight text-white-90">
                     {plan.price}
                   </span>
                   <span className="text-white-40">{plan.period}</span>
                 </div>
+                {plan.annualNote && (
+                  <p className="mt-1 text-xs text-crimson/70">
+                    {plan.annualNote}
+                  </p>
+                )}
                 <ul className="mt-6 space-y-3">
                   {plan.features.map((feature) => (
                     <li
@@ -292,7 +297,12 @@ export default function VellumPage() {
             ))}
           </div>
 
-          <p className="mt-8 text-center text-sm text-crimson">
+          <p className="mt-8 text-center text-sm text-white-50">
+            No subscription? Pay as you go with credits. 25 for $29, or 75 for
+            $69.
+          </p>
+
+          <p className="mt-3 text-center text-sm text-crimson">
             First 20 users lock in Early Bird at $14/mo forever
           </p>
         </div>

@@ -529,7 +529,8 @@ export default async function StudioPage({
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
             Non-member rates. Members pay nothing extra at booking — credits are
-            redeemed at checkout.
+            redeemed at checkout. Add alternate sets, an engineer, or equipment
+            right on the payment page when you book a room.
           </p>
 
           <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -3,10 +3,16 @@ import { Instagram, Facebook, Youtube, MapPin, Phone } from "lucide-react";
 
 const locations = [
   {
-    city: "Little Rock",
+    city: "Little Rock · Central Arkansas",
     address: "12521 Kanis Rd, Little Rock, AR 72211",
     phone: "(501) 502-2925",
     phoneHref: "tel:+15015022925",
+  },
+  {
+    city: "Bentonville · Northwest Arkansas",
+    address: "Bentonville, AR 72712 · serving NWA",
+    phone: "(479) 364-5502",
+    phoneHref: "tel:+14793645502",
   },
 ];
 
