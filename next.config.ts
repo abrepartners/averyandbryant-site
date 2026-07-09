@@ -32,6 +32,21 @@ const nextConfig: NextConfig = {
 
       // ── Product rebrand: StudioAI → Vellum ──
       { source: "/studioai", destination: "/vellum", permanent: true },
+
+      // ── Remaining Squarespace legacy paths (docs/ab-knowledge-base.md §9) ──
+      { source: "/home-nwa", destination: "/", permanent: true },
+      { source: "/home-ca", destination: "/", permanent: true },
+      { source: "/book-services-1", destination: "/book", permanent: true },
+      {
+        source: "/agent-branding-faq",
+        destination: "/branding",
+        permanent: true,
+      },
+      {
+        source: "/implement-weather-policy",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
