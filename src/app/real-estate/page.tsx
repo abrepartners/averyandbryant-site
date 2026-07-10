@@ -28,9 +28,9 @@ const faqs = [
       "Standard delivery is within 48 hours of the shoot, and most listing media arrives sooner. If you are working against a tight deadline, rush delivery is available as an add-on.",
   },
   {
-    question: "Do you serve Little Rock, Bentonville, and Northwest Arkansas?",
+    question: "Do you serve Little Rock and Central Arkansas?",
     answer:
-      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas. One team, one standard, statewide coverage.",
+      "Yes. We're based in Little Rock at (501) 502-2925 and cover Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas. One team, one standard.",
   },
   {
     question: "Are your drone pilots licensed and insured?",

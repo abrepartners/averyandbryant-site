@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Book a Shoot | Little Rock & Northwest Arkansas | Avery & Bryant",
+  title: "Book a Shoot | Little Rock & Central Arkansas | Avery & Bryant",
   description:
-    "Book professional real estate media across Central and Northwest Arkansas. HDR photography, drone, video tours, and more. Book online in under 2 minutes.",
+    "Book professional real estate media across Central Arkansas. HDR photography, drone, video tours, and more. Book online in under 2 minutes.",
 };
 
 const expectations = [
@@ -35,15 +35,15 @@ export default function BookPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
-            Book in under 2 minutes. Serving Central and Northwest Arkansas,
-            from Little Rock to Bentonville.
+            Book in under 2 minutes. Serving Central Arkansas, from Little Rock
+            to Hot Springs.
           </p>
         </div>
       </section>
 
-      {/* Booking Cards — two markets */}
+      {/* Booking Card */}
       <section className="border-t border-border py-16 md:py-24">
-        <div className="mx-auto grid max-w-[960px] gap-6 px-6 md:grid-cols-2 md:px-12">
+        <div className="mx-auto max-w-[480px] px-6 md:px-12">
           {/* Central Arkansas */}
           <a
             href="https://homes.averyandbryant.com/order"
@@ -60,28 +60,6 @@ export default function BookPage() {
             <div className="mt-4 space-y-1 text-sm text-white-40">
               <p>12521 Kanis Rd, Little Rock, AR 72211</p>
               <p>(501) 502-2925</p>
-            </div>
-            <div className="mt-8 inline-block rounded bg-crimson px-10 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all group-hover:bg-crimson-dark group-hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]">
-              Book a Shoot
-            </div>
-          </a>
-
-          {/* Northwest Arkansas */}
-          <a
-            href="https://homes.averyandbryant.com/order"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block rounded-lg border border-white/5 bg-card p-10 text-center transition-all hover:border-crimson/30 hover:bg-crimson/5 md:p-12"
-          >
-            <h2 className="font-display text-2xl font-extralight text-white-90 transition-colors group-hover:text-crimson md:text-3xl">
-              Northwest Arkansas
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-white-50">
-              Bentonville, Rogers, Fayetteville, Springdale & surrounding areas
-            </p>
-            <div className="mt-4 space-y-1 text-sm text-white-40">
-              <p>Bentonville, AR 72712</p>
-              <p>(479) 364-5502</p>
             </div>
             <div className="mt-8 inline-block rounded bg-crimson px-10 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all group-hover:bg-crimson-dark group-hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]">
               Book a Shoot

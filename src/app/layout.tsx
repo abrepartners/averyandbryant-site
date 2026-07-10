@@ -30,7 +30,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Avery & Bryant | Real Estate Media & AI Infrastructure | Arkansas",
   description:
-    "Professional real estate media, AI voice agents, virtual staging, and content systems for modern real estate operations. Little Rock and Northwest Arkansas.",
+    "Professional real estate media, AI voice agents, virtual staging, and content systems for modern real estate operations. Little Rock and Central Arkansas.",
   metadataBase: new URL("https://www.averyandbryant.com"),
   openGraph: {
     type: "website",
@@ -102,11 +102,9 @@ export default function RootLayout({
                 { "@type": "City", name: "Benton" },
                 { "@type": "City", name: "Conway" },
                 { "@type": "City", name: "Hot Springs" },
-                { "@type": "City", name: "Bentonville" },
-                { "@type": "City", name: "Rogers" },
-                { "@type": "City", name: "Fayetteville" },
-                { "@type": "City", name: "Springdale" },
-                { "@type": "AdministrativeArea", name: "Northwest Arkansas" },
+                { "@type": "City", name: "Bryant" },
+                { "@type": "City", name: "Sherwood" },
+                { "@type": "City", name: "Maumelle" },
                 { "@type": "AdministrativeArea", name: "Central Arkansas" },
               ],
               hasOfferCatalog: {

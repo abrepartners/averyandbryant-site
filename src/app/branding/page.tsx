@@ -85,9 +85,9 @@ const faqs = [
   },
   {
     question:
-      "Do you shoot branding sessions in Little Rock, Bentonville, and Northwest Arkansas?",
+      "Do you shoot branding sessions in Little Rock and Central Arkansas?",
     answer:
-      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+      "Yes. We're based in Little Rock at (501) 502-2925 and cover Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas.",
   },
   {
     question: "Are you licensed and insured?",

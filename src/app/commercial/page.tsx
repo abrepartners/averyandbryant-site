@@ -74,9 +74,9 @@ const faqs = [
       "Commercial deliverables are edited and delivered within 72 hours of the shoot, and we can typically get your shoot on the calendar within the week of your quote.",
   },
   {
-    question: "Do you serve Little Rock, Bentonville, and Northwest Arkansas?",
+    question: "Do you serve Little Rock and Central Arkansas?",
     answer:
-      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+      "Yes. We're based in Little Rock at (501) 502-2925 and cover Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas.",
   },
   {
     question: "Are you licensed for commercial drone work?",

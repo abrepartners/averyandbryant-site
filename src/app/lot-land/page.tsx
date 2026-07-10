@@ -67,10 +67,9 @@ const faqs = [
       "Standard delivery is within 48 hours of the shoot, and most land shoots arrive sooner. Rush delivery is available if your listing needs to go live fast.",
   },
   {
-    question:
-      "Do you shoot land in Little Rock, Bentonville, and Northwest Arkansas?",
+    question: "Do you shoot land in Little Rock and Central Arkansas?",
     answer:
-      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas. Rural parcels are part of the job.",
+      "Yes. We're based in Little Rock at (501) 502-2925 and cover Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas. Rural parcels are part of the job.",
   },
   {
     question: "Are your drone pilots FAA certified?",

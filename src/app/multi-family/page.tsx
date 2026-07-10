@@ -67,9 +67,9 @@ const faqs = [
       "Standard delivery is within 48 hours of the shoot. If your leasing team is working against a launch date, rush delivery is available.",
   },
   {
-    question: "Do you serve Little Rock, Bentonville, and Northwest Arkansas?",
+    question: "Do you serve Little Rock and Central Arkansas?",
     answer:
-      "Yes. We operate from two locations: Little Rock at (501) 502-2925 covering Central Arkansas, and Bentonville at (479) 364-5502 covering Northwest Arkansas.",
+      "Yes. We're based in Little Rock at (501) 502-2925 and cover Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas.",
   },
   {
     question: "Can you fly drones over our apartment community?",

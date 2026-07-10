@@ -8,12 +8,6 @@ const locations = [
     phone: "(501) 502-2925",
     phoneHref: "tel:+15015022925",
   },
-  {
-    city: "Bentonville · Northwest Arkansas",
-    address: "Bentonville, AR 72712 · serving NWA",
-    phone: "(479) 364-5502",
-    phoneHref: "tel:+14793645502",
-  },
 ];
 
 const socials = [
@@ -171,7 +165,7 @@ export function Footer() {
           {/* Locations */}
           <div>
             <h3 className="text-[10px] font-medium uppercase tracking-[0.25em] text-white-30">
-              Locations
+              Location
             </h3>
             <div className="mt-4 space-y-6">
               {locations.map((loc) => (
