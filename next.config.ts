@@ -12,8 +12,10 @@ const nextConfig: NextConfig = {
       },
 
       // ── Squarespace → new-site 301 map (docs/seo-migration-checklist.md) ──
+      // NOTE: Next.js redirect `source` matching is case-INSENSITIVE, so a
+      // "/Gallery" → "/gallery" rule also catches "/gallery" and self-loops
+      // (308 → /gallery forever). Don't re-add it. "/gallery" is a real page.
       { source: "/photos", destination: "/gallery", permanent: true },
-      { source: "/Gallery", destination: "/gallery", permanent: true },
       { source: "/videos", destination: "/gallery", permanent: true },
       { source: "/book-services", destination: "/book", permanent: true },
       { source: "/services-pricing", destination: "/pricing", permanent: true },
