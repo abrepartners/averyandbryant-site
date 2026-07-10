@@ -5,9 +5,10 @@ import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 // Real Estate is promoted to its own top-level link — the flagship service.
-// The remaining six property verticals live under "Services"; the non-core
-// product offerings live under "Products". Utility links (Client Portal,
-// Account, Referrals) moved to the footer.
+// The remaining six property verticals live under "More Services" (labeled so
+// it reads as "the rest" rather than implying Real Estate isn't a service);
+// the non-core product offerings live under "Products". Utility links (Client
+// Portal, Account, Referrals) moved to the footer.
 const services = [
   { label: "Airbnb Rentals", href: "/airbnb-rentals" },
   { label: "Multi-Family", href: "/multi-family" },
@@ -106,7 +107,7 @@ export function Nav() {
                 }}
                 className="flex items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-white-50 transition-colors hover:text-white"
               >
-                Services
+                More Services
                 <ChevronDown
                   className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
                 />
@@ -204,7 +205,7 @@ export function Nav() {
             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
             className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-white-60"
           >
-            Services
+            More Services
             <ChevronDown
               className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
             />
