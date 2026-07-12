@@ -6,13 +6,10 @@ import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { studioMemberships, studioGuarantee } from "@/lib/pricing";
 
 export const metadata = {
-  title: "The Spot — Where Arkansas Records | Little Rock | Avery & Bryant",
+  title: "The Spot — Little Rock Creative Studio | Avery & Bryant",
   description:
-    "Multi-room content studio in Little Rock where real podcasters record. Book the Podcast Room, alternate sets, or the Garage by the hour — direct booking via our calendar.",
+    "Central Arkansas' creative studio: five sets for podcasts, video, brand and product shoots. Rent a set by the hour, or have our team produce it for you.",
 };
-
-const PEERSPACE_URL =
-  "https://www.peerspace.com/pages/listings/673a4251deb5e4e5704eb25b";
 
 // Pay-first flow: room CTAs go to Stripe Payment Links. After payment,
 // the webhook writes the matching GHL calendar widget URL onto the contact
@@ -54,7 +51,7 @@ const rooms: Room[] = [
     name: "The Podcast Room",
     size: "400 sqft · flagship",
     bestFor: ["Video podcasts", "Talking-head", "Branded interviews"],
-    note: "Our flagship room. Pre-configured lighting and controlled acoustics — the one on Peerspace.",
+    note: "Our flagship room. Pre-configured lighting and controlled acoustics.",
     image: "/images/studio/spot-5.jpg",
     bookUrl: PAY_PODCAST_1HR,
     bookLabel: "Reserve & pay — 1hr",
@@ -295,27 +292,27 @@ export default async function StudioPage({
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/5 px-4 py-1.5">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-300" />
               <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
-                Where Arkansas records · Little Rock
+                The creative studio · Little Rock
               </span>
             </div>
 
             <h1 className="mt-8 font-display text-[clamp(40px,7vw,84px)] font-extralight leading-[0.98] tracking-tight text-white-90">
-              Real podcasters.
+              Real creators.
               <br />
-              <span className="text-white-40 italic">Real recordings.</span>
+              <span className="text-white-40 italic">Real content.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
-              The Spot is where Arkansas creators show up to record. Five
-              rentable sets — a flagship podcast room, two alternate sets, an
-              intimate single-subject space, and a garage bay big enough for a
-              vehicle.
+              The Spot is Central Arkansas&apos; creative studio: podcasts,
+              video, brand and product shoots. Five rentable sets, from a
+              flagship podcast room and two styled sets to an intimate
+              single-subject space and a garage bay big enough for a vehicle.
             </p>
             <p className="mt-3 max-w-xl text-sm text-white/35">
               How booking works:{" "}
               <span className="text-white/55">pay first</span>, then we email
               you a private calendar link to pick your time slot. Two minutes,
-              both steps. Or browse on Peerspace if you prefer.
+              both steps.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
@@ -347,12 +344,10 @@ export default async function StudioPage({
                 Reserve the Podcast Room
               </a>
               <a
-                href={PEERSPACE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#sets"
                 className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
               >
-                Or browse on Peerspace
+                Explore the sets
               </a>
             </div>
           </div>
@@ -374,8 +369,7 @@ export default async function StudioPage({
           </h2>
           <p className="mt-4 max-w-2xl text-base text-white/45">
             Multi-set content days mean you don&apos;t have to relocate between
-            looks. Pricing combines: Peerspace base studio rental + $150/hr per
-            additional set.
+            looks. Book a single set, or unlock the whole studio for the day.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -574,9 +568,8 @@ export default async function StudioPage({
           </div>
 
           <p className="mt-10 text-center text-sm text-white/35">
-            Base Podcast Room booked through Peerspace. Multi-set days +
-            production booked directly with A&B — we coordinate around your
-            Peerspace reservation.
+            Every set, multi-set day, and production package books directly with
+            Avery &amp; Bryant. Pay online, then pick your time slot.
           </p>
         </div>
       </section>
@@ -637,17 +630,17 @@ export default async function StudioPage({
             Ready to hit record?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
-            Book the Podcast Room on Peerspace, or send a note if you want a
-            multi-set day or full production crew.
+            Reserve a set online, or send a note if you want a multi-set day or
+            a full production crew.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href={PEERSPACE_URL}
+              href={PAY_PODCAST_1HR}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book on Peerspace
+              Reserve the Podcast Room
             </a>
             <a
               href="tel:+15015022925"
