@@ -35,6 +35,7 @@ const services = [
   { label: "Lot & Land", href: "/lot-land" },
   { label: "Builders", href: "/builders" },
   { label: "Branding", href: "/branding" },
+  { label: "Zillow Showcase", href: "/zillow-showcase" },
 ];
 
 const products = [
