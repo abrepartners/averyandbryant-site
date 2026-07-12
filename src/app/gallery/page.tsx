@@ -1,5 +1,7 @@
 import { GalleryGrid, type GalleryItem } from "@/components/gallery-grid";
+import { FeaturedHomes, type FeaturedHome } from "@/components/featured-homes";
 import curated from "../../../data/gallery-curated.json";
+import featured from "../../../data/featured-homes.json";
 
 export const metadata = {
   title:
@@ -9,6 +11,7 @@ export const metadata = {
 };
 
 const items = curated as GalleryItem[];
+const featuredHomes = featured as FeaturedHome[];
 
 export default function GalleryPage() {
   return (
@@ -36,9 +39,35 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="pb-24 md:pb-32">
+      {/* Featured Work */}
+      {featuredHomes.length > 0 && (
+        <section className="pb-16 md:pb-20">
+          <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+            <div className="mb-8">
+              <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+                Featured work
+              </h2>
+              <p className="mt-2 text-sm text-white-50">
+                A closer look at a few recent listings — tap any home to browse
+                the full shoot.
+              </p>
+            </div>
+            <FeaturedHomes homes={featuredHomes} />
+          </div>
+        </section>
+      )}
+
+      {/* Full portfolio grid */}
+      <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="mb-8">
+            <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+              Browse the portfolio
+            </h2>
+            <p className="mt-2 text-sm text-white-50">
+              Filter by property type.
+            </p>
+          </div>
           <GalleryGrid items={items} />
         </div>
       </section>
