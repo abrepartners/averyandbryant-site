@@ -3,6 +3,7 @@ import { FeaturedHomes, type FeaturedHome } from "@/components/featured-homes";
 import curated from "../../../data/gallery-curated.json";
 import featured from "../../../data/featured-homes.json";
 import drone from "../../../data/drone-showcase.json";
+import boundary from "../../../data/boundary-showcase.json";
 
 export const metadata = {
   title:
@@ -13,12 +14,9 @@ export const metadata = {
 
 const items = curated as GalleryItem[];
 const featuredHomes = featured as FeaturedHome[];
-const droneShots = drone as {
-  url: string;
-  thumb: string;
-  city: string;
-  label: string;
-}[];
+type ShotItem = { url: string; thumb: string; city: string; label: string };
+const droneShots = drone as ShotItem[];
+const boundaryShots = boundary as ShotItem[];
 
 export default function GalleryPage() {
   return (
@@ -91,6 +89,47 @@ export default function GalleryPage() {
                   <img
                     src={shot.thumb || shot.url}
                     alt={`Aerial drone photography of ${shot.city}, Arkansas by Avery & Bryant`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.2em] text-white/0 transition-colors group-hover:text-white/80">
+                    {shot.city}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Lot lines & site plans add-on */}
+      {boundaryShots.length > 0 && (
+        <section className="border-t border-border py-16 md:py-20">
+          <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+            <div className="mb-8">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+                Add-on
+              </p>
+              <h2 className="mt-3 font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+                Lot lines &amp; site plans
+              </h2>
+              <p className="mt-2 max-w-xl text-sm text-white-50">
+                Drone aerials with property boundaries mapped in — buyers see
+                exactly what they&apos;re getting. Built for land, acreage, and
+                new development.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+              {boundaryShots.map((shot, i) => (
+                <div
+                  key={i}
+                  className="group relative aspect-[3/2] overflow-hidden rounded-lg border border-white/5 bg-[#111]"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={shot.thumb || shot.url}
+                    alt={`Property lot-line and boundary map of ${shot.city}, Arkansas by Avery & Bryant`}
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
