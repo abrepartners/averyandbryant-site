@@ -30,6 +30,19 @@ const TIER_TAGS: Record<string, string[]> = {
   ],
   creator: ["vertical:studio", "studio:member", "studio:tier-creator"],
   pro: ["vertical:studio", "studio:member", "studio:tier-pro"],
+  // Production monthly plans (2026-07-12).
+  "creator-audio": [
+    "vertical:studio",
+    "studio:monthly",
+    "studio:creator-audio",
+  ],
+  "creator-video": [
+    "vertical:studio",
+    "studio:monthly",
+    "studio:creator-video",
+  ],
+  "studio-audio": ["vertical:studio", "studio:monthly", "studio:studio-audio"],
+  "studio-video": ["vertical:studio", "studio:monthly", "studio:studio-video"],
 };
 
 const PRODUCT_TAGS: Record<string, string[]> = {
@@ -49,6 +62,32 @@ const PRODUCT_TAGS: Record<string, string[]> = {
     "vertical:studio",
     "studio:booking",
     "studio:multi-set-day",
+  ],
+  // 2-lane model (2026-07-12): rental + production entry.
+  "studio-rental-1hr": [
+    "vertical:studio",
+    "studio:booking",
+    "studio:rental-1hr",
+  ],
+  "studio-rental-half": [
+    "vertical:studio",
+    "studio:booking",
+    "studio:rental-half",
+  ],
+  "studio-rental-full": [
+    "vertical:studio",
+    "studio:booking",
+    "studio:rental-full",
+  ],
+  "audio-podcast": [
+    "vertical:studio",
+    "studio:production",
+    "studio:audio-podcast",
+  ],
+  "video-podcast": [
+    "vertical:studio",
+    "studio:production",
+    "studio:video-podcast",
   ],
 };
 
@@ -74,6 +113,14 @@ const PRODUCT_SCHEDULE_URL: Record<string, string> = {
   "podcast-half-day": `${GHL_WIDGET}/J0gqnGTQFA8eD4EoFHwl`,
   "alternate-set": `${GHL_WIDGET}/gZIylqnwF2olLvPrqWqR`,
   "multi-set-day": `${GHL_WIDGET}/oaOY7LqfIC87tAy881wE`,
+  // 2-lane model (2026-07-12): route all new rental + production bookings to the
+  // existing studio calendar for now. TODO(Thomas): a dedicated all-access Spot
+  // calendar so half/full-day availability is accurate (the "calendar pickup").
+  "studio-rental-1hr": `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`,
+  "studio-rental-half": `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`,
+  "studio-rental-full": `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`,
+  "audio-podcast": `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`,
+  "video-podcast": `${GHL_WIDGET}/7ITuyoouCVIHPpd9g7BX`,
 };
 
 export async function POST(req: Request) {

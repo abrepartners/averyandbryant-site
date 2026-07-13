@@ -4,6 +4,7 @@ import { ConsultCTA } from "@/components/consult-cta";
 import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { studioMemberships, studioGuarantee } from "@/lib/pricing";
+import studioPricing from "../../../data/studio-pricing.json";
 
 export const metadata = {
   title: "The Spot — Little Rock Creative Studio | Avery & Bryant",
@@ -11,18 +12,15 @@ export const metadata = {
     "Central Arkansas' creative studio: five sets for podcasts, video, brand and product shoots. Rent a set by the hour, or have our team produce it for you.",
 };
 
-// Pay-first flow: room CTAs go to Stripe Payment Links. After payment,
-// the webhook writes the matching GHL calendar widget URL onto the contact
-// + sends the "Pick my time slot" email so they finish scheduling.
-const PAY_PODCAST_1HR =
-  "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m";
-const PAY_PODCAST_2HR =
-  "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n";
-const PAY_PODCAST_HALF =
-  "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o";
-const PAY_ALTSET = "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p";
-const PAY_GARAGE = PAY_ALTSET; // Same $150 price tier as alternate sets
-const PAY_MULTI = "https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q";
+// Pay-first flow: CTAs go to Stripe Payment Links. After payment, the webhook
+// writes the matching GHL calendar widget URL onto the contact + sends the
+// "Pick my time slot" email so they finish scheduling.
+// 2026-07-12: moved to the $75/hr all-access model. All rental CTAs point to
+// the single all-access rental link; per-item links live in data/studio-pricing.json.
+const PAY_RENTAL = "https://pay.averyandbryant.com/b/6oU14n7ba4bC95x1j8bjW0t";
+const PAY_PODCAST_1HR = PAY_RENTAL;
+const PAY_ALTSET = PAY_RENTAL;
+const PAY_GARAGE = PAY_RENTAL;
 
 // All images are PLACEHOLDERS — swap with real Spot photos when assets are accessible.
 // Source folder: ~/Desktop/THE SPOT IMAGES (currently blocked by macOS TCC).
@@ -131,71 +129,6 @@ const membershipSubscribeUrls: Record<string, string> = {
   Pro: "https://pay.averyandbryant.com/b/3cI6oHbrq5fGchJbXMbjW0l",
 };
 
-// Pricing: "rate" = non-member retail. "memberRate" = best-tier (Pro 30% off) price.
-const pricing = [
-  {
-    name: "Podcast Room — 1 Hour",
-    rate: "$85",
-    memberRate: "Members from $59.50",
-    description: "Base studio rental. 1-hour minimum.",
-    highlight: true,
-    payUrl: "https://pay.averyandbryant.com/b/dRmbJ1brq0Zq6Xp8LAbjW0m",
-  },
-  {
-    name: "Podcast Room — 2 Hour",
-    rate: "$170",
-    memberRate: "Members from $119",
-    description: "Standard podcast block.",
-    payUrl: "https://pay.averyandbryant.com/b/6oUaEX5326jKepRbXMbjW0n",
-  },
-  {
-    name: "Podcast Room — Half Day (4 hr)",
-    rate: "$340",
-    memberRate: "Members from $238",
-    description: "Multi-episode batch recording or extended interview.",
-    payUrl: "https://pay.averyandbryant.com/b/6oUaEX7ba37ydlN6DsbjW0o",
-  },
-  {
-    name: "Each Alternate Set / Garage — 1 Hour",
-    rate: "$150",
-    memberRate: "Members from $105",
-    description: "Add Set A, Set B, Intimate Set, or the Garage to your day.",
-    payUrl: "https://pay.averyandbryant.com/b/fZu9AT8fe6jK95xf9YbjW0p",
-  },
-  {
-    name: "Multi-Set Day Pass (8 hr)",
-    rate: "$1,495",
-    memberRate: "Members from $1,046",
-    description:
-      "Full day, all rooms unlocked. Build a month of content without relocating.",
-    payUrl: "https://pay.averyandbryant.com/b/aFa7sL8fe0ZqbdF8LAbjW0q",
-  },
-  {
-    name: "Audio Podcast Production",
-    rate: "+$40/hr",
-    description:
-      "Podcast mics, engineer support, recorded and delivered. Add-on credit eligible.",
-  },
-  {
-    name: "Engineer Assist",
-    rate: "+$40/hr",
-    description:
-      "Add an engineer for mixing, lighting, or camera op. Add-on credit eligible.",
-  },
-  {
-    name: "Equipment Access",
-    rate: "+$25/hr",
-    description:
-      "Full equipment suite — lighting, cameras, audio gear. Add-on credit eligible.",
-  },
-  {
-    name: "Extra 30 Minutes",
-    rate: "+$50",
-    description:
-      "Extend an active session without rebooking. Add-on credit eligible.",
-  },
-];
-
 const hours = [
   { day: "Mon – Fri", time: "9:00 AM – 5:30 PM" },
   { day: "Sat – Sun", time: "7:00 AM – 8:00 PM" },
@@ -209,17 +142,21 @@ function emailFor(room?: string) {
 }
 
 const PAID_LABELS: Record<string, string> = {
-  "podcast-1hr": "Podcast Room — 1 Hour",
-  "podcast-2hr": "Podcast Room — 2 Hour",
-  "podcast-half": "Podcast Room — Half Day",
-  "alternate-set": "Alternate Set",
-  "multi-set-day": "Multi-Set Day Pass",
+  "studio-rental-1hr": "Studio Rental — 1 Hour",
+  "studio-rental-half": "Studio Rental — Half Day",
+  "studio-rental-full": "Studio Rental — Full Day",
+  "audio-podcast": "Audio-Only Podcast",
+  "video-podcast": "Video Podcast",
 };
 
 const SUBSCRIBED_LABELS: Record<string, string> = {
   "creator-lite": "Creator Lite",
   creator: "Creator",
   pro: "Pro",
+  "creator-audio": "Creator Monthly · Audio",
+  "creator-video": "Creator Monthly · Video",
+  "studio-audio": "Studio Monthly · Audio",
+  "studio-video": "Studio Monthly · Video",
 };
 
 export default async function StudioPage({
@@ -318,7 +255,7 @@ export default async function StudioPage({
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
               <span className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-crimson" />
-                <span>$75–$95/hr base</span>
+                <span>$75/hr · all sets</span>
               </span>
               <span className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-crimson" />
@@ -510,66 +447,164 @@ export default async function StudioPage({
       </section>
 
       {/* ── PRICING ── */}
-      <section className="border-t border-white/5 py-24 md:py-32">
+      <section id="pricing" className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Pricing
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Pay-as-you-go.{" "}
-            <span className="text-white-40">
-              Or save with a membership above.
-            </span>
+            Two ways in.{" "}
+            <span className="text-white-40">Rent it, or we make it.</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
-            Non-member rates. Members pay nothing extra at booking — credits are
-            redeemed at checkout. Add alternate sets, an engineer, or equipment
-            right on the payment page when you book a room.
-          </p>
 
-          <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {pricing.map((p) => (
-              <div
-                key={p.name}
-                className={`rounded border p-8 transition-all duration-500 md:p-10 ${
-                  p.highlight
-                    ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
-                    : "border-white/5 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
-                }`}
-              >
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-display text-xl font-medium text-white-90">
-                    {p.name}
-                  </h3>
-                  <span className="font-display text-2xl font-light text-crimson">
-                    {p.rate}
-                  </span>
-                </div>
-                {p.memberRate ? (
-                  <p className="mt-1 text-xs uppercase tracking-[0.15em] text-amber-200/70">
-                    {p.memberRate}
+          {/* Lane 1 — Rent the studio */}
+          <div className="mt-16">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="font-display text-xl text-white-90">
+                Rent the studio
+              </span>
+              <span className="text-sm text-white/40">
+                Self-serve. All five sets. Bring your own gear.
+              </span>
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {studioPricing.rental.map((p) => (
+                <div
+                  key={p.name}
+                  className={`rounded border p-8 transition-all duration-500 md:p-10 ${
+                    p.featured
+                      ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
+                      : "border-white/5 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
+                  }`}
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg font-medium text-white-90">
+                      {p.name}
+                    </h3>
+                    <span className="font-display text-2xl font-light text-crimson">
+                      {p.price}
+                      {p.name === "1 Hour" ? (
+                        <span className="text-sm text-white/40">/hr</span>
+                      ) : null}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-white/50">
+                    {p.desc}
                   </p>
-                ) : null}
-                <p className="mt-3 text-sm leading-relaxed text-white/50">
-                  {p.description}
-                </p>
-                {p.payUrl ? (
                   <a
-                    href={p.payUrl}
+                    href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-5 inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
                   >
-                    Pay & Book <span aria-hidden>&rarr;</span>
+                    Pay &amp; Book <span aria-hidden>&rarr;</span>
                   </a>
-                ) : null}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-white/45">
+              <span className="text-crimson">
+                {studioPricing.rentalAddOn.price}
+              </span>{" "}
+              {studioPricing.rentalAddOn.name}: {studioPricing.rentalAddOn.desc}
+            </p>
           </div>
 
-          <p className="mt-10 text-center text-sm text-white/35">
-            Every set, multi-set day, and production package books directly with
-            Avery &amp; Bryant. Pay online, then pick your time slot.
+          {/* Lane 2 — We produce it */}
+          <div className="mt-20">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="font-display text-xl text-white-90">
+                We produce it
+              </span>
+              <span className="text-sm text-white/40">
+                Done-for-you. Record, edit, deliver.
+              </span>
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {studioPricing.production.map((p) => (
+                <div
+                  key={p.name}
+                  className={`rounded border p-8 transition-all duration-500 md:p-10 ${
+                    p.featured
+                      ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
+                      : "border-white/5 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
+                  }`}
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg font-medium text-white-90">
+                      {p.name}
+                    </h3>
+                    <span className="font-display text-2xl font-light text-crimson">
+                      {p.price}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-white/50">
+                    {p.desc}
+                  </p>
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                  >
+                    Book &amp; Pay <span aria-hidden>&rarr;</span>
+                  </a>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+                Add-ons
+              </span>
+              {studioPricing.productionAddOns.map((a) => (
+                <span key={a.name} className="text-sm text-white/55">
+                  <span className="text-crimson">{a.price}</span> {a.name}
+                </span>
+              ))}
+            </div>
+
+            {/* Monthly */}
+            <p className="mt-12 text-[10px] uppercase tracking-[0.25em] text-white/35">
+              Monthly, in bulk
+            </p>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {studioPricing.monthly.map((m) => (
+                <div
+                  key={m.name}
+                  className="rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-colors hover:border-crimson/20"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg font-medium text-white-90">
+                      {m.name}
+                    </h3>
+                    <span className="text-xs text-white/40">{m.cadence}</span>
+                  </div>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    <a
+                      href={m.audio.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded border border-white/15 px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white-70 transition-colors hover:border-white/40 hover:text-white"
+                    >
+                      Audio · {m.audio.price}
+                    </a>
+                    <a
+                      href={m.video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded bg-crimson px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white transition-colors hover:bg-crimson-dark"
+                    >
+                      Video · {m.video.price}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-12 text-center text-sm text-white/35">
+            Everything books directly with Avery &amp; Bryant. Pay online, then
+            pick your time slot. Regulars save with a membership above.
           </p>
         </div>
       </section>

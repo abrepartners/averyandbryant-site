@@ -1,0 +1,76 @@
+{
+  "_note": "The Spot 2-lane pricing. Stripe payment links (live) created 2026-07-12. Rental + production entry are self-serve pay links; add-ons are added at booking (no standalone link).",
+  "rental": [
+    {
+      "name": "1 Hour",
+      "price": "$75",
+      "desc": "Access to all five sets. 1-hour minimum. Bring your own gear.",
+      "url": "https://pay.averyandbryant.com/b/6oU14n7ba4bC95x1j8bjW0t",
+      "featured": true
+    },
+    {
+      "name": "Half Day · 4 hr",
+      "price": "$270",
+      "desc": "A full afternoon across every set.",
+      "url": "https://pay.averyandbryant.com/b/eVqeVd676bE4gxZf9YbjW0u"
+    },
+    {
+      "name": "Full Day · 8 hr",
+      "price": "$500",
+      "desc": "The whole studio, all day. Build a month of content in one visit.",
+      "url": "https://pay.averyandbryant.com/b/cNibJ153223u95x3rgbjW0v"
+    }
+  ],
+  "rentalAddOn": {
+    "name": "Lighting kit",
+    "price": "+$40",
+    "desc": "Our studio lights + C-stands, use them however you want. Added at booking."
+  },
+  "production": [
+    {
+      "name": "Audio-Only Podcast",
+      "price": "$99",
+      "desc": "We record, edit, and deliver your episode.",
+      "url": "https://pay.averyandbryant.com/b/3cI28r2UU8rSdlN5zobjW0w"
+    },
+    {
+      "name": "Video Podcast",
+      "price": "$150",
+      "desc": "Record, edit, and deliver. Up to 60 minutes, two camera angles included.",
+      "url": "https://pay.averyandbryant.com/b/aFaaEXanmeQg0z12ncbjW0x",
+      "featured": true
+    }
+  ],
+  "productionAddOns": [
+    { "name": "15 social clips", "price": "+$99" },
+    { "name": "Extra camera angle", "price": "+$99" },
+    { "name": "Same-day edit", "price": "+$99" },
+    { "name": "Raw footage (cloud link, 15 days)", "price": "+$49" }
+  ],
+  "monthly": [
+    {
+      "name": "Creator",
+      "cadence": "2 episodes / month",
+      "audio": {
+        "price": "$179/mo",
+        "url": "https://pay.averyandbryant.com/b/cNi9ATeDC8rS95xbXMbjW0y"
+      },
+      "video": {
+        "price": "$275/mo",
+        "url": "https://pay.averyandbryant.com/b/4gM8wPbrqaA02H97HwbjW0z"
+      }
+    },
+    {
+      "name": "Studio",
+      "cadence": "4 episodes / month",
+      "audio": {
+        "price": "$349/mo",
+        "url": "https://pay.averyandbryant.com/b/6oUbJ1fHGbE46XpbXMbjW0A"
+      },
+      "video": {
+        "price": "$500/mo",
+        "url": "https://pay.averyandbryant.com/b/4gM9AT8fe23u1D5bXMbjW0B"
+      }
+    }
+  ]
+}
