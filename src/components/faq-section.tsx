@@ -63,7 +63,7 @@ export function FaqSection({
                   +
                 </span>
               </summary>
-              <div className="px-6 pb-5 text-sm leading-relaxed text-white/50">
+              <div className="px-6 pb-5 text-sm leading-relaxed text-fg-secondary">
                 {faq.answer}
               </div>
             </details>

@@ -27,16 +27,16 @@ export function HeroCommercial() {
       aria-label="Commercial Media hero"
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
-      {/* Slate/steel palette — reads "commercial" not "residential warm" */}
-      <div className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-sky-500/5 blur-[200px]" />
+      {/* Crimson ambient glows (brand accent) */}
+      <div className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-crimson/5 blur-[200px]" />
       <div className="pointer-events-none absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[160px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[0.95fr_1.05fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT — typography */}
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-sky-200/90">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
               Commercial Media
             </span>
           </div>
@@ -49,7 +49,7 @@ export function HeroCommercial() {
             </span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
             Commercial real estate listings, dealerships, office parks, retail,
             restaurants, industrial, and hospitality. Custom-scope photography,
             drone, video, and ongoing content programs for commercial brokers,
@@ -71,7 +71,7 @@ export function HeroCommercial() {
             </a>
           </div>
 
-          <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-white/30">
+          <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-faint">
             <span>☰ Custom scope</span>
             <span aria-hidden>·</span>
             <span>Recurring programs</span>
@@ -85,7 +85,7 @@ export function HeroCommercial() {
           {tiles.map((t, i) => (
             <div
               key={t.label}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded border border-white/10 bg-[#0d0d0d] p-5 transition-colors hover:border-sky-400/30 md:p-6 ${
+              className={`group relative flex flex-col justify-between overflow-hidden rounded border border-white/10 bg-[#0d0d0d] p-5 transition-colors hover:border-crimson/30 md:p-6 ${
                 i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"
               }`}
             >
@@ -101,10 +101,10 @@ export function HeroCommercial() {
               />
               <span
                 aria-hidden
-                className="pointer-events-none absolute right-4 top-4 h-8 w-8 rounded-full border border-sky-400/20"
+                className="pointer-events-none absolute right-4 top-4 h-8 w-8 rounded-full border border-crimson/20"
               />
 
-              <p className="relative font-mono text-[10px] uppercase tracking-[0.25em] text-sky-300/60">
+              <p className="relative font-mono text-[10px] uppercase tracking-[0.25em] text-crimson/60">
                 {String(i + 1).padStart(2, "0")}
               </p>
 
@@ -112,14 +112,14 @@ export function HeroCommercial() {
                 <p className="font-display text-lg font-medium text-white-90 md:text-xl">
                   {t.label}
                 </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/40">
+                <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
                   {t.meta}
                 </p>
               </div>
 
               <span
                 aria-hidden
-                className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-sky-400/60 to-transparent transition-all duration-700 group-hover:w-full"
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-crimson/60 to-transparent transition-all duration-700 group-hover:w-full"
               />
             </div>
           ))}

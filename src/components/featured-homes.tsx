@@ -73,7 +73,7 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-            <span className="absolute right-3 top-3 rounded bg-black/50 px-2 py-1 text-[10px] uppercase tracking-[0.15em] text-white/80 backdrop-blur-sm">
+            <span className="absolute right-3 top-3 rounded bg-black/50 px-2 py-1 text-[10px] uppercase tracking-[0.15em] text-fg-strong backdrop-blur-sm">
               {h.images.length} photos
             </span>
             <div className="absolute inset-x-4 bottom-4">
@@ -84,7 +84,7 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
                 {h.city}
               </p>
               {stats(h) && (
-                <p className="mt-0.5 text-xs text-white/60">{stats(h)}</p>
+                <p className="mt-0.5 text-xs text-fg-strong">{stats(h)}</p>
               )}
             </div>
           </button>
@@ -113,20 +113,20 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
                 </span>
                 <span className="ml-3 text-sm text-white-80">{home.city}</span>
                 {stats(home) && (
-                  <span className="ml-3 text-xs text-white/40">
+                  <span className="ml-3 text-xs text-fg-secondary">
                     {stats(home)}
                   </span>
                 )}
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-xs text-white/40">
+                <span className="text-xs text-fg-secondary">
                   {imgIdx + 1} / {home.images.length}
                 </span>
                 <button
                   type="button"
                   onClick={close}
                   aria-label="Close"
-                  className="rounded border border-white/15 px-3 py-1.5 text-xs text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                  className="rounded border border-white/15 px-3 py-1.5 text-xs text-fg-strong transition-colors hover:border-white/40 hover:text-white"
                 >
                   Esc ✕
                 </button>
@@ -150,7 +150,7 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
                 type="button"
                 onClick={prev}
                 aria-label="Previous photo"
-                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/50 px-3 py-3 text-white/70 backdrop-blur-sm transition-colors hover:border-white/40 hover:text-white"
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/50 px-3 py-3 text-fg-strong backdrop-blur-sm transition-colors hover:border-white/40 hover:text-white"
               >
                 &larr;
               </button>
@@ -158,7 +158,7 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
                 type="button"
                 onClick={next}
                 aria-label="Next photo"
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/50 px-3 py-3 text-white/70 backdrop-blur-sm transition-colors hover:border-white/40 hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/50 px-3 py-3 text-fg-strong backdrop-blur-sm transition-colors hover:border-white/40 hover:text-white"
               >
                 &rarr;
               </button>
@@ -191,7 +191,7 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
 
             {/* CTA */}
             <div className="flex items-center justify-between gap-4 border-t border-white/5 px-5 py-3">
-              <p className="text-xs text-white/35">
+              <p className="text-xs text-fg-secondary">
                 Real Arkansas listing, shot + delivered by Avery & Bryant.
               </p>
               <Link

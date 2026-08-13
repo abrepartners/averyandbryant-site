@@ -3,46 +3,149 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================================
+   Avery & Bryant Design System
+   Source of truth: claude.ai/design project
+   "Avery & Bryant Design System" (ca12c779-8dbf-44b5-8a41-5357fffd05ac)
+   Mirrored in the vault at 30-Brand/AB-Design-System/.
+
+   Premium dark aesthetic. Crimson is the SINGLE brand accent.
+   Amber is a rare secondary used ONLY for free-consult moments.
+   No blue, no purple, no gradients-as-brand.
+
+   Rules that matter when editing this file:
+   1. Text color comes from the fg-* scale. Never write
+      `text-white/NN` in a component. See "Text" below.
+   2. Crimson-at-opacity is for glows, tints, and borders.
+      It is NOT a text color. `text-crimson/20` renders at
+      1.11:1 contrast, which is invisible.
+   3. Every vertical uses crimson. Per-page accent palettes are
+      what caused the site to drift out of brand.
+   ============================================================ */
+
 @theme inline {
+  /* ---- Base surfaces ---------------------------------------- */
   --color-background: #0a0a0a;
+  --color-black-deep: #060606;
+  --color-ink-900: #111111;
+  --color-ink-800: #171717;
+  --color-ink-700: #1f1f1f;
+
+  /* ---- Text scale (fg = foreground) -------------------------
+     Contrast measured against the #0a0a0a page background.
+     WCAG AA needs 4.5:1 for body text, 3:1 for large text.
+
+       text-fg            16.01:1  PASS  headings, emphasis
+       text-fg-strong      9.76:1  PASS  lead paragraphs, key copy
+       text-fg-secondary   5.37:1  PASS  DEFAULT for body copy
+       text-fg-muted       3.77:1  large text only, never body
+       text-fg-faint       2.61:1  decorative / non-essential only
+
+     Body copy defaults to fg-secondary. Reach for fg-muted only
+     on large type, and fg-faint only where the text carries no
+     information (dividers, watermarks, decorative counters).
+     ---------------------------------------------------------- */
+  --color-fg: rgba(255, 255, 255, 0.9);
+  --color-fg-secondary: rgba(255, 255, 255, 0.5);
+  --color-fg-muted: rgba(255, 255, 255, 0.4);
+  --color-fg-faint: rgba(255, 255, 255, 0.3);
   --color-foreground: rgba(255, 255, 255, 0.9);
 
+  /* ---- Brand ------------------------------------------------ */
+  --color-crimson: #c41230;
+  --color-crimson-dark: #a00f28;
+  --color-primary: #c41230;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #c41230;
+  --color-accent-foreground: #ffffff;
+  --color-ring: #c41230;
+
+  /* Amber is NOT a general accent. Free-consult moments only. */
+  --color-amber-consult: #fcd34d;
+  --color-amber-consult-soft: #fde68a;
+
+  /* ---- Surfaces --------------------------------------------- */
   --color-card: rgba(17, 17, 17, 0.5);
   --color-card-foreground: rgba(255, 255, 255, 0.9);
-
   --color-popover: #0a0a0a;
   --color-popover-foreground: rgba(255, 255, 255, 0.9);
-
-  --color-primary: #C41230;
-  --color-primary-foreground: #ffffff;
-
   --color-secondary: rgba(255, 255, 255, 0.05);
   --color-secondary-foreground: rgba(255, 255, 255, 0.9);
-
   --color-muted: #171717;
   --color-muted-foreground: rgba(255, 255, 255, 0.5);
-
-  --color-accent: #C41230;
-  --color-accent-foreground: #ffffff;
-
   --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
 
+  /* ---- Borders ---------------------------------------------- */
   --color-border: rgba(255, 255, 255, 0.05);
+  --color-border-strong: rgba(255, 255, 255, 0.1);
+  --color-border-accent: rgba(196, 18, 48, 0.2);
   --color-input: rgba(255, 255, 255, 0.1);
-  --color-ring: #C41230;
 
-  --color-crimson: #C41230;
-  --color-crimson-dark: #a00f28;
-
+  /* ---- Type ------------------------------------------------- */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Space Grotesk", ui-monospace, monospace;
 
+  --text-hero: clamp(32px, 6vw, 72px);
+  --text-h2: clamp(28px, 5vw, 48px);
+  --text-h2-sm: clamp(24px, 4vw, 40px);
+  --text-h3: clamp(24px, 4vw, 36px);
+
+  /* ---- Radii ------------------------------------------------ */
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
   --radius-xl: 12px;
+}
+
+/* ============================================================
+   Raw design tokens.
+   Kept as plain custom properties for hand-written CSS and for
+   parity with the design-system source. Tailwind utilities are
+   generated from the @theme block above.
+   ============================================================ */
+:root {
+  /* Crimson at opacity: glows, tints, borders. NEVER text. */
+  --crimson-30: rgba(196, 18, 48, 0.3);
+  --crimson-20: rgba(196, 18, 48, 0.2);
+  --crimson-10: rgba(196, 18, 48, 0.1);
+  --crimson-05: rgba(196, 18, 48, 0.05);
+
+  /* Letter spacing, the brand's signature move */
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.12em;
+  --tracking-wide: 0.15em;
+  --tracking-wider: 0.2em;
+  --tracking-widest: 0.25em;
+  --tracking-eyebrow: 0.3em;
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Section rhythm */
+  --section-y: 96px;
+  --section-y-lg: 128px;
+  --container-max: 1280px;
+
+  /* Shadows and glows */
+  --shadow-crimson: 0 8px 32px rgba(196, 18, 48, 0.25);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glow-price: 0 0 24px rgba(196, 18, 48, 0.5);
+  --glow-hero-blur: 150px;
+
+  /* Motion */
+  --ease-brand: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.3s;
+  --dur-slow: 0.5s;
+  --dur-slower: 0.7s;
+  --blur-nav: 24px;
+
+  --selection-bg: rgba(196, 18, 48, 0.3);
 }
 
 html {
@@ -58,11 +161,26 @@ body {
 }
 
 ::selection {
-  background: rgba(196, 18, 48, 0.3);
+  background: var(--selection-bg);
   color: #fff;
 }
 
-/* Utility classes for brand consistency */
+/* ============================================================
+   Semantic text utilities.
+
+   These are the ONLY approved way to set text color. They exist
+   as plain classes (not just Tailwind theme colors) so that a
+   grep for `text-white/` in src/ returns zero results and stays
+   that way.
+   ============================================================ */
+.text-fg { color: rgba(255, 255, 255, 0.9); }
+.text-fg-strong { color: rgba(255, 255, 255, 0.7); }
+.text-fg-secondary { color: rgba(255, 255, 255, 0.5); }
+.text-fg-muted { color: rgba(255, 255, 255, 0.4); }
+.text-fg-faint { color: rgba(255, 255, 255, 0.3); }
+
+/* Legacy aliases. Retained so older markup keeps rendering while
+   it is migrated. Do not use in new code. */
 .text-white-90 { color: rgba(255, 255, 255, 0.9); }
 .text-white-80 { color: rgba(255, 255, 255, 0.8); }
 .text-white-70 { color: rgba(255, 255, 255, 0.7); }
@@ -77,6 +195,15 @@ body {
 
 .border-brand { border-color: rgba(255, 255, 255, 0.05); }
 .border-brand-hover { border-color: rgba(196, 18, 48, 0.2); }
+
+/* Eyebrow: tiny crimson uppercase label, the brand's signature */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: rgba(196, 18, 48, 0.6);
+}
 
 /* Page transition fade-in */
 main {
@@ -100,13 +227,25 @@ main {
 
 /* Pricing / package card hover enhancements */
 .pricing-card {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--dur-slow) var(--ease-brand);
 }
 .pricing-card:hover {
-  border-color: rgba(196, 18, 48, 0.3);
+  border-color: var(--crimson-30);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card);
 }
 .pricing-card:hover .pricing-price {
-  text-shadow: 0 0 24px rgba(196, 18, 48, 0.5);
+  text-shadow: var(--glow-price);
+}
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  main { animation: none; }
+  .image-loading { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

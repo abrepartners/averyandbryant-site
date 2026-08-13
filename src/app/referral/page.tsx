@@ -89,13 +89,13 @@ export default function ReferralPage() {
                 key={step.number}
                 className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
               >
-                <span className="font-display text-5xl font-bold text-crimson/30 transition-colors group-hover:text-crimson/60">
+                <span className="font-display text-5xl font-bold text-crimson transition-colors group-hover:text-crimson">
                   {step.number}
                 </span>
                 <h3 className="mt-4 font-display text-xl font-medium text-white-90">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/50">
+                <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
                   {step.description}
                 </p>
               </div>
@@ -114,12 +114,12 @@ export default function ReferralPage() {
             Your trust is worth more than any ad.
           </h2>
           <div className="mt-10 max-w-3xl space-y-6">
-            <p className="text-base leading-relaxed text-white/50 md:text-lg">
+            <p className="text-base leading-relaxed text-fg-secondary md:text-lg">
               Word of mouth built this company. Every referral you send us is
               worth more than any ad we could run. So we put our money where our
               mouth is.
             </p>
-            <p className="text-base leading-relaxed text-white/50 md:text-lg">
+            <p className="text-base leading-relaxed text-fg-secondary md:text-lg">
               We don&apos;t do $25 Starbucks gift cards. We don&apos;t do
               &ldquo;credits toward your next shoot.&rdquo; We do cash. Because
               your time and trust deserve real compensation.
@@ -140,20 +140,20 @@ export default function ReferralPage() {
           <div className="mt-10 max-w-3xl space-y-6">
             <div className="flex items-start gap-3">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
-              <p className="text-base leading-relaxed text-white/50 md:text-lg">
+              <p className="text-base leading-relaxed text-fg-secondary md:text-lg">
                 Referral payouts are based on the booking value. The bigger the
                 shoot, the bigger your payout.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
-              <p className="text-base leading-relaxed text-white/50 md:text-lg">
+              <p className="text-base leading-relaxed text-fg-secondary md:text-lg">
                 There&apos;s no cap. Refer 1 agent or 50. Every booking counts.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
-              <p className="text-base leading-relaxed text-white/50 md:text-lg">
+              <p className="text-base leading-relaxed text-fg-secondary md:text-lg">
                 Payouts are sent after the shoot is completed and delivered.
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function ReferralPage() {
                 className="flex items-center gap-3 rounded border border-white/5 bg-[rgba(17,17,17,0.5)] px-6 py-4 transition-all duration-500 hover:border-crimson/20"
               >
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
-                <span className="text-sm font-medium text-white/60">
+                <span className="text-sm font-medium text-fg-strong">
                   {item}
                 </span>
               </div>
@@ -209,7 +209,7 @@ export default function ReferralPage() {
                     +
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-sm leading-relaxed text-white/50">
+                <div className="px-6 pb-5 text-sm leading-relaxed text-fg-secondary">
                   {faq.answer}
                 </div>
               </details>
@@ -227,7 +227,7 @@ export default function ReferralPage() {
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Ready to start referring?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
             Call us at (501) 502-2925 or email book@averyandbryant.com to get
             set up.
           </p>

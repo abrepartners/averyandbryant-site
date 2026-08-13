@@ -6,7 +6,7 @@ export function GuaranteeBadge({ guarantee }: { guarantee: Guarantee }) {
       <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-300/80">
         {guarantee.name}
       </p>
-      <p className="mt-3 text-sm leading-relaxed text-white/50">
+      <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
         {guarantee.text}
       </p>
     </div>

@@ -44,7 +44,7 @@ export function HeroMultiFamily() {
             <span className="text-white-40 italic">with premium media.</span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
             Professional photography, aerial drone, video tours, and
             leasing-ready assets for apartment complexes across Arkansas. Built
             for property managers who can&apos;t afford a slow lease-up.
@@ -68,7 +68,7 @@ export function HeroMultiFamily() {
           <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-8">
             {stats.map((s) => (
               <div key={s.label} className="flex flex-col">
-                <dt className="order-2 text-[10px] uppercase tracking-[0.25em] text-white/40">
+                <dt className="order-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                   {s.label}
                 </dt>
                 <dd className="order-1 font-display text-2xl font-light text-white-90">
@@ -92,7 +92,7 @@ export function HeroMultiFamily() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                   Multi-Family Media
                 </p>
                 <p className="mt-1 text-sm text-white-80">

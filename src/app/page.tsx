@@ -260,9 +260,9 @@ export default function HomePage() {
       <section className="border-y border-white/5 bg-[rgba(17,17,17,0.3)]">
         <div className="mx-auto max-w-[1280px] px-6 py-8 md:px-12 md:py-10">
           <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-            <p className="shrink-0 text-[11px] uppercase tracking-[0.25em] text-white/40">
-              <span className="text-white/70">200+</span> Arkansas agents
-              <span className="mx-3 text-white/10">|</span>
+            <p className="shrink-0 text-[11px] uppercase tracking-[0.25em] text-fg-secondary">
+              <span className="text-fg-strong">200+</span> Arkansas agents
+              <span className="mx-3 text-fg-faint">|</span>
               48-hour avg. delivery
             </p>
 
@@ -270,7 +270,7 @@ export default function HomePage() {
               {brokerages.map((name) => (
                 <span
                   key={name}
-                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-white/40"
+                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-faint transition-colors hover:text-fg-secondary"
                 >
                   {name}
                 </span>
@@ -278,7 +278,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex shrink-0 items-center gap-6">
-              <span className="rounded border border-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
+              <span className="rounded border border-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-fg-secondary">
                 BBB A+
               </span>
               {process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ? (
@@ -286,7 +286,7 @@ export default function HomePage() {
                   href={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-[11px] text-white/40 transition-colors hover:text-white/60"
+                  className="flex items-center gap-1.5 text-[11px] text-fg-secondary transition-colors hover:text-fg-strong"
                 >
                   <span className="text-crimson">★★★★★</span>
                   <span>Google</span>
@@ -314,13 +314,13 @@ export default function HomePage() {
                 {i < systemSteps.length - 1 && (
                   <div className="absolute right-0 top-4 hidden h-px w-8 translate-x-full bg-gradient-to-r from-crimson/30 to-transparent md:block" />
                 )}
-                <span className="font-display text-3xl font-extralight text-crimson/20">
+                <span className="font-display text-3xl font-extralight text-crimson">
                   {step.num}
                 </span>
                 <h3 className="mt-3 font-display text-base font-medium text-white-90">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">
+                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                   {step.description}
                 </p>
               </div>
@@ -360,7 +360,7 @@ export default function HomePage() {
               href="https://homes.averyandbryant.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-white/60"
+              className="text-[11px] uppercase tracking-[0.2em] text-fg-faint transition-colors hover:text-fg-strong"
             >
               See Our Work &rarr;
             </a>
@@ -389,7 +389,7 @@ export default function HomePage() {
                   <h3 className="mt-6 font-display text-2xl font-light text-white-90">
                     Edit Your Own Listing Photos. Instantly.
                   </h3>
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/40">
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-fg-secondary">
                     Virtual staging, twilight conversion, sky replacement, and
                     object removal. Upload a photo, get a finished asset. No
                     design skills. No waiting on editors.
@@ -419,7 +419,7 @@ export default function HomePage() {
             Built for Every Property Type{" "}
             <span className="text-white-40">in Arkansas.</span>
           </h2>
-          <p className="mt-4 text-base text-white/45">
+          <p className="mt-4 text-base text-fg-secondary">
             Not sure which fits?{" "}
             <Link
               href="/get-started"
@@ -439,10 +439,10 @@ export default function HomePage() {
                 <h3 className="font-display text-lg font-medium text-white-90 transition-colors group-hover:text-crimson">
                   {vertical.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/40">
+                <p className="mt-2 text-sm text-fg-secondary">
                   {vertical.description}
                 </p>
-                <span className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-white/20 transition-colors group-hover:text-crimson">
+                <span className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-fg-faint transition-colors group-hover:text-crimson">
                   Learn More &rarr;
                 </span>
               </Link>
@@ -465,7 +465,7 @@ export default function HomePage() {
               <h2 className="mt-4 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-white-90">
                 Refer an Agent. Get Paid.
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-white/40">
+              <p className="mt-4 text-base leading-relaxed text-fg-secondary">
                 Every agent you refer who books a shoot earns you cash. Not a
                 gift card. Not a thank-you email. Real money for real referrals.
               </p>
@@ -497,7 +497,7 @@ export default function HomePage() {
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Your Next Listing Deserves the ALYT System.
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
             Book online in under 2 minutes. We handle the rest.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

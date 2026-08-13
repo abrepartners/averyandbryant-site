@@ -181,7 +181,7 @@ export default function ZillowShowcasePage() {
                 key={step.number}
                 className="rounded-lg border border-white/5 bg-card p-8 transition-colors hover:border-crimson/20"
               >
-                <span className="font-display text-4xl font-extralight text-crimson/30">
+                <span className="font-display text-4xl font-extralight text-crimson">
                   {step.number}
                 </span>
                 <h3 className="mt-4 font-display text-lg font-medium text-white-90">

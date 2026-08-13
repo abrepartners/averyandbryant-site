@@ -83,8 +83,8 @@ function Label({
           {num}
         </span>
         <span className="font-display text-lg text-white-90">{vertical}</span>
-        <span className="text-sm text-white/40">· {template}</span>
-        <span className="hidden basis-full text-xs text-white/30 md:inline-block md:basis-auto">
+        <span className="text-sm text-fg-secondary">· {template}</span>
+        <span className="hidden basis-full text-xs text-fg-faint md:inline-block md:basis-auto">
           {psychology}
         </span>
       </div>

@@ -35,17 +35,17 @@ export function HeroBuilders() {
       aria-label="Builder Media hero"
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
-      {/* Warm earth-tone glow (not crimson) — fits construction/builder aesthetic */}
-      <div className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-amber-500/5 blur-[180px]" />
+      {/* Crimson ambient glow (brand accent) */}
+      <div className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-crimson/5 blur-[180px]" />
       <div className="pointer-events-none absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[160px]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16 lg:gap-20">
           {/* LEFT — typography */}
           <div className="flex flex-col justify-center">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/5 px-4 py-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
                 Builder Media
               </span>
             </div>
@@ -56,7 +56,7 @@ export function HeroBuilders() {
               <span className="text-white-40 italic">Market the result.</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
               Progress photography, drone aerials, and cinematic marketing media
               for builders, developers, and construction companies across
               Arkansas. From foundation to final walkthrough.
@@ -80,7 +80,7 @@ export function HeroBuilders() {
             <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-8">
               {stats.map((s) => (
                 <div key={s.label} className="flex flex-col">
-                  <dt className="order-2 text-[10px] uppercase tracking-[0.25em] text-white/40">
+                  <dt className="order-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                     {s.label}
                   </dt>
                   <dd className="order-1 font-display text-2xl font-light text-white-90">
@@ -96,7 +96,7 @@ export function HeroBuilders() {
             {progress.map((item) => (
               <div
                 key={item.stage}
-                className="group relative overflow-hidden rounded border border-white/10 bg-[#0d0d0d] p-6 transition-colors hover:border-amber-500/30 md:p-7"
+                className="group relative overflow-hidden rounded border border-white/10 bg-[#0d0d0d] p-6 transition-colors hover:border-crimson/30 md:p-7"
               >
                 {/* Blueprint grid motif */}
                 <div
@@ -117,14 +117,14 @@ export function HeroBuilders() {
                 </span>
 
                 <div className="relative flex items-start gap-5">
-                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded border border-amber-500/30 font-mono text-xs text-amber-300/90">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded border border-crimson/30 font-mono text-xs text-crimson/90">
                     {item.stage}
                   </div>
                   <div className="min-w-0">
                     <p className="font-display text-xl font-light text-white-90 md:text-2xl">
                       {item.title}
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-white/50">
+                    <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                       {item.label}
                     </p>
                   </div>
@@ -132,7 +132,7 @@ export function HeroBuilders() {
 
                 <span
                   aria-hidden
-                  className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-amber-500/60 to-transparent transition-all duration-700 group-hover:w-full"
+                  className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-crimson/60 to-transparent transition-all duration-700 group-hover:w-full"
                 />
               </div>
             ))}

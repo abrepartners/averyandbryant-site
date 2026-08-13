@@ -61,7 +61,7 @@ export function ServiceCard({ service }: { service: Service }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
           {hasPreview && (
-            <span className="absolute bottom-3 right-3 rounded border border-white/20 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm transition-colors group-hover:border-crimson/50 group-hover:text-white">
+            <span className="absolute bottom-3 right-3 rounded border border-white/20 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm transition-colors group-hover:border-crimson/50 group-hover:text-white">
               See Examples
             </span>
           )}
@@ -76,7 +76,7 @@ export function ServiceCard({ service }: { service: Service }) {
               {service.price}
             </span>
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-white/40">
+          <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
             {service.description}
           </p>
           <div className="mt-4 flex items-center gap-6">
@@ -90,7 +90,7 @@ export function ServiceCard({ service }: { service: Service }) {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-block text-[11px] uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white"
+                className="inline-block text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
               >
                 See Examples
               </button>
@@ -125,7 +125,7 @@ export function ServiceCard({ service }: { service: Service }) {
                 type="button"
                 onClick={close}
                 aria-label="Close"
-                className="rounded border border-white/15 px-3 py-1.5 text-xs text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                className="rounded border border-white/15 px-3 py-1.5 text-xs text-fg-strong transition-colors hover:border-white/40 hover:text-white"
               >
                 Esc ✕
               </button>
@@ -169,7 +169,7 @@ export function ServiceCard({ service }: { service: Service }) {
                     )}
                   </div>
                   {item.label && (
-                    <figcaption className="mt-2 text-[10px] uppercase tracking-[0.2em] text-white/35">
+                    <figcaption className="mt-2 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
                       {item.label}
                     </figcaption>
                   )}
@@ -178,7 +178,7 @@ export function ServiceCard({ service }: { service: Service }) {
             </div>
 
             <div className="mt-8 flex flex-col items-center gap-3 border-t border-white/5 pt-6 sm:flex-row sm:justify-between">
-              <p className="text-xs text-white/35">
+              <p className="text-xs text-fg-secondary">
                 Every example above was shot and delivered for a real Arkansas
                 listing.
               </p>

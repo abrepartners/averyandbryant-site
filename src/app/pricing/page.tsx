@@ -144,11 +144,11 @@ export default function PricingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Transparent Pricing
           </p>
-          <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-white/90 leading-none">
+          <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-fg leading-none">
             Every vertical.{" "}
-            <span className="text-white/30">Every package.</span>
+            <span className="text-fg-faint">Every package.</span>
           </h1>
-          <p className="mt-6 text-[15px] text-white/50 max-w-xl leading-relaxed">
+          <p className="mt-6 text-[15px] text-fg-secondary max-w-xl leading-relaxed">
             Select your property type below to see full package details and book
             online. All packages include our delivery guarantee.
           </p>
@@ -171,16 +171,16 @@ export default function PricingPage() {
                 href={`/${v.slug}`}
                 className="group block bg-white/[0.03] border border-white/5 rounded-lg p-6 hover:border-crimson/40 transition-all duration-200"
               >
-                <p className="text-[9px] uppercase tracking-[0.25em] text-white/25 mb-3">
+                <p className="text-[9px] uppercase tracking-[0.25em] text-fg-faint mb-3">
                   {v.tag}
                 </p>
-                <h2 className="font-display text-xl font-bold text-white/90 mb-1">
+                <h2 className="font-display text-xl font-bold text-fg mb-1">
                   {v.label}
                 </h2>
                 <p className="font-display text-2xl font-extrabold text-crimson mb-4 tracking-tight">
                   {v.range}
                 </p>
-                <p className="text-[13px] text-white/45 leading-relaxed mb-5">
+                <p className="text-[13px] text-fg-secondary leading-relaxed mb-5">
                   {v.description}
                 </p>
 
@@ -191,8 +191,8 @@ export default function PricingPage() {
                       key={pkg.name}
                       className="flex items-center justify-between text-[12px]"
                     >
-                      <span className="text-white/50">{pkg.name}</span>
-                      <span className="text-white/80 font-semibold tabular-nums">
+                      <span className="text-fg-secondary">{pkg.name}</span>
+                      <span className="text-fg-strong font-semibold tabular-nums">
                         {pkg.price}
                       </span>
                     </li>
@@ -215,7 +215,7 @@ export default function PricingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60 mb-6">
             À La Carte Add-Ons
           </p>
-          <p className="text-[13px] text-white/40 mb-8 max-w-md">
+          <p className="text-[13px] text-fg-secondary mb-8 max-w-md">
             Available across most verticals. Pricing varies by package — see
             each vertical page for exact rates.
           </p>
@@ -225,8 +225,8 @@ export default function PricingPage() {
                 key={a.name}
                 className="flex items-center gap-2 bg-white/[0.04] border border-white/5 rounded px-3 py-2"
               >
-                <span className="text-[12px] text-white/50">{a.name}</span>
-                <span className="text-[10px] text-white/25 italic">
+                <span className="text-[12px] text-fg-secondary">{a.name}</span>
+                <span className="text-[10px] text-fg-faint italic">
                   {a.note}
                 </span>
               </div>
@@ -244,7 +244,7 @@ export default function PricingPage() {
               <p className="text-[11px] font-semibold uppercase tracking-widest text-crimson mb-1">
                 Satisfaction Reshoot Guarantee
               </p>
-              <p className="text-[13px] text-white/50 leading-relaxed">
+              <p className="text-[13px] text-fg-secondary leading-relaxed">
                 Not happy with your media? Tell us within 7 days of delivery and
                 we&apos;ll reshoot it free. &ldquo;Not happy&rdquo; means an
                 issue with our work — exposure, color, composition, or a missed
@@ -259,12 +259,12 @@ export default function PricingPage() {
       {/* ── CTA ── */}
       <section className="py-24 border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12 text-center">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-white/25 mb-4">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-fg-faint mb-4">
             Ready to book?
           </p>
-          <h2 className="font-display text-[clamp(28px,4vw,44px)] font-light tracking-tight text-white/90 mb-6">
+          <h2 className="font-display text-[clamp(28px,4vw,44px)] font-light tracking-tight text-fg mb-6">
             Order online in{" "}
-            <span className="text-white/40">under 2 minutes.</span>
+            <span className="text-fg-secondary">under 2 minutes.</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <OrderLink
@@ -275,7 +275,7 @@ export default function PricingPage() {
             </OrderLink>
             <Link
               href="/book"
-              className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/30 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/30 hover:text-white"
             >
               Book a Free Consult
             </Link>

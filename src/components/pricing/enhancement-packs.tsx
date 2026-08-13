@@ -23,7 +23,7 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
                   <h3 className="font-display text-lg font-medium text-white-90">
                     {pack.name}
                   </h3>
-                  <p className="mt-1 text-[11px] text-white/30">
+                  <p className="mt-1 text-[11px] text-fg-faint">
                     Pairs with {pack.pairsWith}
                   </p>
                 </div>
@@ -41,7 +41,7 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
                 {pack.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-sm text-white/50"
+                    className="flex items-start gap-3 text-sm text-fg-secondary"
                   >
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/50" />
                     {item}

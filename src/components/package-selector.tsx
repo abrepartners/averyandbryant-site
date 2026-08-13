@@ -203,7 +203,7 @@ export function PackageSelector({
                 <span className="text-base font-medium text-white-90 group-hover:text-white">
                   {t.label}
                 </span>
-                <span className="mt-1 text-sm text-white/45">{t.blurb}</span>
+                <span className="mt-1 text-sm text-fg-secondary">{t.blurb}</span>
               </button>
             ))}
           </div>
@@ -233,7 +233,7 @@ export function PackageSelector({
                 <span className="text-base font-medium text-white-90 group-hover:text-white">
                   {g.label}
                 </span>
-                <span className="mt-1 text-sm text-white/45">{g.blurb}</span>
+                <span className="mt-1 text-sm text-fg-secondary">{g.blurb}</span>
               </button>
             ))}
           </div>
@@ -264,7 +264,7 @@ export function PackageSelector({
                 <span className="text-base font-medium text-white-90 group-hover:text-white">
                   {s.label}
                 </span>
-                <span className="mt-1 text-sm text-white/45">{s.blurb}</span>
+                <span className="mt-1 text-sm text-fg-secondary">{s.blurb}</span>
               </button>
             ))}
           </div>
@@ -291,7 +291,7 @@ function BackButton({ onClick }: { onClick: () => void }) {
     <button
       type="button"
       onClick={onClick}
-      className="mt-8 text-[11px] uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white/70"
+      className="mt-8 text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
     >
       &larr; Back
     </button>
@@ -322,7 +322,7 @@ function Result({
         <h2 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-white-90">
           Let&apos;s scope it on a quick call.
         </h2>
-        <p className="mt-4 max-w-xl text-base text-white/55">
+        <p className="mt-4 max-w-xl text-base text-fg-strong">
           {type.label} projects are custom — we&apos;ll build the right package
           live in a free 30-minute consult, no pressure.
         </p>
@@ -335,7 +335,7 @@ function Result({
           </Link>
           <Link
             href={type.verticalPage}
-            className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/30 hover:text-white"
+            className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/30 hover:text-white"
           >
             See what we do
           </Link>
@@ -379,7 +379,7 @@ function Result({
 
       <ul className="mt-6 space-y-2">
         {pkg.valueItems.slice(0, 4).map((v, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm text-white/60">
+          <li key={i} className="flex items-start gap-3 text-sm text-fg-strong">
             <span className="mt-1 text-crimson">&#10003;</span>
             <span>{v.label}</span>
           </li>
@@ -395,15 +395,15 @@ function Result({
         </a>
         <Link
           href={type.verticalPage}
-          className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/30 hover:text-white"
+          className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/30 hover:text-white"
         >
           Compare all packages
         </Link>
       </div>
-      <p className="mt-6 text-xs text-white/30">
+      <p className="mt-6 text-xs text-fg-faint">
         Not sure? Every package is backed by our {type.pricing.guarantee.name}.
         Prefer to talk it through?{" "}
-        <Link href="/book" className="text-white/50 underline hover:text-white">
+        <Link href="/book" className="text-fg-secondary underline hover:text-white">
           Book a free consult.
         </Link>
       </p>
@@ -428,7 +428,7 @@ function ResetLink({ onReset }: { onReset: () => void }) {
     <button
       type="button"
       onClick={onReset}
-      className="mt-8 block text-[11px] uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white/70"
+      className="mt-8 block text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
     >
       Start over
     </button>

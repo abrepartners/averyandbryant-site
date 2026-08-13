@@ -90,7 +90,7 @@ export function HeroLotLand() {
         </div>
 
         {/* Trust line — aerial licensing matters for land agents */}
-        <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-white/35">
+        <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
           <span>★ FAA Part 107 licensed</span>
           <span aria-hidden>·</span>
           <span>Fully insured pilots</span>

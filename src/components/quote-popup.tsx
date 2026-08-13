@@ -82,7 +82,7 @@ export function QuotePopup() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="text-left text-sm text-white/85 transition-colors hover:text-white"
+            className="text-left text-sm text-fg transition-colors hover:text-white"
           >
             Not sure what you need?{" "}
             <span className="text-crimson">Get a quick quote &rarr;</span>
@@ -91,7 +91,7 @@ export function QuotePopup() {
             type="button"
             onClick={dismiss}
             aria-label="Dismiss"
-            className="flex h-8 w-8 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-fg-secondary transition-colors hover:bg-white/10 hover:text-white"
           >
             &#10005;
           </button>
@@ -115,7 +115,7 @@ export function QuotePopup() {
                 <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
                   Quick quote
                 </p>
-                <h2 className="mt-2 font-display text-2xl font-light tracking-tight text-white/90">
+                <h2 className="mt-2 font-display text-2xl font-light tracking-tight text-fg">
                   Three questions. Your number.
                 </h2>
               </div>
@@ -123,7 +123,7 @@ export function QuotePopup() {
                 type="button"
                 onClick={dismiss}
                 aria-label="Close"
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-fg-secondary transition-colors hover:bg-white/10 hover:text-white"
               >
                 &#10005;
               </button>

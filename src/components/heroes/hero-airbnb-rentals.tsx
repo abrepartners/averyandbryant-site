@@ -35,16 +35,16 @@ export function HeroAirbnbRentals() {
       aria-label="Short-term rental media hero"
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
-      {/* Warm amber + peach glows — this is the "lifestyle" palette */}
-      <div className="pointer-events-none absolute -right-20 top-0 h-[700px] w-[700px] rounded-full bg-amber-500/10 blur-[200px]" />
-      <div className="pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px] rounded-full bg-orange-400/8 blur-[160px]" />
+      {/* Crimson ambient glows (brand accent) */}
+      <div className="pointer-events-none absolute -right-20 top-0 h-[700px] w-[700px] rounded-full bg-crimson/10 blur-[200px]" />
+      <div className="pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/8 blur-[160px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[1fr_1fr] md:items-center md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT — typography + revenue stat */}
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
               Short-Term Rental Media
             </span>
           </div>
@@ -53,10 +53,10 @@ export function HeroAirbnbRentals() {
             More bookings
             <br />
             start with{" "}
-            <span className="italic text-amber-200/70">better photos.</span>
+            <span className="italic text-crimson/70">better photos.</span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
             Professional photos, drone, video tours, and twilight media for
             Airbnb, VRBO, and short-term rental hosts across Arkansas. Turn
             browsers into guests.
@@ -78,16 +78,16 @@ export function HeroAirbnbRentals() {
           </div>
 
           {/* Revenue callout — THE hook for STR hosts */}
-          <div className="mt-12 flex max-w-md items-center gap-6 rounded border border-amber-400/20 bg-amber-400/[0.03] p-6">
+          <div className="mt-12 flex max-w-md items-center gap-6 rounded border border-crimson/20 bg-crimson/[0.03] p-6">
             <div className="shrink-0">
-              <p className="font-display text-5xl font-light leading-none text-amber-200">
+              <p className="font-display text-5xl font-light leading-none text-crimson">
                 19%
               </p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-amber-200/60">
+              <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-crimson/60">
                 More bookings
               </p>
             </div>
-            <p className="text-sm leading-relaxed text-white/50">
+            <p className="text-sm leading-relaxed text-fg-secondary">
               Airbnb&apos;s own 2024&ndash;25 study of 14,700+ listings found
               professional photography drove ~19% more bookings and ~21% higher
               earnings over the next year. Your photos pay for themselves.
@@ -120,15 +120,15 @@ export function HeroAirbnbRentals() {
                   <p className="text-sm font-medium text-white-90">
                     Your rental, booking-ready
                   </p>
-                  <p className="mt-1 text-xs text-white/50">
+                  <p className="mt-1 text-xs text-fg-secondary">
                     Photos · Video · Drone · Twilight
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-amber-200">
+                  <p className="text-sm font-medium text-crimson">
                     Airbnb · VRBO
                   </p>
-                  <p className="mt-1 text-xs text-white/40">Direct booking</p>
+                  <p className="mt-1 text-xs text-fg-secondary">Direct booking</p>
                 </div>
               </div>
               <div className="mt-3 flex items-center gap-1">
@@ -137,7 +137,7 @@ export function HeroAirbnbRentals() {
                     key={i}
                     aria-hidden
                     className={`h-0.5 flex-1 rounded-full transition-colors duration-500 ${
-                      i === active ? "bg-amber-200" : "bg-white/15"
+                      i === active ? "bg-crimson" : "bg-white/15"
                     }`}
                   />
                 ))}

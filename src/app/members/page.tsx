@@ -104,13 +104,13 @@ export default function MembersPage() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
             Your hub for The Spot. Manage billing, book your next session, or
             redeem monthly credits. Sign in with the email you subscribed with
             — no extra password to remember.
           </p>
 
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/35">
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
             Looking for your real estate media instead?{" "}
             <a
               href="https://homes.averyandbryant.com/portal"
@@ -144,7 +144,7 @@ export default function MembersPage() {
                   <h2 className="mt-4 font-display text-2xl font-medium text-white-90">
                     {card.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-white/55">
+                  <p className="mt-4 text-sm leading-relaxed text-fg-strong">
                     {card.description}
                   </p>
                   {card.cta.external ? (
@@ -152,7 +152,7 @@ export default function MembersPage() {
                       href={card.cta.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-8 inline-flex items-center gap-2 rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-all hover:border-white/40 hover:text-white"
+                      className="mt-8 inline-flex items-center gap-2 rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
                     >
                       {card.cta.label}
                       <span aria-hidden>&rarr;</span>
@@ -160,7 +160,7 @@ export default function MembersPage() {
                   ) : (
                     <Link
                       href={card.cta.href}
-                      className="mt-8 inline-flex items-center gap-2 rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white/70 transition-all hover:border-white/40 hover:text-white"
+                      className="mt-8 inline-flex items-center gap-2 rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
                     >
                       {card.cta.label}
                       <span aria-hidden>&rarr;</span>
@@ -171,7 +171,7 @@ export default function MembersPage() {
             })}
           </div>
 
-          <p className="mt-12 text-center text-sm text-white/35">
+          <p className="mt-12 text-center text-sm text-fg-secondary">
             Not a member yet?{" "}
             <Link href="/studio" className="text-crimson hover:text-white">
               See membership options
@@ -184,7 +184,7 @@ export default function MembersPage() {
       {/* ── HOW THE LOGIN WORKS ── */}
       <section className="border-t border-white/5 bg-[rgba(17,17,17,0.3)] py-16 md:py-20">
         <div className="mx-auto max-w-[960px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-fg-secondary">
             How login works
           </p>
           <h2 className="mt-4 font-display text-[clamp(22px,3.5vw,32px)] font-light tracking-tight text-white-90">
@@ -212,13 +212,13 @@ export default function MembersPage() {
                 key={s.n}
                 className="rounded border border-white/5 bg-[rgba(10,10,10,0.6)] p-6"
               >
-                <span className="font-display text-3xl font-extralight text-crimson/40">
+                <span className="font-display text-3xl font-extralight text-crimson">
                   {s.n}
                 </span>
                 <h3 className="mt-3 font-display text-base font-medium text-white-90">
                   {s.t}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/45">
+                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                   {s.d}
                 </p>
               </div>

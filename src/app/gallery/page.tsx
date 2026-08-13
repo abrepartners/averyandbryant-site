@@ -94,7 +94,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                  <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.2em] text-white/0 transition-colors group-hover:text-white/80">
+                  <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.2em] text-white/0 transition-colors group-hover:text-fg-strong">
                     {shot.city}
                   </span>
                 </div>
@@ -135,7 +135,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                  <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.2em] text-white/0 transition-colors group-hover:text-white/80">
+                  <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.2em] text-white/0 transition-colors group-hover:text-fg-strong">
                     {shot.city}
                   </span>
                 </div>

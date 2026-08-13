@@ -26,7 +26,7 @@ export function AddOnsGrid({
               key={item.title}
               className="pricing-card flex items-center justify-between rounded border border-white/5 bg-[rgba(17,17,17,0.5)] px-6 py-4 transition-all duration-500 hover:border-crimson/20"
             >
-              <span className="text-sm font-medium text-white/60">
+              <span className="text-sm font-medium text-fg-strong">
                 {item.title}
               </span>
               <span className="text-sm font-semibold text-crimson">

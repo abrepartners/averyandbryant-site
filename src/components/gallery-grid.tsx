@@ -95,7 +95,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-80 transition-opacity group-hover:opacity-100" />
-            <span className="absolute left-3 top-3 rounded bg-black/50 px-2 py-1 text-[9px] uppercase tracking-[0.2em] text-white/70 backdrop-blur-sm">
+            <span className="absolute left-3 top-3 rounded bg-black/50 px-2 py-1 text-[9px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm">
               {item.label}
             </span>
             <div className="absolute inset-x-3 bottom-3">
@@ -103,7 +103,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
                 {item.city || "Arkansas"}
               </p>
               {stats(item) && (
-                <p className="mt-0.5 truncate text-[10px] text-white/60">
+                <p className="mt-0.5 truncate text-[10px] text-fg-strong">
                   {stats(item)}
                 </p>
               )}
@@ -130,7 +130,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               type="button"
               onClick={close}
               aria-label="Close"
-              className="absolute right-4 top-4 z-10 rounded border border-white/15 bg-black/40 px-3 py-1.5 text-xs text-white/70 backdrop-blur-sm transition-colors hover:border-white/40 hover:text-white"
+              className="absolute right-4 top-4 z-10 rounded border border-white/15 bg-black/40 px-3 py-1.5 text-xs text-fg-strong backdrop-blur-sm transition-colors hover:border-white/40 hover:text-white"
             >
               Esc ✕
             </button>
@@ -152,7 +152,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
                   {lightbox.city}
                 </h3>
                 {(stats(lightbox) || lightbox.count) && (
-                  <p className="mt-1 text-sm text-white/45">
+                  <p className="mt-1 text-sm text-fg-secondary">
                     {[stats(lightbox), `${lightbox.count} photos delivered`]
                       .filter(Boolean)
                       .join(" · ")}

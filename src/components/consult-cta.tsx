@@ -41,11 +41,11 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
             <h2 className="mt-5 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-white-90">
               {headline ?? "Not sure which service fits?"}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/55">
+            <p className="mt-4 text-base leading-relaxed text-fg-strong">
               {subhead ??
                 "Book a free 30-minute call with Thomas. We'll walk through what you're trying to do, what it costs, and which package actually fits — no pressure, no pitch deck."}
             </p>
-            <ul className="mt-6 grid gap-2 text-sm text-white/45 sm:grid-cols-2">
+            <ul className="mt-6 grid gap-2 text-sm text-fg-secondary sm:grid-cols-2">
               <li className="flex items-start gap-2">
                 <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-crimson" />
                 <span>Compare packages across verticals</span>
@@ -76,11 +76,11 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
             </a>
             <Link
               href="/pricing"
-              className="text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors hover:text-white md:text-right"
+              className="text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:text-white md:text-right"
             >
               Or compare all services &rarr;
             </Link>
-            <p className="text-xs text-white/30 md:text-right">
+            <p className="text-xs text-fg-faint md:text-right">
               30 minutes · Google Meet · (501) 502-2925 if you'd rather call
             </p>
           </div>

@@ -113,7 +113,7 @@ export default function RealEstatePage() {
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Ready to elevate your listings?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
             Book a shoot in under 2 minutes. Choose your area to get started.
           </p>
           <div className="mt-10">

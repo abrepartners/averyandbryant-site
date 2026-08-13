@@ -9,7 +9,7 @@ export default function NotFound() {
       <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-white-90">
         Page not found
       </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-white/40 md:text-lg">
+      <p className="mt-4 max-w-md text-base leading-relaxed text-fg-secondary md:text-lg">
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
       <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">

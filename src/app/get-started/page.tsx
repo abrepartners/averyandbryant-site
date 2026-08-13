@@ -26,7 +26,7 @@ export default function GetStartedPage() {
             Not sure what you need?{" "}
             <span className="text-white-40">We&apos;ll point you to it.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base text-white/55">
+          <p className="mt-6 max-w-xl text-base text-fg-strong">
             Three quick questions. We&apos;ll recommend the right package and
             take you straight to booking — no guesswork, no pressure.
           </p>

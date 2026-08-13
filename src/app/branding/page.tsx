@@ -150,7 +150,7 @@ export default function BrandingPage() {
                 />
                 <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2 py-1 backdrop-blur-sm">
                   <span className="h-1 w-1 rounded-full bg-rose-300" />
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-white/70">
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-fg-strong">
                     Reel
                   </span>
                 </div>
@@ -257,7 +257,7 @@ export default function BrandingPage() {
                   <h3 className="font-display text-lg font-medium text-white-90">
                     {point.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/40">
+                  <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                     {point.description}
                   </p>
                 </div>
@@ -283,20 +283,20 @@ export default function BrandingPage() {
                 key={step.number}
                 className="rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20"
               >
-                <span className="font-display text-4xl font-extralight text-crimson/30">
+                <span className="font-display text-4xl font-extralight text-crimson">
                   {step.number}
                 </span>
                 <h3 className="mt-4 font-display text-lg font-medium text-white-90">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">
+                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                   {step.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-12 text-center text-sm text-white/30">
+          <p className="mt-12 text-center text-sm text-fg-faint">
             Serving Arkansas agents and businesses.
           </p>
         </div>
@@ -320,7 +320,7 @@ export default function BrandingPage() {
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
             Ready to level up your brand?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
             Book a session in under 2 minutes. Professional branding that sets
             you apart from every other agent.
           </p>

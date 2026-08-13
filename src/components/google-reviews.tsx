@@ -106,17 +106,17 @@ export async function GoogleReviews({ max = 3 }: { max?: number }) {
                   aria-label={`${r.rating} out of 5 stars`}
                 >
                   {"★".repeat(Math.round(r.rating))}
-                  <span className="text-white/15">
+                  <span className="text-fg-faint">
                     {"★".repeat(5 - Math.round(r.rating))}
                   </span>
                 </div>
-                <p className="mt-4 line-clamp-6 text-sm leading-relaxed text-white/60">
+                <p className="mt-4 line-clamp-6 text-sm leading-relaxed text-fg-strong">
                   {text}
                 </p>
-                <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-white/40">
+                <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
                   {author}
                   {r.relativePublishTimeDescription ? (
-                    <span className="text-white/20">
+                    <span className="text-fg-faint">
                       {" · "}
                       {r.relativePublishTimeDescription}
                     </span>

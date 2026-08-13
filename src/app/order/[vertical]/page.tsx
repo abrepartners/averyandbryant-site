@@ -80,13 +80,13 @@ export default async function OrderPage({
         <h1 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
           {meta.heading}
         </h1>
-        <p className="mt-4 text-base leading-relaxed text-white/50">
+        <p className="mt-4 text-base leading-relaxed text-fg-secondary">
           {meta.description}
         </p>
         <div className="mt-12">
           <OrderForm vertical={v} />
         </div>
-        <p className="mt-6 text-xs text-white/30">
+        <p className="mt-6 text-xs text-fg-faint">
           Final pricing, scheduling, and payment happen on the next step.
         </p>
       </div>

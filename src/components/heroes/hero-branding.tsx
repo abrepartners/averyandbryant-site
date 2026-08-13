@@ -12,7 +12,7 @@ export function HeroBranding() {
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
       <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-rose-500/8 blur-[200px]" />
-      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-amber-400/6 blur-[180px]" />
+      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT — typography */}
@@ -31,7 +31,7 @@ export function HeroBranding() {
             Your content is the proof.
           </h1>
 
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
             One-day shoots that build a month of content: headshots, reels,
             photos, and short-form video for agents, founders, speakers, and
             teams. Little Rock studio + on-location across Arkansas.
@@ -41,7 +41,7 @@ export function HeroBranding() {
             {chips.map((chip) => (
               <span
                 key={chip}
-                className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-xs text-white/60"
+                className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-xs text-fg-strong"
               >
                 {chip}
               </span>
@@ -63,7 +63,7 @@ export function HeroBranding() {
             </Link>
           </div>
 
-          <p className="mt-10 text-[10px] uppercase tracking-[0.25em] text-white/30">
+          <p className="mt-10 text-[10px] uppercase tracking-[0.25em] text-fg-faint">
             ☆ Solo sessions · team days · editorial content
           </p>
         </div>

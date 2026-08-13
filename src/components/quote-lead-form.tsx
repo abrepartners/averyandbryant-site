@@ -58,14 +58,14 @@ export function QuoteLeadForm({ quote }: { quote: QuoteSummary }) {
   }
 
   const inputBase =
-    "w-full rounded border border-white/15 bg-[rgba(17,17,17,0.6)] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-crimson/60 focus:outline-none";
+    "w-full rounded border border-white/15 bg-[rgba(17,17,17,0.6)] px-4 py-3 text-sm text-white placeholder:text-fg-faint focus:border-crimson/60 focus:outline-none";
 
   return (
     <form onSubmit={submit} className="mt-8 border-t border-white/10 pt-6">
       <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
         Want this quote sent to you?
       </p>
-      <p className="mt-2 text-sm text-white/55">
+      <p className="mt-2 text-sm text-fg-strong">
         Drop your info and we&apos;ll follow up — no pressure, no spam.
       </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-3">

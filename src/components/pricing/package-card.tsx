@@ -34,7 +34,7 @@ export function PackageCard({
         </div>
       )}
 
-      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-fg-secondary">
         {pkg.tag}
       </span>
 
@@ -47,7 +47,7 @@ export function PackageCard({
       </span>
 
       <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
-        <span className="text-white/30 line-through">
+        <span className="text-fg-faint line-through">
           {pkg.totalValue} value
         </span>
         <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
@@ -65,12 +65,12 @@ export function PackageCard({
             />
             <span className="flex-1">
               <span
-                className={item.isBonus ? "text-white/60" : "text-white/50"}
+                className={item.isBonus ? "text-fg-strong" : "text-fg-secondary"}
               >
                 {item.label}
               </span>
               {item.value !== "Included" && item.value !== "Custom" && (
-                <span className="ml-2 text-[11px] text-white/20">
+                <span className="ml-2 text-[11px] text-fg-faint">
                   ({item.value} value)
                 </span>
               )}
