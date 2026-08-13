@@ -10,6 +10,7 @@ import { ScarcityBar } from "@/components/pricing/scarcity-bar";
 import { realEstatePricing } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/real-estate" },
   title:
     "Real Estate Media — Listing Launch Kit, Domination System & Market Takeover | Avery & Bryant",
   description:

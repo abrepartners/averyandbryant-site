@@ -3,6 +3,13 @@ import { Hero } from "@/components/hero";
 import { GoogleReviews } from "@/components/google-reviews";
 import { ServiceCard, type Service } from "@/components/service-card";
 
+// Canonical must be declared per-page, never in layout.tsx (a layout-level
+// canonical would be inherited by every route and point them all at "/").
+// Without this, Google indexed http:// and https:// as two separate homepages.
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 const services: Service[] = [
   {
     title: "Photos",

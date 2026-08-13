@@ -8,6 +8,7 @@ import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { airbnbPricing } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/airbnb-rentals" },
   title:
     "Airbnb & Rental Media — Revenue Ready Kit, Boost System & 5-Star Showcase | Avery & Bryant",
   description:

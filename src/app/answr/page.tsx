@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
+  alternates: { canonical: "/answr" },
   title: "Answr | AI Voice & Chat Agents | Avery & Bryant",
   description:
     "AI answering service with Voice AI and Conversation AI. 24/7 call answering, SMS, web chat, lead qualification, and appointment booking.",

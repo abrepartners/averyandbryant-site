@@ -8,6 +8,7 @@ import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { buildersPricing } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/builders" },
   title:
     "Builder & Construction Media — Build Tracker, Marketing System & Model Home Launch | Avery & Bryant",
   description:

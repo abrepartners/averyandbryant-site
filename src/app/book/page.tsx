@@ -1,4 +1,5 @@
 export const metadata = {
+  alternates: { canonical: "/book" },
   title: "Book a Shoot | Little Rock & Central Arkansas | Avery & Bryant",
   description:
     "Book professional real estate media across Central Arkansas. HDR photography, drone, video tours, and more. Book online in under 2 minutes.",

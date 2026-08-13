@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaqSection } from "@/components/faq-section";
 
 export const metadata = {
+  alternates: { canonical: "/zillow-showcase" },
   title:
     "Zillow Showcase Listings in Arkansas | Avery & Bryant — Zillow Media Expert",
   description:

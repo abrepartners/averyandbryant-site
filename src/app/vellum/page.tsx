@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
+  alternates: { canonical: "/vellum" },
   title: "Vellum | AI Photo Editing for Real Estate | Avery & Bryant",
   description:
     "AI-powered listing media platform with virtual staging, smart cleanup, day to dusk, and batch processing. Stage it. Clean it. Market it. Ship it.",

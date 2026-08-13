@@ -8,6 +8,7 @@ import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { lotLandPricing } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/lot-land" },
   title:
     "Lot & Land Media — Aerial Survey Kit, Land Marketing System & Vision Blueprint | Avery & Bryant",
   description:

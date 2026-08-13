@@ -10,6 +10,7 @@ import {
 } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/commercial" },
   title:
     "Commercial Media — CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
   description:

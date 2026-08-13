@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero";
 
 export const metadata = {
+  alternates: { canonical: "/referral" },
   title: "Referral Program | Earn Cash for Every Referral | Avery & Bryant",
   description:
     "Refer an agent or property owner to Avery & Bryant and earn cash for every booking. No cap, no expiration. Real money, not gift cards.",

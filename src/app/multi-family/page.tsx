@@ -8,6 +8,7 @@ import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { multiFamilyPricing } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/multi-family" },
   title:
     "Multi-Family & Apartment Media — Leasing Launch Kit, Property Command & Domination Suite | Avery & Bryant",
   description:

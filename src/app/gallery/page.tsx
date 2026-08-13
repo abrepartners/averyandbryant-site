@@ -6,6 +6,7 @@ import drone from "../../../data/drone-showcase.json";
 import boundary from "../../../data/boundary-showcase.json";
 
 export const metadata = {
+  alternates: { canonical: "/gallery" },
   title:
     "Portfolio & Gallery | Real Estate Photography Arkansas | Avery & Bryant",
   description:

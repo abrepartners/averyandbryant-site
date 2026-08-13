@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
+  alternates: { canonical: "/members" },
   title: "Member Account | The Spot · Avery & Bryant",
   description:
     "Member hub for The Spot Creative Studios. Manage your subscription, book sessions, and access your credits.",

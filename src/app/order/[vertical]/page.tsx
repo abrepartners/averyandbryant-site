@@ -56,6 +56,7 @@ export async function generateMetadata({
   return {
     title: `${meta.tag} — Book a Shoot | Avery & Bryant`,
     description: meta.description,
+    alternates: { canonical: `/order/${vertical}` },
   };
 }
 

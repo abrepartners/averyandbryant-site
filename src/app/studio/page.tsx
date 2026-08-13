@@ -7,6 +7,7 @@ import { studioMemberships, studioGuarantee } from "@/lib/pricing";
 import studioPricing from "../../../data/studio-pricing.json";
 
 export const metadata = {
+  alternates: { canonical: "/studio" },
   title: "The Spot — Little Rock Creative Studio | Avery & Bryant",
   description:
     "Central Arkansas' creative studio: five sets for podcasts, video, brand and product shoots. Rent a set by the hour, or have our team produce it for you.",

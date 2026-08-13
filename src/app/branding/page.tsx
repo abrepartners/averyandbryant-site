@@ -12,6 +12,7 @@ import {
 } from "@/lib/pricing";
 
 export const metadata = {
+  alternates: { canonical: "/branding" },
   title:
     "Branding & Headshots — First Impression Kit, Brand Identity System & Content Command | Avery & Bryant",
   description:
