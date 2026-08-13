@@ -102,9 +102,9 @@ export default function LotLandPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Packages
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Land doesn&apos;t sell itself.{" "}
-            <span className="text-white-40">But great media helps.</span>
+            <span className="text-fg-secondary">But great media helps.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -128,9 +128,9 @@ export default function LotLandPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Why Avery & Bryant
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Buyers need to see the potential.{" "}
-            <span className="text-white-40">We show it.</span>
+            <span className="text-fg-secondary">We show it.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -138,7 +138,7 @@ export default function LotLandPage() {
               <div key={point.title} className="flex gap-6">
                 <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-crimson" />
                 <div>
-                  <h3 className="font-display text-lg font-medium text-white-90">
+                  <h3 className="font-display text-lg font-medium text-fg">
                     {point.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -157,8 +157,8 @@ export default function LotLandPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             How It Works
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Three steps. <span className="text-white-40">That&apos;s it.</span>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Three steps. <span className="text-fg-secondary">That&apos;s it.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
@@ -170,7 +170,7 @@ export default function LotLandPage() {
                 <span className="font-display text-4xl font-extralight text-crimson">
                   {step.number}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
+                <h3 className="mt-4 font-display text-lg font-medium text-fg">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -180,7 +180,7 @@ export default function LotLandPage() {
             ))}
           </div>
 
-          <p className="mt-12 text-center text-sm text-fg-faint">
+          <p className="mt-12 text-center text-sm text-fg-secondary">
             Serving Arkansas land agents and developers.
           </p>
         </div>
@@ -201,7 +201,7 @@ export default function LotLandPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Ready to move that listing?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">

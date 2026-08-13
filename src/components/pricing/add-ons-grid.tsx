@@ -15,9 +15,9 @@ export function AddOnsGrid({
         <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
           À La Carte
         </p>
-        <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+        <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
           Build your own.{" "}
-          <span className="text-white-40">Pick what you need.</span>
+          <span className="text-fg-secondary">Pick what you need.</span>
         </h2>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

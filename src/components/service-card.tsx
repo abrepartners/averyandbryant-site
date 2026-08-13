@@ -69,7 +69,7 @@ export function ServiceCard({ service }: { service: Service }) {
 
         <div className="p-6 md:p-8">
           <div className="flex items-baseline justify-between">
-            <h3 className="font-display text-lg font-medium text-white-90">
+            <h3 className="font-display text-lg font-medium text-fg">
               {service.title}
             </h3>
             <span className="pricing-price text-sm font-semibold text-crimson">
@@ -117,7 +117,7 @@ export function ServiceCard({ service }: { service: Service }) {
                 <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
                   Real Client Work
                 </p>
-                <h3 className="mt-2 font-display text-2xl font-light text-white-90">
+                <h3 className="mt-2 font-display text-2xl font-light text-fg">
                   {service.title}
                 </h3>
               </div>

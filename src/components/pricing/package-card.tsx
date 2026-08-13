@@ -38,7 +38,7 @@ export function PackageCard({
         {pkg.tag}
       </span>
 
-      <h3 className="mt-4 font-display text-2xl font-medium text-white-90">
+      <h3 className="mt-4 font-display text-2xl font-medium text-fg">
         {pkg.name}
       </h3>
 
@@ -47,7 +47,7 @@ export function PackageCard({
       </span>
 
       <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
-        <span className="text-fg-faint line-through">
+        <span className="text-fg-secondary line-through">
           {pkg.totalValue} value
         </span>
         <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
@@ -70,7 +70,7 @@ export function PackageCard({
                 {item.label}
               </span>
               {item.value !== "Included" && item.value !== "Custom" && (
-                <span className="ml-2 text-[11px] text-fg-faint">
+                <span className="ml-2 text-[11px] text-fg-secondary">
                   ({item.value} value)
                 </span>
               )}

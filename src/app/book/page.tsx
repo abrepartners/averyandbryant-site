@@ -29,13 +29,13 @@ export default function BookPage() {
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-white-90">
+          <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-fg">
             Let&apos;s make your listings
             <br />
-            <span className="text-white-40">stand out.</span>
+            <span className="text-fg-secondary">stand out.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
             Book in under 2 minutes. Serving Central Arkansas, from Little Rock
             to Hot Springs.
           </p>
@@ -52,13 +52,13 @@ export default function BookPage() {
             rel="noopener noreferrer"
             className="group block rounded-lg border border-white/5 bg-card p-10 text-center transition-all hover:border-crimson/30 hover:bg-crimson/5 md:p-12"
           >
-            <h2 className="font-display text-2xl font-extralight text-white-90 transition-colors group-hover:text-crimson md:text-3xl">
+            <h2 className="font-display text-2xl font-extralight text-fg transition-colors group-hover:text-crimson md:text-3xl">
               Central Arkansas
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-white-50">
+            <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
               Little Rock, Benton, Conway, Hot Springs & surrounding areas
             </p>
-            <div className="mt-4 space-y-1 text-sm text-white-40">
+            <div className="mt-4 space-y-1 text-sm text-fg-secondary">
               <p>12521 Kanis Rd, Little Rock, AR 72211</p>
               <p>(501) 502-2925</p>
             </div>
@@ -72,33 +72,33 @@ export default function BookPage() {
       {/* Contact Info */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-6 text-center md:px-12">
-          <div className="space-y-4 text-sm text-white-50">
+          <div className="space-y-4 text-sm text-fg-secondary">
             <p>
-              <span className="text-white-30">Email</span>{" "}
+              <span className="text-fg-secondary">Email</span>{" "}
               <a
                 href="mailto:book@averyandbryant.com"
-                className="text-white-70 transition-colors hover:text-crimson"
+                className="text-fg-strong transition-colors hover:text-crimson"
               >
                 book@averyandbryant.com
               </a>
             </p>
             <p>
-              <span className="text-white-30">Instagram</span>{" "}
+              <span className="text-fg-secondary">Instagram</span>{" "}
               <a
                 href="https://instagram.com/averyandbryant.lr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white-70 transition-colors hover:text-crimson"
+                className="text-fg-strong transition-colors hover:text-crimson"
               >
                 @averyandbryant.lr
               </a>
             </p>
           </div>
           <div className="mt-8 border-t border-border pt-8">
-            <p className="text-sm text-white-40">Or call us directly</p>
+            <p className="text-sm text-fg-secondary">Or call us directly</p>
             <a
               href="tel:+15015022925"
-              className="mt-3 inline-block text-lg text-white-70 transition-colors hover:text-crimson"
+              className="mt-3 inline-block text-lg text-fg-strong transition-colors hover:text-crimson"
             >
               (501) 502-2925
             </a>
@@ -109,12 +109,12 @@ export default function BookPage() {
       {/* What to Expect */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-6 md:px-12">
-          <h2 className="mb-8 text-center font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-white-90">
+          <h2 className="mb-8 text-center font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
             What to expect
           </h2>
           <ul className="space-y-4">
             {expectations.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-white-50">
+              <li key={item} className="flex items-start gap-3 text-fg-secondary">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
                 <span className="text-base">{item}</span>
               </li>

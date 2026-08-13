@@ -7,9 +7,9 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
         <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
           Enhancement Packs
         </p>
-        <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+        <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
           Bundle &amp; save.{" "}
-          <span className="text-white-40">Add to any package.</span>
+          <span className="text-fg-secondary">Add to any package.</span>
         </h2>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -20,10 +20,10 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-display text-lg font-medium text-white-90">
+                  <h3 className="font-display text-lg font-medium text-fg">
                     {pack.name}
                   </h3>
-                  <p className="mt-1 text-[11px] text-fg-faint">
+                  <p className="mt-1 text-[11px] text-fg-secondary">
                     Pairs with {pack.pairsWith}
                   </p>
                 </div>

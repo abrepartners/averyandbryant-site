@@ -11,22 +11,22 @@ export function HeroBranding() {
       aria-label="Personal Branding Media hero"
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
-      <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-rose-500/8 blur-[200px]" />
+      <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-crimson/8 blur-[200px]" />
       <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT — typography */}
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-rose-400/30 bg-rose-400/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-rose-300" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-rose-200/90">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
               Headshots · Reels · Content Days
             </span>
           </div>
 
-          <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,76px)] font-extralight leading-[0.98] tracking-tight text-white-90">
+          <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,76px)] font-extralight leading-[0.98] tracking-tight text-fg">
             Your face is{" "}
-            <span className="italic text-rose-200/70">the brand.</span>
+            <span className="italic text-crimson/70">the brand.</span>
             <br />
             Your content is the proof.
           </h1>
@@ -57,13 +57,13 @@ export function HeroBranding() {
             </a>
             <Link
               href="/gallery"
-              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               See Packages
             </Link>
           </div>
 
-          <p className="mt-10 text-[10px] uppercase tracking-[0.25em] text-fg-faint">
+          <p className="mt-10 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
             ☆ Solo sessions · team days · editorial content
           </p>
         </div>
@@ -88,7 +88,7 @@ export function HeroBranding() {
 
             {/* Floating spec sticker */}
             <div className="absolute -bottom-5 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/15 bg-black/70 px-5 py-2 backdrop-blur-md">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-rose-200/80">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
                 1-day shoot · 4 reels + 20 photos
               </span>
             </div>

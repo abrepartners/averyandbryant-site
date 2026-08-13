@@ -32,12 +32,12 @@ export default function GalleryPage() {
               The Portfolio
             </span>
           </div>
-          <h1 className="font-display text-[clamp(32px,6vw,64px)] font-extralight leading-[1.1] tracking-tight text-white-90">
+          <h1 className="font-display text-[clamp(32px,6vw,64px)] font-extralight leading-[1.1] tracking-tight text-fg">
             Real listings.
             <br />
-            <span className="text-white-40">Real results.</span>
+            <span className="text-fg-secondary">Real results.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white-50">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-fg-secondary">
             Every frame below was shot and delivered for an actual Arkansas
             listing. Filter by property type, then tap any image to see the full
             property tour.
@@ -50,10 +50,10 @@ export default function GalleryPage() {
         <section className="pb-16 md:pb-20">
           <div className="mx-auto max-w-[1280px] px-6 md:px-12">
             <div className="mb-8">
-              <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+              <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
                 Featured work
               </h2>
-              <p className="mt-2 text-sm text-white-50">
+              <p className="mt-2 text-sm text-fg-secondary">
                 A closer look at a few recent listings — tap any home to browse
                 the full shoot.
               </p>
@@ -71,10 +71,10 @@ export default function GalleryPage() {
               <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
                 Add-on
               </p>
-              <h2 className="mt-3 font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+              <h2 className="mt-3 font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
                 Aerial &amp; drone
               </h2>
-              <p className="mt-2 max-w-xl text-sm text-white-50">
+              <p className="mt-2 max-w-xl text-sm text-fg-secondary">
                 FAA-licensed drone photography — lot context, acreage, and
                 neighborhood scale that ground-level shots can&apos;t show. Adds
                 to any listing.
@@ -112,10 +112,10 @@ export default function GalleryPage() {
               <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
                 Add-on
               </p>
-              <h2 className="mt-3 font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+              <h2 className="mt-3 font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
                 Lot lines &amp; site plans
               </h2>
-              <p className="mt-2 max-w-xl text-sm text-white-50">
+              <p className="mt-2 max-w-xl text-sm text-fg-secondary">
                 Drone aerials with property boundaries mapped in — buyers see
                 exactly what they&apos;re getting. Built for land, acreage, and
                 new development.
@@ -149,10 +149,10 @@ export default function GalleryPage() {
       <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="mb-8">
-            <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-white-90">
+            <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
               Browse the portfolio
             </h2>
-            <p className="mt-2 text-sm text-white-50">
+            <p className="mt-2 text-sm text-fg-secondary">
               Filter by property type.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function GalleryPage() {
       {/* CTA */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 text-center md:px-12">
-          <h2 className="font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-white-90">
+          <h2 className="font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
             Your listing, shot like this.
           </h2>
           <a

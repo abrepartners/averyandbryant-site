@@ -80,13 +80,13 @@ export default function ZillowShowcasePage() {
             </a>
           </div>
 
-          <h1 className="mt-8 max-w-3xl font-display text-[clamp(34px,6vw,72px)] font-extralight leading-[1.05] tracking-tight text-white-90">
+          <h1 className="mt-8 max-w-3xl font-display text-[clamp(34px,6vw,72px)] font-extralight leading-[1.05] tracking-tight text-fg">
             Zillow Showcase,
             <br />
-            <span className="text-white-40">produced in Arkansas.</span>
+            <span className="text-fg-secondary">produced in Arkansas.</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
             Showcase is Zillow&apos;s premium listing experience, and the media
             behind it has to come from a Zillow Media Expert. That&apos;s us. We
             produce the interactive floor plans, immersive galleries, and aerial
@@ -102,7 +102,7 @@ export default function ZillowShowcasePage() {
             </Link>
             <Link
               href="/real-estate"
-              className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               See Our Listing Media
             </Link>
@@ -116,7 +116,7 @@ export default function ZillowShowcasePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
             Why it matters
           </p>
-          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-white-90">
+          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
             Showcase listings don&apos;t just look better. They perform.
           </h2>
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -128,11 +128,11 @@ export default function ZillowShowcasePage() {
                 <div className="font-display text-4xl font-extralight text-crimson md:text-5xl">
                   {s.value}
                 </div>
-                <div className="mt-2 text-sm text-white-50">{s.label}</div>
+                <div className="mt-2 text-sm text-fg-secondary">{s.label}</div>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs text-white-30">
+          <p className="mt-6 text-xs text-fg-secondary">
             Source: Zillow, comparing Showcase listings to similar non-Showcase
             listings (2025). Results vary by market and property.
           </p>
@@ -146,11 +146,11 @@ export default function ZillowShowcasePage() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
               The requirement
             </p>
-            <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-white-90">
+            <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
               Only a Zillow Media Expert can make a listing Showcase-eligible.
             </h2>
           </div>
-          <div className="space-y-5 text-white-50">
+          <div className="space-y-5 text-fg-secondary">
             <p className="leading-relaxed">
               Zillow Showcase isn&apos;t a filter you turn on. The interactive
               floor plan, the immersive gallery, and the virtual tour all have
@@ -172,7 +172,7 @@ export default function ZillowShowcasePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
             How it works
           </p>
-          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-white-90">
+          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
             Three steps to a Showcase listing.
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -184,10 +184,10 @@ export default function ZillowShowcasePage() {
                 <span className="font-display text-4xl font-extralight text-crimson">
                   {step.number}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
+                <h3 className="mt-4 font-display text-lg font-medium text-fg">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white-40">
+                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                   {step.description}
                 </p>
               </div>
@@ -201,7 +201,7 @@ export default function ZillowShowcasePage() {
       {/* CTA */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 text-center md:px-12">
-          <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-white-90">
+          <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
             Give your next listing the Showcase edge.
           </h2>
           <Link

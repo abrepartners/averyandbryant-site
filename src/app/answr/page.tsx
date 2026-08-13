@@ -115,13 +115,13 @@ export default function AnswrPage() {
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-white-90">
+          <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-fg">
             Every call answered.
             <br />
-            <span className="text-white-40">Every message handled.</span>
+            <span className="text-fg-secondary">Every message handled.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
             24/7 AI-powered voice and chat agents that answer calls, qualify
             leads, and book appointments while you focus on closing deals.
           </p>
@@ -135,7 +135,7 @@ export default function AnswrPage() {
             </Link>
             <Link
               href="/book"
-              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
             >
               Book a Demo
             </Link>
@@ -152,10 +152,10 @@ export default function AnswrPage() {
                 key={product.title}
                 className="rounded-lg border border-white/5 bg-card p-8 transition-all hover:border-crimson/20"
               >
-                <h3 className="text-lg font-medium text-white-90">
+                <h3 className="text-lg font-medium text-fg">
                   {product.title}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-white-50">
+                <p className="mt-4 text-sm leading-relaxed text-fg-secondary">
                   {product.description}
                 </p>
               </div>
@@ -168,10 +168,10 @@ export default function AnswrPage() {
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="mb-12 text-center">
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-white-90">
+            <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
               Simple, transparent pricing
             </h2>
-            <p className="mt-4 text-sm text-white-40">
+            <p className="mt-4 text-sm text-fg-secondary">
               All plans include a 7-day free trial. No credit card required.
             </p>
           </div>
@@ -191,14 +191,14 @@ export default function AnswrPage() {
                     Best Value
                   </div>
                 )}
-                <h3 className="text-lg font-medium text-white-90">
+                <h3 className="text-lg font-medium text-fg">
                   {plan.name}
                 </h3>
                 <div className="mt-4">
-                  <span className="text-4xl font-extralight text-white-90">
+                  <span className="text-4xl font-extralight text-fg">
                     {plan.price}
                   </span>
-                  <span className="text-white-40">{plan.period}</span>
+                  <span className="text-fg-secondary">{plan.period}</span>
                 </div>
                 {plan.savings && (
                   <p className="mt-1 text-xs text-crimson">{plan.savings}</p>
@@ -207,7 +207,7 @@ export default function AnswrPage() {
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-2 text-sm text-white-50"
+                      className="flex items-start gap-2 text-sm text-fg-secondary"
                     >
                       <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
                       {feature}
@@ -219,7 +219,7 @@ export default function AnswrPage() {
                   className={`mt-8 block w-full rounded py-3 text-center text-[11px] uppercase tracking-[0.2em] transition-all ${
                     plan.featured
                       ? "bg-crimson text-white hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
-                      : "border border-white/10 text-white-60 hover:border-white/30 hover:text-white"
+                      : "border border-white/10 text-fg-strong hover:border-white/30 hover:text-white"
                   }`}
                 >
                   Start Free Trial
@@ -234,7 +234,7 @@ export default function AnswrPage() {
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-6 md:px-12">
           <div className="mb-12 text-center">
-            <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-white-90">
+            <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
               Frequently asked questions
             </h2>
           </div>
@@ -245,15 +245,15 @@ export default function AnswrPage() {
                 key={faq.question}
                 className="group rounded-lg border border-white/5 bg-card"
               >
-                <summary className="cursor-pointer px-6 py-4 text-sm font-medium text-white-90 transition-colors hover:text-crimson [&::-webkit-details-marker]:hidden">
+                <summary className="cursor-pointer px-6 py-4 text-sm font-medium text-fg transition-colors hover:text-crimson [&::-webkit-details-marker]:hidden">
                   <span className="flex items-center justify-between">
                     {faq.question}
-                    <span className="ml-4 text-white-30 transition-transform group-open:rotate-45">
+                    <span className="ml-4 text-fg-secondary transition-transform group-open:rotate-45">
                       +
                     </span>
                   </span>
                 </summary>
-                <div className="px-6 pb-4 text-sm leading-relaxed text-white-50">
+                <div className="px-6 pb-4 text-sm leading-relaxed text-fg-secondary">
                   {faq.answer}
                 </div>
               </details>
@@ -265,7 +265,7 @@ export default function AnswrPage() {
       {/* Bottom CTA */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 text-center md:px-12">
-          <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-white-90">
+          <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
             Stop losing leads to your voicemail.
           </h2>
           <Link

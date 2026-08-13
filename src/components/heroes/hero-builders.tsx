@@ -50,10 +50,10 @@ export function HeroBuilders() {
               </span>
             </div>
 
-            <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,80px)] font-extralight leading-[0.95] tracking-tight text-white-90">
+            <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,80px)] font-extralight leading-[0.95] tracking-tight text-fg">
               Document the build.
               <br />
-              <span className="text-white-40 italic">Market the result.</span>
+              <span className="text-fg-secondary italic">Market the result.</span>
             </h1>
 
             <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
@@ -71,7 +71,7 @@ export function HeroBuilders() {
               </Link>
               <Link
                 href="/gallery"
-                className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+                className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
               >
                 View Portfolio
               </Link>
@@ -83,7 +83,7 @@ export function HeroBuilders() {
                   <dt className="order-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                     {s.label}
                   </dt>
-                  <dd className="order-1 font-display text-2xl font-light text-white-90">
+                  <dd className="order-1 font-display text-2xl font-light text-fg">
                     {s.value}
                   </dd>
                 </div>
@@ -121,7 +121,7 @@ export function HeroBuilders() {
                     {item.stage}
                   </div>
                   <div className="min-w-0">
-                    <p className="font-display text-xl font-light text-white-90 md:text-2xl">
+                    <p className="font-display text-xl font-light text-fg md:text-2xl">
                       {item.title}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-fg-secondary">

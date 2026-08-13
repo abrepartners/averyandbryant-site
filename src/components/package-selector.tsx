@@ -182,7 +182,7 @@ export function PackageSelector({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Step 1 of 3
           </p>
-          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
             What are you marketing?
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -200,7 +200,7 @@ export function PackageSelector({
                   }
                 }}
               >
-                <span className="text-base font-medium text-white-90 group-hover:text-white">
+                <span className="text-base font-medium text-fg group-hover:text-white">
                   {t.label}
                 </span>
                 <span className="mt-1 text-sm text-fg-secondary">{t.blurb}</span>
@@ -216,7 +216,7 @@ export function PackageSelector({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Step 2 of 3
           </p>
-          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
             What matters most?
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -230,7 +230,7 @@ export function PackageSelector({
                   setStep(2);
                 }}
               >
-                <span className="text-base font-medium text-white-90 group-hover:text-white">
+                <span className="text-base font-medium text-fg group-hover:text-white">
                   {g.label}
                 </span>
                 <span className="mt-1 text-sm text-fg-secondary">{g.blurb}</span>
@@ -247,7 +247,7 @@ export function PackageSelector({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Step 3 of 3
           </p>
-          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
             How much is on your plate?
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -261,7 +261,7 @@ export function PackageSelector({
                   setStep(total);
                 }}
               >
-                <span className="text-base font-medium text-white-90 group-hover:text-white">
+                <span className="text-base font-medium text-fg group-hover:text-white">
                   {s.label}
                 </span>
                 <span className="mt-1 text-sm text-fg-secondary">{s.blurb}</span>
@@ -319,7 +319,7 @@ function Result({
         <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
           Your recommendation
         </p>
-        <h2 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-white-90">
+        <h2 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
           Let&apos;s scope it on a quick call.
         </h2>
         <p className="mt-4 max-w-xl text-base text-fg-strong">
@@ -364,7 +364,7 @@ function Result({
         Recommended for you
       </p>
       <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-        <h2 className="font-display text-[clamp(26px,4vw,40px)] font-light tracking-tight text-white-90">
+        <h2 className="font-display text-[clamp(26px,4vw,40px)] font-light tracking-tight text-fg">
           {pkg.name}
         </h2>
         <span className="font-display text-2xl font-light text-crimson">
@@ -400,7 +400,7 @@ function Result({
           Compare all packages
         </Link>
       </div>
-      <p className="mt-6 text-xs text-fg-faint">
+      <p className="mt-6 text-xs text-fg-secondary">
         Not sure? Every package is backed by our {type.pricing.guarantee.name}.
         Prefer to talk it through?{" "}
         <Link href="/book" className="text-fg-secondary underline hover:text-white">

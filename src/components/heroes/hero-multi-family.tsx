@@ -32,7 +32,7 @@ export function HeroMultiFamily() {
             </span>
           </div>
 
-          <h1 className="mt-10 font-display text-[clamp(44px,7vw,88px)] font-extralight leading-[0.95] tracking-tight text-white-90">
+          <h1 className="mt-10 font-display text-[clamp(44px,7vw,88px)] font-extralight leading-[0.95] tracking-tight text-fg">
             Fill vacancies
             <span
               aria-hidden
@@ -41,7 +41,7 @@ export function HeroMultiFamily() {
             <br />
             faster
             <br />
-            <span className="text-white-40 italic">with premium media.</span>
+            <span className="text-fg-secondary italic">with premium media.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
@@ -59,7 +59,7 @@ export function HeroMultiFamily() {
             </Link>
             <Link
               href="/gallery"
-              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               View Portfolio
             </Link>
@@ -71,7 +71,7 @@ export function HeroMultiFamily() {
                 <dt className="order-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                   {s.label}
                 </dt>
-                <dd className="order-1 font-display text-2xl font-light text-white-90">
+                <dd className="order-1 font-display text-2xl font-light text-fg">
                   {s.value}
                 </dd>
               </div>
@@ -95,11 +95,11 @@ export function HeroMultiFamily() {
                 <p className="text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                   Multi-Family Media
                 </p>
-                <p className="mt-1 text-sm text-white-80">
+                <p className="mt-1 text-sm text-fg">
                   Communities · Apartments · Student Housing
                 </p>
               </div>
-              <span className="rounded border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white-70">
+              <span className="rounded border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-fg-strong">
                 Lease-up ready
               </span>
             </div>

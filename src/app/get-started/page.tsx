@@ -22,9 +22,9 @@ export default function GetStartedPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Find your package
           </p>
-          <h1 className="mt-4 max-w-3xl font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.05] tracking-tight text-white-90">
+          <h1 className="mt-4 max-w-3xl font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.05] tracking-tight text-fg">
             Not sure what you need?{" "}
-            <span className="text-white-40">We&apos;ll point you to it.</span>
+            <span className="text-fg-secondary">We&apos;ll point you to it.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base text-fg-strong">
             Three quick questions. We&apos;ll recommend the right package and

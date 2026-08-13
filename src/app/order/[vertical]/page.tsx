@@ -77,7 +77,7 @@ export default async function OrderPage({
         <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
           {meta.tag}
         </p>
-        <h1 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+        <h1 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
           {meta.heading}
         </h1>
         <p className="mt-4 text-base leading-relaxed text-fg-secondary">
@@ -86,7 +86,7 @@ export default async function OrderPage({
         <div className="mt-12">
           <OrderForm vertical={v} />
         </div>
-        <p className="mt-6 text-xs text-fg-faint">
+        <p className="mt-6 text-xs text-fg-secondary">
           Final pricing, scheduling, and payment happen on the next step.
         </p>
       </div>

@@ -58,17 +58,17 @@ export function Hero({
           </div>
         )}
 
-        <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-white-90">
+        <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-fg">
           {title}
           {titleAccent && (
             <>
               <br />
-              <span className="text-white-40">{titleAccent}</span>
+              <span className="text-fg-secondary">{titleAccent}</span>
             </>
           )}
         </h1>
 
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
+        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
           {subtitle}
         </p>
 
@@ -95,7 +95,7 @@ export function Hero({
               (secondaryCta.vertical ? (
                 <OrderLink
                   vertical={secondaryCta.vertical}
-                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
                 >
                   {secondaryCta.label}
                 </OrderLink>
@@ -103,7 +103,7 @@ export function Hero({
                 <Link
                   href={secondaryCta.href ?? "#"}
                   {...(secondaryCta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
                 >
                   {secondaryCta.label}
                 </Link>

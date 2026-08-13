@@ -7,7 +7,7 @@ import { submitOrder, type OrderState } from "@/app/order/[vertical]/actions";
 const initialState: OrderState = {};
 
 const inputClass =
-  "w-full rounded border border-white/10 bg-[rgba(17,17,17,0.6)] px-4 py-3 text-sm text-white-90 placeholder:text-fg-faint transition-colors focus:border-crimson/50 focus:outline-none focus:ring-0";
+  "w-full rounded border border-white/10 bg-[rgba(17,17,17,0.6)] px-4 py-3 text-sm text-fg placeholder:text-fg-secondary transition-colors focus:border-crimson/50 focus:outline-none focus:ring-0";
 const labelClass =
   "block text-[10px] font-medium uppercase tracking-[0.2em] text-fg-secondary";
 
@@ -76,7 +76,7 @@ export function OrderForm({ vertical }: { vertical: Vertical }) {
         </div>
       </fieldset>
 
-      <p className="text-xs text-fg-faint">
+      <p className="text-xs text-fg-secondary">
         You&apos;ll enter the property address on the next step.
       </p>
 

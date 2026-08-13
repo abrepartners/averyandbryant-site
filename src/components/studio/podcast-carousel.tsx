@@ -32,7 +32,7 @@ export function PodcastCarousel() {
   }, []);
 
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-[0_40px_80px_rgba(0,0,0,0.4)]">
+    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-ink-900 shadow-[0_40px_80px_rgba(0,0,0,0.4)]">
       {slides.map((slide, i) => (
         <Image
           key={slide.src}
@@ -61,11 +61,11 @@ export function PodcastCarousel() {
         {slides.map((slide, i) => (
           <p
             key={i}
-            className={`absolute bottom-0 left-0 right-0 text-sm font-medium text-white-90 transition-opacity duration-700 ${
+            className={`absolute bottom-0 left-0 right-0 text-sm font-medium text-fg transition-opacity duration-700 ${
               i === active ? "opacity-100" : "opacity-0"
             }`}
           >
-            <span className="block text-[10px] uppercase tracking-[0.25em] text-amber-200/70">
+            <span className="block text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
               {`0${i + 1} / 0${slides.length}`}
             </span>
             <span className="mt-1 block">{slide.caption}</span>
@@ -83,7 +83,7 @@ export function PodcastCarousel() {
               aria-label={`Show slide ${i + 1}`}
               onClick={() => setActive(i)}
               className={`h-0.5 flex-1 rounded-full transition-colors duration-500 ${
-                i === active ? "bg-amber-200" : "bg-white/15"
+                i === active ? "bg-crimson" : "bg-white/15"
               }`}
             />
           ))}

@@ -48,7 +48,7 @@ export function HeroLotLand() {
           </span>
         </div>
 
-        <h1 className="mt-8 font-display text-[clamp(40px,8vw,96px)] font-extralight leading-[0.98] tracking-tight text-white-90">
+        <h1 className="mt-8 font-display text-[clamp(40px,8vw,96px)] font-extralight leading-[0.98] tracking-tight text-fg">
           <span className="block overflow-hidden">
             {words.map((w, i) => (
               <span
@@ -61,14 +61,14 @@ export function HeroLotLand() {
             ))}
           </span>
           <span
-            className="hero-ll-word mt-2 block text-white-40"
+            className="hero-ll-word mt-2 block text-fg-secondary"
             style={{ animationDelay: `${words.length * 140 + 120}ms` }}
           >
             not just the dirt.
           </span>
         </h1>
 
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-white-50 md:text-lg">
+        <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
           FAA Part 107–licensed aerial drone, boundary overlays, proximity maps,
           and cinematic flyover video for land, lots, and development sites
           across Arkansas.
@@ -83,7 +83,7 @@ export function HeroLotLand() {
           </Link>
           <Link
             href="/gallery"
-            className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+            className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
           >
             View Portfolio
           </Link>

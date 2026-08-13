@@ -146,7 +146,7 @@ export default function PricingPage() {
           </p>
           <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-fg leading-none">
             Every vertical.{" "}
-            <span className="text-fg-faint">Every package.</span>
+            <span className="text-fg-secondary">Every package.</span>
           </h1>
           <p className="mt-6 text-[15px] text-fg-secondary max-w-xl leading-relaxed">
             Select your property type below to see full package details and book
@@ -171,7 +171,7 @@ export default function PricingPage() {
                 href={`/${v.slug}`}
                 className="group block bg-white/[0.03] border border-white/5 rounded-lg p-6 hover:border-crimson/40 transition-all duration-200"
               >
-                <p className="text-[9px] uppercase tracking-[0.25em] text-fg-faint mb-3">
+                <p className="text-[9px] uppercase tracking-[0.25em] text-fg-secondary mb-3">
                   {v.tag}
                 </p>
                 <h2 className="font-display text-xl font-bold text-fg mb-1">
@@ -226,7 +226,7 @@ export default function PricingPage() {
                 className="flex items-center gap-2 bg-white/[0.04] border border-white/5 rounded px-3 py-2"
               >
                 <span className="text-[12px] text-fg-secondary">{a.name}</span>
-                <span className="text-[10px] text-fg-faint italic">
+                <span className="text-[10px] text-fg-secondary italic">
                   {a.note}
                 </span>
               </div>
@@ -259,7 +259,7 @@ export default function PricingPage() {
       {/* ── CTA ── */}
       <section className="py-24 border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12 text-center">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-fg-faint mb-4">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-fg-secondary mb-4">
             Ready to book?
           </p>
           <h2 className="font-display text-[clamp(28px,4vw,44px)] font-light tracking-tight text-fg mb-6">

@@ -115,12 +115,12 @@ export default function BrandingPage() {
       {/* ── REEL MARQUEE ── */}
       <section className="relative border-t border-white/5 bg-[#0a0a0a] py-16 md:py-20">
         <div className="mx-auto mb-10 max-w-[1280px] px-6 md:mb-14 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-rose-200/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             What a content day produces
           </p>
-          <h2 className="mt-3 font-display text-[clamp(22px,3.5vw,38px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-3 font-display text-[clamp(22px,3.5vw,38px)] font-light tracking-tight text-fg">
             One shoot.{" "}
-            <span className="text-white-40">A month of content to post.</span>
+            <span className="text-fg-secondary">A month of content to post.</span>
           </h2>
         </div>
 
@@ -149,7 +149,7 @@ export default function BrandingPage() {
                   className="object-cover"
                 />
                 <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-2 py-1 backdrop-blur-sm">
-                  <span className="h-1 w-1 rounded-full bg-rose-300" />
+                  <span className="h-1 w-1 rounded-full bg-crimson" />
                   <span className="text-[9px] uppercase tracking-[0.2em] text-fg-strong">
                     Reel
                   </span>
@@ -162,7 +162,7 @@ export default function BrandingPage() {
         <div className="mx-auto mt-10 max-w-[1280px] px-6 md:px-12">
           <Link
             href="/book"
-            className="text-[11px] uppercase tracking-[0.2em] text-rose-200 transition-colors hover:text-white"
+            className="text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
           >
             Book your content day &rarr;
           </Link>
@@ -192,9 +192,9 @@ export default function BrandingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Packages
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Your image matters.{" "}
-            <span className="text-white-40">Invest in it.</span>
+            <span className="text-fg-secondary">Invest in it.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -220,9 +220,9 @@ export default function BrandingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Teams & Ongoing
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Bring the whole team.{" "}
-            <span className="text-white-40">Or show up every month.</span>
+            <span className="text-fg-secondary">Or show up every month.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -244,9 +244,9 @@ export default function BrandingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Why Avery & Bryant
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             People hire people.{" "}
-            <span className="text-white-40">Look the part.</span>
+            <span className="text-fg-secondary">Look the part.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -254,7 +254,7 @@ export default function BrandingPage() {
               <div key={point.title} className="flex gap-6">
                 <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-crimson" />
                 <div>
-                  <h3 className="font-display text-lg font-medium text-white-90">
+                  <h3 className="font-display text-lg font-medium text-fg">
                     {point.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -273,8 +273,8 @@ export default function BrandingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             How It Works
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Three steps. <span className="text-white-40">That&apos;s it.</span>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Three steps. <span className="text-fg-secondary">That&apos;s it.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
@@ -286,7 +286,7 @@ export default function BrandingPage() {
                 <span className="font-display text-4xl font-extralight text-crimson">
                   {step.number}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
+                <h3 className="mt-4 font-display text-lg font-medium text-fg">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -296,7 +296,7 @@ export default function BrandingPage() {
             ))}
           </div>
 
-          <p className="mt-12 text-center text-sm text-fg-faint">
+          <p className="mt-12 text-center text-sm text-fg-secondary">
             Serving Arkansas agents and businesses.
           </p>
         </div>
@@ -317,7 +317,7 @@ export default function BrandingPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Ready to level up your brand?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">

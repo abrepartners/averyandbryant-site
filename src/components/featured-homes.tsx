@@ -111,7 +111,7 @@ export function FeaturedHomes({ homes }: { homes: FeaturedHome[] }) {
                 <span className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
                   {home.label}
                 </span>
-                <span className="ml-3 text-sm text-white-80">{home.city}</span>
+                <span className="ml-3 text-sm text-fg">{home.city}</span>
                 {stats(home) && (
                   <span className="ml-3 text-xs text-fg-secondary">
                     {stats(home)}

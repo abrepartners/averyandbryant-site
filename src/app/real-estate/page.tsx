@@ -64,9 +64,9 @@ export default function RealEstatePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Packages
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Everything your listing needs.{" "}
-            <span className="text-white-40">One shoot.</span>
+            <span className="text-fg-secondary">One shoot.</span>
           </h2>
 
           {scarcity && (
@@ -110,7 +110,7 @@ export default function RealEstatePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Ready to elevate your listings?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">

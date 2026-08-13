@@ -6,7 +6,7 @@ export default function NotFound() {
       <span className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
         404
       </span>
-      <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-white-90">
+      <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-fg">
         Page not found
       </h1>
       <p className="mt-4 max-w-md text-base leading-relaxed text-fg-secondary md:text-lg">
@@ -21,7 +21,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/book"
-          className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+          className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
         >
           Book a Shoot
         </Link>

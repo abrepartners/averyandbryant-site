@@ -82,9 +82,9 @@ function Label({
         <span className="rounded bg-crimson/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-crimson">
           {num}
         </span>
-        <span className="font-display text-lg text-white-90">{vertical}</span>
+        <span className="font-display text-lg text-fg">{vertical}</span>
         <span className="text-sm text-fg-secondary">· {template}</span>
-        <span className="hidden basis-full text-xs text-fg-faint md:inline-block md:basis-auto">
+        <span className="hidden basis-full text-xs text-fg-secondary md:inline-block md:basis-auto">
           {psychology}
         </span>
       </div>

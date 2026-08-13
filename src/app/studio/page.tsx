@@ -65,8 +65,8 @@ const rooms: Room[] = [
     image: "/images/studio/spot-7.jpg",
     bookUrl: PAY_ALTSET,
     bookLabel: "Reserve & pay — Set A",
-    accentClass: "border-amber-400/20 hover:border-amber-400/40",
-    pillBg: "bg-amber-400/10 text-amber-200",
+    accentClass: "border-white/5 hover:border-crimson/30",
+    pillBg: "bg-white/5 text-fg-strong",
   },
   {
     slug: "set-b",
@@ -76,8 +76,8 @@ const rooms: Room[] = [
     image: "/images/studio/spot-9.jpg",
     bookUrl: PAY_ALTSET,
     bookLabel: "Reserve & pay — Set B",
-    accentClass: "border-rose-400/20 hover:border-rose-400/40",
-    pillBg: "bg-rose-400/10 text-rose-200",
+    accentClass: "border-white/5 hover:border-crimson/30",
+    pillBg: "bg-white/5 text-fg-strong",
   },
   {
     slug: "intimate",
@@ -87,8 +87,8 @@ const rooms: Room[] = [
     image: "/images/studio/spot-6.jpg",
     bookUrl: PAY_ALTSET,
     bookLabel: "Reserve & pay — Intimate",
-    accentClass: "border-rose-400/20 hover:border-rose-400/40",
-    pillBg: "bg-rose-400/10 text-rose-200",
+    accentClass: "border-white/5 hover:border-crimson/30",
+    pillBg: "bg-white/5 text-fg-strong",
   },
   {
     slug: "garage",
@@ -104,8 +104,8 @@ const rooms: Room[] = [
     image: "/images/studio/spot-8.jpg",
     bookUrl: PAY_GARAGE,
     bookLabel: "Reserve & pay — Garage",
-    accentClass: "border-sky-400/20 hover:border-sky-400/40",
-    pillBg: "bg-sky-400/10 text-sky-200",
+    accentClass: "border-white/5 hover:border-crimson/30",
+    pillBg: "bg-white/5 text-fg-strong",
   },
 ];
 
@@ -177,24 +177,24 @@ export default async function StudioPage({
       {paidLabel || subscribedLabel ? (
         <div
           role="status"
-          className="border-b border-amber-400/20 bg-amber-400/[0.04] px-6 py-6 md:px-12 md:py-8"
+          className="border-b border-crimson/20 bg-crimson/[0.04] px-6 py-6 md:px-12 md:py-8"
         >
           <div className="mx-auto flex max-w-[1280px] flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
+              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
                 {subscribedLabel ? "Subscription active" : "Payment received"}
               </p>
-              <h2 className="mt-2 font-display text-xl font-light text-white-90 md:text-2xl">
+              <h2 className="mt-2 font-display text-xl font-light text-fg md:text-2xl">
                 {subscribedLabel
                   ? `You're a ${subscribedLabel} member.`
                   : `${paidLabel} — paid in full.`}{" "}
-                <span className="text-white/50">
+                <span className="text-fg-secondary">
                   {subscribedLabel
                     ? "Check your email for credit redemption details."
                     : "Now pick your time slot."}
                 </span>
               </h2>
-              <p className="mt-2 text-sm text-white/45">
+              <p className="mt-2 text-sm text-fg-secondary">
                 A confirmation email is on its way. Questions?{" "}
                 <a
                   href={emailFor("Booking confirmation")}
@@ -220,40 +220,40 @@ export default async function StudioPage({
       {/* ── HERO ── */}
       <section
         aria-label="The Spot Creative Studios hero"
-        className="relative isolate overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
+        className="relative isolate overflow-hidden bg-background"
       >
-        <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-amber-400/6 blur-[200px]" />
+        <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-crimson/8 blur-[200px]" />
         <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
 
         <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
           <div className="flex flex-col justify-center">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/5 px-4 py-1.5">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-300" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
                 The creative studio · Little Rock
               </span>
             </div>
 
-            <h1 className="mt-8 font-display text-[clamp(40px,7vw,84px)] font-extralight leading-[0.98] tracking-tight text-white-90">
+            <h1 className="mt-8 font-display text-[clamp(40px,7vw,84px)] font-extralight leading-[0.98] tracking-tight text-fg">
               Real creators.
               <br />
-              <span className="text-white-40 italic">Real content.</span>
+              <span className="text-fg-secondary italic">Real content.</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/55 md:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
               The Spot is Central Arkansas&apos; creative studio: podcasts,
               video, brand and product shoots. Five rentable sets, from a
               flagship podcast room and two styled sets to an intimate
               single-subject space and a garage bay big enough for a vehicle.
             </p>
-            <p className="mt-3 max-w-xl text-sm text-white/35">
+            <p className="mt-3 max-w-xl text-sm text-fg-secondary">
               How booking works:{" "}
-              <span className="text-white/55">pay first</span>, then we email
+              <span className="text-fg-strong">pay first</span>, then we email
               you a private calendar link to pick your time slot. Two minutes,
               both steps.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-fg-strong">
               <span className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-crimson" />
                 <span>$75/hr · all sets</span>
@@ -283,7 +283,7 @@ export default async function StudioPage({
               </a>
               <a
                 href="#sets"
-                className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+                className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
               >
                 Explore the sets
               </a>
@@ -297,15 +297,15 @@ export default async function StudioPage({
 
       {/* ── ROOMS GRID — the heart of the page ── */}
       <section id="sets" className="border-t border-white/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             The Sets
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Five rooms. One roof.{" "}
-            <span className="text-white-40">Pick a room or rent them all.</span>
+            <span className="text-fg-secondary">Pick a room or rent them all.</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-base text-white/45">
+          <p className="mt-4 max-w-2xl text-base text-fg-secondary">
             Multi-set content days mean you don&apos;t have to relocate between
             looks. Book a single set, or unlock the whole studio for the day.
           </p>
@@ -327,10 +327,10 @@ export default async function StudioPage({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/85 via-[#0a0a0a]/30 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/45">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                       {room.size}
                     </p>
-                    <h3 className="mt-1 font-display text-2xl font-medium text-white-90">
+                    <h3 className="mt-1 font-display text-2xl font-medium text-fg">
                       {room.name}
                     </h3>
                   </div>
@@ -350,7 +350,7 @@ export default async function StudioPage({
                   </div>
 
                   {room.note ? (
-                    <p className="text-sm leading-relaxed text-white/45">
+                    <p className="text-sm leading-relaxed text-fg-secondary">
                       {room.note}
                     </p>
                   ) : null}
@@ -359,7 +359,7 @@ export default async function StudioPage({
                     href={room.bookUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center justify-between rounded border border-white/10 px-4 py-2.5 text-[11px] uppercase tracking-[0.2em] text-white/65 transition-all hover:border-crimson/40 hover:text-white"
+                    className="mt-auto inline-flex items-center justify-between rounded border border-white/10 px-4 py-2.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-crimson/40 hover:text-white"
                   >
                     <span>{room.bookLabel}</span>
                     <span aria-hidden>&rarr;</span>
@@ -377,15 +377,15 @@ export default async function StudioPage({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Memberships
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Use the studio every month?{" "}
-            <span className="text-white-40">Memberships save you 50–80%.</span>
+            <span className="text-fg-secondary">Memberships save you 50–80%.</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/45">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
             Two wins with every membership: a{" "}
-            <span className="text-amber-200/80">member discount</span> on all
+            <span className="text-fg-strong">member discount</span> on all
             studio time, plus monthly{" "}
-            <span className="text-amber-200/80">add-on credits</span> you can
+            <span className="text-fg-strong">add-on credits</span> you can
             spend on edits, engineer assist, equipment, extra 30-min blocks, or
             rush delivery.
           </p>
@@ -406,7 +406,7 @@ export default async function StudioPage({
             <GuaranteeBadge guarantee={studioGuarantee} />
           </div>
 
-          <p className="mt-10 text-center text-sm text-white/35">
+          <p className="mt-10 text-center text-sm text-fg-secondary">
             Already a member?{" "}
             <a href="/members" className="text-crimson hover:text-white">
               Manage your account
@@ -429,8 +429,8 @@ export default async function StudioPage({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             What&apos;s Included
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Walk in, shoot, <span className="text-white-40">walk out.</span>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Walk in, shoot, <span className="text-fg-secondary">walk out.</span>
           </h2>
 
           <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -440,7 +440,7 @@ export default async function StudioPage({
                 className="flex items-start gap-3 rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-5 transition-colors hover:border-crimson/20"
               >
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
-                <span className="text-sm text-white/70">{a}</span>
+                <span className="text-sm text-fg-strong">{a}</span>
               </div>
             ))}
           </div>
@@ -453,18 +453,18 @@ export default async function StudioPage({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Pricing
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Two ways in.{" "}
-            <span className="text-white-40">Rent it, or we make it.</span>
+            <span className="text-fg-secondary">Rent it, or we make it.</span>
           </h2>
 
           {/* Lane 1 — Rent the studio */}
           <div className="mt-16">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-display text-xl text-white-90">
+              <span className="font-display text-xl text-fg">
                 Rent the studio
               </span>
-              <span className="text-sm text-white/40">
+              <span className="text-sm text-fg-secondary">
                 Self-serve. All five sets. Bring your own gear.
               </span>
             </div>
@@ -474,22 +474,22 @@ export default async function StudioPage({
                   key={p.name}
                   className={`rounded border p-8 transition-all duration-500 md:p-10 ${
                     p.featured
-                      ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
+                      ? "border-crimson/30 bg-crimson/5"
                       : "border-white/5 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
                   }`}
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-lg font-medium text-white-90">
+                    <h3 className="font-display text-lg font-medium text-fg">
                       {p.name}
                     </h3>
                     <span className="font-display text-2xl font-light text-crimson">
                       {p.price}
                       {p.name === "1 Hour" ? (
-                        <span className="text-sm text-white/40">/hr</span>
+                        <span className="text-sm text-fg-secondary">/hr</span>
                       ) : null}
                     </span>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">
+                  <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
                     {p.desc}
                   </p>
                   <a
@@ -503,7 +503,7 @@ export default async function StudioPage({
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-sm text-white/45">
+            <p className="mt-4 text-sm text-fg-secondary">
               <span className="text-crimson">
                 {studioPricing.rentalAddOn.price}
               </span>{" "}
@@ -514,10 +514,10 @@ export default async function StudioPage({
           {/* Lane 2 — We produce it */}
           <div className="mt-20">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-display text-xl text-white-90">
+              <span className="font-display text-xl text-fg">
                 We produce it
               </span>
-              <span className="text-sm text-white/40">
+              <span className="text-sm text-fg-secondary">
                 Done-for-you. Record, edit, deliver.
               </span>
             </div>
@@ -527,19 +527,19 @@ export default async function StudioPage({
                   key={p.name}
                   className={`rounded border p-8 transition-all duration-500 md:p-10 ${
                     p.featured
-                      ? "border-crimson/30 bg-[rgba(196,18,48,0.05)]"
+                      ? "border-crimson/30 bg-crimson/5"
                       : "border-white/5 bg-[rgba(17,17,17,0.5)] hover:border-crimson/20"
                   }`}
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-lg font-medium text-white-90">
+                    <h3 className="font-display text-lg font-medium text-fg">
                       {p.name}
                     </h3>
                     <span className="font-display text-2xl font-light text-crimson">
                       {p.price}
                     </span>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">
+                  <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
                     {p.desc}
                   </p>
                   <a
@@ -554,18 +554,18 @@ export default async function StudioPage({
               ))}
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-white/35">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
                 Add-ons
               </span>
               {studioPricing.productionAddOns.map((a) => (
-                <span key={a.name} className="text-sm text-white/55">
+                <span key={a.name} className="text-sm text-fg-strong">
                   <span className="text-crimson">{a.price}</span> {a.name}
                 </span>
               ))}
             </div>
 
             {/* Monthly */}
-            <p className="mt-12 text-[10px] uppercase tracking-[0.25em] text-white/35">
+            <p className="mt-12 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
               Monthly, in bulk
             </p>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -575,17 +575,17 @@ export default async function StudioPage({
                   className="rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-colors hover:border-crimson/20"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-lg font-medium text-white-90">
+                    <h3 className="font-display text-lg font-medium text-fg">
                       {m.name}
                     </h3>
-                    <span className="text-xs text-white/40">{m.cadence}</span>
+                    <span className="text-xs text-fg-secondary">{m.cadence}</span>
                   </div>
                   <div className="mt-5 flex flex-wrap gap-3">
                     <a
                       href={m.audio.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center rounded border border-white/15 px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white-70 transition-colors hover:border-white/40 hover:text-white"
+                      className="inline-flex items-center rounded border border-white/15 px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-fg-strong transition-colors hover:border-white/40 hover:text-white"
                     >
                       Audio · {m.audio.price}
                     </a>
@@ -603,7 +603,7 @@ export default async function StudioPage({
             </div>
           </div>
 
-          <p className="mt-12 text-center text-sm text-white/35">
+          <p className="mt-12 text-center text-sm text-fg-secondary">
             Everything books directly with Avery &amp; Bryant. Pay online, then
             pick your time slot. Regulars save with a membership above.
           </p>
@@ -617,7 +617,7 @@ export default async function StudioPage({
             <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
               Hours
             </p>
-            <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+            <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
               Weekends go late.
             </h2>
           </div>
@@ -628,17 +628,17 @@ export default async function StudioPage({
                 key={h.day}
                 className="flex items-baseline justify-between rounded border border-white/5 bg-[rgba(17,17,17,0.5)] px-6 py-4"
               >
-                <dt className="text-[11px] uppercase tracking-[0.2em] text-white/50">
+                <dt className="text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
                   {h.day}
                 </dt>
-                <dd className="font-display text-base text-white-90">
+                <dd className="font-display text-base text-fg">
                   {h.time}
                 </dd>
               </div>
             ))}
           </dl>
 
-          <p className="mx-auto mt-8 max-w-xl text-center text-sm text-white/40">
+          <p className="mx-auto mt-8 max-w-xl text-center text-sm text-fg-secondary">
             Need outside-of-hours access for a specific shoot?{" "}
             <a
               href={emailFor("after-hours request")}
@@ -662,10 +662,10 @@ export default async function StudioPage({
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Ready to hit record?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/40 md:text-lg">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
             Reserve a set online, or send a note if you want a multi-set day or
             a full production crew.
           </p>
@@ -680,7 +680,7 @@ export default async function StudioPage({
             </a>
             <a
               href="tel:+15015022925"
-              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               Call (501) 502-2925
             </a>

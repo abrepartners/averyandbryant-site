@@ -41,12 +41,12 @@ export function FaqSection({
         <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
           FAQ
         </p>
-        <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+        <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
           {heading}
           {headingAccent && (
             <>
               {" "}
-              <span className="text-white-40">{headingAccent}</span>
+              <span className="text-fg-secondary">{headingAccent}</span>
             </>
           )}
         </h2>
@@ -57,9 +57,9 @@ export function FaqSection({
               key={faq.question}
               className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-crimson/20 [&[open]]:border-crimson/20"
             >
-              <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-sm font-medium text-white-90 transition-colors hover:text-white list-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-sm font-medium text-fg transition-colors hover:text-white list-none [&::-webkit-details-marker]:hidden">
                 {faq.question}
-                <span className="shrink-0 text-white-30 transition-transform group-open:rotate-45">
+                <span className="shrink-0 text-fg-secondary transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>

@@ -31,7 +31,7 @@ const cards = [
     description:
       "Your member discount applies automatically at checkout. Pick a room, pick a time, show up ready to record.",
     cta: { label: "Browse Rooms", href: CALENDAR_BOOKING_URL, external: false },
-    accent: "amber",
+    accent: "tier2",
   },
   {
     key: "credits",
@@ -44,7 +44,7 @@ const cards = [
       href: "mailto:book@averyandbryant.com?subject=Credit%20Redemption%20Request",
       external: true,
     },
-    accent: "sky",
+    accent: "tier3",
   },
   {
     key: "support",
@@ -57,7 +57,7 @@ const cards = [
       href: "mailto:book@averyandbryant.com?subject=Member%20Support",
       external: true,
     },
-    accent: "rose",
+    accent: "tier4",
   },
 ];
 
@@ -66,17 +66,17 @@ const accentMap: Record<string, { border: string; pill: string }> = {
     border: "border-crimson/30 hover:border-crimson/60",
     pill: "text-crimson",
   },
-  amber: {
-    border: "border-amber-400/20 hover:border-amber-400/50",
-    pill: "text-amber-200/90",
+  tier2: {
+    border: "border-crimson/20 hover:border-crimson/50",
+    pill: "text-crimson/90",
   },
-  sky: {
-    border: "border-sky-400/20 hover:border-sky-400/50",
-    pill: "text-sky-200/90",
+  tier3: {
+    border: "border-crimson/20 hover:border-crimson/50",
+    pill: "text-crimson/90",
   },
-  rose: {
-    border: "border-rose-400/20 hover:border-rose-400/50",
-    pill: "text-rose-200/90",
+  tier4: {
+    border: "border-crimson/20 hover:border-crimson/50",
+    pill: "text-crimson/90",
   },
 };
 
@@ -86,7 +86,7 @@ export default function MembersPage() {
       {/* ── HERO ── */}
       <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]">
         <div className="pointer-events-none absolute -left-32 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
-        <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-amber-400/6 blur-[160px]" />
+        <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-crimson/6 blur-[160px]" />
 
         <div className="relative mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
           <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
@@ -96,10 +96,10 @@ export default function MembersPage() {
             </span>
           </div>
 
-          <h1 className="mt-8 font-display text-[clamp(36px,6vw,72px)] font-extralight leading-[0.98] tracking-tight text-white-90">
+          <h1 className="mt-8 font-display text-[clamp(36px,6vw,72px)] font-extralight leading-[0.98] tracking-tight text-fg">
             Welcome back.
             <br />
-            <span className="text-white-40 italic">
+            <span className="text-fg-secondary italic">
               Manage your studio membership.
             </span>
           </h1>
@@ -141,7 +141,7 @@ export default function MembersPage() {
                   >
                     {card.tag}
                   </p>
-                  <h2 className="mt-4 font-display text-2xl font-medium text-white-90">
+                  <h2 className="mt-4 font-display text-2xl font-medium text-fg">
                     {card.title}
                   </h2>
                   <p className="mt-4 text-sm leading-relaxed text-fg-strong">
@@ -187,7 +187,7 @@ export default function MembersPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-fg-secondary">
             How login works
           </p>
-          <h2 className="mt-4 font-display text-[clamp(22px,3.5vw,32px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(22px,3.5vw,32px)] font-light tracking-tight text-fg">
             Email-based. No passwords to remember.
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -215,7 +215,7 @@ export default function MembersPage() {
                 <span className="font-display text-3xl font-extralight text-crimson">
                   {s.n}
                 </span>
-                <h3 className="mt-3 font-display text-base font-medium text-white-90">
+                <h3 className="mt-3 font-display text-base font-medium text-fg">
                   {s.t}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-secondary">

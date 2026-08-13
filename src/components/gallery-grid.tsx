@@ -69,11 +69,11 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
             className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors ${
               active === c.label
                 ? "border-crimson bg-crimson/10 text-white"
-                : "border-white/10 text-white-50 hover:border-white/30 hover:text-white"
+                : "border-white/10 text-fg-secondary hover:border-white/30 hover:text-white"
             }`}
           >
             {c.label}
-            <span className="ml-2 text-white-30">{c.count}</span>
+            <span className="ml-2 text-fg-secondary">{c.count}</span>
           </button>
         ))}
       </div>
@@ -147,7 +147,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
                 <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
                   {lightbox.label} · Real Client Listing
                 </p>
-                <h3 className="mt-2 font-display text-xl font-light text-white-90">
+                <h3 className="mt-2 font-display text-xl font-light text-fg">
                   {lightbox.street ? `${lightbox.street}, ` : ""}
                   {lightbox.city}
                 </h3>
@@ -165,7 +165,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
                     href={lightbox.tour}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-colors hover:border-white/40 hover:text-white"
+                    className="inline-flex items-center rounded border border-white/15 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/40 hover:text-white"
                   >
                     Full Property Tour &rarr;
                   </a>

@@ -41,10 +41,10 @@ export function HeroCommercial() {
             </span>
           </div>
 
-          <h1 className="mt-10 font-display text-[clamp(40px,6.8vw,84px)] font-extralight leading-[0.96] tracking-tight text-white-90">
+          <h1 className="mt-10 font-display text-[clamp(40px,6.8vw,84px)] font-extralight leading-[0.96] tracking-tight text-fg">
             Media for everything
             <br />
-            <span className="text-white-40 italic">
+            <span className="text-fg-secondary italic">
               that isn&apos;t a home.
             </span>
           </h1>
@@ -65,13 +65,13 @@ export function HeroCommercial() {
             </a>
             <a
               href="tel:+15015022925"
-              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               Call (501) 502-2925
             </a>
           </div>
 
-          <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-faint">
+          <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
             <span>☰ Custom scope</span>
             <span aria-hidden>·</span>
             <span>Recurring programs</span>
@@ -109,7 +109,7 @@ export function HeroCommercial() {
               </p>
 
               <div className="relative">
-                <p className="font-display text-lg font-medium text-white-90 md:text-xl">
+                <p className="font-display text-lg font-medium text-fg md:text-xl">
                   {t.label}
                 </p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">

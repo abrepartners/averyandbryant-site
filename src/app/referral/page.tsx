@@ -79,8 +79,8 @@ export default function ReferralPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             How It Works
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Three steps. <span className="text-white-40">That&apos;s it.</span>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Three steps. <span className="text-fg-secondary">That&apos;s it.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -92,7 +92,7 @@ export default function ReferralPage() {
                 <span className="font-display text-5xl font-bold text-crimson transition-colors group-hover:text-crimson">
                   {step.number}
                 </span>
-                <h3 className="mt-4 font-display text-xl font-medium text-white-90">
+                <h3 className="mt-4 font-display text-xl font-medium text-fg">
                   {step.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
@@ -110,7 +110,7 @@ export default function ReferralPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Why We Do This
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Your trust is worth more than any ad.
           </h2>
           <div className="mt-10 max-w-3xl space-y-6">
@@ -134,8 +134,8 @@ export default function ReferralPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             What You Earn
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
-            Real cash. <span className="text-white-40">No limits.</span>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Real cash. <span className="text-fg-secondary">No limits.</span>
           </h2>
           <div className="mt-10 max-w-3xl space-y-6">
             <div className="flex items-start gap-3">
@@ -167,7 +167,7 @@ export default function ReferralPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Who Can Refer
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             If you know someone, you qualify.
           </h2>
 
@@ -193,7 +193,7 @@ export default function ReferralPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             FAQ
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Common questions.
           </h2>
 
@@ -203,9 +203,9 @@ export default function ReferralPage() {
                 key={faq.question}
                 className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-crimson/20 [&[open]]:border-crimson/20"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-sm font-medium text-white-90 transition-colors hover:text-white list-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-sm font-medium text-fg transition-colors hover:text-white list-none [&::-webkit-details-marker]:hidden">
                   {faq.question}
-                  <span className="shrink-0 text-white-30 transition-transform group-open:rotate-45">
+                  <span className="shrink-0 text-fg-secondary transition-transform group-open:rotate-45">
                     +
                   </span>
                 </summary>
@@ -224,7 +224,7 @@ export default function ReferralPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Ready to start referring?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
@@ -240,7 +240,7 @@ export default function ReferralPage() {
             </a>
             <a
               href="mailto:book@averyandbryant.com?subject=Referral%20Program"
-              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
             >
               Email Us
             </a>

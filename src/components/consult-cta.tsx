@@ -38,7 +38,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
                 Free 30-min consult
               </span>
             </div>
-            <h2 className="mt-5 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-white-90">
+            <h2 className="mt-5 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
               {headline ?? "Not sure which service fits?"}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-fg-strong">
@@ -80,7 +80,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
             >
               Or compare all services &rarr;
             </Link>
-            <p className="text-xs text-fg-faint md:text-right">
+            <p className="text-xs text-fg-secondary md:text-right">
               30 minutes · Google Meet · (501) 502-2925 if you'd rather call
             </p>
           </div>

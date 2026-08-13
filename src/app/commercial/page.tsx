@@ -108,9 +108,9 @@ export default function CommercialPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Commercial Real Estate
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             CRE listing media.{" "}
-            <span className="text-white-40">Built for brokers.</span>
+            <span className="text-fg-secondary">Built for brokers.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -136,9 +136,9 @@ export default function CommercialPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Specialty Programs
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Dealerships. Hospitality.{" "}
-            <span className="text-white-40">Ongoing content.</span>
+            <span className="text-fg-secondary">Ongoing content.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -170,9 +170,9 @@ export default function CommercialPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Why Avery & Bryant
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Commercial-grade output.{" "}
-            <span className="text-white-40">Without the agency markup.</span>
+            <span className="text-fg-secondary">Without the agency markup.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -180,7 +180,7 @@ export default function CommercialPage() {
               <div key={point.title} className="flex gap-6">
                 <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-crimson" />
                 <div>
-                  <h3 className="font-display text-lg font-medium text-white-90">
+                  <h3 className="font-display text-lg font-medium text-fg">
                     {point.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -199,9 +199,9 @@ export default function CommercialPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             How It Works
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Quote in 24 hours.{" "}
-            <span className="text-white-40">Shoot within the week.</span>
+            <span className="text-fg-secondary">Shoot within the week.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
@@ -213,7 +213,7 @@ export default function CommercialPage() {
                 <span className="font-display text-4xl font-extralight text-crimson">
                   {step.number}
                 </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-white-90">
+                <h3 className="mt-4 font-display text-lg font-medium text-fg">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -223,7 +223,7 @@ export default function CommercialPage() {
             ))}
           </div>
 
-          <p className="mt-12 text-center text-sm text-fg-faint">
+          <p className="mt-12 text-center text-sm text-fg-secondary">
             Serving Arkansas commercial property owners, operators, and
             marketing teams.
           </p>
@@ -245,7 +245,7 @@ export default function CommercialPage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Tell us about your property.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
@@ -261,7 +261,7 @@ export default function CommercialPage() {
             </a>
             <a
               href="tel:+15015022925"
-              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               Call (501) 502-2925
             </a>

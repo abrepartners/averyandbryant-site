@@ -50,7 +50,7 @@ export function QuoteLeadForm({ quote }: { quote: QuoteSummary }) {
   if (status === "sent") {
     return (
       <div className="mt-8 rounded-lg border border-crimson/30 bg-crimson/5 p-6">
-        <p className="text-sm font-medium text-white-90">
+        <p className="text-sm font-medium text-fg">
           Got it. We&apos;ll reach out shortly with your quote and next steps.
         </p>
       </div>
@@ -58,7 +58,7 @@ export function QuoteLeadForm({ quote }: { quote: QuoteSummary }) {
   }
 
   const inputBase =
-    "w-full rounded border border-white/15 bg-[rgba(17,17,17,0.6)] px-4 py-3 text-sm text-white placeholder:text-fg-faint focus:border-crimson/60 focus:outline-none";
+    "w-full rounded border border-white/15 bg-[rgba(17,17,17,0.6)] px-4 py-3 text-sm text-white placeholder:text-fg-secondary focus:border-crimson/60 focus:outline-none";
 
   return (
     <form onSubmit={submit} className="mt-8 border-t border-white/10 pt-6">

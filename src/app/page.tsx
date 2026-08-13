@@ -262,7 +262,7 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
             <p className="shrink-0 text-[11px] uppercase tracking-[0.25em] text-fg-secondary">
               <span className="text-fg-strong">200+</span> Arkansas agents
-              <span className="mx-3 text-fg-faint">|</span>
+              <span className="mx-3 text-fg-secondary">|</span>
               48-hour avg. delivery
             </p>
 
@@ -270,7 +270,7 @@ export default function HomePage() {
               {brokerages.map((name) => (
                 <span
                   key={name}
-                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-faint transition-colors hover:text-fg-secondary"
+                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-secondary"
                 >
                   {name}
                 </span>
@@ -303,9 +303,9 @@ export default function HomePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             How It Works
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             From Shoot to Market{" "}
-            <span className="text-white-40">in 48 Hours.</span>
+            <span className="text-fg-secondary">in 48 Hours.</span>
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-5">
@@ -317,7 +317,7 @@ export default function HomePage() {
                 <span className="font-display text-3xl font-extralight text-crimson">
                   {step.num}
                 </span>
-                <h3 className="mt-3 font-display text-base font-medium text-white-90">
+                <h3 className="mt-3 font-display text-base font-medium text-fg">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
@@ -344,9 +344,9 @@ export default function HomePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Services & Pricing
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             One Shoot. Every Asset.{" "}
-            <span className="text-white-40">Priced by the Square Foot.</span>
+            <span className="text-fg-secondary">Priced by the Square Foot.</span>
           </h2>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -360,7 +360,7 @@ export default function HomePage() {
               href="https://homes.averyandbryant.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] uppercase tracking-[0.2em] text-fg-faint transition-colors hover:text-fg-strong"
+              className="text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
             >
               See Our Work &rarr;
             </a>
@@ -374,9 +374,9 @@ export default function HomePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             AI Infrastructure
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Your Listings Keep Working{" "}
-            <span className="text-white-40">After You Leave.</span>
+            <span className="text-fg-secondary">After You Leave.</span>
           </h2>
 
           <div className="mt-16">
@@ -386,7 +386,7 @@ export default function HomePage() {
                   <span className="inline-block rounded-full border border-crimson/30 bg-crimson/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-crimson">
                     Vellum
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-light text-white-90">
+                  <h3 className="mt-6 font-display text-2xl font-light text-fg">
                     Edit Your Own Listing Photos. Instantly.
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-fg-secondary">
@@ -415,9 +415,9 @@ export default function HomePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Property Verticals
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Built for Every Property Type{" "}
-            <span className="text-white-40">in Arkansas.</span>
+            <span className="text-fg-secondary">in Arkansas.</span>
           </h2>
           <p className="mt-4 text-base text-fg-secondary">
             Not sure which fits?{" "}
@@ -436,13 +436,13 @@ export default function HomePage() {
                 href={vertical.href}
                 className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
               >
-                <h3 className="font-display text-lg font-medium text-white-90 transition-colors group-hover:text-crimson">
+                <h3 className="font-display text-lg font-medium text-fg transition-colors group-hover:text-crimson">
                   {vertical.title}
                 </h3>
                 <p className="mt-2 text-sm text-fg-secondary">
                   {vertical.description}
                 </p>
-                <span className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-fg-faint transition-colors group-hover:text-crimson">
+                <span className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors group-hover:text-crimson">
                   Learn More &rarr;
                 </span>
               </Link>
@@ -462,7 +462,7 @@ export default function HomePage() {
               <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
                 Referral Program
               </p>
-              <h2 className="mt-4 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-white-90">
+              <h2 className="mt-4 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
                 Refer an Agent. Get Paid.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-fg-secondary">
@@ -478,7 +478,7 @@ export default function HomePage() {
                 </a>
                 <a
                   href="mailto:book@averyandbryant.com?subject=Referral%20Program"
-                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
                 >
                   Email Us
                 </a>
@@ -494,7 +494,7 @@ export default function HomePage() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
             Get Started
           </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Your Next Listing Deserves the ALYT System.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
@@ -509,7 +509,7 @@ export default function HomePage() {
             </Link>
             <a
               href="tel:+15015022925"
-              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-60 transition-all hover:border-white/30 hover:text-white"
+              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
             >
               Call Us: (501) 502-2925
             </a>

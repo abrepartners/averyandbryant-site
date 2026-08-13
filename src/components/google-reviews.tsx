@@ -67,11 +67,11 @@ export async function GoogleReviews({ max = 3 }: { max?: number }) {
             <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
               What clients say
             </p>
-            <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-white-90">
+            <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
               {rating ? (
                 <>
                   <span className="text-crimson">{rating} ★</span>{" "}
-                  <span className="text-white-40">
+                  <span className="text-fg-secondary">
                     from {count ?? "hundreds of"} Google reviews.
                   </span>
                 </>
@@ -106,7 +106,7 @@ export async function GoogleReviews({ max = 3 }: { max?: number }) {
                   aria-label={`${r.rating} out of 5 stars`}
                 >
                   {"★".repeat(Math.round(r.rating))}
-                  <span className="text-fg-faint">
+                  <span className="text-fg-secondary">
                     {"★".repeat(5 - Math.round(r.rating))}
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export async function GoogleReviews({ max = 3 }: { max?: number }) {
                 <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
                   {author}
                   {r.relativePublishTimeDescription ? (
-                    <span className="text-fg-faint">
+                    <span className="text-fg-secondary">
                       {" · "}
                       {r.relativePublishTimeDescription}
                     </span>

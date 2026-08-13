@@ -49,7 +49,7 @@ export function HeroAirbnbRentals() {
             </span>
           </div>
 
-          <h1 className="mt-10 font-display text-[clamp(44px,7vw,84px)] font-extralight leading-[0.95] tracking-tight text-white-90">
+          <h1 className="mt-10 font-display text-[clamp(44px,7vw,84px)] font-extralight leading-[0.95] tracking-tight text-fg">
             More bookings
             <br />
             start with{" "}
@@ -71,7 +71,7 @@ export function HeroAirbnbRentals() {
             </Link>
             <Link
               href="/gallery"
-              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white-70 transition-all hover:border-white/40 hover:text-white"
+              className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
               View Gallery
             </Link>
@@ -117,7 +117,7 @@ export function HeroAirbnbRentals() {
             <div className="absolute bottom-6 left-6 right-6 rounded-xl border border-white/10 bg-black/50 p-4 backdrop-blur-md">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-medium text-white-90">
+                  <p className="text-sm font-medium text-fg">
                     Your rental, booking-ready
                   </p>
                   <p className="mt-1 text-xs text-fg-secondary">
