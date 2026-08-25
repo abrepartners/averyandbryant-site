@@ -132,7 +132,6 @@ const membershipSubscribeUrls: Record<string, string> = {
 
 const hours = [
   { day: "Mon – Fri", time: "9:00 AM – 5:30 PM" },
-  { day: "Sat – Sun", time: "7:00 AM – 8:00 PM" },
 ];
 
 function emailFor(room?: string) {
