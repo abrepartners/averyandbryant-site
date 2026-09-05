@@ -35,6 +35,18 @@ const nextConfig: NextConfig = {
       // ── Product rebrand: StudioAI → Vellum ──
       { source: "/studioai", destination: "/vellum", permanent: true },
 
+      // ── The Spot: gettothespot.com is the front door (Thomas, 2026-09-05) ──
+      {
+        source: "/studio",
+        destination: "https://gettothespot.com",
+        permanent: true,
+      },
+      {
+        source: "/studio/:path*",
+        destination: "https://gettothespot.com",
+        permanent: true,
+      },
+
       // ── Remaining Squarespace legacy paths (docs/ab-knowledge-base.md §9) ──
       { source: "/home-nwa", destination: "/", permanent: true },
       { source: "/home-ca", destination: "/", permanent: true },
