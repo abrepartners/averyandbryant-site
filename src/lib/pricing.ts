@@ -48,7 +48,7 @@ export const realEstatePricing: VerticalPricing = {
   vertical: "real-estate",
   guarantee: {
     name: "Satisfaction Reshoot Guarantee",
-    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the home after the shoot.",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the home after the shoot.",
   },
   scarcity:
     "We partner with 5 new agents per month to protect our 48-hour turnaround.",
@@ -58,7 +58,7 @@ export const realEstatePricing: VerticalPricing = {
       price: "From $299",
       tag: "Market-ready in 48 hours",
       valueItems: [
-        { label: "25+ HDR Professional Photos", value: "$299" },
+        { label: "25+ HDR Professional Photos", value: "$185" },
         { label: "2D Floor Plan", value: "$99" },
         {
           label: "3 Social Graphics (Just Listed / Open House / Price Drop)",
@@ -81,8 +81,8 @@ export const realEstatePricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$820",
-      savings: "Save $521",
+      totalValue: "$706",
+      savings: "Save $407",
     },
     {
       name: "Listing Domination System",
@@ -90,20 +90,20 @@ export const realEstatePricing: VerticalPricing = {
       tag: "Most popular",
       recommended: true,
       valueItems: [
-        { label: "Everything in Listing Launch Kit", value: "$820" },
-        { label: "Upgrade to 40+ HDR Photos", value: "$150" },
-        { label: "Aerial Drone Photos + Video", value: "$199" },
+        { label: "Everything in Listing Launch Kit", value: "$706" },
+        { label: "Upgrade to 40+ HDR Photos", value: "$30" },
+        { label: "Aerial Drone Photos + Video", value: "$150" },
         { label: "3D Virtual Tour", value: "$299" },
         { label: "1 Social Reel (listing walkthrough)", value: "$195" },
         {
           label:
-            "Seller Wow Report — branded PDF of all marketing for your seller",
+            "Seller Wow Report, branded PDF of all marketing for your seller",
           value: "$99",
           isBonus: true,
         },
       ],
-      totalValue: "$1,762",
-      savings: "Save $1,263",
+      totalValue: "$1,479",
+      savings: "Save $980",
     },
     {
       name: "Market Takeover Blueprint",
@@ -112,34 +112,34 @@ export const realEstatePricing: VerticalPricing = {
       valueItems: [
         {
           label: "Everything in Listing Domination System",
-          value: "$1,762",
+          value: "$1,479",
         },
-        { label: "Cinematic Property Video (60-90s)", value: "$695" },
+        { label: "Cinematic Property Video (90 to 120s)", value: "$395" },
         { label: "4-Reel Social Pack", value: "$595" },
-        { label: "Virtual Staging — 3 rooms", value: "$147" },
+        { label: "Virtual Staging (3 rooms)", value: "$147" },
         {
           label: "Single-Property Website",
           value: "$149",
           isBonus: true,
         },
         {
-          label: "Agent Brand Boost — 2 listing presentation graphics",
+          label: "Agent Brand Boost: 2 listing presentation graphics",
           value: "$99",
           isBonus: true,
         },
       ],
-      totalValue: "$3,447",
-      savings: "Save $2,598",
+      totalValue: "$2,864",
+      savings: "Save $2,015",
     },
   ],
   enhancementPacks: [
     {
       name: "Visual Impact Pack",
       price: "$249",
-      savedAmount: "$84",
+      savedAmount: "$54",
       items: [
-        "Virtual Staging — 3 rooms",
-        "Virtual Twilight — 3 images",
+        "Virtual Staging (3 rooms)",
+        "Virtual Twilight (3 images)",
         "Proximity Map",
       ],
       pairsWith: "Listing Launch Kit or Listing Domination System",
@@ -147,7 +147,7 @@ export const realEstatePricing: VerticalPricing = {
     {
       name: "Social Domination Pack",
       price: "$695",
-      savedAmount: "$149",
+      savedAmount: "$124",
       items: [
         "4-Reel Social Pack",
         "3 Branded Social Graphics",
@@ -164,8 +164,8 @@ export const realEstatePricing: VerticalPricing = {
     },
     {
       name: "Twilight Upgrade",
-      price: "$349",
-      savedAmount: "$93",
+      price: "$295",
+      savedAmount: "$67",
       items: [
         "Real Twilight Shoot",
         "3 Virtual Twilight Images (additional angles)",
@@ -174,16 +174,16 @@ export const realEstatePricing: VerticalPricing = {
     },
   ],
   addOns: [
-    { title: "Cinematic Video (60-90s)", price: "$695" },
+    { title: "Cinematic Property Video", price: "From $295" },
     { title: "Social Reel (single)", price: "$195" },
     { title: "Reels Pack (4 reels)", price: "$595" },
-    { title: "Drone Photos + Video", price: "$199" },
-    { title: "3D Virtual Tour", price: "From $299" },
+    { title: "Drone Photos + Video", price: "$150" },
+    { title: "3D Virtual Tour", price: "$299" },
     { title: "2D Floor Plan", price: "$99" },
     { title: "3D Floor Plan", price: "$149" },
     { title: "Virtual Staging", price: "$49/room" },
-    { title: "Real Twilight Shoot", price: "$295" },
-    { title: "Virtual Twilight", price: "$49/image" },
+    { title: "Real Twilight Shoot", price: "$245" },
+    { title: "Virtual Twilight", price: "$39/image" },
     { title: "Proximity Map", price: "$39" },
     { title: "Rush Delivery (6hr)", price: "$100" },
   ],
@@ -194,7 +194,7 @@ export const buildersPricing: VerticalPricing = {
   vertical: "builders",
   guarantee: {
     name: "Satisfaction Reshoot Guarantee",
-    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover site conditions, weather, or changes made to the property after the shoot.",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover site conditions, weather, or changes made to the property after the shoot.",
   },
   packages: [
     {
@@ -203,7 +203,7 @@ export const buildersPricing: VerticalPricing = {
       tag: "Ongoing construction documentation",
       valueItems: [
         { label: "Monthly Progress Photo Set (drone + ground)", value: "$295" },
-        { label: "Aerial Update Video (30s flyover)", value: "$195" },
+        { label: "Aerial Update Video (30s flyover)", value: "$150" },
         {
           label: "Monthly Progress PDF Report",
           value: "$99",
@@ -220,8 +220,8 @@ export const buildersPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$713/mo",
-      savings: "Save $388/mo",
+      totalValue: "$668/mo",
+      savings: "Save $343/mo",
     },
     {
       name: "Builder Marketing System",
@@ -229,9 +229,9 @@ export const buildersPricing: VerticalPricing = {
       tag: "Most popular",
       recommended: true,
       valueItems: [
-        { label: "40+ HDR Photos", value: "$359" },
-        { label: "Aerial Drone Photos + Video", value: "$249" },
-        { label: "Cinematic Video (60-90s)", value: "$795" },
+        { label: "40+ HDR Photos", value: "$215" },
+        { label: "Aerial Drone Photos + Video", value: "$150" },
+        { label: "Cinematic Video (90 to 120s)", value: "$395" },
         { label: "4-Reel Social Pack", value: "$595" },
         { label: "2D Floor Plan", value: "$99" },
         {
@@ -240,7 +240,7 @@ export const buildersPricing: VerticalPricing = {
           isBonus: true,
         },
         {
-          label: "Development Brochure Page — branded PDF",
+          label: "Development Brochure Page, branded PDF",
           value: "$149",
           isBonus: true,
         },
@@ -250,39 +250,39 @@ export const buildersPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$2,444",
-      savings: "Save $1,049",
+      totalValue: "$1,801",
+      savings: "Save $406",
     },
     {
       name: "Model Home Launch Blueprint",
       price: "$1,895",
       tag: "The full launch experience",
       valueItems: [
-        { label: "Everything in Builder Marketing System", value: "$2,444" },
-        { label: "3D Virtual Tour", value: "$449" },
-        { label: "Virtual Staging — 3 rooms", value: "$147" },
-        { label: "Real Twilight Hero Shot", value: "$395" },
+        { label: "Everything in Builder Marketing System", value: "$1,801" },
+        { label: "3D Virtual Tour", value: "$299" },
+        { label: "Virtual Staging (3 rooms)", value: "$147" },
+        { label: "Real Twilight Hero Shot", value: "$245" },
         {
           label: "Single-Property Website",
           value: "$149",
           isBonus: true,
         },
         {
-          label: "Sales Center Presentation Kit — 5 slides",
+          label: "Sales Center Presentation Kit: 5 slides",
           value: "$199",
           isBonus: true,
         },
       ],
-      totalValue: "$3,783",
-      savings: "Save $1,888",
+      totalValue: "$2,840",
+      savings: "Save $945",
     },
   ],
   addOns: [
     { title: "Single Visit (progress photos + drone)", price: "$295" },
-    { title: "Cinematic Video", price: "$795" },
-    { title: "3D Virtual Tour", price: "$449" },
+    { title: "Cinematic Property Video", price: "From $295" },
+    { title: "3D Virtual Tour", price: "$299" },
     { title: "Virtual Staging", price: "$49/room" },
-    { title: "Real Twilight Shoot", price: "$395" },
+    { title: "Real Twilight Shoot", price: "$245" },
     { title: "Social Reel (single)", price: "$195" },
   ],
 };
@@ -292,7 +292,7 @@ export const airbnbPricing: VerticalPricing = {
   vertical: "airbnb-rentals",
   guarantee: {
     name: "Satisfaction Reshoot Guarantee",
-    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed space from your agreed shot list. It doesn't cover property condition, weather, or changes made to the rental after the shoot.",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed space from your agreed shot list. It doesn't cover property condition, weather, or changes made to the rental after the shoot.",
   },
   packages: [
     {
@@ -300,8 +300,8 @@ export const airbnbPricing: VerticalPricing = {
       price: "From $449",
       tag: "Get booked faster",
       valueItems: [
-        { label: "25-30 HDR Photos", value: "$399" },
-        { label: "2D Floor Plan", value: "$79" },
+        { label: "25-30 HDR Photos", value: "$185" },
+        { label: "2D Floor Plan", value: "$99" },
         {
           label: "Airbnb Photo Sequencing Guide",
           value: "$99",
@@ -323,8 +323,8 @@ export const airbnbPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$801",
-      savings: "Save $352",
+      totalValue: "$607",
+      savings: "Save $158",
     },
     {
       name: "Revenue Boost System",
@@ -332,30 +332,30 @@ export const airbnbPricing: VerticalPricing = {
       tag: "Most popular",
       recommended: true,
       valueItems: [
-        { label: "Everything in Revenue Ready Kit", value: "$801" },
-        { label: "Upgrade to 40 Photos", value: "$100" },
-        { label: "Aerial Drone Photos + Video", value: "$199" },
+        { label: "Everything in Revenue Ready Kit", value: "$607" },
+        { label: "Upgrade to 40 Photos", value: "$30" },
+        { label: "Aerial Drone Photos + Video", value: "$150" },
         { label: "1 Social Reel (property walkthrough)", value: "$195" },
         {
-          label: "Guest Experience Shot List — amenity highlights",
+          label: "Guest Experience Shot List: amenity highlights",
           value: "$99",
           isBonus: true,
         },
       ],
-      totalValue: "$1,394",
-      savings: "Save $699",
+      totalValue: "$1,081",
+      savings: "Save $386",
     },
     {
       name: "5-Star Showcase Blueprint",
       price: "$1,095",
       tag: "Maximum nightly rate",
       valueItems: [
-        { label: "Everything in Revenue Boost System", value: "$1,394" },
-        { label: "Cinematic Video Tour (60s)", value: "$549" },
+        { label: "Everything in Revenue Boost System", value: "$1,081" },
+        { label: "Cinematic Video Tour (60s)", value: "$295" },
         { label: "4-Reel Social Pack", value: "$595" },
-        { label: "Virtual Staging — 3 rooms", value: "$147" },
+        { label: "Virtual Staging (3 rooms)", value: "$147" },
         {
-          label: "Superhost Marketing Kit — branded graphics",
+          label: "Superhost Marketing Kit, branded graphics",
           value: "$149",
           isBonus: true,
         },
@@ -365,17 +365,17 @@ export const airbnbPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$2,883",
-      savings: "Save $1,788",
+      totalValue: "$2,316",
+      savings: "Save $1,221",
     },
   ],
   addOns: [
-    { title: "Cinematic Video Tour", price: "$549" },
+    { title: "Cinematic Video Tour", price: "From $295" },
     { title: "Social Reel (single)", price: "$195" },
-    { title: "Drone Photos + Video", price: "$199" },
-    { title: "3D Virtual Tour", price: "$349" },
+    { title: "Drone Photos + Video", price: "$150" },
+    { title: "3D Virtual Tour", price: "$299" },
     { title: "Virtual Staging", price: "$49/room" },
-    { title: "2D Floor Plan", price: "$79" },
+    { title: "2D Floor Plan", price: "$99" },
   ],
 };
 
@@ -384,7 +384,7 @@ export const lotLandPricing: VerticalPricing = {
   vertical: "lot-land",
   guarantee: {
     name: "Satisfaction Reshoot Guarantee",
-    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed angle from your agreed shot list. It doesn't cover land conditions, weather, or seasonal changes after the shoot.",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed angle from your agreed shot list. It doesn't cover land conditions, weather, or seasonal changes after the shoot.",
   },
   packages: [
     {
@@ -392,7 +392,7 @@ export const lotLandPricing: VerticalPricing = {
       price: "$249",
       tag: "Essential aerial coverage",
       valueItems: [
-        { label: "8 Aerial Drone Photos", value: "$199" },
+        { label: "8 Aerial Drone Photos", value: "$150" },
         { label: "Proximity Map", value: "$39", isBonus: true },
         {
           label: "Weather Protection (free reschedule)",
@@ -405,8 +405,8 @@ export const lotLandPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$362",
-      savings: "Save $113",
+      totalValue: "$313",
+      savings: "Save $64",
     },
     {
       name: "Land Marketing System",
@@ -414,47 +414,47 @@ export const lotLandPricing: VerticalPricing = {
       tag: "Most popular",
       recommended: true,
       valueItems: [
-        { label: "Everything in Aerial Survey Kit", value: "$362" },
+        { label: "Everything in Aerial Survey Kit", value: "$313" },
         { label: "Upgrade to 10 Aerial + Ground Shots", value: "$75" },
         { label: "2 Boundary Overlays", value: "$99" },
-        { label: "Drone Flyover Video (30s)", value: "$195" },
+        { label: "Drone Flyover Video (30s)", value: "$150" },
         {
           label: "2 Social Graphics (Just Listed / Acreage Feature)",
           value: "$99",
           isBonus: true,
         },
       ],
-      totalValue: "$830",
-      savings: "Save $431",
+      totalValue: "$736",
+      savings: "Save $337",
     },
     {
       name: "Vision Blueprint",
       price: "$649",
       tag: "Full aerial + video coverage",
       valueItems: [
-        { label: "Everything in Land Marketing System", value: "$830" },
-        { label: "Extended Drone Video (60s cinematic)", value: "$200" },
+        { label: "Everything in Land Marketing System", value: "$736" },
+        { label: "Upgrade to Extended Drone Video (60s cinematic)", value: "$145" },
         {
           label: "Neighborhood Context Shots",
           value: "$99",
           isBonus: true,
         },
         {
-          label: "Buyer Decision Kit — PDF with aerials + boundaries",
+          label: "Buyer Decision Kit: PDF with aerials + boundaries",
           value: "$99",
           isBonus: true,
         },
       ],
-      totalValue: "$1,228",
-      savings: "Save $579",
+      totalValue: "$1,079",
+      savings: "Save $430",
     },
     {
       name: "Dream Home Vision",
       price: "$995",
       tag: "AI-rendered home visualization",
       valueItems: [
-        { label: "Everything in Vision Blueprint", value: "$1,228" },
-        { label: "AI Rendering — Home on the Lot (Vellum)", value: "$295" },
+        { label: "Everything in Vision Blueprint", value: "$1,079" },
+        { label: "AI Rendering: Home on the Lot (Vellum)", value: "$295" },
         { label: "2 Additional AI Rendering Angles", value: "$295" },
         {
           label: "Single-Property Website with Renderings",
@@ -462,21 +462,21 @@ export const lotLandPricing: VerticalPricing = {
           isBonus: true,
         },
         {
-          label: "Developer Pitch Page — branded PDF",
+          label: "Developer Pitch Page, branded PDF",
           value: "$149",
           isBonus: true,
         },
       ],
-      totalValue: "$2,116",
-      savings: "Save $1,121",
+      totalValue: "$1,967",
+      savings: "Save $972",
     },
   ],
   addOns: [
     { title: "Boundary Overlays (up to 2)", price: "$99" },
-    { title: "Drone Flyover Video", price: "$195" },
+    { title: "Drone Flyover Video", price: "$150" },
     { title: "AI Home Rendering (Vellum)", price: "$295" },
     { title: "Proximity Map", price: "$39" },
-    { title: "Virtual Twilight", price: "$49/image" },
+    { title: "Virtual Twilight", price: "$39/image" },
   ],
 };
 
@@ -485,7 +485,7 @@ export const multiFamilyPricing: VerticalPricing = {
   vertical: "multi-family",
   guarantee: {
     name: "Satisfaction Reshoot Guarantee",
-    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed unit or amenity from your agreed shot list. It doesn't cover property condition, weather, or changes made on-site after the shoot.",
+    text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed unit or amenity from your agreed shot list. It doesn't cover property condition, weather, or changes made on-site after the shoot.",
   },
   packages: [
     {
@@ -493,24 +493,24 @@ export const multiFamilyPricing: VerticalPricing = {
       price: "$995",
       tag: "Essential leasing media",
       valueItems: [
-        { label: "Model Unit Photography (25+ HDR)", value: "$595" },
+        { label: "Model Unit Photography (25+ HDR)", value: "$185" },
         { label: "Amenity & Common Area Coverage", value: "$199" },
-        { label: "Aerial Drone Photos + Video", value: "$249" },
-        { label: "3D Virtual Tour (model unit)", value: "$449" },
+        { label: "Aerial Drone Photos + Video", value: "$150" },
+        { label: "3D Virtual Tour (model unit)", value: "$299" },
         {
           label: "3 Social Graphics (Now Leasing / Open House / Tour CTA)",
           value: "$149",
           isBonus: true,
         },
         {
-          label: "Leasing Agent Presentation — 5 slides",
+          label: "Leasing Agent Presentation: 5 slides",
           value: "$149",
           isBonus: true,
         },
         { label: "Unit Floor Plan", value: "$99", isBonus: true },
       ],
-      totalValue: "$1,889",
-      savings: "Save $894",
+      totalValue: "$1,230",
+      savings: "Save $235",
     },
     {
       name: "Full Property Command",
@@ -518,26 +518,26 @@ export const multiFamilyPricing: VerticalPricing = {
       tag: "Most popular",
       recommended: true,
       valueItems: [
-        { label: "Everything in Leasing Launch Kit", value: "$1,889" },
+        { label: "Everything in Leasing Launch Kit", value: "$1,230" },
         { label: "Multi-Unit Photography (up to 3 types)", value: "$395" },
-        { label: "Cinematic Drone Video (60s)", value: "$595" },
+        { label: "Cinematic Drone Video (60s)", value: "$295" },
         { label: "4-Reel Social Pack", value: "$595" },
-        { label: "Floor Plans Per Unit Type", value: "$199" },
+        { label: "Floor Plan Per Unit Type (up to 2)", value: "$198" },
         {
-          label: "Property Marketing Deck — 10-page branded PDF",
+          label: "Property Marketing Deck: 10-page branded PDF",
           value: "$299",
           isBonus: true,
         },
       ],
-      totalValue: "$3,972",
-      savings: "Save $2,277",
+      totalValue: "$3,012",
+      savings: "Save $1,317",
     },
     {
       name: "Leasing Domination Suite",
       price: "From $2,995",
       tag: "Full ongoing content program",
       valueItems: [
-        { label: "Everything in Full Property Command", value: "$3,972" },
+        { label: "Everything in Full Property Command", value: "$3,012" },
         {
           label: "Ongoing monthly content (reels + seasonal)",
           value: "Custom",
@@ -555,14 +555,14 @@ export const multiFamilyPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$4,170+",
-      savings: "Save $1,175+",
+      totalValue: "$3,210+",
+      savings: "Save $215+",
     },
   ],
   addOns: [
     { title: "Additional Unit Type Photography", price: "$395" },
-    { title: "Cinematic Video", price: "$595" },
-    { title: "3D Virtual Tour (per unit)", price: "$449" },
+    { title: "Cinematic Property Video", price: "From $295" },
+    { title: "3D Virtual Tour (per unit)", price: "$299" },
     { title: "Social Reel (single)", price: "$195" },
     { title: "Floor Plan (per type)", price: "$99" },
     { title: "Virtual Staging", price: "$49/room" },
@@ -576,11 +576,11 @@ export const commercialPackages: Package[] = [
     price: "$995",
     tag: "Commercial listing essentials",
     valueItems: [
-      { label: "30+ HDR Interior + Exterior Photos", value: "$695" },
-      { label: "Aerial Drone Photos + Video", value: "$299" },
-      { label: "Real Twilight Hero Shot", value: "$395" },
+      { label: "30+ HDR Interior + Exterior Photos", value: "$215" },
+      { label: "Aerial Drone Coverage (commercial)", value: "$299" },
+      { label: "Real Twilight Hero Shot", value: "$245" },
       {
-        label: "Broker Presentation Kit — 3 slides for OM/pitch books",
+        label: "Broker Presentation Kit: 3 slides for OM/pitch books",
         value: "$199",
         isBonus: true,
       },
@@ -590,8 +590,8 @@ export const commercialPackages: Package[] = [
         isBonus: true,
       },
     ],
-    totalValue: "$1,737",
-    savings: "Save $742",
+    totalValue: "$1,107",
+    savings: "Save $112",
   },
   {
     name: "CRE Command System",
@@ -599,18 +599,18 @@ export const commercialPackages: Package[] = [
     tag: "Full marketing suite",
     recommended: true,
     valueItems: [
-      { label: "Everything in CRE Launch Package", value: "$1,737" },
-      { label: "Cinematic Interior Walkthrough (60-90s)", value: "$695" },
-      { label: "3D Virtual Tour", value: "$549" },
-      { label: "2D Floor Plan", value: "$149" },
+      { label: "Everything in CRE Launch Package", value: "$1,107" },
+      { label: "Cinematic Interior Walkthrough (90 to 120s)", value: "$395" },
+      { label: "3D Virtual Tour", value: "$299" },
+      { label: "2D Floor Plan", value: "$99" },
       {
-        label: "Investment Highlight Reel — 30s LinkedIn cut",
-        value: "$195",
+        label: "Investment Highlight Reel: 30s LinkedIn cut",
+        value: "$245",
         isBonus: true,
       },
     ],
-    totalValue: "$3,325",
-    savings: "Save $1,630",
+    totalValue: "$2,145",
+    savings: "Save $450",
   },
 ];
 
@@ -643,12 +643,12 @@ export const commercialSpecialty: Package[] = [
     price: "$1,495",
     tag: "Hospitality & restaurants",
     valueItems: [
-      { label: "Interior Photography (rooms, lobby, events)", value: "$695" },
+      { label: "Interior Photography (rooms, lobby, events)", value: "$265" },
       { label: "Food & Ambience Photography", value: "$395" },
-      { label: "Exterior + Twilight Hero", value: "$395" },
+      { label: "Exterior + Twilight Hero", value: "$245" },
       { label: "4-Reel Social Pack", value: "$595" },
       {
-        label: "Review-Ready Photo Set — Google/Yelp/TripAdvisor optimized",
+        label: "Review-Ready Photo Set: Google/Yelp/TripAdvisor optimized",
         value: "$99",
         isBonus: true,
       },
@@ -658,14 +658,14 @@ export const commercialSpecialty: Package[] = [
         isBonus: true,
       },
     ],
-    totalValue: "$2,278",
-    savings: "Save $783",
+    totalValue: "$1,698",
+    savings: "Save $203",
   },
 ];
 
 export const commercialGuarantee: Guarantee = {
   name: "Satisfaction Reshoot Guarantee",
-  text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the site after the shoot.",
+  text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the site after the shoot.",
 };
 
 // ─── Branding ────────────────────────────────────────────────
@@ -731,7 +731,7 @@ export const brandingPackages: Package[] = [
     valueItems: [
       { label: "Half-Day On-Location (4 hours)", value: "$1,495" },
       {
-        label: "20+ Images — headshots + lifestyle + action",
+        label: "20+ Images: headshots + lifestyle + action",
         value: "Included",
       },
       { label: "4 Social Reels", value: "$595" },
@@ -746,7 +746,7 @@ export const brandingPackages: Package[] = [
         isBonus: true,
       },
       {
-        label: "Authority Page — branded one-sheet PDF",
+        label: "Authority Page, branded one-sheet PDF",
         value: "$149",
         isBonus: true,
       },
@@ -763,14 +763,14 @@ export const brandingTeamPackages: Package[] = [
     tag: "Full team + brand",
     valueItems: [
       {
-        label: "Full-Day — Solo + Team Headshots + Brand Content",
+        label: "Full-Day: Solo + Team Headshots + Brand Content",
         value: "$1,995",
       },
       { label: "Individual Headshots Per Team Member", value: "$249/person" },
       { label: "Team Group Shot", value: "Included" },
       { label: "Brand Video (60s)", value: "$495" },
       {
-        label: "Team Bio Kit — branded graphics per person",
+        label: "Team Bio Kit, branded graphics per person",
         value: "$99/person",
         isBonus: true,
       },
@@ -809,10 +809,10 @@ export const brandingTeamPackages: Package[] = [
 
 export const brandingGuarantee: Guarantee = {
   name: "Satisfaction Reshoot Guarantee",
-  text: "Not happy with your headshots or brand media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work — exposure, color, retouching, or a missed look from your agreed shot list. It doesn't cover wardrobe, styling choices, or requests made after the session.",
+  text: "Not happy with your headshots or brand media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, retouching, or a missed look from your agreed shot list. It doesn't cover wardrobe, styling choices, or requests made after the session.",
 };
 
-// ─── The Spot — Studio Membership ────────────────────────────
+// ─── The Spot, Studio Membership ────────────────────────────
 // Tier names + prices mirror LIVE Stripe payment links (verified 2026-07-08):
 //   Creator Lite $60/mo (metadata.tier "creator-lite"), Creator $100/mo
 //   ("creator"), Pro $180/mo ("pro"). Names must match the
@@ -888,12 +888,12 @@ export const studioMemberships: Package[] = [
         isBonus: true,
       },
     ],
-    totalValue: "$913+/mo",
-    savings: "Save $733+/mo",
+    totalValue: "$614+/mo",
+    savings: "Save $434+/mo",
   },
 ];
 
 export const studioGuarantee: Guarantee = {
   name: "First Month Guarantee",
-  text: "Try it for 30 days. If you don't book at least one session, we refund your first month — no questions asked.",
+  text: "Try it for 30 days. If you don't book at least one session, we refund your first month, no questions asked.",
 };
