@@ -672,141 +672,58 @@ export const commercialGuarantee: Guarantee = {
 };
 
 // ─── Branding ────────────────────────────────────────────────
+// RULED 2026-09-17 by the owner: the branding page publishes exactly two
+// prices. Headshot Session $95 (sold as batched studio days, $80 per person
+// when 4 or more book the same block) and Brand Session $299 (the catalog's
+// First Impression Kit renamed, same price, no new number invented).
+// Content days, team days, retainers, brand video and on location work are
+// consultations, not checkout buttons, so they carry no published price and
+// live as plain-English explanations on src/app/branding/page.tsx.
+// Do not reintroduce a branding price here without a new ruling.
 export const brandingPackages: Package[] = [
   {
-    name: "First Impression Kit",
-    price: "$299",
-    tag: "Professional headshots",
+    name: "Headshot Session",
+    price: "$95",
+    tag: "On a scheduled headshot day",
     valueItems: [
-      { label: "30-Minute Studio Session", value: "$249" },
-      { label: "3-5 Final Retouched Images", value: "Included" },
+      { label: "30 minutes in the studio", value: "Included" },
+      { label: "5 retouched images", value: "Included" },
       {
-        label: "LinkedIn + Social Profile Optimization Guide",
-        value: "$49",
-        isBonus: true,
-      },
-      {
-        label: "2 Branded Social Graphics",
-        value: "$99",
-        isBonus: true,
-      },
-      {
-        label: "Digital Delivery + Print-Ready Files",
-        value: "$49",
-        isBonus: true,
-      },
-    ],
-    totalValue: "$446",
-    savings: "Save $147",
-  },
-  {
-    name: "Brand Identity System",
-    price: "$549",
-    tag: "Most popular",
-    recommended: true,
-    valueItems: [
-      { label: "1-Hour Studio or On-Location Session", value: "$449" },
-      { label: "10 Final Retouched Images, 1 Look", value: "Included" },
-      {
-        label: "Brand Color Palette Card",
-        value: "$49",
-        isBonus: true,
-      },
-      {
-        label: "3 Branded Social Graphics",
-        value: "$149",
-        isBonus: true,
-      },
-      {
-        label: "90-Day Content Calendar",
-        value: "$99",
-        isBonus: true,
-      },
-      { label: "LinkedIn Banner Image", value: "$49", isBonus: true },
-    ],
-    totalValue: "$795",
-    savings: "Save $246",
-  },
-  {
-    name: "Content Command Day",
-    price: "$1,695",
-    tag: "Half-day content production",
-    valueItems: [
-      { label: "Half-Day On-Location (4 hours)", value: "$1,495" },
-      {
-        label: "20+ Images: headshots + lifestyle + action",
+        label: "One clean studio backdrop, we walk you through the posing",
         value: "Included",
       },
-      { label: "4 Social Reels", value: "$595" },
       {
-        label: "90-Day Content Calendar (populated)",
-        value: "$149",
-        isBonus: true,
+        label: "Files sized for your website, your profile, and social",
+        value: "Included",
       },
       {
-        label: "5 Branded Social Graphics",
-        value: "$249",
-        isBonus: true,
-      },
-      {
-        label: "Authority Page, branded one-sheet PDF",
-        value: "$149",
-        isBonus: true,
+        label: "$80 per person when 4 or more book the same block",
+        value: "Included",
       },
     ],
-    totalValue: "$2,637",
-    savings: "Save $942",
-  },
-];
-
-export const brandingTeamPackages: Package[] = [
-  {
-    name: "Team Brand Blueprint",
-    price: "From $2,195",
-    tag: "Full team + brand",
-    valueItems: [
-      {
-        label: "Full-Day: Solo + Team Headshots + Brand Content",
-        value: "$1,995",
-      },
-      { label: "Individual Headshots Per Team Member", value: "$249/person" },
-      { label: "Team Group Shot", value: "Included" },
-      { label: "Brand Video (60s)", value: "$495" },
-      {
-        label: "Team Bio Kit, branded graphics per person",
-        value: "$99/person",
-        isBonus: true,
-      },
-      {
-        label: "Company LinkedIn Banner",
-        value: "$49",
-        isBonus: true,
-      },
-    ],
-    totalValue: "$2,887+",
-    savings: "Save $692+",
+    totalValue: "",
+    savings: "",
   },
   {
-    name: "Content Retainer",
-    price: "$995/mo",
-    tag: "Monthly content production",
+    name: "Brand Session",
+    price: "$299",
+    tag: "Several looks, several rooms",
+    recommended: true,
     valueItems: [
-      { label: "Monthly Content Day (half-day)", value: "$1,495" },
-      { label: "10+ Images + 4 Reels per month", value: "Included" },
+      { label: "60 to 75 minutes", value: "Included" },
       {
-        label: "Monthly Content Calendar (populated)",
-        value: "$149",
-        isBonus: true,
+        label: "Shot across The Spot and the other areas of our office",
+        value: "Included",
       },
+      { label: "12 to 15 retouched images", value: "Included" },
+      { label: "2 wardrobe looks", value: "Included" },
       {
-        label: "Social Graphics Package (5/mo)",
-        value: "$249",
-        isBonus: true,
+        label: "Headshots plus working shots you can post from for months",
+        value: "Included",
       },
-      { label: "Priority Booking", value: "$99", isBonus: true },
     ],
-    totalValue: "$1,992/mo",
-    savings: "Save $997/mo",
+    totalValue: "",
+    savings: "",
   },
 ];
 
