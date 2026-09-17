@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { HeroBranding } from "@/components/heroes/hero-branding";
 import { ConsultCTA } from "@/components/consult-cta";
@@ -7,13 +6,106 @@ import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { brandingPackages, brandingGuarantee } from "@/lib/pricing";
 
+// Every CTA on this page opens the same free consultation calendar used by the
+// nav and the ConsultCTA block. /book is the listing media order form and is
+// the wrong door for a headshot, a brand session or a content day.
+const CONSULT_URL =
+  "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc?interest=branding";
+
 export const metadata = {
   alternates: { canonical: "/branding" },
   title:
-    "Headshots & Brand Sessions for Arkansas Agents | Avery & Bryant",
+    "Headshots & Brand Sessions for Central Arkansas Agents | Avery & Bryant",
   description:
-    "Headshot Session $95 on scheduled studio days, 5 retouched images. Brand Session $299 across The Spot and our other office areas. Content days, team days and retainers are scoped on a free call. Central Arkansas.",
+    "Headshot Session $95, Brand Session $299, shot in our Little Rock studio. Content days, team days and retainers are scoped on a free call. Central Arkansas.",
 };
+
+// Real client frames, single look sessions. Five different people, one look
+// each: this is what the $95 session produces. Alt text describes only what is
+// visible in the frame. position keeps the subject inside the crop.
+const singleLookFrames = [
+  {
+    src: "/images/branding/headshot-white-shirt-warm-brown-backdrop.jpg",
+    caption: "Warm backdrop",
+    position: "center",
+    alt: "A bald man with short gray chin stubble in a white open collar dress shirt, smiling with his lips closed, against a mottled warm brown studio backdrop",
+  },
+  {
+    src: "/images/branding/headshot-pinstripe-suit-dark-backdrop.jpg",
+    caption: "Suit and tie",
+    position: "center 18%",
+    alt: "A bald man with a full red beard in a charcoal pinstripe jacket, taupe shirt and a tie printed with guitars, smiling against a dark gray studio backdrop",
+  },
+  {
+    src: "/images/branding/headshot-white-tee-warm-gray-backdrop.jpg",
+    caption: "White tee",
+    position: "58% center",
+    alt: "A younger man with short fair hair in a plain white t-shirt, arms folded, smiling broadly against a warm gray seamless backdrop",
+  },
+  {
+    src: "/images/branding/headshot-black-tee-warm-gray-backdrop.jpg",
+    caption: "Black tee",
+    position: "52% center",
+    alt: "A man with short mid brown hair in a plain black t-shirt, arms folded, with a slight smile, against a warm gray seamless backdrop",
+  },
+  {
+    src: "/images/branding/headshot-black-shirt-blue-backdrop.jpg",
+    caption: "Blue backdrop",
+    position: "center 18%",
+    alt: "A man with a shaved head and a full dark beard in a black button down shirt, turned to one side with a calm expression, against a mottled deep blue backdrop",
+  },
+];
+
+// One client, one session, three looks. This row is the whole argument for the
+// $299 session: a wardrobe change and a move off the backdrop.
+const oneSessionFrames = [
+  {
+    src: "/images/branding/brand-session-suit-with-tie.jpg",
+    caption: "Look one, jacket and tie",
+    position: "46% center",
+    alt: "A bald man with a full red beard in a charcoal pinstripe jacket and a guitar print tie, arms folded with a gold watch on his wrist, against a dark gray studio backdrop",
+  },
+  {
+    src: "/images/branding/brand-session-suit-open-collar.jpg",
+    caption: "Look two, tie off, collar open",
+    position: "center 15%",
+    alt: "The same man in the same pinstripe jacket with the tie removed and the collar of his taupe shirt open, arms folded, against the dark gray studio backdrop",
+  },
+  {
+    src: "/images/branding/brand-session-seated-by-window.jpg",
+    caption: "Look three, off the backdrop",
+    position: "center 22%",
+    alt: "The same man seated on a dark leather sofa with one arm along the back of it, in front of a floor to ceiling window filled with bright daylight",
+  },
+];
+
+// Two more sessions, one deliberate change each.
+const oneChangeFrames = [
+  {
+    src: "/images/branding/brand-session-white-shirt-warm-backdrop.jpg",
+    caption: "Warm brown backdrop",
+    position: "center 12%",
+    alt: "A bald man with gray stubble in a crisp white dress shirt, framed from the head to the chest, against a warm brown studio backdrop",
+  },
+  {
+    src: "/images/branding/brand-session-white-shirt-slate-blue-backdrop.jpg",
+    caption: "Same shirt, slate blue",
+    position: "center 20%",
+    alt: "The same man in the same white dress shirt, framed head and shoulders, square to camera against a slate blue gray backdrop",
+  },
+  {
+    src: "/images/branding/brand-session-black-shirt-blue-set.jpg",
+    caption: "Blue set",
+    position: "55% center",
+    alt: "A man with a shaved head and a full dark beard in a black button down shirt, looking straight at the camera against a mottled deep blue backdrop",
+  },
+  {
+    src: "/images/branding/brand-session-black-shirt-tan-set-standing.jpg",
+    caption: "Tan set, standing",
+    position: "center 28%",
+    alt: "The same man standing, turned to one side with his head to camera, in a black button down shirt and black trousers with a brown leather belt, against a warm tan backdrop",
+  },
+];
 
 // What the two priced sessions are NOT. Each of these is scoped on a call,
 // so the page owes the reader a real explanation instead of a hidden number.
@@ -36,7 +128,7 @@ const consultServices = [
     whatYouGet:
       "A roster page where everybody matches, shot in one pass, so nobody on your site is three years and one haircut out of date.",
     whyTalk:
-      "It depends on headcount, whether we shoot at our studio or yours, and how much brand content you want beyond the faces. If all you need is matching headshots for 4 or more people, that is the $80 per person rate above and you can book it today without a call.",
+      "It depends on headcount, whether we shoot at our studio or yours, and how much brand content you want beyond the faces. If all you need is matching headshots for 4 or more people, that is the $80 per person rate above.",
   },
   {
     name: "Ongoing Content",
@@ -95,32 +187,19 @@ const differences = [
   },
 ];
 
-// Real frames of the rooms. Room names match the studio site, alt text describes
-// only what is visible in the frame.
+// Two real frames of the rooms, captioned to what is actually in the frame.
 const rooms = [
   {
     src: "/images/studio/spot-5.jpg",
-    name: "The Podcast Room",
+    name: "The lounge set",
     look: "Sage paneling, rose velvet, warm lamps",
-    alt: "Two rose velvet chairs against a sage green paneled wall beside an arched mirror and a warm floor lamp",
-  },
-  {
-    src: "/images/studio/spot-9.jpg",
-    name: "The Neutral Room",
-    look: "Warm wood slats and olive fabric",
-    alt: "Olive green fabric chairs in front of a warm wood slat wall with a palm plant and a microphone on a boom stand",
+    alt: "Two dusty rose velvet armchairs in front of a sage green paneled wall, beside a tall arched mirror reflecting the room's track lighting and a two globe floor lamp",
   },
   {
     src: "/images/studio/spot-7.jpg",
-    name: "The Black Room",
+    name: "The dark room",
     look: "Dark walls, colored light",
-    alt: "Two dark armchairs on a patterned rug, lit from the sides with purple and orange light against a black wall",
-  },
-  {
-    src: "/images/studio/spot-8.jpg",
-    name: "The Garage",
-    look: "Moss wall, roll up door, hard light",
-    alt: "A round table with two microphone boom arms in front of a green moss wall and a metal roll up door",
+    alt: "Two dark armchairs facing each other on a patterned rug in a dark walled room, lit with purple from the left and warm orange from the right",
   },
 ];
 
@@ -129,7 +208,7 @@ const steps = [
     number: "01",
     title: "Pick the session or the call",
     description:
-      "A headshot or a brand session books straight off this page. Anything bigger starts with a free 30 minute call so we can build the right shape first.",
+      "Everything on this page starts on the same free call calendar. The two priced sessions have a fixed number, so the call is scheduling rather than quoting. Anything bigger gets scoped on the call first.",
   },
   {
     number: "02",
@@ -142,6 +221,22 @@ const steps = [
     title: "You get your images",
     description:
       "Retouched files, sized for your website, your profile and social. We confirm the delivery date with you when you book the block.",
+  },
+];
+
+// Ordinary trust signals, all confirmed true by the owner.
+const trustSignals = [
+  {
+    label: "Insured",
+    detail: "We carry full insurance coverage on every shoot.",
+  },
+  {
+    label: "A plus with the BBB",
+    detail: "Rated A plus by the Better Business Bureau.",
+  },
+  {
+    label: "200 plus agents",
+    detail: "More than 200 Arkansas agents have shot with us.",
   },
 ];
 
@@ -160,6 +255,11 @@ const faqs = [
     question: "What is the difference between a headshot and a brand session?",
     answer:
       "A headshot is one look on one backdrop: 30 minutes, 5 retouched images, the photo that goes on your profile. A Brand Session is $299 and runs 60 to 75 minutes across The Spot and the other areas of our office, with 2 wardrobe looks and 12 to 15 retouched images. It gives you headshots plus working shots you can post from for months.",
+  },
+  {
+    question: "How do I book one?",
+    answer:
+      "Every session on this page starts on the same free call calendar. Take a time, tell us which session you want, and we put you on the next open studio block. The two priced sessions are fixed prices, so there is nothing to quote on the call.",
   },
   {
     question:
@@ -201,14 +301,14 @@ export default function BrandingPage() {
             Priced on the page
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            Two sessions book themselves.{" "}
+            Two sessions carry a price.{" "}
             <span className="text-fg-secondary">
               Everything else is a conversation.
             </span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-secondary">
-            These two are the same for everybody, so they get a price. Take a
-            time and turn up.
+            These two are the same for everybody, so they get a number. Take a
+            time on the calendar, tell us which one you want, and turn up.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -216,8 +316,9 @@ export default function BrandingPage() {
               <PackageCard
                 key={pkg.name}
                 pkg={pkg}
-                ctaHref="/book"
-                ctaLabel="Book a Session"
+                ctaHref={CONSULT_URL}
+                ctaTarget="_blank"
+                ctaLabel="Get on the calendar"
               />
             ))}
           </div>
@@ -239,6 +340,134 @@ export default function BrandingPage() {
 
           <div className="mt-12">
             <GuaranteeBadge guarantee={brandingGuarantee} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE $95 SESSION, FIVE REAL FACES ── */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            The $95 session
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Five people. Five sessions.{" "}
+            <span className="text-fg-secondary">One look each.</span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            Every frame on this page is our own client work. These five are
+            single look sessions: one person, one backdrop, the photo that goes
+            on a profile. Suit, tee or open collar, the light and the direction
+            are the same.
+          </p>
+
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
+            {singleLookFrames.map((frame) => (
+              <figure
+                key={frame.src}
+                className="overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)]"
+              >
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={frame.src}
+                    alt={frame.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover"
+                    style={{ objectPosition: frame.position }}
+                  />
+                </div>
+                <figcaption className="px-4 py-4 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {frame.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE $299 SESSION, ONE PERSON CHANGING LOOK ── */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            The $299 session
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            One person, one session,{" "}
+            <span className="text-fg-secondary">several different looks.</span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            This is the whole difference between the two numbers. A brand
+            session is not a longer headshot. It is a change of clothes, a
+            change of backdrop, and a move off the backdrop altogether when the
+            shot calls for it. Here is one session, in order.
+          </p>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-3">
+            {oneSessionFrames.map((frame) => (
+              <figure
+                key={frame.src}
+                className="overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)]"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src={frame.src}
+                    alt={frame.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover"
+                    style={{ objectPosition: frame.position }}
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {frame.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Same hour, same person. Jacket and tie, then the tie comes off, then
+            we leave the backdrop and shoot him seated in daylight. Three usable
+            identities out of one session instead of one.
+          </p>
+
+          <div className="mt-16 border-t border-white/5 pt-16">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+              Two more sessions
+            </p>
+            <h3 className="mt-4 font-display text-[clamp(22px,3.5vw,32px)] font-light tracking-tight text-fg">
+              One deliberate change each.
+            </h3>
+
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+              {oneChangeFrames.map((frame) => (
+                <figure
+                  key={frame.src}
+                  className="overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)]"
+                >
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src={frame.src}
+                      alt={frame.alt}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                      className="object-cover"
+                      style={{ objectPosition: frame.position }}
+                    />
+                  </div>
+                  <figcaption className="px-4 py-4 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                    {frame.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+              Some of these faces appear in the row of five as well, and that is
+              the honest way to read it: a brand session starts with the same
+              headshot and then keeps going.
+            </p>
           </div>
         </div>
       </section>
@@ -271,9 +500,9 @@ export default function BrandingPage() {
           </div>
 
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-fg-secondary">
-            If you already know which one you want, book it. If you do not, that
-            is what the call is for, and picking the smaller one is a perfectly
-            good answer.
+            If you already know which one you want, take a time and say so. If
+            you do not, that is what the call is for, and picking the smaller
+            one is a perfectly good answer.
           </p>
         </div>
       </section>
@@ -345,12 +574,14 @@ export default function BrandingPage() {
                   </div>
                 </dl>
 
-                <Link
-                  href="/book"
+                <a
+                  href={CONSULT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-block w-fit rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
                 >
                   Talk through {service.name}
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -364,7 +595,7 @@ export default function BrandingPage() {
             Where we shoot
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            Four rooms in one building.{" "}
+            A backdrop is not the only room.{" "}
             <span className="text-fg-secondary">
               That is the brand session.
             </span>
@@ -372,7 +603,7 @@ export default function BrandingPage() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-secondary">
             A headshot needs one clean backdrop. A brand session needs variety,
             and walking between rooms is how you get several looks out of one
-            hour without driving anywhere. These are our rooms as they stand.
+            hour without driving anywhere. Two of ours, as they stand.
           </p>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2">
@@ -402,46 +633,29 @@ export default function BrandingPage() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-[1.4fr_1fr] md:items-start">
-            <div className="rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:p-10">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-                Somewhere else
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-fg-secondary">
-                We shoot on location across Central Arkansas: your office, a
-                listing, a venue that means something to your brand. We lead
-                with the studio because controlled light is part of why these
-                prices work, so on location is scoped with you and the travel
-                fee is confirmed when you book. No surprise line on the invoice.
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-fg-secondary">
-                If you already have a photographer and just need a room, The
-                Spot rents by the hour.{" "}
-                <a
-                  href="https://www.gettothespot.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-crimson transition-colors hover:text-white"
-                >
-                  See the studio &rarr;
-                </a>
-              </p>
-            </div>
-
-            <figure className="overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)]">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src="/images/studio/spot-3.jpg"
-                  alt="A guest speaking at a microphone on a boom arm beside a window at dusk"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="px-6 py-5 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-                A session running in the building
-              </figcaption>
-            </figure>
+          <div className="mt-10 rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:p-10">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+              Somewhere else
+            </p>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-secondary">
+              We shoot on location across Central Arkansas: your office, a
+              listing, a venue that means something to your brand. We lead with
+              the studio because controlled light is part of why these prices
+              work, so on location is scoped with you and the travel fee is
+              confirmed when you book. No surprise line on the invoice.
+            </p>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-secondary">
+              If you already have a photographer and just need a room, The Spot
+              rents by the hour.{" "}
+              <a
+                href="https://www.gettothespot.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-crimson transition-colors hover:text-white"
+              >
+                See the studio &rarr;
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -470,6 +684,19 @@ export default function BrandingPage() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
                   {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-px overflow-hidden rounded border border-white/5 bg-white/5 sm:grid-cols-3">
+            {trustSignals.map((signal) => (
+              <div key={signal.label} className="bg-[#0d0d0d] p-6 md:p-8">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-crimson/70">
+                  {signal.label}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
+                  {signal.detail}
                 </p>
               </div>
             ))}
@@ -504,12 +731,14 @@ export default function BrandingPage() {
             call about the bigger version. All three start in the same place.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/book"
+            <a
+              href={CONSULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book a Session
-            </Link>
+              Get on the calendar
+            </a>
             <a
               href="mailto:book@averyandbryant.com?subject=Headshots%20and%20branding"
               className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"

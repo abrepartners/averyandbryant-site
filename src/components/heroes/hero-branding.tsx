@@ -9,6 +9,11 @@ const chips = [
   "Everything else, on a call",
 ];
 
+// The free consultation calendar, the same one the nav and the ConsultCTA use.
+// /book is the listing media order form and is the wrong door for a session.
+const CONSULT_URL =
+  "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc?interest=branding";
+
 export function HeroBranding() {
   return (
     <section
@@ -55,12 +60,14 @@ export function HeroBranding() {
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/book"
+            <a
+              href={CONSULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book a Session
-            </Link>
+              Get on the calendar
+            </a>
             <Link
               href="#what-we-do"
               className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
@@ -74,17 +81,18 @@ export function HeroBranding() {
           </p>
         </div>
 
-        {/* RIGHT, a real frame of the rooms we shoot in */}
+        {/* RIGHT, a real frame from a real client session */}
         <div className="relative flex justify-center">
           <div className="relative w-full max-w-[520px]">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-white/15 bg-[#111] shadow-[0_30px_60px_rgba(0,0,0,0.55)]">
               <Image
-                src="/images/studio/spot-10.jpg"
-                alt="Two rose velvet chairs and microphones on boom arms in front of a sage green paneled wall, lit by a warm floor lamp"
+                src="/images/branding/headshot-mauve-tee-warm-gray-backdrop.jpg"
+                alt="A man with short fair hair in a heathered mauve t-shirt, arms folded and smiling broadly, against a warm gray seamless studio backdrop"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 520px"
                 className="object-cover"
+                style={{ objectPosition: "55% center" }}
               />
               <div
                 aria-hidden
@@ -95,7 +103,7 @@ export function HeroBranding() {
             {/* Floating label */}
             <div className="absolute -bottom-5 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/15 bg-black/70 px-5 py-2 backdrop-blur-md">
               <span className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
-                Shot at The Spot, our Little Rock studio
+                Every face on this page is real client work
               </span>
             </div>
           </div>
