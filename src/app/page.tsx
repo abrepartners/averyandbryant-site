@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Hero } from "@/components/hero";
 import { GoogleReviews } from "@/components/google-reviews";
 import { ServiceCard, type Service } from "@/components/service-card";
@@ -50,9 +51,9 @@ const services: Service[] = [
     price: "$595",
     description:
       "4 platform-native reels: listing walkthrough, viral hook, cinematic trailer, teaser. Shot and edited in one visit. Single reels are $195.",
-    image: "/images/staging-twilight.jpg",
+    image: "/images/services/reels/reel-frame-aerial-beebe.jpg",
     imageAlt:
-      "Twilight exterior of a large home with lit windows and a wide concrete driveway under a dusk sky",
+      "Aerial frame from a listing reel, showing a brick ranch home with a covered back porch on a wide mown lawn, a concrete drive with a pickup and an SUV, and a road along the treeline in Beebe, Arkansas",
     preview: {
       kind: "videos",
       orientation: "vertical",
@@ -268,12 +269,68 @@ const verticals = [
   },
 ];
 
-const brokerages = [
-  "Coldwell Banker",
-  "Century 21",
-  "Keller Williams",
-  "Crye-Leike",
-  "Engel & Volkers",
+// Brokerages whose agents have shot with us. These are marks of firms we have
+// done work for, not partners or endorsers, so the row stays deliberately quiet
+// and the copy above it claims nothing beyond "their agents book us".
+// Heights are set per mark because the artwork ranges from a tall square badge
+// to a very wide wordmark; a single uniform height would make them read unevenly.
+const brokerageMarks = [
+  {
+    src: "/images/brokerages/coldwell-banker.png",
+    width: 383,
+    height: 160,
+    name: "Coldwell Banker",
+    className: "h-4 md:h-[18px]",
+  },
+  {
+    src: "/images/brokerages/century-21.png",
+    width: 126,
+    height: 160,
+    name: "Century 21",
+    className: "h-7 md:h-8",
+  },
+  {
+    src: "/images/brokerages/keller-williams.png",
+    width: 350,
+    height: 160,
+    name: "Keller Williams",
+    className: "h-6 md:h-7",
+  },
+  {
+    src: "/images/brokerages/crye-leike.png",
+    width: 582,
+    height: 160,
+    name: "Crye-Leike",
+    className: "h-4 md:h-[18px]",
+  },
+  {
+    src: "/images/brokerages/engel-voelkers.png",
+    width: 595,
+    height: 160,
+    name: "Engel and Voelkers",
+    className: "h-4 md:h-[18px]",
+  },
+  {
+    src: "/images/brokerages/irealty-arkansas.png",
+    width: 565,
+    height: 160,
+    name: "iRealty Arkansas",
+    className: "h-4 md:h-5",
+  },
+  {
+    src: "/images/brokerages/the-property-group.png",
+    width: 304,
+    height: 160,
+    name: "The Property Group",
+    className: "h-6 md:h-7",
+  },
+  {
+    src: "/images/brokerages/back-porch-realty.png",
+    width: 417,
+    height: 160,
+    name: "Back Porch Realty",
+    className: "h-6 md:h-7",
+  },
 ];
 
 export default function HomePage() {
@@ -300,17 +357,6 @@ export default function HomePage() {
               48-hour avg. delivery
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-              {brokerages.map((name) => (
-                <span
-                  key={name}
-                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-secondary"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-
             <div className="flex shrink-0 items-center gap-6">
               <span className="rounded border border-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-fg-secondary">
                 BBB A+
@@ -326,6 +372,24 @@ export default function HomePage() {
                   <span>Google</span>
                 </a>
               ) : null}
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-white/5 pt-8">
+            <p className="text-center text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
+              Agents from these brokerages shoot with us
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-12">
+              {brokerageMarks.map((mark) => (
+                <Image
+                  key={mark.src}
+                  src={mark.src}
+                  alt={`${mark.name} logo`}
+                  width={mark.width}
+                  height={mark.height}
+                  className={`w-auto opacity-40 transition-opacity duration-500 hover:opacity-70 ${mark.className}`}
+                />
+              ))}
             </div>
           </div>
         </div>

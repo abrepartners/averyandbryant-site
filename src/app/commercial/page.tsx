@@ -27,7 +27,44 @@ const heroFrame = {
   caption: "Quick service restaurant, Maumelle",
 };
 
-const portfolioGroups = [
+type PortfolioShot = { src: string; alt: string; caption: string };
+type PortfolioGroup = {
+  label: string;
+  /** Optional full-width frame that leads the group, for the strongest shot. */
+  lead?: PortfolioShot;
+  shots: PortfolioShot[];
+};
+
+// Rose City Center leads the portfolio: it is the strongest retail work we have,
+// and the overhead site aerial and the pylon signage frame are both content types
+// this page never had. The named tenants on the signage are tenants of the
+// property we photographed, not clients of ours, so no copy here says otherwise.
+const portfolioGroups: PortfolioGroup[] = [
+  {
+    label: "Retail centers",
+    lead: {
+      src: "/images/commercial/rose-city-center-little-rock-grocery-anchor-exterior.jpg",
+      alt: "Elevated three quarter view of the grocery anchor at Rose City Center in Little Rock, Arkansas, with a tan stucco facade, green standing seam gables and a parking lot of cars and pickups under a blue sky",
+      caption: "Grocery anchor, Little Rock",
+    },
+    shots: [
+      {
+        src: "/images/commercial/rose-city-center-little-rock-overhead-site-aerial.jpg",
+        alt: "Overhead drone photo of Rose City Center in Little Rock, Arkansas, showing the white flat roofs of the strip and its grocery anchor, the full striped parking field, an out parcel building with a drive through lane, and a four lane highway along the bottom of the frame",
+        caption: "Site aerial, Little Rock",
+      },
+      {
+        src: "/images/commercial/rose-city-center-little-rock-pylon-sign.jpg",
+        alt: "Elevated view of the Rose City Center pylon sign in Little Rock, Arkansas, with a rose logo above stacked tenant panels, beside a highway with route markers and grain silos on the horizon",
+        caption: "Center signage, Little Rock",
+      },
+      {
+        src: "/images/commercial/rose-city-center-little-rock-tenant-storefront.jpg",
+        alt: "Angled ground level view along the red metal awning of the in line shops at Rose City Center in Little Rock, Arkansas, with glass storefronts, brick bulkheads and red steel canopy posts receding to the right under a blue sky",
+        caption: "In line tenants, Little Rock",
+      },
+    ],
+  },
   {
     label: "Hospitality and restaurants",
     shots: [
@@ -49,7 +86,7 @@ const portfolioGroups = [
     ],
   },
   {
-    label: "Retail and quick service",
+    label: "Quick service and small retail",
     shots: [
       {
         src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-dining-room.jpg",
@@ -226,6 +263,22 @@ export default function CommercialPage() {
                 <h3 className="font-display text-lg font-medium text-fg">
                   {group.label}
                 </h3>
+                {group.lead ? (
+                  <figure className="mt-6">
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                      <Image
+                        src={group.lead.src}
+                        alt={group.lead.alt}
+                        fill
+                        sizes="(min-width: 1280px) 1216px, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                      {group.lead.caption}
+                    </figcaption>
+                  </figure>
+                ) : null}
                 <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {group.shots.map((shot) => (
                     <figure key={shot.src}>
