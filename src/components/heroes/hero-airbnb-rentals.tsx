@@ -15,7 +15,7 @@ const slides = [
   },
   {
     src: "/images/airbnb-rentals/exterior-hero.jpg",
-    alt: "Historic brick exterior — rental property",
+    alt: "Historic brick exterior of a short term rental property",
   },
 ];
 
@@ -40,7 +40,7 @@ export function HeroAirbnbRentals() {
       <div className="pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/8 blur-[160px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[1fr_1fr] md:items-center md:gap-16 md:px-12 md:py-32 lg:gap-20">
-        {/* LEFT — typography + revenue stat */}
+        {/* LEFT: typography + revenue stat */}
         <div className="flex flex-col justify-center">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
@@ -77,7 +77,7 @@ export function HeroAirbnbRentals() {
             </Link>
           </div>
 
-          {/* Revenue callout — THE hook for STR hosts */}
+          {/* Revenue callout: THE hook for STR hosts */}
           <div className="mt-12 flex max-w-md items-center gap-6 rounded border border-crimson/20 bg-crimson/[0.03] p-6">
             <div className="shrink-0">
               <p className="font-display text-5xl font-light leading-none text-crimson">
@@ -88,14 +88,14 @@ export function HeroAirbnbRentals() {
               </p>
             </div>
             <p className="text-sm leading-relaxed text-fg-secondary">
-              Airbnb&apos;s own 2024&ndash;25 study of 14,700+ listings found
+              Airbnb&apos;s own 2024 to 2025 study of 14,700+ listings found
               professional photography drove ~19% more bookings and ~21% higher
               earnings over the next year. Your photos pay for themselves.
             </p>
           </div>
         </div>
 
-        {/* RIGHT — auto-rotating lifestyle carousel, shaped like an Airbnb listing card */}
+        {/* RIGHT: auto-rotating lifestyle carousel, shaped like an Airbnb listing card */}
         <div className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-[0_40px_80px_rgba(0,0,0,0.4)]">
             {slides.map((slide, i) => (
@@ -113,7 +113,7 @@ export function HeroAirbnbRentals() {
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" />
 
-            {/* Mock booking-card overlay — reinforces "this is a listing" */}
+            {/* Mock booking-card overlay: reinforces "this is a listing" */}
             <div className="absolute bottom-6 left-6 right-6 rounded-xl border border-white/10 bg-black/50 p-4 backdrop-blur-md">
               <div className="flex items-start justify-between">
                 <div>
@@ -121,12 +121,12 @@ export function HeroAirbnbRentals() {
                     Your rental, booking-ready
                   </p>
                   <p className="mt-1 text-xs text-fg-secondary">
-                    Photos · Video · Drone · Twilight
+                    Photos, Video, Drone, Twilight
                   </p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-medium text-crimson">
-                    Airbnb · VRBO
+                    Airbnb and VRBO
                   </p>
                   <p className="mt-1 text-xs text-fg-secondary">Direct booking</p>
                 </div>

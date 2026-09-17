@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroMultiFamily } from "@/components/heroes/hero-multi-family";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
@@ -10,7 +11,7 @@ import { multiFamilyPricing } from "@/lib/pricing";
 export const metadata = {
   alternates: { canonical: "/multi-family" },
   title:
-    "Multi-Family & Apartment Media — Leasing Launch Kit, Property Command & Domination Suite | Avery & Bryant",
+    "Multi-Family & Apartment Media: Leasing Launch Kit, Property Command & Domination Suite | Avery & Bryant",
   description:
     "Professional photography, drone aerials, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas. Packages from $995 with leasing guarantee.",
 };
@@ -19,12 +20,12 @@ const sellingPoints = [
   {
     title: "Model Unit Showcase",
     description:
-      "We photograph your best unit like it's a luxury listing — because to your next tenant, it is.",
+      "We photograph your best unit like it's a luxury listing, because to your next tenant, it is.",
   },
   {
     title: "Amenity Photography",
     description:
-      "Pool, gym, dog park, clubhouse, laundry — every amenity gets dedicated coverage that sells the lifestyle.",
+      "Pool, gym, dog park, clubhouse, laundry: every amenity gets dedicated coverage that sells the lifestyle.",
   },
   {
     title: "Aerial Complex Overview",
@@ -89,12 +90,67 @@ const faqs = [
   },
 ];
 
+// Real frames from a finished drone video we delivered for an Arkansas apartment
+// community. Every caption and alt line below was written against the pixels,
+// not the filename. Two frames, not four: the clip is one continuous push-in, so
+// the middle frames were near duplicates that read identically at tile size. What
+// is left is the high establishing shot and the low architectural shot.
+const communityAerials = [
+  {
+    src: "/images/multi-family/parham-pointe-apartments-aerial-community-scale.jpg",
+    alt: "High aerial over an Arkansas apartment community of three story buildings ringed by green tree canopy, with an interstate and a city skyline beyond",
+    caption: "Community aerial, Arkansas",
+  },
+  {
+    src: "/images/multi-family/parham-pointe-apartments-aerial-arched-breezeway.jpg",
+    alt: "Low aerial of one Arkansas apartment building with white arched breezeways across its face, a curving drive and parked cars at left",
+    caption: "Low aerial, building detail",
+  },
+];
+
 export default function MultiFamilyPage() {
   const { packages, addOns, guarantee } = multiFamilyPricing;
 
   return (
     <>
       <HeroMultiFamily />
+
+      {/* ── COMMUNITY PORTFOLIO (REAL DELIVERED WORK) ── */}
+      <section className="border-b border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Community Portfolio
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Real communities.{" "}
+            <span className="text-fg-secondary">Shot from the air.</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            Aerial frames from a finished drone video we delivered for an
+            Arkansas apartment community. Scale, site layout, and what sits
+            around the property, in the shots a leasing team actually uses.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {communityAerials.map((shot) => (
+              <figure key={shot.src}>
+                <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

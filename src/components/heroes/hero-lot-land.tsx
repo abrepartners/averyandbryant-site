@@ -10,14 +10,14 @@ export function HeroLotLand() {
       aria-label="Lot & Land Media hero"
       className="relative isolate flex min-h-[85vh] items-center overflow-hidden md:min-h-screen"
     >
-      {/* Aerial photo background — real A&B drone capture (1052 Stagecoach, Cabot AR) */}
+      {/* Aerial photo background: real A&B drone capture (1052 Stagecoach, Cabot AR) */}
       <div
         aria-hidden
         className="hero-ll-video absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/lot-land/hero-poster.jpg')" }}
       />
 
-      {/* Heavier gradient — aerial needs the text to read cleanly even over bright sky */}
+      {/* Heavier gradient: aerial needs the text to read cleanly even over bright sky */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/75 to-[#0a0a0a]/30" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-transparent" />
 
@@ -69,7 +69,7 @@ export function HeroLotLand() {
         </h1>
 
         <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
-          FAA Part 107–licensed aerial drone, boundary overlays, proximity maps,
+          FAA Part 107 licensed aerial drone, boundary overlays, proximity maps,
           and cinematic flyover video for land, lots, and development sites
           across Arkansas.
         </p>
@@ -89,12 +89,12 @@ export function HeroLotLand() {
           </Link>
         </div>
 
-        {/* Trust line — aerial licensing matters for land agents */}
+        {/* Trust line: aerial licensing matters for land agents */}
         <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
           <span>★ FAA Part 107 licensed</span>
-          <span aria-hidden>·</span>
+          <span aria-hidden>/</span>
           <span>Fully insured pilots</span>
-          <span aria-hidden>·</span>
+          <span aria-hidden>/</span>
           <span>Boundary overlays available</span>
         </p>
       </div>
@@ -108,7 +108,7 @@ export function HeroLotLand() {
           opacity: 0;
           animation: heroLlWordIn 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
         }
-        /* Slower, subtler zoom — land photography wants stillness */
+        /* Slower, subtler zoom: land photography wants stillness */
         @keyframes heroLlZoom {
           0%   { transform: scale(1.02); }
           100% { transform: scale(1.08); }

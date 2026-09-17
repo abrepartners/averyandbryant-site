@@ -22,31 +22,120 @@ const heroFrame = {
   caption: "326 Houston Drive, Hot Springs",
 };
 
-const rentalGallery = [
+type RentalShot = { src: string; alt: string; caption: string };
+type RentalGroup = { label: string; note: string; shots: RentalShot[] };
+
+/**
+ * Grouped by look, not by property, because the sets are not uniform: one
+ * property has no exterior at all and another was shot in a single room. The
+ * column count follows the item count so a short band never leaves a hole.
+ */
+function galleryGridClass(count: number) {
+  if (count === 1) return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+  if (count === 2) return "grid-cols-1 sm:grid-cols-2";
+  return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+}
+
+const rentalGroups: RentalGroup[] = [
   {
-    src: "/images/airbnb-rentals/326-houston-dr-hot-springs-bunk-room.jpg",
-    alt: "Bunk room with log beds in a short term rental lake cabin in Hot Springs, Arkansas",
-    caption: "Sleeps more, Hot Springs",
+    label: "Lake cabin",
+    note: "Timber, bunks and a covered deck, plus the aerial that sells the water.",
+    shots: [
+      {
+        src: "/images/airbnb-rentals/326-houston-dr-hot-springs-bunk-room.jpg",
+        alt: "Bunk room with log beds in a short term rental lake cabin in Hot Springs, Arkansas",
+        caption: "Sleeps more, Hot Springs",
+      },
+      {
+        src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lakeside-deck-dining.jpg",
+        alt: "Covered deck with wood chairs and a table under a timber ceiling at a short term rental cabin in Hot Springs, Arkansas",
+        caption: "Covered deck, Hot Springs",
+      },
+      {
+        src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lake-cabin-aerial.jpg",
+        alt: "Aerial photo of a wooded lakefront lined with covered boat docks in Hot Springs, Arkansas, with the mountains on the horizon",
+        caption: "Lakefront aerial, Hot Springs",
+      },
+    ],
   },
   {
-    src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lakeside-deck-dining.jpg",
-    alt: "Covered deck with wood chairs and a table under a timber ceiling at a short term rental cabin in Hot Springs, Arkansas",
-    caption: "Covered deck, Hot Springs",
+    label: "City rental",
+    note: "Hotel clean, shot tight, for a guest comparing listings on a phone.",
+    shots: [
+      {
+        src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-guest-bedroom.jpg",
+        alt: "Guest bedroom made up with white hotel bedding in a short term rental at 3714 Idlewild Avenue in North Little Rock, Arkansas",
+        caption: "Guest bedroom, North Little Rock",
+      },
+      {
+        src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-marble-shower.jpg",
+        alt: "Marble shower with a folded towel niche in a short term rental in North Little Rock, Arkansas",
+        caption: "Bath detail, North Little Rock",
+      },
+    ],
   },
   {
-    src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lake-cabin-aerial.jpg",
-    alt: "Aerial photo of a wooded lakefront lined with covered boat docks in Hot Springs, Arkansas, with the mountains on the horizon",
-    caption: "Lakefront aerial, Hot Springs",
+    label: "Neutral luxe interiors",
+    note: "Cream, cane and brass, photographed room by room.",
+    shots: [
+      {
+        src: "/images/airbnb-rentals/neutral-luxe-rental-primary-bedroom-canopy-bed.jpg",
+        alt: "Primary bedroom in a short term rental, with a cane canopy bed, layered cream bedding and a glass balcony door behind full length drapes",
+        caption: "Primary bedroom",
+      },
+      {
+        src: "/images/airbnb-rentals/neutral-luxe-rental-living-room-sectional.jpg",
+        alt: "Living room in a short term rental, with a cream sectional under a large gold framed canvas and a round fluted white coffee table",
+        caption: "Living space",
+      },
+      {
+        src: "/images/airbnb-rentals/neutral-luxe-rental-two-tone-kitchen.jpg",
+        alt: "Kitchen in a short term rental, with cream upper cabinets over stained oak lowers, white subway tile, quartz counters and a stainless range",
+        caption: "Kitchen",
+      },
+    ],
   },
   {
-    src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-guest-bedroom.jpg",
-    alt: "Guest bedroom made up with white hotel bedding in a short term rental at 3714 Idlewild Avenue in North Little Rock, Arkansas",
-    caption: "Guest bedroom, North Little Rock",
+    label: "Glass sunroom in the woods",
+    note: "One room, three ways: the wall of glass, the wood stove, the table.",
+    shots: [
+      {
+        src: "/images/airbnb-rentals/glass-sunroom-rental-living-area-fall-woods.jpg",
+        alt: "Glass walled sunroom in a short term rental, with a leather sofa, velvet chairs, and fall woods and a neighboring house beyond the glass",
+        caption: "Sunroom, glass on three sides",
+      },
+      {
+        src: "/images/airbnb-rentals/glass-sunroom-rental-wood-stove-green-tile.jpg",
+        alt: "Short term rental sunroom, with emerald velvet chairs beside a lit wood stove on a glossy green tile wall and firewood stacked alongside",
+        caption: "Wood stove and green tile",
+      },
+      {
+        src: "/images/airbnb-rentals/glass-sunroom-rental-dining-table-glass-wall.jpg",
+        alt: "Dining end of the sunroom, with a black table and amber chairs at a full height glass wall facing a neighboring two story house",
+        caption: "Dining, glass wall",
+      },
+    ],
   },
   {
-    src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-marble-shower.jpg",
-    alt: "Marble shower with a folded towel niche in a short term rental in North Little Rock, Arkansas",
-    caption: "Bath detail, North Little Rock",
+    label: "Modern cabin on stilts",
+    note: "Exterior, deck and interior, all shot in fall color.",
+    shots: [
+      {
+        src: "/images/airbnb-rentals/stilt-cabin-rental-exterior-fire-pit.jpg",
+        alt: "Modern short term rental cabin on black steel stilts in a fall oak forest, with a cable rail deck and a stone fire pit",
+        caption: "Cabin on stilts",
+      },
+      {
+        src: "/images/airbnb-rentals/stilt-cabin-rental-deck-lounge-fall-canopy.jpg",
+        alt: "Deck of the stilt cabin rental, with a rope daybed and striped chairs behind cable railing, under a thinning oak canopy and open sky",
+        caption: "Deck, fall canopy",
+      },
+      {
+        src: "/images/airbnb-rentals/stilt-cabin-rental-bedroom-open-deck-doors.jpg",
+        alt: "Open plan interior of the stilt cabin rental, with a king bed, a curved olive sofa and sliding doors open onto the deck",
+        caption: "Bed, sofa, open doors",
+      },
+    ],
   },
 ];
 
@@ -142,9 +231,14 @@ export default function AirbnbRentalsPage() {
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Rentals we have already shot.{" "}
             <span className="text-fg-secondary">
-              Styled, lit, and ready to book.
+              Five properties. Five different looks.
             </span>
           </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            A lake cabin, a city rental, a neutral luxe interior, a glass
+            sunroom in the woods, and a cabin on steel stilts. Same team, same
+            standard, five very different properties to sell.
+          </p>
 
           <figure className="mt-12">
             <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
@@ -161,22 +255,36 @@ export default function AirbnbRentalsPage() {
             </figcaption>
           </figure>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {rentalGallery.map((shot) => (
-              <figure key={shot.src}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
-                  <Image
-                    src={shot.src}
-                    alt={shot.alt}
-                    fill
-                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
-                  />
+          <div className="mt-16 space-y-16">
+            {rentalGroups.map((group) => (
+              <div key={group.label}>
+                <h3 className="font-display text-lg font-medium text-fg">
+                  {group.label}
+                </h3>
+                <p className="mt-1 text-sm text-fg-secondary">{group.note}</p>
+                <div
+                  className={`mt-6 grid gap-6 ${galleryGridClass(
+                    group.shots.length,
+                  )}`}
+                >
+                  {group.shots.map((shot) => (
+                    <figure key={shot.src}>
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          fill
+                          sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                        {shot.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
                 </div>
-                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                  {shot.caption}
-                </figcaption>
-              </figure>
+              </div>
             ))}
           </div>
         </div>
