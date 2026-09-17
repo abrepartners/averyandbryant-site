@@ -29,7 +29,7 @@ const beforeAfterPairs = [
 const features = [
   {
     title: "Virtual Staging",
-    description: "12+ styles, powered by Gemini Pro",
+    description: "12+ styles, AI-powered",
   },
   {
     title: "Smart Cleanup",
@@ -332,8 +332,12 @@ export default function VellumPage() {
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 text-center md:px-12">
           <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
-            Stop paying $300 per staging.
+            Done for you virtual staging is $49 a room.
           </h2>
+          <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-fg-secondary">
+            Stage it yourself in Vellum instead. Unlimited generations on Pro,
+            $59 a month.
+          </p>
           <a
             href="https://vellum.homes"
             target="_blank"

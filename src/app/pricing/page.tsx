@@ -3,7 +3,7 @@ import { OrderLink } from "@/components/order-link";
 
 export const metadata = {
   alternates: { canonical: "/pricing" },
-  title: "Pricing — Real Estate Media Packages | Avery & Bryant",
+  title: "Pricing: Real Estate Media Packages | Avery & Bryant",
   description:
     "Transparent pricing for real estate photography, drone, video, virtual tours, and branding across all property types. Central Arkansas.",
 };
@@ -124,7 +124,7 @@ const addOns = [
   { name: "Social Reel (single)", note: "15-30s" },
   { name: "4-Reel Social Pack", note: "bundle" },
   { name: "Aerial Drone Photos + Video", note: "add-on" },
-  { name: "3D Virtual Tour", note: "Matterport" },
+  { name: "3D Virtual Tour", note: "add-on" },
   { name: "2D Floor Plan", note: "add-on" },
   { name: "3D Floor Plan", note: "rendered" },
   { name: "Virtual Staging", note: "per room" },
@@ -216,7 +216,7 @@ export default function PricingPage() {
             À La Carte Add-Ons
           </p>
           <p className="text-[13px] text-fg-secondary mb-8 max-w-md">
-            Available across most verticals. Pricing varies by package — see
+            Available across most verticals. Pricing varies by package, see
             each vertical page for exact rates.
           </p>
           <div className="flex flex-wrap gap-2">
@@ -247,7 +247,7 @@ export default function PricingPage() {
               <p className="text-[13px] text-fg-secondary leading-relaxed">
                 Not happy with your media? Tell us within 7 days of delivery and
                 we&apos;ll reshoot it free. &ldquo;Not happy&rdquo; means an
-                issue with our work — exposure, color, composition, or a missed
+                issue with our work: exposure, color, composition, or a missed
                 shot from your agreed shot list. It doesn&apos;t cover property
                 condition, weather, or changes made after the shoot.
               </p>
