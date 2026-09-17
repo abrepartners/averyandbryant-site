@@ -4,7 +4,7 @@ import { PackageSelector } from "@/components/package-selector";
 export const metadata: Metadata = {
   title: "Find Your Package | Avery & Bryant Real Estate Media",
   description:
-    "Answer three quick questions and we'll recommend the right Arkansas real estate media package — and take you straight to booking. Photos, video, drone, staging, and more.",
+    "Answer three quick questions and we'll recommend the right Arkansas real estate media package, then take you straight to booking. Photos, video, drone, staging, and more.",
   alternates: { canonical: "/get-started" },
   openGraph: {
     title: "Find Your Package | Avery & Bryant",
@@ -28,7 +28,7 @@ export default function GetStartedPage() {
           </h1>
           <p className="mt-6 max-w-xl text-base text-fg-strong">
             Three quick questions. We&apos;ll recommend the right package and
-            take you straight to booking — no guesswork, no pressure.
+            take you straight to booking. No guesswork, no pressure.
           </p>
         </div>
       </section>

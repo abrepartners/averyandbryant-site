@@ -160,7 +160,7 @@ export default function RootLayout({
         <ScrollToTop />
         <QuotePopup />
         <Footer />
-        {/* GHL visitor tracking — ties site behavior back to contacts in GHL */}
+        {/* GHL visitor tracking: ties site behavior back to contacts in GHL */}
         <Script
           id="ghl-tracking"
           src="https://link.averyandbryant.com/js/external-tracking.js"
