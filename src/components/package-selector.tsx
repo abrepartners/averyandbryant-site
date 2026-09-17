@@ -338,9 +338,15 @@ function Result({
         <h2 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
           Let&apos;s scope it on a quick call.
         </h2>
+        {/*
+          One template literal on purpose. This toolchain (Next 16 / SWC) drops
+          the leading space of a JSX text child that follows an expression when
+          that text contains an HTML entity, which is how "Commercial
+          shootsare custom" shipped. Holding the whole sentence inside a single
+          expression makes the spacing impossible to collapse.
+        */}
         <p className="mt-4 max-w-xl text-base text-fg-strong">
-          {type.subject} are custom, so we&apos;ll build the right package
-          live in a free 30-minute consult. No pressure.
+          {`${type.subject} are custom, so we'll build the right package live in a free 30-minute consult. No pressure.`}
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <Link

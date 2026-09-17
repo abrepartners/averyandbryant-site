@@ -7,10 +7,8 @@ import { ChevronDown, Menu, X } from "lucide-react";
 // Real Estate is promoted to its own top-level link: the flagship service.
 // The remaining six property verticals live under "More Services" (labeled so
 // it reads as "the rest" rather than implying Real Estate isn't a service);
-// the non-core product offerings live under "Products". Gallery and Pricing
-// are top level because both carry buying intent and were previously
-// unreachable from the nav. Utility links (Client Portal, Account, Referrals)
-// live in the footer.
+// the non-core product offerings live under "Products". Utility links (Client
+// Portal, Account, Referrals) live in the footer.
 //
 // "The Spot" points straight at gettothespot.com: /studio 301s there, so an
 // internal <Link> would prefetch a cross-origin redirect (console error on
@@ -22,6 +20,15 @@ const services = [
   { label: "Lot & Land", href: "/lot-land" },
   { label: "Builders", href: "/builders" },
   { label: "Branding", href: "/branding" },
+];
+
+// Gallery and Pricing both carry buying intent and were unreachable from the
+// nav. They hang off "More Services" rather than the top-level row: two more
+// top-level links overflow the desktop row between roughly 940px and 1095px,
+// and the brief is to keep the existing visual design exactly.
+const browse = [
+  { label: "Gallery", href: "/gallery" },
+  { label: "Pricing", href: "/pricing" },
 ];
 
 const products = [
@@ -100,7 +107,7 @@ export function Nav() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden items-center gap-5 md:flex lg:gap-7">
+          <div className="hidden items-center gap-7 md:flex">
             <Link
               href="/real-estate"
               className="text-[11px] uppercase tracking-[0.15em] text-fg-strong transition-colors hover:text-white"
@@ -132,6 +139,17 @@ export function Nav() {
                       className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-fg-strong transition-colors hover:bg-white/5 hover:text-white"
                     >
                       {s.label}
+                    </Link>
+                  ))}
+                  <div className="my-1 border-t border-border" />
+                  {browse.map((b) => (
+                    <Link
+                      key={b.href}
+                      href={b.href}
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-fg-strong transition-colors hover:bg-white/5 hover:text-white"
+                    >
+                      {b.label}
                     </Link>
                   ))}
                 </div>
@@ -180,20 +198,6 @@ export function Nav() {
                 </div>
               )}
             </div>
-
-            <Link
-              href="/gallery"
-              className="text-[11px] uppercase tracking-[0.15em] text-fg-secondary transition-colors hover:text-white"
-            >
-              Gallery
-            </Link>
-
-            <Link
-              href="/pricing"
-              className="text-[11px] uppercase tracking-[0.15em] text-fg-secondary transition-colors hover:text-white"
-            >
-              Pricing
-            </Link>
 
             <a
               href="https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc"
