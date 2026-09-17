@@ -26,7 +26,7 @@ const services: Service[] = [
         {
           src: "/images/services/photos/white-kitchen-little-rock.jpg",
           label: "Interior, Little Rock",
-          alt: "White kitchen with grey perimeter cabinets and a subway tile backsplash in a Little Rock listing",
+          alt: "White kitchen with gray perimeter cabinets and a subway tile backsplash in a Little Rock listing",
         },
         {
           src: "/images/services/photos/game-room.jpg",
@@ -142,7 +142,7 @@ const services: Service[] = [
       "Interactive 3D walkthrough. Buyers explore the home remotely, room by room. Zillow 3D with floor plan at $149, 3D walkthrough tour at $299.",
     image: "/images/portfolio-interior-2.jpg",
     imageAlt:
-      "Kitchen with dark grey cabinets, a stone island, and pendant chandeliers, opening to an empty dining area with wood floors",
+      "Kitchen with dark gray cabinets, a stone island, and pendant chandeliers, opening to an empty dining area with wood floors",
     preview: {
       kind: "videos",
       orientation: "horizontal",
@@ -172,7 +172,7 @@ const services: Service[] = [
       "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 48 hours. Virtual twilight is $39 per image.",
     image: "/images/showcase-staging-after.jpg",
     imageAlt:
-      "Primary bedroom after virtual staging, furnished with a bed, a grey sofa, a jute rug, and framed art",
+      "Primary bedroom after virtual staging, furnished with a bed, a gray sofa, a jute rug, and framed art",
     preview: {
       kind: "images",
       items: [
@@ -277,59 +277,59 @@ const verticals = [
 const brokerageMarks = [
   {
     src: "/images/brokerages/coldwell-banker.png",
-    width: 383,
+    width: 569,
     height: 160,
     name: "Coldwell Banker",
-    className: "h-4 md:h-[18px]",
+    className: "h-[22px] md:h-[18px]",
   },
   {
     src: "/images/brokerages/century-21.png",
     width: 126,
     height: 160,
     name: "Century 21",
-    className: "h-7 md:h-8",
+    className: "h-9 md:h-8",
   },
   {
     src: "/images/brokerages/keller-williams.png",
     width: 350,
     height: 160,
     name: "Keller Williams",
-    className: "h-6 md:h-7",
+    className: "h-8 md:h-7",
   },
   {
     src: "/images/brokerages/crye-leike.png",
     width: 582,
     height: 160,
     name: "Crye-Leike",
-    className: "h-4 md:h-[18px]",
+    className: "h-[22px] md:h-[18px]",
   },
   {
     src: "/images/brokerages/engel-voelkers.png",
     width: 595,
     height: 160,
     name: "Engel and Voelkers",
-    className: "h-4 md:h-[18px]",
+    className: "h-[22px] md:h-[18px]",
   },
   {
     src: "/images/brokerages/irealty-arkansas.png",
     width: 565,
     height: 160,
     name: "iRealty Arkansas",
-    className: "h-4 md:h-5",
+    className: "h-[22px] md:h-5",
   },
   {
     src: "/images/brokerages/the-property-group.png",
     width: 304,
     height: 160,
     name: "The Property Group",
-    className: "h-6 md:h-7",
+    className: "h-8 md:h-7",
   },
   {
     src: "/images/brokerages/back-porch-realty.png",
     width: 417,
     height: 160,
     name: "Back Porch Realty",
-    className: "h-6 md:h-7",
+    className: "h-8 md:h-7",
   },
 ];
 
@@ -387,7 +387,7 @@ export default function HomePage() {
                   alt={`${mark.name} logo`}
                   width={mark.width}
                   height={mark.height}
-                  className={`w-auto opacity-40 transition-opacity duration-500 hover:opacity-70 ${mark.className}`}
+                  className={`w-auto opacity-65 transition-opacity duration-500 hover:opacity-70 md:opacity-40 ${mark.className}`}
                 />
               ))}
             </div>

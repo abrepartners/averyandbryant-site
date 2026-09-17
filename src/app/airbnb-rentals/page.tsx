@@ -80,17 +80,17 @@ const rentalGroups: RentalGroup[] = [
     shots: [
       {
         src: "/images/airbnb-rentals/neutral-luxe-rental-primary-bedroom-canopy-bed.jpg",
-        alt: "Primary bedroom in a short term rental, with a whitewashed cane four poster canopy bed under layered cream and champagne bedding, a lit glass lamp and white tulips on a pale carved dresser, a spotted rug, and a sliding glass balcony door behind full length cream drapes",
+        alt: "Primary bedroom in a short term rental, with a cane canopy bed, layered cream bedding and a glass balcony door behind full length drapes",
         caption: "Primary bedroom",
       },
       {
         src: "/images/airbnb-rentals/neutral-luxe-rental-living-room-sectional.jpg",
-        alt: "Living room in a short term rental, with a cream sectional and metallic pillows under a large gold framed abstract canvas, a round fluted white coffee table holding a white horse sculpture and a brass candelabra, and a lit lamp beside a glass balcony door",
+        alt: "Living room in a short term rental, with a cream sectional under a large gold framed canvas and a round fluted white coffee table",
         caption: "Living space",
       },
       {
         src: "/images/airbnb-rentals/neutral-luxe-rental-two-tone-kitchen.jpg",
-        alt: "Kitchen in a short term rental, with cream upper cabinets over stained oak lower cabinets, white subway tile, light quartz counters, a stainless range and hood, and a gold bowl and white flowers staged on the counter",
+        alt: "Kitchen in a short term rental, with cream upper cabinets over stained oak lowers, white subway tile, quartz counters and a stainless range",
         caption: "Kitchen",
       },
     ],
@@ -101,38 +101,38 @@ const rentalGroups: RentalGroup[] = [
     shots: [
       {
         src: "/images/airbnb-rentals/glass-sunroom-rental-living-area-fall-woods.jpg",
-        alt: "Glass walled sunroom in a short term rental, with black steel window frames on three sides, a pine cathedral ceiling and black ceiling fan, a tan leather channel sofa and two emerald velvet swivel chairs around a studded black drum table, and autumn woods outside every window",
-        caption: "Sunroom, autumn woods",
+        alt: "Glass walled sunroom in a short term rental, with a leather sofa, velvet chairs, and fall woods and a neighboring house beyond the glass",
+        caption: "Sunroom, glass on three sides",
       },
       {
         src: "/images/airbnb-rentals/glass-sunroom-rental-wood-stove-green-tile.jpg",
-        alt: "Emerald velvet chairs beside a black wood stove with a fire burning behind its glass door, set against a glossy green tile chimney wall with split firewood stacked next to it, under a pine ceiling with a skylight",
+        alt: "Short term rental sunroom, with emerald velvet chairs beside a lit wood stove on a glossy green tile wall and firewood stacked alongside",
         caption: "Wood stove and green tile",
       },
       {
         src: "/images/airbnb-rentals/glass-sunroom-rental-dining-table-glass-wall.jpg",
-        alt: "Dining end of the same glass walled sunroom, with a black table and amber acrylic chairs against a full height glass wall onto the fall woods, the emerald velvet chairs in the foreground and the lit wood stove at the right edge",
+        alt: "Dining end of the sunroom, with a black table and amber chairs at a full height glass wall facing a neighboring two story house",
         caption: "Dining, glass wall",
       },
     ],
   },
   {
     label: "Modern cabin on stilts",
-    note: "Exterior, deck and interior, all at peak fall colour.",
+    note: "Exterior, deck and interior, all shot in fall color.",
     shots: [
       {
         src: "/images/airbnb-rentals/stilt-cabin-rental-exterior-fire-pit.jpg",
-        alt: "Modern cabin raised on black steel stilts in an oak forest at peak fall colour, with vertical cedar toned siding, a dark metal shed roof over a lit clerestory window band, a black cable rail deck and open stair, and a dry stacked stone fire pit ring on the gravel below",
+        alt: "Modern short term rental cabin on black steel stilts in a fall oak forest, with a cable rail deck and a stone fire pit",
         caption: "Cabin on stilts",
       },
       {
         src: "/images/airbnb-rentals/stilt-cabin-rental-deck-lounge-fall-canopy.jpg",
-        alt: "Deck of the stilt cabin, with a rope daybed under white cushions, black and white striped outdoor seating and a small round side table on a jute rug over dark decking, behind black cable railing with a wall of orange and gold fall foliage beyond",
+        alt: "Deck of the stilt cabin rental, with a rope daybed and striped chairs behind cable railing, under a thinning oak canopy and open sky",
         caption: "Deck, fall canopy",
       },
       {
         src: "/images/airbnb-rentals/stilt-cabin-rental-bedroom-open-deck-doors.jpg",
-        alt: "Open plan interior of the stilt cabin, with a king bed in olive bedding and a caramel knit throw at right, a curved olive sofa on a zebra print rug beside pale oak built in shelving at left, and wide black framed sliding doors standing open onto the deck and the autumn trees",
+        alt: "Open plan interior of the stilt cabin rental, with a king bed, a curved olive sofa and sliding doors open onto the deck",
         caption: "Bed, sofa, open doors",
       },
     ],

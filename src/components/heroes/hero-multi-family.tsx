@@ -83,7 +83,7 @@ export function HeroMultiFamily() {
           <div className="relative overflow-hidden rounded border border-white/10 bg-[#111] aspect-[4/5] md:aspect-[3/4]">
             <Image
               src="/images/multi-family/hero-exterior.jpg"
-              alt="Multi-family property aerial — Avery & Bryant"
+              alt="Aerial over a multi-family community, shot by Avery & Bryant"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 45vw"
@@ -96,7 +96,7 @@ export function HeroMultiFamily() {
                   Multi-Family Media
                 </p>
                 <p className="mt-1 text-sm text-fg">
-                  Communities · Apartments · Student Housing
+                  Communities, Apartments, Student Housing
                 </p>
               </div>
               <span className="rounded border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-fg-strong">

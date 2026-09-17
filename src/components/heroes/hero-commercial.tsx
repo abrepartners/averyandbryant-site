@@ -1,23 +1,21 @@
 "use client";
 
-import Link from "next/link";
-
 const tiles = [
   {
     label: "Dealerships",
-    meta: "Inventory · drone · brand",
+    meta: "Inventory, drone, brand",
   },
   {
     label: "Offices & Retail",
-    meta: "Exterior · interior · team",
+    meta: "Exterior, interior, team",
   },
   {
     label: "Industrial",
-    meta: "Aerial · facility tours",
+    meta: "Aerial, facility tours",
   },
   {
     label: "Hospitality",
-    meta: "Restaurants · venues · hotels",
+    meta: "Restaurants, venues, hotels",
   },
 ];
 
@@ -32,7 +30,7 @@ export function HeroCommercial() {
       <div className="pointer-events-none absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[160px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[0.95fr_1.05fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
-        {/* LEFT — typography */}
+        {/* LEFT: typography */}
         <div className="flex flex-col justify-center">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
@@ -73,14 +71,14 @@ export function HeroCommercial() {
 
           <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
             <span>☰ Custom scope</span>
-            <span aria-hidden>·</span>
+            <span aria-hidden>/</span>
             <span>Recurring programs</span>
-            <span aria-hidden>·</span>
+            <span aria-hidden>/</span>
             <span>Fully insured</span>
           </p>
         </div>
 
-        {/* RIGHT — 2x2 category board (editorial cards; real commercial photos wire in as shot) */}
+        {/* RIGHT: 2x2 category board (editorial cards; real commercial photos wire in as shot) */}
         <div className="grid grid-cols-2 gap-3 md:gap-4">
           {tiles.map((t, i) => (
             <div

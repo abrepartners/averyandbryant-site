@@ -43,25 +43,25 @@ const portfolioGroups: PortfolioGroup[] = [
   {
     label: "Retail centers",
     lead: {
-      src: "/images/commercial/rose-city-center-little-rock-grocery-anchor-exterior.jpg",
-      alt: "Elevated three quarter view of the grocery anchor at Rose City Center in Little Rock, Arkansas, with a tan stucco facade, green standing seam gables and a parking lot of cars and pickups under a blue sky",
-      caption: "Grocery anchor, Little Rock",
+      src: "/images/commercial/rose-city-center-north-little-rock-grocery-anchor-exterior.jpg",
+      alt: "Elevated three quarter view of the grocery anchor at Rose City Center in North Little Rock, Arkansas, with a tan stucco facade, green standing seam gables and a parking lot of cars and pickups under a blue sky",
+      caption: "Grocery anchor, North Little Rock",
     },
     shots: [
       {
-        src: "/images/commercial/rose-city-center-little-rock-overhead-site-aerial.jpg",
-        alt: "Overhead drone photo of Rose City Center in Little Rock, Arkansas, showing the white flat roofs of the strip and its grocery anchor, the full striped parking field, an out parcel building with a drive through lane, and a four lane highway along the bottom of the frame",
-        caption: "Site aerial, Little Rock",
+        src: "/images/commercial/rose-city-center-north-little-rock-overhead-site-aerial.jpg",
+        alt: "Overhead drone photo of Rose City Center in North Little Rock, Arkansas, showing the white flat roofs of the strip and its grocery anchor, the full striped parking field, an out parcel building with a drive through lane, and a four lane highway along the bottom of the frame",
+        caption: "Site aerial, North Little Rock",
       },
       {
-        src: "/images/commercial/rose-city-center-little-rock-pylon-sign.jpg",
-        alt: "Elevated view of the Rose City Center pylon sign in Little Rock, Arkansas, with a rose logo above stacked tenant panels, beside a highway with route markers and grain silos on the horizon",
-        caption: "Center signage, Little Rock",
+        src: "/images/commercial/rose-city-center-north-little-rock-pylon-sign.jpg",
+        alt: "Elevated view of the Rose City Center pylon sign in North Little Rock, Arkansas, with a rose logo above stacked tenant panels, beside a highway with route markers and grain silos on the horizon",
+        caption: "Center signage, North Little Rock",
       },
       {
-        src: "/images/commercial/rose-city-center-little-rock-tenant-storefront.jpg",
-        alt: "Angled ground level view along the red metal awning of the in line shops at Rose City Center in Little Rock, Arkansas, with glass storefronts, brick bulkheads and red steel canopy posts receding to the right under a blue sky",
-        caption: "In line tenants, Little Rock",
+        src: "/images/commercial/rose-city-center-north-little-rock-tenant-storefront.jpg",
+        alt: "Angled ground level view along the red metal awning of the in line shops at Rose City Center in North Little Rock, Arkansas, with glass storefronts, brick bulkheads and red steel canopy posts receding to the right under a blue sky",
+        caption: "In line tenants, North Little Rock",
       },
     ],
   },

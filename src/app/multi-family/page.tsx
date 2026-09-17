@@ -92,27 +92,18 @@ const faqs = [
 
 // Real frames from a finished drone video we delivered for an Arkansas apartment
 // community. Every caption and alt line below was written against the pixels,
-// not the filename.
-const leadAerial = {
-  src: "/images/multi-family/parham-pointe-apartments-aerial-community-scale.jpg",
-  alt: "High aerial over an Arkansas apartment community of three storey buildings with tan hipped roofs, ringed by dense green tree canopy, with an interstate, an open green space and a commercial district beyond and a city skyline on the horizon",
-  caption: "Community aerial, Arkansas",
-};
-
+// not the filename. Two frames, not four: the clip is one continuous push-in, so
+// the middle frames were near duplicates that read identically at tile size. What
+// is left is the high establishing shot and the low architectural shot.
 const communityAerials = [
   {
-    src: "/images/multi-family/parham-pointe-apartments-aerial-buildings-treeline.jpg",
-    alt: "Aerial of the same Arkansas apartment community from lower altitude, with the buildings and their parking lots reading individually against the treeline and a highway, an open green space and commercial buildings across the top of the frame",
-    caption: "Property and highway context",
-  },
-  {
-    src: "/images/multi-family/parham-pointe-apartments-aerial-pool-and-parking.jpg",
-    alt: "Closer aerial of the apartment community showing roughly a dozen buildings with their parking, drive lanes and mature trees between them, and a small swimming pool near the centre of the frame",
-    caption: "Buildings, parking and pool",
+    src: "/images/multi-family/parham-pointe-apartments-aerial-community-scale.jpg",
+    alt: "High aerial over an Arkansas apartment community of three story buildings ringed by green tree canopy, with an interstate and a city skyline beyond",
+    caption: "Community aerial, Arkansas",
   },
   {
     src: "/images/multi-family/parham-pointe-apartments-aerial-arched-breezeway.jpg",
-    alt: "Low aerial of one apartment building with a wide hipped roof and white arched breezeways across its face, with a curving drive and parked cars at left and more buildings among the trees behind",
+    alt: "Low aerial of one Arkansas apartment building with white arched breezeways across its face, a curving drive and parked cars at left",
     caption: "Low aerial, building detail",
   },
 ];
@@ -140,22 +131,7 @@ export default function MultiFamilyPage() {
             around the property, in the shots a leasing team actually uses.
           </p>
 
-          <figure className="mt-12">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
-              <Image
-                src={leadAerial.src}
-                alt={leadAerial.alt}
-                fill
-                sizes="(min-width: 1280px) 1216px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-              {leadAerial.caption}
-            </figcaption>
-          </figure>
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {communityAerials.map((shot) => (
               <figure key={shot.src}>
                 <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
@@ -163,7 +139,7 @@ export default function MultiFamilyPage() {
                     src={shot.src}
                     alt={shot.alt}
                     fill
-                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover"
                   />
                 </div>
