@@ -124,7 +124,7 @@ const addOns = [
   { name: "Social Reel (single)", note: "15-30s" },
   { name: "4-Reel Social Pack", note: "bundle" },
   { name: "Aerial Drone Photos + Video", note: "add-on" },
-  { name: "3D Virtual Tour", note: "Matterport" },
+  { name: "3D Virtual Tour", note: "add-on" },
   { name: "2D Floor Plan", note: "add-on" },
   { name: "3D Floor Plan", note: "rendered" },
   { name: "Virtual Staging", note: "per room" },

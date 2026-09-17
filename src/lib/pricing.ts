@@ -114,7 +114,7 @@ export const realEstatePricing: VerticalPricing = {
           label: "Everything in Listing Domination System",
           value: "$1,479",
         },
-        { label: "Cinematic Property Video (90 to 120s)", value: "$395" },
+        { label: "Cinematic Property Video (60-90s)", value: "$295" },
         { label: "4-Reel Social Pack", value: "$595" },
         { label: "Virtual Staging (3 rooms)", value: "$147" },
         {
@@ -128,8 +128,8 @@ export const realEstatePricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$2,864",
-      savings: "Save $2,015",
+      totalValue: "$2,764",
+      savings: "Save $1,915",
     },
   ],
   enhancementPacks: [
@@ -231,7 +231,7 @@ export const buildersPricing: VerticalPricing = {
       valueItems: [
         { label: "40+ HDR Photos", value: "$215" },
         { label: "Aerial Drone Photos + Video", value: "$150" },
-        { label: "Cinematic Video (90 to 120s)", value: "$395" },
+        { label: "Cinematic Video (60-90s)", value: "$295" },
         { label: "4-Reel Social Pack", value: "$595" },
         { label: "2D Floor Plan", value: "$99" },
         {
@@ -250,15 +250,15 @@ export const buildersPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$1,801",
-      savings: "Save $406",
+      totalValue: "$1,701",
+      savings: "Save $306",
     },
     {
       name: "Model Home Launch Blueprint",
       price: "$1,895",
       tag: "The full launch experience",
       valueItems: [
-        { label: "Everything in Builder Marketing System", value: "$1,801" },
+        { label: "Everything in Builder Marketing System", value: "$1,701" },
         { label: "3D Virtual Tour", value: "$299" },
         { label: "Virtual Staging (3 rooms)", value: "$147" },
         { label: "Real Twilight Hero Shot", value: "$245" },
@@ -273,8 +273,8 @@ export const buildersPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$2,840",
-      savings: "Save $945",
+      totalValue: "$2,740",
+      savings: "Save $845",
     },
   ],
   addOns: [
@@ -433,7 +433,7 @@ export const lotLandPricing: VerticalPricing = {
       tag: "Full aerial + video coverage",
       valueItems: [
         { label: "Everything in Land Marketing System", value: "$736" },
-        { label: "Upgrade to Extended Drone Video (60s cinematic)", value: "$145" },
+        { label: "Extended Drone Video (60s cinematic)", value: "$200" },
         {
           label: "Neighborhood Context Shots",
           value: "$99",
@@ -445,15 +445,15 @@ export const lotLandPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$1,079",
-      savings: "Save $430",
+      totalValue: "$1,134",
+      savings: "Save $485",
     },
     {
       name: "Dream Home Vision",
       price: "$995",
       tag: "AI-rendered home visualization",
       valueItems: [
-        { label: "Everything in Vision Blueprint", value: "$1,079" },
+        { label: "Everything in Vision Blueprint", value: "$1,134" },
         { label: "AI Rendering: Home on the Lot (Vellum)", value: "$295" },
         { label: "2 Additional AI Rendering Angles", value: "$295" },
         {
@@ -467,8 +467,8 @@ export const lotLandPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$1,967",
-      savings: "Save $972",
+      totalValue: "$2,022",
+      savings: "Save $1,027",
     },
   ],
   addOns: [
@@ -522,22 +522,22 @@ export const multiFamilyPricing: VerticalPricing = {
         { label: "Multi-Unit Photography (up to 3 types)", value: "$395" },
         { label: "Cinematic Drone Video (60s)", value: "$295" },
         { label: "4-Reel Social Pack", value: "$595" },
-        { label: "Floor Plan Per Unit Type (up to 2)", value: "$198" },
+        { label: "Floor Plans Per Unit Type", value: "$199" },
         {
           label: "Property Marketing Deck: 10-page branded PDF",
           value: "$299",
           isBonus: true,
         },
       ],
-      totalValue: "$3,012",
-      savings: "Save $1,317",
+      totalValue: "$3,013",
+      savings: "Save $1,318",
     },
     {
       name: "Leasing Domination Suite",
       price: "From $2,995",
       tag: "Full ongoing content program",
       valueItems: [
-        { label: "Everything in Full Property Command", value: "$3,012" },
+        { label: "Everything in Full Property Command", value: "$3,013" },
         {
           label: "Ongoing monthly content (reels + seasonal)",
           value: "Custom",
@@ -555,8 +555,8 @@ export const multiFamilyPricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$3,210+",
-      savings: "Save $215+",
+      totalValue: "$3,211+",
+      savings: "Save $216+",
     },
   ],
   addOns: [
@@ -577,7 +577,7 @@ export const commercialPackages: Package[] = [
     tag: "Commercial listing essentials",
     valueItems: [
       { label: "30+ HDR Interior + Exterior Photos", value: "$215" },
-      { label: "Aerial Drone Coverage (commercial)", value: "$299" },
+      { label: "Aerial Drone Photos + Video", value: "$150" },
       { label: "Real Twilight Hero Shot", value: "$245" },
       {
         label: "Broker Presentation Kit: 3 slides for OM/pitch books",
@@ -590,8 +590,11 @@ export const commercialPackages: Package[] = [
         isBonus: true,
       },
     ],
-    totalValue: "$1,107",
-    savings: "Save $112",
+    totalValue: "$958",
+    // At catalog prices the listed components total $958 against a $995
+    // package price, so there is no bundle saving to state. Left blank
+    // rather than printed, pending an owner ruling on the package price.
+    savings: "",
   },
   {
     name: "CRE Command System",
@@ -599,8 +602,8 @@ export const commercialPackages: Package[] = [
     tag: "Full marketing suite",
     recommended: true,
     valueItems: [
-      { label: "Everything in CRE Launch Package", value: "$1,107" },
-      { label: "Cinematic Interior Walkthrough (90 to 120s)", value: "$395" },
+      { label: "Everything in CRE Launch Package", value: "$958" },
+      { label: "Cinematic Interior Walkthrough (60-90s)", value: "$295" },
       { label: "3D Virtual Tour", value: "$299" },
       { label: "2D Floor Plan", value: "$99" },
       {
@@ -609,8 +612,8 @@ export const commercialPackages: Package[] = [
         isBonus: true,
       },
     ],
-    totalValue: "$2,145",
-    savings: "Save $450",
+    totalValue: "$1,896",
+    savings: "Save $201",
   },
 ];
 
@@ -780,8 +783,8 @@ export const brandingTeamPackages: Package[] = [
         isBonus: true,
       },
     ],
-    totalValue: "$2,888+",
-    savings: "Save $693+",
+    totalValue: "$2,887+",
+    savings: "Save $692+",
   },
   {
     name: "Content Retainer",
