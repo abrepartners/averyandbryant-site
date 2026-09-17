@@ -15,8 +15,14 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
+// Manifest defaults to new-products.json; pass another with --manifest <file>.
+const manifestArg = process.argv.indexOf("--manifest");
+const MANIFEST_FILE =
+  manifestArg > -1 && process.argv[manifestArg + 1]
+    ? process.argv[manifestArg + 1]
+    : "new-products.json";
 const MANIFEST = JSON.parse(
-  readFileSync(join(here, "new-products.json"), "utf8"),
+  readFileSync(join(here, MANIFEST_FILE), "utf8"),
 );
 
 const API_BASE = process.env.ARYEO_API_BASE_URL ?? "https://api.aryeo.com/v1";

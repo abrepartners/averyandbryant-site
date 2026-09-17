@@ -1,0 +1,23 @@
+{
+  "note": "Land aerial packages created 2026-09-17 after the Saunders Real Estate travel-fee conversation. Travel is INCLUDED inside 100 miles of Little Rock so it is never itemised on a land quote again. Not attached to any order form, so not orderable until wired up in the dashboard.",
+  "categories_to_create": [],
+  "categories_existing": { "land": "Land/Vacant Lot" },
+  "products": [
+    {
+      "title": "Land Aerial Package",
+      "description": "Aerial coverage built for land and lot listings, with travel included.\nIncludes:\n- 20 drone photos\n- Boundary overlay on the key frames\n- Travel included anywhere within 100 miles of Little Rock\n\nNo separate travel fee. Boundary lines are part of the package, so the photographer has them before the shoot rather than working them out on site.",
+      "type": "MAIN",
+      "categories": ["land"],
+      "price": 34900,
+      "duration": 60
+    },
+    {
+      "title": "Land Aerial Package - Additional Property, Same Trip",
+      "description": "Each additional land or lot property photographed on the same trip as a Land Aerial Package.\nIncludes:\n- 20 drone photos\n- Boundary overlay on the key frames\n\nPriced lower because the travel is already covered by the first property on the trip. Book the cluster together.",
+      "type": "MAIN",
+      "categories": ["land"],
+      "price": 24900,
+      "duration": 45
+    }
+  ]
+}
