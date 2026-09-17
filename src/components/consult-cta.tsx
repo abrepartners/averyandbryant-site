@@ -43,7 +43,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-fg-strong">
               {subhead ??
-                "Book a free 30-minute call with Thomas. We'll walk through what you're trying to do, what it costs, and which package actually fits — no pressure, no pitch deck."}
+                "Book a free 30 minute call with our team. We'll walk through what you're trying to do, what it costs, and which package actually fits. No pressure, no pitch deck."}
             </p>
             <ul className="mt-6 grid gap-2 text-sm text-fg-secondary sm:grid-cols-2">
               <li className="flex items-start gap-2">
