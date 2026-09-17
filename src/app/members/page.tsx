@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   alternates: { canonical: "/members" },
-  title: "Member Account | The Spot · Avery & Bryant",
+  title: "Member Account | The Spot Studios | Avery & Bryant",
   description:
     "Member hub for The Spot Creative Studios. Manage your subscription, book sessions, and access your credits.",
   robots: { index: false, follow: false },
@@ -12,7 +12,9 @@ const STRIPE_PORTAL_URL =
   process.env.NEXT_PUBLIC_STRIPE_PORTAL_URL ??
   "https://billing.stripe.com/p/login/test-activate-portal";
 
-const CALENDAR_BOOKING_URL = "https://averyandbryant.com/studio#sets";
+// The Spot books from its own front door: /studio 301s to gettothespot.com,
+// so link straight there (no cross-origin prefetch, no extra redirect hop).
+const CALENDAR_BOOKING_URL = "https://gettothespot.com";
 
 const cards = [
   {
@@ -20,7 +22,7 @@ const cards = [
     tag: "Billing",
     title: "Manage your subscription",
     description:
-      "Update payment method, view invoices, upgrade or pause your plan — all in Stripe's secure portal.",
+      "Update payment method, view invoices, upgrade or pause your plan, all in Stripe's secure portal.",
     cta: { label: "Open Billing Portal", href: STRIPE_PORTAL_URL, external: true },
     accent: "crimson",
   },
@@ -30,7 +32,7 @@ const cards = [
     title: "Book a studio slot",
     description:
       "Your member discount applies automatically at checkout. Pick a room, pick a time, show up ready to record.",
-    cta: { label: "Browse Rooms", href: CALENDAR_BOOKING_URL, external: false },
+    cta: { label: "Browse Rooms", href: CALENDAR_BOOKING_URL, external: true },
     accent: "tier2",
   },
   {
@@ -51,7 +53,7 @@ const cards = [
     tag: "Support",
     title: "Need a hand?",
     description:
-      "Reply to any confirmation email, or reach Thomas directly — we answer fast during studio hours.",
+      "Reply to any confirmation email, or write to book@averyandbryant.com. The studio team answers fast during studio hours.",
     cta: {
       label: "Contact support",
       href: "mailto:book@averyandbryant.com?subject=Member%20Support",
@@ -92,7 +94,7 @@ export default function MembersPage() {
           <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
             <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              The Spot · Member Account
+              The Spot Studios / Member Account
             </span>
           </div>
 
@@ -106,8 +108,8 @@ export default function MembersPage() {
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
             Your hub for The Spot. Manage billing, book your next session, or
-            redeem monthly credits. Sign in with the email you subscribed with
-            — no extra password to remember.
+            redeem monthly credits. Sign in with the email you subscribed
+            with. No extra password to remember.
           </p>
 
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
@@ -118,7 +120,7 @@ export default function MembersPage() {
               rel="noopener noreferrer"
               className="text-crimson hover:text-white"
             >
-              That&apos;s a separate portal — open it here
+              That&apos;s a separate portal, open it here
             </a>
             .
           </p>
@@ -173,9 +175,14 @@ export default function MembersPage() {
 
           <p className="mt-12 text-center text-sm text-fg-secondary">
             Not a member yet?{" "}
-            <Link href="/studio" className="text-crimson hover:text-white">
+            <a
+              href="https://gettothespot.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-crimson hover:text-white"
+            >
               See membership options
-            </Link>
+            </a>
             .
           </p>
         </div>

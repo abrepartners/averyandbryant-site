@@ -4,11 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
-// Real Estate is promoted to its own top-level link — the flagship service.
+// Real Estate is promoted to its own top-level link: the flagship service.
 // The remaining six property verticals live under "More Services" (labeled so
 // it reads as "the rest" rather than implying Real Estate isn't a service);
 // the non-core product offerings live under "Products". Utility links (Client
-// Portal, Account, Referrals) moved to the footer.
+// Portal, Account, Referrals) live in the footer.
+//
+// "The Spot" points straight at gettothespot.com: /studio 301s there, so an
+// internal <Link> would prefetch a cross-origin redirect (console error on
+// every page load) and cost every visitor an extra hop.
 const services = [
   { label: "Airbnb Rentals", href: "/airbnb-rentals" },
   { label: "Multi-Family", href: "/multi-family" },
@@ -18,9 +22,22 @@ const services = [
   { label: "Branding", href: "/branding" },
 ];
 
+// Gallery and Pricing both carry buying intent and were unreachable from the
+// nav. They hang off "More Services" rather than the top-level row: two more
+// top-level links overflow the desktop row between roughly 940px and 1095px,
+// and the brief is to keep the existing visual design exactly.
+const browse = [
+  { label: "Gallery", href: "/gallery" },
+  { label: "Pricing", href: "/pricing" },
+];
+
 const products = [
-  { label: "The Spot · Studios", href: "/studio" },
-  { label: "Vellum", href: "/vellum" },
+  {
+    label: "The Spot Studios",
+    href: "https://gettothespot.com",
+    external: true,
+  },
+  { label: "Vellum", href: "/vellum", external: false },
 ];
 
 export function Nav() {
@@ -72,7 +89,7 @@ export function Nav() {
           <Link
             href="/"
             className="flex items-center gap-3"
-            aria-label="Avery & Bryant — home"
+            aria-label="Avery & Bryant, home"
           >
             <svg
               viewBox="490 281 120 128"
@@ -124,6 +141,17 @@ export function Nav() {
                       {s.label}
                     </Link>
                   ))}
+                  <div className="my-1 border-t border-border" />
+                  {browse.map((b) => (
+                    <Link
+                      key={b.href}
+                      href={b.href}
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-fg-strong transition-colors hover:bg-white/5 hover:text-white"
+                    >
+                      {b.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -144,16 +172,29 @@ export function Nav() {
               </button>
               {productsOpen && (
                 <div className="absolute left-0 top-full mt-3 w-52 rounded-md border border-border bg-[rgba(10,10,10,0.97)] p-2 backdrop-blur-2xl">
-                  {products.map((p) => (
-                    <Link
-                      key={p.href}
-                      href={p.href}
-                      onClick={() => setProductsOpen(false)}
-                      className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-fg-strong transition-colors hover:bg-white/5 hover:text-white"
-                    >
-                      {p.label}
-                    </Link>
-                  ))}
+                  {products.map((p) =>
+                    p.external ? (
+                      <a
+                        key={p.href}
+                        href={p.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setProductsOpen(false)}
+                        className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-fg-strong transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        {p.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={p.href}
+                        href={p.href}
+                        onClick={() => setProductsOpen(false)}
+                        className="block rounded px-3 py-2.5 text-[11px] uppercase tracking-[0.12em] text-fg-strong transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        {p.label}
+                      </Link>
+                    ),
+                  )}
                 </div>
               )}
             </div>
@@ -236,18 +277,47 @@ export function Nav() {
           </button>
           {mobileProductsOpen && (
             <div className="ml-4 border-l border-border pl-4">
-              {products.map((p) => (
-                <Link
-                  key={p.href}
-                  href={p.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-fg-secondary hover:text-white"
-                >
-                  {p.label}
-                </Link>
-              ))}
+              {products.map((p) =>
+                p.external ? (
+                  <a
+                    key={p.href}
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-fg-secondary hover:text-white"
+                  >
+                    {p.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={p.href}
+                    href={p.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-fg-secondary hover:text-white"
+                  >
+                    {p.label}
+                  </Link>
+                ),
+              )}
             </div>
           )}
+
+          <Link
+            href="/gallery"
+            onClick={() => setMobileOpen(false)}
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-fg-strong hover:text-white"
+          >
+            Gallery
+          </Link>
+
+          <Link
+            href="/pricing"
+            onClick={() => setMobileOpen(false)}
+            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-fg-strong hover:text-white"
+          >
+            Pricing
+          </Link>
 
           <a
             href="https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc"

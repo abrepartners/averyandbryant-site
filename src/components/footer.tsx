@@ -3,7 +3,7 @@ import { Instagram, Facebook, Youtube, MapPin, Phone } from "lucide-react";
 
 const locations = [
   {
-    city: "Little Rock · Central Arkansas",
+    city: "Little Rock, Central Arkansas",
     address: "12521 Kanis Rd, Little Rock, AR 72211",
     phone: "(501) 502-2925",
     phoneHref: "tel:+15015022925",
@@ -32,15 +32,23 @@ const services = [
   { label: "Real Estate", href: "/real-estate" },
   { label: "Airbnb Rentals", href: "/airbnb-rentals" },
   { label: "Multi-Family", href: "/multi-family" },
+  { label: "Commercial", href: "/commercial" },
   { label: "Lot & Land", href: "/lot-land" },
   { label: "Builders", href: "/builders" },
   { label: "Branding", href: "/branding" },
   { label: "Zillow Showcase", href: "/zillow-showcase" },
 ];
 
+// "The Spot" points straight at gettothespot.com. /studio 301s off-site, so an
+// internal <Link> would prefetch a cross-origin redirect (a console error on
+// every page load) and cost every visitor an extra hop.
 const products = [
-  { label: "The Spot · Studios", href: "/studio" },
-  { label: "Vellum", href: "/vellum" },
+  {
+    label: "The Spot Studios",
+    href: "https://gettothespot.com",
+    external: true,
+  },
+  { label: "Vellum", href: "/vellum", external: false },
 ];
 
 const account = [
@@ -49,7 +57,7 @@ const account = [
     href: "https://homes.averyandbryant.com/portal",
     external: true,
   },
-  { label: "Account · Members", href: "/members" },
+  { label: "Members", href: "/members" },
   { label: "Referrals", href: "/referral" },
   { label: "Gallery", href: "/gallery" },
 ];
@@ -123,12 +131,23 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {products.map((p) => (
                 <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    className="text-sm text-fg-secondary transition-colors hover:text-white"
-                  >
-                    {p.label}
-                  </Link>
+                  {p.external ? (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-fg-secondary transition-colors hover:text-white"
+                    >
+                      {p.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={p.href}
+                      className="text-sm text-fg-secondary transition-colors hover:text-white"
+                    >
+                      {p.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

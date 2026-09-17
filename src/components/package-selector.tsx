@@ -15,10 +15,10 @@ import { orderFormUrl, type Vertical } from "@/lib/order-forms";
 import { QuoteLeadForm } from "@/components/quote-lead-form";
 
 /**
- * Guided "recommend my package" selector — buyer-enablement tool.
- * 3 questions (what / goal / scope) → recommends the right package and routes
- * the agent straight to the correct Aryeo order form (or a consult for the
- * verticals that don't self-serve). Removes the cross-vertical guesswork.
+ * Guided "recommend my package" selector: a buyer-enablement tool.
+ * 3 questions (what / goal / scope) recommend the right package and route the
+ * agent straight to the correct order form (or a consult for the verticals
+ * that don't self-serve). Removes the cross-vertical guesswork.
  */
 
 type Route =
@@ -27,7 +27,16 @@ type Route =
 
 type TypeOption = {
   id: string;
+  /** The answer text on the Q1 card. Never glue this into a sentence. */
   label: string;
+  /**
+   * Plural subject used when result copy talks about this vertical. Written
+   * out per vertical on purpose: the consult result used to be assembled as
+   * `{type.label} projects`, which welded the Q1 answer onto a hard-coded
+   * word and shipped "A commercial property projects" / "propertyprojects".
+   * Copy is never built by concatenating an answer label.
+   */
+  subject: string;
   blurb: string;
   pricing?: VerticalPricing; // present when the vertical self-serves via Aryeo
   route: Route;
@@ -38,6 +47,7 @@ const TYPES: TypeOption[] = [
   {
     id: "real-estate",
     label: "A home for sale",
+    subject: "Residential listings",
     blurb: "Residential resale listing",
     pricing: realEstatePricing,
     route: { kind: "order", vertical: "real-estate" },
@@ -46,6 +56,7 @@ const TYPES: TypeOption[] = [
   {
     id: "airbnb",
     label: "A short-term rental",
+    subject: "Short-term rentals",
     blurb: "Airbnb / VRBO / direct booking",
     pricing: airbnbPricing,
     route: { kind: "order", vertical: "airbnb-rentals" },
@@ -54,6 +65,7 @@ const TYPES: TypeOption[] = [
   {
     id: "multi-family",
     label: "An apartment / multi-unit",
+    subject: "Multi-family communities",
     blurb: "Communities & student housing",
     pricing: multiFamilyPricing,
     route: { kind: "order", vertical: "multi-family" },
@@ -62,6 +74,7 @@ const TYPES: TypeOption[] = [
   {
     id: "lot-land",
     label: "Land or a lot",
+    subject: "Land and lot shoots",
     blurb: "Aerials, boundaries, parcels",
     pricing: lotLandPricing,
     route: { kind: "order", vertical: "lot-land" },
@@ -70,6 +83,7 @@ const TYPES: TypeOption[] = [
   {
     id: "builders",
     label: "New construction",
+    subject: "New construction shoots",
     blurb: "Builders, GCs, model homes",
     pricing: buildersPricing,
     route: { kind: "order", vertical: "builders" },
@@ -78,6 +92,7 @@ const TYPES: TypeOption[] = [
   {
     id: "commercial",
     label: "A commercial property",
+    subject: "Commercial shoots",
     blurb: "Office, retail, industrial",
     route: { kind: "consult", href: "/book", verticalPage: "/commercial" },
     verticalPage: "/commercial",
@@ -85,6 +100,7 @@ const TYPES: TypeOption[] = [
   {
     id: "branding",
     label: "My personal brand",
+    subject: "Personal brand shoots",
     blurb: "Headshots & agent content",
     route: { kind: "consult", href: "/book", verticalPage: "/branding" },
     verticalPage: "/branding",
@@ -176,7 +192,7 @@ export function PackageSelector({
         </div>
       )}
 
-      {/* Q1 — what are you marketing */}
+      {/* Q1: what are you marketing */}
       {step === 0 && (
         <div>
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
@@ -210,7 +226,7 @@ export function PackageSelector({
         </div>
       )}
 
-      {/* Q2 — goal */}
+      {/* Q2: goal */}
       {step === 1 && (
         <div>
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
@@ -241,7 +257,7 @@ export function PackageSelector({
         </div>
       )}
 
-      {/* Q3 — scope */}
+      {/* Q3: scope */}
       {step === 2 && (
         <div>
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
@@ -311,7 +327,7 @@ function Result({
   onReset: () => void;
   leadCapture?: boolean;
 }) {
-  // Consult verticals (commercial / branding) — no self-serve form
+  // Consult verticals (commercial / branding): no self-serve form
   if (!type.pricing || type.route.kind === "consult") {
     const href = type.route.kind === "consult" ? type.route.href : "/book";
     return (
@@ -322,9 +338,15 @@ function Result({
         <h2 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
           Let&apos;s scope it on a quick call.
         </h2>
+        {/*
+          One template literal on purpose. This toolchain (Next 16 / SWC) drops
+          the leading space of a JSX text child that follows an expression when
+          that text contains an HTML entity, which is how "Commercial
+          shootsare custom" shipped. Holding the whole sentence inside a single
+          expression makes the spacing impossible to collapse.
+        */}
         <p className="mt-4 max-w-xl text-base text-fg-strong">
-          {type.label} projects are custom — we&apos;ll build the right package
-          live in a free 30-minute consult, no pressure.
+          {`${type.subject} are custom, so we'll build the right package live in a free 30-minute consult. No pressure.`}
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <Link
@@ -344,7 +366,7 @@ function Result({
           <QuoteLeadForm
             quote={{
               vertical: type.label,
-              package: "Custom — consult requested",
+              package: "Custom, consult requested",
               goal: goal ?? undefined,
               scope: scope ?? undefined,
             }}
