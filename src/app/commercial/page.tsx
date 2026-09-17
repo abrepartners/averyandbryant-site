@@ -38,13 +38,13 @@ const portfolioGroups = [
       },
       {
         src: "/images/commercial/10-anglers-way-little-rock-restaurant-dining-room.jpg",
-        alt: "Restaurant dining room with booth seating and exposed brick in Little Rock, Arkansas",
-        caption: "Dining room, Little Rock",
+        alt: "Bar with high stools, a pressed tin ceiling and framed memorabilia on exposed brick at 10 Anglers Way in Little Rock, Arkansas",
+        caption: "Bar seating, Little Rock",
       },
       {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-night-entrance.jpg",
-        alt: "Lit restaurant entrance and signage photographed at night in Little Rock, Arkansas",
-        caption: "Night exterior, Little Rock",
+        src: "/images/commercial/10-anglers-way-little-rock-restaurant-entrance.jpg",
+        alt: "Covered entry with wood double doors and steakhouse signage etched on the glass at 10 Anglers Way in Little Rock, Arkansas",
+        caption: "Entrance, Little Rock",
       },
     ],
   },
@@ -58,12 +58,12 @@ const portfolioGroups = [
       },
       {
         src: "/images/commercial/12401-maumelle-blvd-maumelle-drive-thru-exterior.jpg",
-        alt: "Drive through lane and exterior signage at a quick service restaurant in Maumelle, Arkansas",
-        caption: "Drive through, Maumelle",
+        alt: "Side elevation and illuminated signage on a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
+        caption: "Exterior signage, Maumelle",
       },
       {
         src: "/images/commercial/4109-e-broadway-north-little-rock-retail-storefronts.jpg",
-        alt: "Row of retail storefronts at a shopping center on East Broadway in North Little Rock, Arkansas",
+        alt: "Low aerial of a row of retail storefronts and the parking lot at a shopping center on East Broadway in North Little Rock, Arkansas",
         caption: "Retail center, North Little Rock",
       },
     ],
@@ -93,7 +93,7 @@ const portfolioGroups = [
     shots: [
       {
         src: "/images/commercial/111-smarthouse-way-north-little-rock-skyline-aerial.jpg",
-        alt: "Aerial photo over the Arkansas River showing the Little Rock skyline and bridges, shot from a commercial property in North Little Rock",
+        alt: "Aerial photo over the Arkansas River showing the Little Rock skyline and its bridges, from a commercial shoot in North Little Rock, Arkansas",
         caption: "River and skyline, North Little Rock",
       },
       {
@@ -103,8 +103,8 @@ const portfolioGroups = [
       },
       {
         src: "/images/commercial/411-7th-st-little-rock-mansion-and-skyline.jpg",
-        alt: "Aerial photo of a historic mansion with the downtown Little Rock skyline behind it",
-        caption: "Historic property aerial, Little Rock",
+        alt: "Aerial photo over a historic Little Rock neighborhood with the downtown skyline behind it, from a shoot at 411 7th Street",
+        caption: "Downtown aerial, Little Rock",
       },
     ],
   },

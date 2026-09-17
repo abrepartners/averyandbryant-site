@@ -12,19 +12,19 @@ export const metadata = {
 
 const heroFrame = {
   src: "/images/zillow-showcase/69-mountain-brook-little-rock-marble-island-kitchen.jpg",
-  alt: "Wide kitchen with a marble island in a finished luxury home listing at 69 Mountain Brook in Little Rock, Arkansas",
+  alt: "Wide kitchen with a stone topped island, grey cabinets and a wood range hood in a finished home listing at 69 Mountain Brook in Little Rock, Arkansas",
   caption: "69 Mountain Brook, Little Rock",
 };
 
 const showcaseGallery = [
   {
-    src: "/images/zillow-showcase/69-mountain-brook-little-rock-great-room-fireplace.jpg",
-    alt: "Great room with a fireplace in a finished luxury home listing at 69 Mountain Brook in Little Rock, Arkansas",
-    caption: "Great room, Little Rock",
+    src: "/images/zillow-showcase/69-mountain-brook-little-rock-bath-vanity.jpg",
+    alt: "Bathroom with a grey vanity, brushed gold fixtures, a framed mirror and a tiled tub and shower surround at 69 Mountain Brook in Little Rock, Arkansas",
+    caption: "Bath, Little Rock",
   },
   {
     src: "/images/zillow-showcase/69-mountain-brook-little-rock-brick-front.jpg",
-    alt: "Brick front elevation of a finished luxury home listing at 69 Mountain Brook in Little Rock, Arkansas",
+    alt: "Finished brick and board and batten front elevation at 69 Mountain Brook in Little Rock, Arkansas, with a covered porch, an arched front door and new sod",
     caption: "Front elevation, Little Rock",
   },
   {
@@ -34,7 +34,7 @@ const showcaseGallery = [
   },
   {
     src: "/images/zillow-showcase/18-lefever-ln-little-rock-white-kitchen.jpg",
-    alt: "White kitchen with a grey island in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
+    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood at 18 Lefever Lane in Little Rock, Arkansas",
     caption: "Kitchen, Little Rock",
   },
 ];
@@ -151,7 +151,7 @@ export default function ZillowShowcasePage() {
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
             Showcase assets are built from captures like these: full HDR
-            interiors, exteriors, and aerial from a single visit.
+            interiors and exteriors from a single visit.
           </p>
 
           <figure className="mt-10">

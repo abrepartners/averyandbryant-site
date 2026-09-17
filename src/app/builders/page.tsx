@@ -16,32 +16,28 @@ export const metadata = {
     "Professional photography, drone aerials, and video tours for builders, construction projects, and model homes across Arkansas. Packages from $325/mo with value-stack pricing.",
 };
 
-const heroFrame = {
-  src: "/images/builders/40-orle-cir-little-rock-french-country-front.jpg",
-  alt: "Newly built French country home at 40 Orle Circle in Little Rock, Arkansas, photographed at dusk with landscaping complete",
-  caption: "40 Orle Circle, Little Rock",
-};
-
-const progressPair = {
-  before: {
-    src: "/images/builders/45-mountain-brook-little-rock-framing-stage.jpg",
-    alt: "New construction home under framing at 45 Mountain Brook Road in Little Rock, Arkansas, with exposed studs and the storm shelter in place",
+const leadFrames = [
+  {
+    src: "/images/builders/40-orle-cir-little-rock-french-country-front.jpg",
+    alt: "Stone and brick French country home at 40 Orle Circle in Little Rock, Arkansas, photographed in bright daylight under a blue sky, with finished beds, a green lawn and a curved concrete driveway",
+    caption: "40 Orle Circle, Little Rock",
   },
-  after: {
+  {
     src: "/images/builders/45-mountain-brook-little-rock-finished-front-elevation.jpg",
-    alt: "The same new construction home at 45 Mountain Brook Road in Little Rock, Arkansas, finished, with the front elevation complete and fresh sod down",
+    alt: "Finished brick and stone front elevation of a new construction home at 45 Mountain Brook Road in Little Rock, Arkansas, with fresh sod, a young staked tree and a brown double garage door",
+    caption: "45 Mountain Brook Road, Little Rock",
   },
-};
+];
 
 const buildGallery = [
   {
     src: "/images/builders/40-orle-cir-little-rock-marble-kitchen.jpg",
-    alt: "Marble kitchen with an arched range hood in a new construction home in Little Rock, Arkansas",
+    alt: "Kitchen with marble counters and backsplash, a wood island and a wood clad range hood in a new construction home at 40 Orle Circle in Little Rock, Arkansas",
     caption: "40 Orle Circle, Little Rock",
   },
   {
-    src: "/images/builders/7048-hannah-ln-bryant-board-and-batten-front.jpg",
-    alt: "Board and batten front elevation of a new construction home at 7048 Hannah Lane in Bryant, Arkansas",
+    src: "/images/builders/7048-hannah-ln-bryant-farmhouse-front.jpg",
+    alt: "Board and batten farmhouse front elevation with a brick columned porch at 7048 Hannah Lane in Bryant, Arkansas",
     caption: "7048 Hannah Lane, Bryant",
   },
   {
@@ -51,12 +47,12 @@ const buildGallery = [
   },
   {
     src: "/images/builders/30-miramont-cir-little-rock-modern-brick-front.jpg",
-    alt: "Modern brick front elevation with gas lanterns on a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
+    alt: "Modern white brick front elevation with black windows on a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
     caption: "30 Miramont Circle, Little Rock",
   },
   {
     src: "/images/builders/30-miramont-cir-little-rock-shaker-kitchen.jpg",
-    alt: "Shaker cabinet kitchen with a trio of pendant lights in a new construction home in Little Rock, Arkansas",
+    alt: "Kitchen island with shaker drawer fronts opening to a great room with a linear fireplace in a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
     caption: "30 Miramont Circle, Little Rock",
   },
   {
@@ -66,32 +62,32 @@ const buildGallery = [
   },
   {
     src: "/images/builders/1052-stagecoach-blvd-cabot-kitchen-island.jpg",
-    alt: "Kitchen island and pendant lighting in a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas",
+    alt: "Kitchen island with a sink, sage green cabinets and a veined stone backsplash in a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas",
     caption: "1052 Stagecoach Boulevard, Cabot",
   },
   {
-    src: "/images/builders/40-orle-cir-little-rock-rear-stone-patio.jpg",
-    alt: "Rear covered stone patio on a new construction home in Little Rock, Arkansas",
+    src: "/images/builders/40-orle-cir-little-rock-walk-in-closet.jpg",
+    alt: "Walk in closet with white built in shelving, hanging rods and a stone topped island in a new construction home at 40 Orle Circle in Little Rock, Arkansas",
     caption: "40 Orle Circle, Little Rock",
   },
   {
-    src: "/images/builders/1583-bighorn-dr-benton-rear-cedar-porch.jpg",
-    alt: "Rear porch with cedar posts on a new construction home in Benton, Arkansas",
+    src: "/images/builders/1583-bighorn-dr-benton-walk-in-pantry.jpg",
+    alt: "Walk in pantry with white shelving and a stone counter in a new construction home at 1583 Bighorn Drive in Benton, Arkansas",
     caption: "1583 Bighorn Drive, Benton",
   },
   {
     src: "/images/builders/1052-stagecoach-blvd-cabot-front-elevation.jpg",
-    alt: "Front elevation of a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas, photographed under a dusk sky",
+    alt: "Front elevation of a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas, photographed in bright daylight, with a wide concrete driveway running up to the garage",
     caption: "1052 Stagecoach Boulevard, Cabot",
   },
   {
-    src: "/images/builders/7048-hannah-ln-bryant-farmhouse-aerial.jpg",
-    alt: "Aerial photo of a newly built modern farmhouse on acreage in Bryant, Arkansas",
+    src: "/images/builders/7048-hannah-ln-bryant-wooded-lot-aerial.jpg",
+    alt: "Aerial photo of a new construction home on a wooded lot at 7048 Hannah Lane in Bryant, Arkansas",
     caption: "7048 Hannah Lane, Bryant",
   },
   {
     src: "/images/builders/45-mountain-brook-little-rock-development-aerial.jpg",
-    alt: "Aerial photo of a residential development under construction in Little Rock, Arkansas, with the entrance sign visible",
+    alt: "Aerial photo of a residential development under construction in Little Rock, Arkansas, with graded lots beside a street of finished homes",
     caption: "45 Mountain Brook Road, Little Rock",
   },
 ];
@@ -190,20 +186,25 @@ export default function BuildersPage() {
             </span>
           </h2>
 
-          <figure className="mt-12">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
-              <Image
-                src={heroFrame.src}
-                alt={heroFrame.alt}
-                fill
-                sizes="(min-width: 1280px) 1216px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-              {heroFrame.caption}
-            </figcaption>
-          </figure>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {leadFrames.map((frame) => (
+              <figure key={frame.src}>
+                <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={frame.src}
+                    alt={frame.alt}
+                    fill
+                    sizes="(min-width: 768px) 600px, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {frame.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {buildGallery.map((shot) => (
@@ -223,58 +224,6 @@ export default function BuildersPage() {
               </figure>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── FRAMING TO FINISHED ── */}
-      <section className="border-b border-white/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Framing to Finished
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            One house, both ends of the build.{" "}
-            <span className="text-fg-secondary">
-              This is what progress documentation looks like.
-            </span>
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-[#111]">
-                <div className="absolute left-3 top-3 z-10 rounded bg-black/70 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm">
-                  Framing
-                </div>
-                <Image
-                  src={progressPair.before.src}
-                  alt={progressPair.before.alt}
-                  fill
-                  sizes="(min-width: 768px) 600px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
-            <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-crimson/20 bg-[#111]">
-                <div className="absolute left-3 top-3 z-10 rounded bg-crimson/80 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
-                  Finished
-                </div>
-                <Image
-                  src={progressPair.after.src}
-                  alt={progressPair.after.alt}
-                  fill
-                  sizes="(min-width: 768px) 600px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
-          </div>
-
-          <p className="mt-6 text-sm leading-relaxed text-fg-secondary">
-            45 Mountain Brook Road, Little Rock. Same house, same crew, two
-            visits: the framing stage on the way up and the finished front
-            elevation once the sod went down.
-          </p>
         </div>
       </section>
 

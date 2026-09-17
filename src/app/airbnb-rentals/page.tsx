@@ -18,7 +18,7 @@ export const metadata = {
 
 const heroFrame = {
   src: "/images/airbnb-rentals/326-houston-dr-hot-springs-cabin-living-room.jpg",
-  alt: "Styled living room in a short term rental lake cabin at 326 Houston Drive in Hot Springs, Arkansas, with a window looking out to the water",
+  alt: "Styled living room with a wood plank ceiling, a sectional sofa and a wall of windows onto the deck in a short term rental cabin at 326 Houston Drive in Hot Springs, Arkansas",
   caption: "326 Houston Drive, Hot Springs",
 };
 
@@ -30,13 +30,13 @@ const rentalGallery = [
   },
   {
     src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lakeside-deck-dining.jpg",
-    alt: "Covered deck set for dining over the lake at a short term rental cabin in Hot Springs, Arkansas",
-    caption: "Deck dining, Hot Springs",
+    alt: "Covered deck with wood chairs and a table under a timber ceiling at a short term rental cabin in Hot Springs, Arkansas",
+    caption: "Covered deck, Hot Springs",
   },
   {
     src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lake-cabin-aerial.jpg",
-    alt: "Aerial photo of a short term rental lake cabin and its boat dock in Hot Springs, Arkansas",
-    caption: "Dock and aerial, Hot Springs",
+    alt: "Aerial photo of a wooded lakefront lined with covered boat docks in Hot Springs, Arkansas, with the mountains on the horizon",
+    caption: "Lakefront aerial, Hot Springs",
   },
   {
     src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-guest-bedroom.jpg",

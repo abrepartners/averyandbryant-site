@@ -32,7 +32,7 @@ const listingGallery = [
   },
   {
     src: "/images/real-estate/18-lefever-ln-little-rock-white-kitchen.jpg",
-    alt: "White kitchen with a grey island in a single family listing in Little Rock, Arkansas",
+    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
     caption: "Interiors, Little Rock",
   },
   {
@@ -52,7 +52,7 @@ const listingGallery = [
   },
   {
     src: "/images/real-estate/10-recinto-way-hot-springs-village-golf-course-aerial.jpg",
-    alt: "Aerial photo of a golf course home listing at 10 Recinto Way in Hot Springs Village, Arkansas",
+    alt: "Aerial photo over the golf course at 10 Recinto Way in Hot Springs Village, Arkansas, with homes set along the fairway and wooded hills behind",
     caption: "Aerial, Hot Springs Village",
   },
 ];
