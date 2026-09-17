@@ -1,13 +1,43 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaqSection } from "@/components/faq-section";
 
 export const metadata = {
   alternates: { canonical: "/zillow-showcase" },
   title:
-    "Zillow Showcase Listings in Arkansas | Avery & Bryant — Zillow Media Expert",
+    "Zillow Showcase Listings in Arkansas | Avery & Bryant, Zillow Media Expert",
   description:
     "Avery & Bryant is a Zillow Media Expert producing Showcase-ready listing media in Central Arkansas: interactive floor plans, immersive galleries, and aerial. Zillow Showcase listings sell for about 2% more.",
 };
+
+const heroFrame = {
+  src: "/images/zillow-showcase/69-mountain-brook-little-rock-marble-island-kitchen.jpg",
+  alt: "Wide kitchen with a marble island in a finished luxury home listing at 69 Mountain Brook in Little Rock, Arkansas",
+  caption: "69 Mountain Brook, Little Rock",
+};
+
+const showcaseGallery = [
+  {
+    src: "/images/zillow-showcase/69-mountain-brook-little-rock-great-room-fireplace.jpg",
+    alt: "Great room with a fireplace in a finished luxury home listing at 69 Mountain Brook in Little Rock, Arkansas",
+    caption: "Great room, Little Rock",
+  },
+  {
+    src: "/images/zillow-showcase/69-mountain-brook-little-rock-brick-front.jpg",
+    alt: "Brick front elevation of a finished luxury home listing at 69 Mountain Brook in Little Rock, Arkansas",
+    caption: "Front elevation, Little Rock",
+  },
+  {
+    src: "/images/zillow-showcase/18-lefever-ln-little-rock-beamed-great-room.jpg",
+    alt: "Designer furnished great room with exposed beams in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
+    caption: "Beamed great room, Little Rock",
+  },
+  {
+    src: "/images/zillow-showcase/18-lefever-ln-little-rock-white-kitchen.jpg",
+    alt: "White kitchen with a grey island in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
+    caption: "Kitchen, Little Rock",
+  },
+];
 
 // Zillow's own published figures (Zillow Showcase Fast Facts / Zillow Research, 2025).
 const stats = [
@@ -106,6 +136,56 @@ export default function ZillowShowcasePage() {
             >
               See Our Listing Media
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent listing media (real delivered work) */}
+      <section className="border-b border-border py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+            The media behind it
+          </p>
+          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
+            Recent Central Arkansas listings we photographed.
+          </h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
+            Showcase assets are built from captures like these: full HDR
+            interiors, exteriors, and aerial from a single visit.
+          </p>
+
+          <figure className="mt-10">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+              <Image
+                src={heroFrame.src}
+                alt={heroFrame.alt}
+                fill
+                sizes="(min-width: 1280px) 1216px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+              {heroFrame.caption}
+            </figcaption>
+          </figure>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {showcaseGallery.map((shot) => (
+              <figure key={shot.src}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(min-width: 640px) 600px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
