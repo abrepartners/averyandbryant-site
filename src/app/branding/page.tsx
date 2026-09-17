@@ -28,13 +28,13 @@ const singleLookFrames = [
     src: "/images/branding/headshot-white-shirt-warm-brown-backdrop.jpg",
     caption: "Warm backdrop",
     position: "center",
-    alt: "A bald man with short gray chin stubble in a white open collar dress shirt, smiling with his lips closed, against a mottled warm brown studio backdrop",
+    alt: "A bald man with gray chin stubble in a white open collar dress shirt, smiling with lips closed, against a mottled warm brown backdrop",
   },
   {
     src: "/images/branding/headshot-pinstripe-suit-dark-backdrop.jpg",
     caption: "Suit and tie",
     position: "center 18%",
-    alt: "A bald man with a full red beard in a charcoal pinstripe jacket, taupe shirt and a tie printed with guitars, smiling against a dark gray studio backdrop",
+    alt: "A bald man with a red beard in a charcoal pinstripe jacket, taupe shirt and a guitar print tie, smiling against a dark gray backdrop",
   },
   {
     src: "/images/branding/headshot-white-tee-warm-gray-backdrop.jpg",
@@ -52,30 +52,32 @@ const singleLookFrames = [
     src: "/images/branding/headshot-black-shirt-blue-backdrop.jpg",
     caption: "Blue backdrop",
     position: "center 18%",
-    alt: "A man with a shaved head and a full dark beard in a black button down shirt, turned to one side with a calm expression, against a mottled deep blue backdrop",
+    alt: "A man with a shaved head and dark beard in a black button down shirt, turned to one side against a mottled deep blue backdrop",
   },
 ];
 
 // One client, one session, three looks. This row is the whole argument for the
-// $299 session: a wardrobe change and a move off the backdrop.
+// $299 session: a wardrobe change and a move off the backdrop. The captions are
+// deliberately not numbered. The tie is on in frame one, off in frame two and
+// back on in frame three, so nothing here may claim a shooting order.
 const oneSessionFrames = [
   {
     src: "/images/branding/brand-session-suit-with-tie.jpg",
-    caption: "Look one, jacket and tie",
+    caption: "Jacket and tie",
     position: "46% center",
-    alt: "A bald man with a full red beard in a charcoal pinstripe jacket and a guitar print tie, arms folded with a gold watch on his wrist, against a dark gray studio backdrop",
+    alt: "A bald man with a red beard in a charcoal pinstripe jacket and a guitar print tie, arms folded, against a dark gray studio backdrop",
   },
   {
     src: "/images/branding/brand-session-suit-open-collar.jpg",
-    caption: "Look two, tie off, collar open",
+    caption: "Tie off, collar open",
     position: "center 15%",
-    alt: "The same man in the same pinstripe jacket with the tie removed and the collar of his taupe shirt open, arms folded, against the dark gray studio backdrop",
+    alt: "The same man in the same pinstripe jacket, tie removed and taupe shirt collar open, arms folded, against the dark gray backdrop",
   },
   {
     src: "/images/branding/brand-session-seated-by-window.jpg",
-    caption: "Look three, off the backdrop",
+    caption: "Tie on, off the backdrop",
     position: "center 22%",
-    alt: "The same man seated on a dark leather sofa with one arm along the back of it, in front of a floor to ceiling window filled with bright daylight",
+    alt: "The same man back in the guitar print tie, seated with one arm along dark velvet upholstery, in front of a bright daylit window",
   },
 ];
 
@@ -85,25 +87,25 @@ const oneChangeFrames = [
     src: "/images/branding/brand-session-white-shirt-warm-backdrop.jpg",
     caption: "Warm brown backdrop",
     position: "center 12%",
-    alt: "A bald man with gray stubble in a crisp white dress shirt, framed from the head to the chest, against a warm brown studio backdrop",
+    alt: "A bald man with gray stubble in a crisp white dress shirt, head and shoulders, against a warm brown studio backdrop",
   },
   {
     src: "/images/branding/brand-session-white-shirt-slate-blue-backdrop.jpg",
     caption: "Same shirt, slate blue",
     position: "center 20%",
-    alt: "The same man in the same white dress shirt, framed head and shoulders, square to camera against a slate blue gray backdrop",
+    alt: "The same man in the same white dress shirt, head and shoulders again, against a cooler slate blue gray backdrop",
   },
   {
     src: "/images/branding/brand-session-black-shirt-blue-set.jpg",
     caption: "Blue set",
     position: "55% center",
-    alt: "A man with a shaved head and a full dark beard in a black button down shirt, looking straight at the camera against a mottled deep blue backdrop",
+    alt: "A man with a shaved head and dark beard in a black shirt, looking straight at the camera against a mottled deep blue backdrop",
   },
   {
     src: "/images/branding/brand-session-black-shirt-tan-set-standing.jpg",
     caption: "Tan set, standing",
     position: "center 28%",
-    alt: "The same man standing, turned to one side with his head to camera, in a black button down shirt and black trousers with a brown leather belt, against a warm tan backdrop",
+    alt: "The same man standing, turned to one side, head to camera, in a black shirt and black trousers against a warm tan backdrop",
   },
 ];
 
@@ -193,13 +195,13 @@ const rooms = [
     src: "/images/studio/spot-5.jpg",
     name: "The lounge set",
     look: "Sage paneling, rose velvet, warm lamps",
-    alt: "Two dusty rose velvet armchairs in front of a sage green paneled wall, beside a tall arched mirror reflecting the room's track lighting and a two globe floor lamp",
+    alt: "Two dusty rose velvet armchairs against a sage green paneled wall, a floor lamp with three frosted bell shaped shades, and an arched mirror",
   },
   {
     src: "/images/studio/spot-7.jpg",
     name: "The dark room",
     look: "Dark walls, colored light",
-    alt: "Two dark armchairs facing each other on a patterned rug in a dark walled room, lit with purple from the left and warm orange from the right",
+    alt: "Two dark armchairs facing each other on a patterned rug in a dark walled room, lit purple from the left and orange from the right",
   },
 ];
 
@@ -358,7 +360,8 @@ export default function BrandingPage() {
             Every frame on this page is our own client work. These five are
             single look sessions: one person, one backdrop, the photo that goes
             on a profile. Suit, tee or open collar, the light and the direction
-            are the same.
+            are the same. The man in the white tee is the same man at the top of
+            this page, in a different shirt.
           </p>
 
           <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
@@ -400,7 +403,7 @@ export default function BrandingPage() {
             This is the whole difference between the two numbers. A brand
             session is not a longer headshot. It is a change of clothes, a
             change of backdrop, and a move off the backdrop altogether when the
-            shot calls for it. Here is one session, in order.
+            shot calls for it. Here are three frames from one session.
           </p>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-3">
@@ -427,9 +430,10 @@ export default function BrandingPage() {
           </div>
 
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-fg-secondary">
-            Same hour, same person. Jacket and tie, then the tie comes off, then
-            we leave the backdrop and shoot him seated in daylight. Three usable
-            identities out of one session instead of one.
+            Same person, same session, three different frames. Jacket and tie on
+            the backdrop, the tie off with the collar open, and the tie back on
+            away from the backdrop, seated in daylight. Three usable identities
+            out of one session instead of one.
           </p>
 
           <div className="mt-16 border-t border-white/5 pt-16">

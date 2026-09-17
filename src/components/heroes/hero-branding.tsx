@@ -100,10 +100,13 @@ export function HeroBranding() {
               />
             </div>
 
-            {/* Floating label */}
-            <div className="absolute -bottom-5 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/15 bg-black/70 px-5 py-2 backdrop-blur-md">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
-                Every face on this page is real client work
+            {/* Floating label. Shorter copy, centered with left-0/right-0 so it
+                can use the full column width, and free to wrap instead of
+                running off the screen. Measured on one line, inside the
+                viewport, at 390, 360 and 320. */}
+            <div className="absolute -bottom-5 left-0 right-0 z-30 mx-auto w-fit max-w-full rounded-full border border-white/15 bg-black/70 px-5 py-2 text-center backdrop-blur-md">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-crimson/80">
+                Every face, real client work
               </span>
             </div>
           </div>
