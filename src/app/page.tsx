@@ -50,9 +50,9 @@ const services: Service[] = [
     price: "$595",
     description:
       "4 platform-native reels: listing walkthrough, viral hook, cinematic trailer, teaser. Shot and edited in one visit. Single reels are $195.",
-    image: "/images/services/reels/reel-1-poster.jpg",
+    image: "/images/staging-twilight.jpg",
     imageAlt:
-      "Opening frame of a listing reel filmed at a brick home in Bryant, Arkansas",
+      "Twilight exterior of a large home with lit windows and a wide concrete driveway under a dusk sky",
     preview: {
       kind: "videos",
       orientation: "vertical",
@@ -86,14 +86,20 @@ const services: Service[] = [
     preview: {
       kind: "images",
       items: [
-        { src: "/images/hero-drone-2.jpg", label: "Property Aerial" },
+        {
+          src: "/images/hero-drone-2.jpg",
+          label: "Property Aerial",
+          alt: "Aerial of a stone and brick home on an open lot, with a gravel drive, a pond, and pasture behind it",
+        },
         {
           src: "/images/portfolio-drone-3.jpg",
           label: "Neighborhood Context",
+          alt: "High aerial over a tree lined neighborhood, with a main street running through it and a tall building on the horizon",
         },
         {
           src: "/images/services/drone/aerial-ranch.jpg",
           label: "Lot & Acreage",
+          alt: "Low aerial of a single story home with a wood deck and a wide lawn shaded by mature trees",
         },
       ],
     },
@@ -103,9 +109,9 @@ const services: Service[] = [
     price: "From $295",
     description:
       "Cinematic walkthrough video with music, pacing, and branded intro. 60 seconds at $295, 90 to 120 seconds at $395.",
-    image: "/images/services/video-tours/tour-2-poster.jpg",
+    image: "/images/services/video-tours/cover.jpg",
     imageAlt:
-      "Frame from a cinematic listing tour in Hot Springs, Arkansas, the agent stepping out of the front door",
+      "Modern home with stone and dark vertical siding, a two car garage, and a wide concrete driveway, framed by trees",
     preview: {
       kind: "videos",
       orientation: "horizontal",
@@ -132,10 +138,10 @@ const services: Service[] = [
     title: "3D Tours",
     price: "From $149",
     description:
-      "Interactive 3D walkthrough. Buyers explore the home remotely, room by room. Zillow 3D with floor plan at $149, Matterport at $299.",
-    image: "/images/services/3d-tours/tour3d-1-poster.jpg",
+      "Interactive 3D walkthrough. Buyers explore the home remotely, room by room. Zillow 3D with floor plan at $149, 3D walkthrough tour at $299.",
+    image: "/images/portfolio-interior-2.jpg",
     imageAlt:
-      "Interactive 3D tour of an Arkansas home, dining room and living room labeled on the walkthrough",
+      "Kitchen with dark grey cabinets, a stone island, and pendant chandeliers, opening to an empty dining area with wood floors",
     preview: {
       kind: "videos",
       orientation: "horizontal",
@@ -165,7 +171,7 @@ const services: Service[] = [
       "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 48 hours. Virtual twilight is $39 per image.",
     image: "/images/showcase-staging-after.jpg",
     imageAlt:
-      "Empty primary bedroom in an Arkansas home after virtual staging, furnished with a bed, sofa, and rug",
+      "Primary bedroom after virtual staging, furnished with a bed, a grey sofa, a jute rug, and framed art",
     preview: {
       kind: "images",
       items: [

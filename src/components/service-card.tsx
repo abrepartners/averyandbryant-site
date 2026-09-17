@@ -28,6 +28,18 @@ export type Service = {
   preview?: ServicePreview;
 };
 
+/**
+ * A preview grid only reads cleanly when the column count divides the item
+ * count: 4 frames in a 3-up strand a lone item on its own row, and 2 frames
+ * in a 3-up leave a hole. Pick the columns from the number of items.
+ */
+function previewGridClass(preview: ServicePreview) {
+  if (preview.orientation === "vertical") return "grid-cols-1 sm:grid-cols-3";
+  return preview.items.length % 3 === 0
+    ? "grid-cols-1 md:grid-cols-3"
+    : "grid-cols-1 sm:grid-cols-2";
+}
+
 export function ServiceCard({ service }: { service: Service }) {
   const [open, setOpen] = useState(false);
   // The shimmer placeholder is a loading state, not decoration: it is removed
@@ -147,11 +159,7 @@ export function ServiceCard({ service }: { service: Service }) {
             </div>
 
             <div
-              className={`mt-8 grid gap-4 ${
-                service.preview.orientation === "vertical"
-                  ? "grid-cols-1 sm:grid-cols-3"
-                  : "grid-cols-1 md:grid-cols-3"
-              }`}
+              className={`mt-8 grid gap-4 ${previewGridClass(service.preview)}`}
             >
               {service.preview.items.map((item) => (
                 <figure key={item.src} className="min-w-0">
