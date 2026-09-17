@@ -58,7 +58,7 @@ const portfolioGroups = [
       },
       {
         src: "/images/commercial/12401-maumelle-blvd-maumelle-drive-thru-exterior.jpg",
-        alt: "Side elevation and illuminated signage on a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
+        alt: "Side elevation and channel letter signage on a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
         caption: "Exterior signage, Maumelle",
       },
       {

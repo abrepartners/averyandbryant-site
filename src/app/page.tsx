@@ -25,7 +25,7 @@ const services: Service[] = [
         {
           src: "/images/services/photos/white-kitchen-little-rock.jpg",
           label: "Interior, Little Rock",
-          alt: "White kitchen with a grey island in a Little Rock listing",
+          alt: "White kitchen with grey perimeter cabinets and a subway tile backsplash in a Little Rock listing",
         },
         {
           src: "/images/services/photos/game-room.jpg",

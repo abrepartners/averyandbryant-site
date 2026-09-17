@@ -39,13 +39,13 @@ const services = [
   { label: "Zillow Showcase", href: "/zillow-showcase" },
 ];
 
-// "The Spot" points straight at gettothespot.com. /studio 301s off-site, so an
+// "The Spot" points straight at www.gettothespot.com. /studio 301s off-site and the apex 308s to www, so an
 // internal <Link> would prefetch a cross-origin redirect (a console error on
 // every page load) and cost every visitor an extra hop.
 const products = [
   {
     label: "The Spot Studios",
-    href: "https://gettothespot.com",
+    href: "https://www.gettothespot.com",
     external: true,
   },
   { label: "Vellum", href: "/vellum", external: false },

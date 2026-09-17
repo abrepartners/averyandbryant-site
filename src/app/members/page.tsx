@@ -12,9 +12,9 @@ const STRIPE_PORTAL_URL =
   process.env.NEXT_PUBLIC_STRIPE_PORTAL_URL ??
   "https://billing.stripe.com/p/login/test-activate-portal";
 
-// The Spot books from its own front door: /studio 301s to gettothespot.com,
+// The Spot books from its own front door: /studio 301s to gettothespot.com, whose apex 308s to www,
 // so link straight there (no cross-origin prefetch, no extra redirect hop).
-const CALENDAR_BOOKING_URL = "https://gettothespot.com";
+const CALENDAR_BOOKING_URL = "https://www.gettothespot.com";
 
 const cards = [
   {
@@ -176,7 +176,7 @@ export default function MembersPage() {
           <p className="mt-12 text-center text-sm text-fg-secondary">
             Not a member yet?{" "}
             <a
-              href="https://gettothespot.com"
+              href="https://www.gettothespot.com/#rooms"
               target="_blank"
               rel="noopener noreferrer"
               className="text-crimson hover:text-white"

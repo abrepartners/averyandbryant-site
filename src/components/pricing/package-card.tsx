@@ -46,14 +46,16 @@ export function PackageCard({
         {pkg.price}
       </span>
 
-      <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
-        <span className="text-fg-secondary line-through">
-          {pkg.totalValue} value
-        </span>
-        <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
-          {pkg.savings}
-        </span>
-      </div>
+      {pkg.savings ? (
+        <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[11px]">
+          <span className="text-fg-secondary line-through">
+            {pkg.totalValue} value
+          </span>
+          <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80">
+            {pkg.savings}
+          </span>
+        </div>
+      ) : null}
 
       <ul className="mt-6 flex-1 space-y-3">
         {pkg.valueItems.map((item) => (

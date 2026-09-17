@@ -5,12 +5,12 @@ import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 // Real Estate is promoted to its own top-level link: the flagship service.
-// The remaining six property verticals live under "More Services" (labeled so
+// The remaining six property verticals live under "Explore" (labeled so
 // it reads as "the rest" rather than implying Real Estate isn't a service);
 // the non-core product offerings live under "Products". Utility links (Client
 // Portal, Account, Referrals) live in the footer.
 //
-// "The Spot" points straight at gettothespot.com: /studio 301s there, so an
+// "The Spot" points straight at www.gettothespot.com: /studio 301s there and the apex 308s to www, so an
 // internal <Link> would prefetch a cross-origin redirect (console error on
 // every page load) and cost every visitor an extra hop.
 const services = [
@@ -23,7 +23,7 @@ const services = [
 ];
 
 // Gallery and Pricing both carry buying intent and were unreachable from the
-// nav. They hang off "More Services" rather than the top-level row: two more
+// nav. They hang off "Explore" rather than the top-level row, which is why the group is named Explore and not More Services: a gallery and a price list are not services: two more
 // top-level links overflow the desktop row between roughly 940px and 1095px,
 // and the brief is to keep the existing visual design exactly.
 const browse = [
@@ -34,7 +34,7 @@ const browse = [
 const products = [
   {
     label: "The Spot Studios",
-    href: "https://gettothespot.com",
+    href: "https://www.gettothespot.com",
     external: true,
   },
   { label: "Vellum", href: "/vellum", external: false },
@@ -124,7 +124,7 @@ export function Nav() {
                 }}
                 className="flex items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-fg-secondary transition-colors hover:text-white"
               >
-                More Services
+                Explore
                 <ChevronDown
                   className={`h-3 w-3 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
                 />
@@ -246,7 +246,7 @@ export function Nav() {
             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
             className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-fg-strong"
           >
-            More Services
+            Explore
             <ChevronDown
               className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
             />
