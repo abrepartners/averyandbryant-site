@@ -81,7 +81,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
               Or compare all services &rarr;
             </Link>
             <p className="text-xs text-fg-secondary md:text-right">
-              30 minutes · Google Meet · (501) 502-2925 if you'd rather call
+              30 minutes on Google Meet, or call (501) 502-2925 if you'd rather talk
             </p>
           </div>
         </div>
