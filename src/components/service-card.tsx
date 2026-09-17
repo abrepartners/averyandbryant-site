@@ -8,6 +8,8 @@ export type ServicePreviewItem = {
   src: string;
   poster?: string;
   label?: string;
+  /** Alt text describing the real property and service. Falls back to the label. */
+  alt?: string;
 };
 
 export type ServicePreview = {
@@ -21,11 +23,16 @@ export type Service = {
   price: string;
   description: string;
   image: string;
+  /** Alt text describing the real property and service in the tile image. */
+  imageAlt?: string;
   preview?: ServicePreview;
 };
 
 export function ServiceCard({ service }: { service: Service }) {
   const [open, setOpen] = useState(false);
+  // The shimmer placeholder is a loading state, not decoration: it is removed
+  // the moment the tile image resolves (or fails) so nothing pulses forever.
+  const [imageReady, setImageReady] = useState(false);
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
@@ -51,12 +58,20 @@ export function ServiceCard({ service }: { service: Service }) {
           aria-label={
             hasPreview ? `See real examples of ${service.title}` : undefined
           }
-          className="image-loading relative block h-48 w-full overflow-hidden text-left disabled:cursor-default"
+          className={`relative block h-48 w-full overflow-hidden text-left disabled:cursor-default ${
+            imageReady ? "" : "image-loading"
+          }`}
         >
           <Image
             src={service.image}
-            alt={`Avery & Bryant ${service.title} — Arkansas real estate media`}
+            alt={
+              service.imageAlt ||
+              `${service.title} delivered by Avery & Bryant for an Arkansas listing`
+            }
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            onLoad={() => setImageReady(true)}
+            onError={() => setImageReady(true)}
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
@@ -127,7 +142,7 @@ export function ServiceCard({ service }: { service: Service }) {
                 aria-label="Close"
                 className="rounded border border-white/15 px-3 py-1.5 text-xs text-fg-strong transition-colors hover:border-white/40 hover:text-white"
               >
-                Esc ✕
+                Close (Esc)
               </button>
             </div>
 
@@ -161,7 +176,11 @@ export function ServiceCard({ service }: { service: Service }) {
                     ) : (
                       <Image
                         src={item.src}
-                        alt={item.label || `${service.title} example`}
+                        alt={
+                          item.alt ||
+                          item.label ||
+                          `${service.title} example from a real Arkansas shoot`
+                        }
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"

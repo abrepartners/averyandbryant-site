@@ -13,31 +13,46 @@ export const metadata = {
 const services: Service[] = [
   {
     title: "Photos",
-    price: "$162+",
+    price: "From $185",
     description:
-      "HDR photography calibrated for MLS, print, and social. Delivered same-day or next-day.",
-    image: "/images/portfolio-interior-1.jpg",
+      "HDR photography calibrated for MLS, print, and social. 25, 40, or 55 photo shoots. Delivered same-day or next-day.",
+    image: "/images/services/photos/great-room-beams-little-rock.jpg",
+    imageAlt:
+      "Beamed great room with a vaulted ceiling in a Little Rock home, photographed for the listing",
     preview: {
       kind: "images",
       items: [
-        { src: "/images/portfolio-interior-1.jpg", label: "Interior · HDR" },
+        {
+          src: "/images/services/photos/white-kitchen-little-rock.jpg",
+          label: "Interior, Little Rock",
+          alt: "White kitchen with a grey island in a Little Rock listing",
+        },
         {
           src: "/images/services/photos/game-room.jpg",
           label: "Feature Space",
+          alt: "Game room photographed as a feature space in an Arkansas listing",
         },
         {
           src: "/images/services/photos/styled-bedroom.jpg",
           label: "Styled Interior",
+          alt: "Styled bedroom photographed for an Arkansas listing",
+        },
+        {
+          src: "/images/services/photos/twilight-exterior-little-rock.jpg",
+          label: "Twilight, Little Rock",
+          alt: "Twilight exterior of a Little Rock home with the porch and windows lit",
         },
       ],
     },
   },
   {
     title: "Reels Pack",
-    price: "$450",
+    price: "$595",
     description:
-      "4 platform-native reels: listing walkthrough, viral hook, cinematic trailer, teaser. Shot and edited in one visit.",
-    image: "/images/staging-twilight.jpg",
+      "4 platform-native reels: listing walkthrough, viral hook, cinematic trailer, teaser. Shot and edited in one visit. Single reels are $195.",
+    image: "/images/services/reels/reel-1-poster.jpg",
+    imageAlt:
+      "Opening frame of a listing reel filmed at a brick home in Bryant, Arkansas",
     preview: {
       kind: "videos",
       orientation: "vertical",
@@ -45,27 +60,29 @@ const services: Service[] = [
         {
           src: "/images/services/reels/reel-1.mp4",
           poster: "/images/services/reels/reel-1-poster.jpg",
-          label: "Listing Reel · Bryant",
+          label: "Listing Reel, Bryant",
         },
         {
           src: "/images/services/reels/reel-2.mp4",
           poster: "/images/services/reels/reel-2-poster.jpg",
-          label: "Listing Reel · Bryant",
+          label: "Listing Reel, Bryant",
         },
         {
           src: "/images/services/reels/reel-3.mp4",
           poster: "/images/services/reels/reel-3-poster.jpg",
-          label: "Listing Reel · Hot Springs",
+          label: "Listing Reel, Hot Springs",
         },
       ],
     },
   },
   {
     title: "Drone",
-    price: "$80+",
+    price: "$150",
     description:
-      "FAA-licensed aerials. Property context, neighborhood scale, lot boundaries.",
-    image: "/images/portfolio-drone-3.jpg",
+      "FAA-licensed aerials. Property context, neighborhood scale, lot boundaries. Photos and video in one flight.",
+    image: "/images/services/drone/lakefront-home-aerial-hot-springs.jpg",
+    imageAlt:
+      "Aerial view of a lakefront home in Hot Springs, Arkansas, with the water and ridgeline behind it",
     preview: {
       kind: "images",
       items: [
@@ -83,10 +100,12 @@ const services: Service[] = [
   },
   {
     title: "Video Tours",
-    price: "$250",
+    price: "From $295",
     description:
-      "Cinematic walkthrough video with music, pacing, and branded intro. MLS and social-ready.",
-    image: "/images/services/video-tours/cover.jpg",
+      "Cinematic walkthrough video with music, pacing, and branded intro. 60 seconds at $295, 90 to 120 seconds at $395.",
+    image: "/images/services/video-tours/tour-2-poster.jpg",
+    imageAlt:
+      "Frame from a cinematic listing tour in Hot Springs, Arkansas, the agent stepping out of the front door",
     preview: {
       kind: "videos",
       orientation: "horizontal",
@@ -94,27 +113,29 @@ const services: Service[] = [
         {
           src: "/images/services/video-tours/tour-1.mp4",
           poster: "/images/services/video-tours/tour-1-poster.jpg",
-          label: "Cinematic Tour · Clinton",
+          label: "Cinematic Tour, Clinton",
         },
         {
           src: "/images/services/video-tours/tour-2.mp4",
           poster: "/images/services/video-tours/tour-2-poster.jpg",
-          label: "Cinematic Tour · Hot Springs",
+          label: "Cinematic Tour, Hot Springs",
         },
         {
           src: "/images/services/video-tours/tour-3.mp4",
           poster: "/images/services/video-tours/tour-3-poster.jpg",
-          label: "Cinematic Tour · Hot Springs Village",
+          label: "Cinematic Tour, Hot Springs Village",
         },
       ],
     },
   },
   {
     title: "3D Tours",
-    price: "$150",
+    price: "From $149",
     description:
-      "Interactive 3D walkthrough. Buyers explore the home remotely, room by room.",
-    image: "/images/portfolio-interior-2.jpg",
+      "Interactive 3D walkthrough. Buyers explore the home remotely, room by room. Zillow 3D with floor plan at $149, Matterport at $299.",
+    image: "/images/services/3d-tours/tour3d-1-poster.jpg",
+    imageAlt:
+      "Interactive 3D tour of an Arkansas home, dining room and living room labeled on the walkthrough",
     preview: {
       kind: "videos",
       orientation: "horizontal",
@@ -139,17 +160,24 @@ const services: Service[] = [
   },
   {
     title: "Virtual Staging",
-    price: "$65/image",
+    price: "$49/room",
     description:
-      "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 48 hours.",
+      "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 48 hours. Virtual twilight is $39 per image.",
     image: "/images/showcase-staging-after.jpg",
+    imageAlt:
+      "Empty primary bedroom in an Arkansas home after virtual staging, furnished with a bed, sofa, and rug",
     preview: {
       kind: "images",
       items: [
-        { src: "/images/showcase-staging-before.jpg", label: "Before · Empty" },
+        {
+          src: "/images/showcase-staging-before.jpg",
+          label: "Before, Empty Room",
+          alt: "Primary bedroom photographed empty before virtual staging",
+        },
         {
           src: "/images/showcase-staging-after.jpg",
-          label: "After · Virtually Staged",
+          label: "After, Virtually Staged",
+          alt: "The same primary bedroom after virtual staging, furnished and styled",
         },
       ],
     },
@@ -346,8 +374,12 @@ export default function HomePage() {
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             One Shoot. Every Asset.{" "}
-            <span className="text-fg-secondary">Priced by the Square Foot.</span>
+            <span className="text-fg-secondary">One Flat Price.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            Every package is a flat price. No square footage math, no surprise
+            line items, no quote you have to wait on.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -356,14 +388,12 @@ export default function HomePage() {
           </div>
 
           <p className="mt-8 text-center">
-            <a
-              href="https://homes.averyandbryant.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/gallery"
               className="text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
             >
               See Our Work &rarr;
-            </a>
+            </Link>
           </p>
         </div>
       </section>
