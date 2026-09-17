@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroCommercial } from "@/components/heroes/hero-commercial";
 import { ConsultCTA } from "@/components/consult-cta";
 import { FaqSection } from "@/components/faq-section";
@@ -12,7 +13,7 @@ import {
 export const metadata = {
   alternates: { canonical: "/commercial" },
   title:
-    "Commercial Media — CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
+    "Commercial Media: CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
   description:
     "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Packages from $995.",
 };
@@ -20,21 +21,110 @@ export const metadata = {
 const QUOTE_EMAIL =
   "mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote";
 
+const heroFrame = {
+  src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-exterior.jpg",
+  alt: "Exterior of a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
+  caption: "Quick service restaurant, Maumelle",
+};
+
+const portfolioGroups = [
+  {
+    label: "Hospitality and restaurants",
+    shots: [
+      {
+        src: "/images/commercial/10-anglers-way-little-rock-restaurant-bar.jpg",
+        alt: "Restaurant bar with a pressed tin ceiling and warm lighting at 10 Anglers Way in Little Rock, Arkansas",
+        caption: "Bar, Little Rock",
+      },
+      {
+        src: "/images/commercial/10-anglers-way-little-rock-restaurant-dining-room.jpg",
+        alt: "Bar with high stools, a pressed tin ceiling and framed memorabilia on exposed brick at 10 Anglers Way in Little Rock, Arkansas",
+        caption: "Bar seating, Little Rock",
+      },
+      {
+        src: "/images/commercial/10-anglers-way-little-rock-restaurant-entrance.jpg",
+        alt: "Covered entry with wood double doors and steakhouse signage etched on the glass at 10 Anglers Way in Little Rock, Arkansas",
+        caption: "Entrance, Little Rock",
+      },
+    ],
+  },
+  {
+    label: "Retail and quick service",
+    shots: [
+      {
+        src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-dining-room.jpg",
+        alt: "Dining room with gold pendant lighting and booths inside a quick service restaurant in Maumelle, Arkansas",
+        caption: "Interior, Maumelle",
+      },
+      {
+        src: "/images/commercial/12401-maumelle-blvd-maumelle-drive-thru-exterior.jpg",
+        alt: "Side elevation and illuminated signage on a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
+        caption: "Exterior signage, Maumelle",
+      },
+      {
+        src: "/images/commercial/4109-e-broadway-north-little-rock-retail-storefronts.jpg",
+        alt: "Low aerial of a row of retail storefronts and the parking lot at a shopping center on East Broadway in North Little Rock, Arkansas",
+        caption: "Retail center, North Little Rock",
+      },
+    ],
+  },
+  {
+    label: "Historic and institutional",
+    shots: [
+      {
+        src: "/images/commercial/2400-w-31st-ave-pine-bluff-church-sanctuary.jpg",
+        alt: "Church sanctuary with warm wood and pews at 2400 West 31st Avenue in Pine Bluff, Arkansas",
+        caption: "Sanctuary, Pine Bluff",
+      },
+      {
+        src: "/images/commercial/411-7th-st-little-rock-columned-portico.jpg",
+        alt: "Columned portico and front lawn of a Greek Revival mansion at 411 7th Street in Little Rock, Arkansas",
+        caption: "Greek Revival mansion, Little Rock",
+      },
+      {
+        src: "/images/commercial/2400-w-31st-ave-pine-bluff-church-exterior.jpg",
+        alt: "Brick church exterior photographed under a clear sky in Pine Bluff, Arkansas",
+        caption: "Church exterior, Pine Bluff",
+      },
+    ],
+  },
+  {
+    label: "Aerial and site context",
+    shots: [
+      {
+        src: "/images/commercial/111-smarthouse-way-north-little-rock-skyline-aerial.jpg",
+        alt: "Aerial photo over the Arkansas River showing the Little Rock skyline and its bridges, from a commercial shoot in North Little Rock, Arkansas",
+        caption: "River and skyline, North Little Rock",
+      },
+      {
+        src: "/images/commercial/4109-e-broadway-north-little-rock-retail-center-aerial.jpg",
+        alt: "Aerial photo of a retail strip center and its parking field in North Little Rock, Arkansas",
+        caption: "Retail center aerial, North Little Rock",
+      },
+      {
+        src: "/images/commercial/411-7th-st-little-rock-mansion-and-skyline.jpg",
+        alt: "Aerial photo over a historic Little Rock neighborhood with the downtown skyline behind it, from a shoot at 411 7th Street",
+        caption: "Downtown aerial, Little Rock",
+      },
+    ],
+  },
+];
+
 const sellingPoints = [
   {
     title: "Custom-Scope, Not Package Math",
     description:
-      "Every commercial project is different. We build the shoot around your property, your brand, and how the media will be used — not around pre-packaged SKUs.",
+      "Every commercial project is different. We build the shoot around your property, your brand, and how the media will be used, not around pre-packaged SKUs.",
   },
   {
     title: "Ongoing Content Programs",
     description:
-      "Monthly retainer options for dealerships and properties that need fresh content — seasonal refreshes, new inventory, updated interiors, team changes.",
+      "Monthly retainer options for dealerships and properties that need fresh content: seasonal refreshes, new inventory, updated interiors, team changes.",
   },
   {
     title: "FAA-Licensed Aerials",
     description:
-      "Part 107 certified pilots with full insurance coverage. Properly permitted for commercial airspace — not hobby drones over a parking lot.",
+      "Part 107 certified pilots with full insurance coverage. Properly permitted for commercial airspace, not hobby drones over a parking lot.",
   },
   {
     title: "Same Media Team, Built-In Scale",
@@ -101,6 +191,64 @@ export default function CommercialPage() {
   return (
     <>
       <HeroCommercial />
+
+      {/* ── COMMERCIAL PORTFOLIO (REAL DELIVERED WORK) ── */}
+      <section className="border-b border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Commercial Portfolio
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Properties we have already shot.{" "}
+            <span className="text-fg-secondary">
+              Restaurants, retail, historic, aerial.
+            </span>
+          </h2>
+
+          <figure className="mt-12">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+              <Image
+                src={heroFrame.src}
+                alt={heroFrame.alt}
+                fill
+                sizes="(min-width: 1280px) 1216px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+              {heroFrame.caption}
+            </figcaption>
+          </figure>
+
+          <div className="mt-16 space-y-16">
+            {portfolioGroups.map((group) => (
+              <div key={group.label}>
+                <h3 className="font-display text-lg font-medium text-fg">
+                  {group.label}
+                </h3>
+                <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.shots.map((shot) => (
+                    <figure key={shot.src}>
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          fill
+                          sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                        {shot.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── CRE PACKAGES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
@@ -236,7 +384,7 @@ export default function CommercialPage() {
       <ConsultCTA
         interest="commercial"
         headline="Commercial work is always custom."
-        subhead="Dealership, office, retail, hospitality — every property has a different story to tell. Free 30-min scoping call to get a real quote, not a guess."
+        subhead="Dealership, office, retail, hospitality. Every property has a different story to tell. Free 30-min scoping call to get a real quote, not a guess."
       />
 
       {/* ── CTA ── */}

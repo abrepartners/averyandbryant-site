@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroBuilders } from "@/components/heroes/hero-builders";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
@@ -10,10 +11,86 @@ import { buildersPricing } from "@/lib/pricing";
 export const metadata = {
   alternates: { canonical: "/builders" },
   title:
-    "Builder & Construction Media — Build Tracker, Marketing System & Model Home Launch | Avery & Bryant",
+    "Builder & Construction Media: Build Tracker, Marketing System & Model Home Launch | Avery & Bryant",
   description:
     "Professional photography, drone aerials, and video tours for builders, construction projects, and model homes across Arkansas. Packages from $325/mo with value-stack pricing.",
 };
+
+const leadFrames = [
+  {
+    src: "/images/builders/40-orle-cir-little-rock-french-country-front.jpg",
+    alt: "Stone and brick French country home at 40 Orle Circle in Little Rock, Arkansas, photographed in bright daylight under a blue sky, with finished beds, a green lawn and a curved concrete driveway",
+    caption: "40 Orle Circle, Little Rock",
+  },
+  {
+    src: "/images/builders/45-mountain-brook-little-rock-finished-front-elevation.jpg",
+    alt: "Finished brick and stone front elevation of a new construction home at 45 Mountain Brook Road in Little Rock, Arkansas, with fresh sod, a young staked tree and a brown double garage door",
+    caption: "45 Mountain Brook Road, Little Rock",
+  },
+];
+
+const buildGallery = [
+  {
+    src: "/images/builders/40-orle-cir-little-rock-marble-kitchen.jpg",
+    alt: "Kitchen with marble counters and backsplash, a wood island and a wood clad range hood in a new construction home at 40 Orle Circle in Little Rock, Arkansas",
+    caption: "40 Orle Circle, Little Rock",
+  },
+  {
+    src: "/images/builders/7048-hannah-ln-bryant-farmhouse-front.jpg",
+    alt: "Board and batten farmhouse front elevation with a brick columned porch at 7048 Hannah Lane in Bryant, Arkansas",
+    caption: "7048 Hannah Lane, Bryant",
+  },
+  {
+    src: "/images/builders/7048-hannah-ln-bryant-white-oak-kitchen.jpg",
+    alt: "White oak kitchen with black windows in a new construction home in Bryant, Arkansas",
+    caption: "7048 Hannah Lane, Bryant",
+  },
+  {
+    src: "/images/builders/30-miramont-cir-little-rock-modern-brick-front.jpg",
+    alt: "Modern white brick front elevation with black windows on a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
+    caption: "30 Miramont Circle, Little Rock",
+  },
+  {
+    src: "/images/builders/30-miramont-cir-little-rock-shaker-kitchen.jpg",
+    alt: "Kitchen island with shaker drawer fronts opening to a great room with a linear fireplace in a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
+    caption: "30 Miramont Circle, Little Rock",
+  },
+  {
+    src: "/images/builders/1583-bighorn-dr-benton-acadian-brick-front.jpg",
+    alt: "Acadian brick front elevation with dormers on a new construction home at 1583 Bighorn Drive in Benton, Arkansas",
+    caption: "1583 Bighorn Drive, Benton",
+  },
+  {
+    src: "/images/builders/1052-stagecoach-blvd-cabot-kitchen-island.jpg",
+    alt: "Kitchen island with a sink, sage green cabinets and a veined stone backsplash in a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas",
+    caption: "1052 Stagecoach Boulevard, Cabot",
+  },
+  {
+    src: "/images/builders/40-orle-cir-little-rock-walk-in-closet.jpg",
+    alt: "Walk in closet with white built in shelving, hanging rods and a stone topped island in a new construction home at 40 Orle Circle in Little Rock, Arkansas",
+    caption: "40 Orle Circle, Little Rock",
+  },
+  {
+    src: "/images/builders/1583-bighorn-dr-benton-walk-in-pantry.jpg",
+    alt: "Walk in pantry with white shelving and a stone counter in a new construction home at 1583 Bighorn Drive in Benton, Arkansas",
+    caption: "1583 Bighorn Drive, Benton",
+  },
+  {
+    src: "/images/builders/1052-stagecoach-blvd-cabot-front-elevation.jpg",
+    alt: "Front elevation of a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas, photographed in bright daylight, with a wide concrete driveway running up to the garage",
+    caption: "1052 Stagecoach Boulevard, Cabot",
+  },
+  {
+    src: "/images/builders/7048-hannah-ln-bryant-wooded-lot-aerial.jpg",
+    alt: "Aerial photo of a new construction home on a wooded lot at 7048 Hannah Lane in Bryant, Arkansas",
+    caption: "7048 Hannah Lane, Bryant",
+  },
+  {
+    src: "/images/builders/45-mountain-brook-little-rock-development-aerial.jpg",
+    alt: "Aerial photo of a residential development under construction in Little Rock, Arkansas, with graded lots beside a street of finished homes",
+    caption: "45 Mountain Brook Road, Little Rock",
+  },
+];
 
 const sellingPoints = [
   {
@@ -24,12 +101,12 @@ const sellingPoints = [
   {
     title: "Model Home Marketing",
     description:
-      "We shoot your model homes like luxury listings — because that's how buyers shop. Premium media that justifies premium pricing.",
+      "We shoot your model homes like luxury listings, because that is how buyers shop. Premium media that justifies premium pricing.",
   },
   {
     title: "Development Aerial Overviews",
     description:
-      "Drone photography and video that show the full scope of your development — completed lots, infrastructure, and available parcels.",
+      "Drone photography and video that show the full scope of your development: completed lots, infrastructure, and available parcels.",
   },
   {
     title: "Consistent Brand Quality",
@@ -95,6 +172,60 @@ export default function BuildersPage() {
   return (
     <>
       <HeroBuilders />
+
+      {/* ── RECENT BUILDS (REAL DELIVERED WORK) ── */}
+      <section className="border-b border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Recent Builds
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Homes we have already shot.{" "}
+            <span className="text-fg-secondary">
+              Real Arkansas builders, real deliveries.
+            </span>
+          </h2>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {leadFrames.map((frame) => (
+              <figure key={frame.src}>
+                <div className="relative aspect-[3/2] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={frame.src}
+                    alt={frame.alt}
+                    fill
+                    sizes="(min-width: 768px) 600px, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {frame.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {buildGallery.map((shot) => (
+              <figure key={shot.src}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
@@ -191,8 +322,8 @@ export default function BuildersPage() {
 
       <ConsultCTA
         interest="builders"
-        headline="Building a development — not just one home?"
-        subhead="Single-build vs. progress program vs. full dev portfolio — each scopes differently. Free 30-min call to map what you actually need."
+        headline="Building a development, not just one home?"
+        subhead="Single-build vs. progress program vs. full dev portfolio: each scopes differently. Free 30-min call to map what you actually need."
       />
 
       {/* ── CTA ── */}

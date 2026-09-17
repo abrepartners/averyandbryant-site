@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroRealEstate } from "@/components/heroes/hero-real-estate";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
@@ -12,10 +13,49 @@ import { realEstatePricing } from "@/lib/pricing";
 export const metadata = {
   alternates: { canonical: "/real-estate" },
   title:
-    "Real Estate Media — Listing Launch Kit, Domination System & Market Takeover | Avery & Bryant",
+    "Real Estate Media: Listing Launch Kit, Domination System & Market Takeover | Avery & Bryant",
   description:
     "Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans for real estate listings across Arkansas. Packages from $299 with 48-hour delivery guarantee.",
 };
+
+const heroFrame = {
+  src: "/images/real-estate/18-lefever-ln-little-rock-beamed-great-room.jpg",
+  alt: "Designer furnished great room with exposed beams in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
+  caption: "18 Lefever Lane, Little Rock",
+};
+
+const listingGallery = [
+  {
+    src: "/images/real-estate/18-lefever-ln-little-rock-twilight-front.jpg",
+    alt: "Twilight exterior of a single family listing at 18 Lefever Lane in Little Rock, Arkansas, with the windows glowing",
+    caption: "Twilight, Little Rock",
+  },
+  {
+    src: "/images/real-estate/18-lefever-ln-little-rock-white-kitchen.jpg",
+    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
+    caption: "Interiors, Little Rock",
+  },
+  {
+    src: "/images/real-estate/164-blue-heron-dr-hot-springs-lakefront-aerial.jpg",
+    alt: "Aerial photo of a lakefront estate listing at 164 Blue Heron Drive in Hot Springs, Arkansas, with the mountains behind it",
+    caption: "Aerial, Hot Springs",
+  },
+  {
+    src: "/images/real-estate/164-blue-heron-dr-hot-springs-pool-over-lake.jpg",
+    alt: "Pool overlooking the lake at a waterfront home listing in Hot Springs, Arkansas",
+    caption: "Waterfront, Hot Springs",
+  },
+  {
+    src: "/images/real-estate/164-blue-heron-dr-hot-springs-two-story-great-room.jpg",
+    alt: "Two story great room with lake facing windows in a waterfront home listing in Hot Springs, Arkansas",
+    caption: "Interiors, Hot Springs",
+  },
+  {
+    src: "/images/real-estate/10-recinto-way-hot-springs-village-golf-course-aerial.jpg",
+    alt: "Aerial photo over the golf course at 10 Recinto Way in Hot Springs Village, Arkansas, with homes set along the fairway and wooded hills behind",
+    caption: "Aerial, Hot Springs Village",
+  },
+];
 
 const faqs = [
   {
@@ -57,6 +97,55 @@ export default function RealEstatePage() {
   return (
     <>
       <HeroRealEstate />
+
+      {/* ── RECENT LISTINGS (REAL DELIVERED WORK) ── */}
+      <section className="border-b border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Recent Listings
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Listings we have already shot.{" "}
+            <span className="text-fg-secondary">
+              Delivered to Arkansas agents.
+            </span>
+          </h2>
+
+          <figure className="mt-12">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+              <Image
+                src={heroFrame.src}
+                alt={heroFrame.alt}
+                fill
+                sizes="(min-width: 1280px) 1216px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+              {heroFrame.caption}
+            </figcaption>
+          </figure>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {listingGallery.map((shot) => (
+              <figure key={shot.src}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
@@ -101,7 +190,7 @@ export default function RealEstatePage() {
       <ConsultCTA
         interest="real-estate"
         headline="Not sure which package fits your listing?"
-        subhead="Book a free 30-minute call. Describe the listing — we'll tell you exactly which package fits and what it'll cost. No pitch, just a clear answer."
+        subhead="Book a free 30-minute call. Describe the listing and we'll tell you exactly which package fits and what it'll cost. No pitch, just a clear answer."
       />
 
       {/* ── CTA ── */}

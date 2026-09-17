@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroAirbnbRentals } from "@/components/heroes/hero-airbnb-rentals";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
@@ -10,21 +11,55 @@ import { airbnbPricing } from "@/lib/pricing";
 export const metadata = {
   alternates: { canonical: "/airbnb-rentals" },
   title:
-    "Airbnb & Rental Media — Revenue Ready Kit, Boost System & 5-Star Showcase | Avery & Bryant",
+    "Airbnb & Rental Media: Revenue Ready Kit, Boost System & 5-Star Showcase | Avery & Bryant",
   description:
     "Professional photography, video tours, drone, and twilight media for Airbnb and short-term rental properties across Arkansas. Packages from $449 with a satisfaction reshoot guarantee.",
 };
+
+const heroFrame = {
+  src: "/images/airbnb-rentals/326-houston-dr-hot-springs-cabin-living-room.jpg",
+  alt: "Styled living room with a wood plank ceiling, a sectional sofa and a wall of windows onto the deck in a short term rental cabin at 326 Houston Drive in Hot Springs, Arkansas",
+  caption: "326 Houston Drive, Hot Springs",
+};
+
+const rentalGallery = [
+  {
+    src: "/images/airbnb-rentals/326-houston-dr-hot-springs-bunk-room.jpg",
+    alt: "Bunk room with log beds in a short term rental lake cabin in Hot Springs, Arkansas",
+    caption: "Sleeps more, Hot Springs",
+  },
+  {
+    src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lakeside-deck-dining.jpg",
+    alt: "Covered deck with wood chairs and a table under a timber ceiling at a short term rental cabin in Hot Springs, Arkansas",
+    caption: "Covered deck, Hot Springs",
+  },
+  {
+    src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lake-cabin-aerial.jpg",
+    alt: "Aerial photo of a wooded lakefront lined with covered boat docks in Hot Springs, Arkansas, with the mountains on the horizon",
+    caption: "Lakefront aerial, Hot Springs",
+  },
+  {
+    src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-guest-bedroom.jpg",
+    alt: "Guest bedroom made up with white hotel bedding in a short term rental at 3714 Idlewild Avenue in North Little Rock, Arkansas",
+    caption: "Guest bedroom, North Little Rock",
+  },
+  {
+    src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-marble-shower.jpg",
+    alt: "Marble shower with a folded towel niche in a short term rental in North Little Rock, Arkansas",
+    caption: "Bath detail, North Little Rock",
+  },
+];
 
 const sellingPoints = [
   {
     title: "More Bookings, Proven",
     description:
-      "Airbnb's own 2024–25 study of 14,700+ listings found professional photography drove ~19% more bookings and ~21% higher host earnings over the following year.",
+      "Airbnb's own 2024 to 2025 study of 14,700+ listings found professional photography drove ~19% more bookings and ~21% higher host earnings over the following year.",
   },
   {
     title: "Amenity Showcase",
     description:
-      "We highlight the details guests search for — hot tubs, kitchens, outdoor spaces, unique decor, and views.",
+      "We highlight the details guests search for: hot tubs, kitchens, outdoor spaces, unique decor, and views.",
   },
   {
     title: "Interior Styling Guidance",
@@ -97,6 +132,55 @@ export default function AirbnbRentalsPage() {
   return (
     <>
       <HeroAirbnbRentals />
+
+      {/* ── RECENT RENTALS (REAL DELIVERED WORK) ── */}
+      <section className="border-b border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Recent Rentals
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Rentals we have already shot.{" "}
+            <span className="text-fg-secondary">
+              Styled, lit, and ready to book.
+            </span>
+          </h2>
+
+          <figure className="mt-12">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+              <Image
+                src={heroFrame.src}
+                alt={heroFrame.alt}
+                fill
+                sizes="(min-width: 1280px) 1216px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+              {heroFrame.caption}
+            </figcaption>
+          </figure>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {rentalGallery.map((shot) => (
+              <figure key={shot.src}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
@@ -194,7 +278,7 @@ export default function AirbnbRentalsPage() {
       <ConsultCTA
         interest="airbnb-rentals"
         headline="Running multiple rentals or a whole portfolio?"
-        subhead="One property is easy — ten is a content program. Free 30-min call to talk batch shoots, seasonal refreshes, and recurring rates."
+        subhead="One property is easy, ten is a content program. Free 30-min call to talk batch shoots, seasonal refreshes, and recurring rates."
       />
 
       {/* ── CTA ── */}
