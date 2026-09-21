@@ -15,16 +15,40 @@ type OrderLinkProps = Omit<
 > & {
   vertical: Vertical;
   children: ReactNode;
+  /**
+   * Extra query params carried into the order page, e.g. the package the
+   * visitor chose on a card. The external order form cannot prefill, so this
+   * is context for us, never a promise that the selection is "in the cart".
+   */
+  params?: Record<string, string>;
 };
 
-export function OrderLink({ vertical, children, ...rest }: OrderLinkProps) {
+export function OrderLink({
+  vertical,
+  children,
+  params,
+  ...rest
+}: OrderLinkProps) {
   const baseHref = `/order/${vertical}`;
-  const staticHref = `${baseHref}?source=averyandbryant.com&vertical=${vertical}`;
+  const extraQuery = params
+    ? Object.entries(params)
+        .map(([k, v]) => `&${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+        .join("")
+    : "";
+  const staticHref = `${baseHref}?source=averyandbryant.com&vertical=${vertical}${extraQuery}`;
   const [href, setHref] = useState(staticHref);
+  const paramsKey = JSON.stringify(params ?? {});
 
   useEffect(() => {
-    setHref(enrichHref(baseHref, { source: "averyandbryant.com", vertical }));
-  }, [baseHref, vertical]);
+    const extra = JSON.parse(paramsKey) as Record<string, string>;
+    setHref(
+      enrichHref(baseHref, {
+        source: "averyandbryant.com",
+        vertical,
+        ...extra,
+      }),
+    );
+  }, [baseHref, vertical, paramsKey]);
 
   return (
     <a href={href} {...rest}>

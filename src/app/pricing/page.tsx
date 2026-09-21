@@ -1,5 +1,17 @@
 import Link from "next/link";
 import { OrderLink } from "@/components/order-link";
+import { consultUrl } from "@/lib/consult";
+import {
+  realEstatePricing,
+  airbnbPricing,
+  multiFamilyPricing,
+  lotLandPricing,
+  buildersPricing,
+  commercialPackages,
+  commercialSpecialty,
+  brandingPackages,
+  type Package,
+} from "@/lib/pricing";
 
 export const metadata = {
   alternates: { canonical: "/pricing" },
@@ -8,6 +20,24 @@ export const metadata = {
     "Transparent pricing for real estate photography, drone, video, virtual tours, and branding across all property types. Central Arkansas.",
 };
 
+type PricingRow = { name: string; price: string; basis?: string; bestFor?: string };
+
+function rows(pkgs: Package[]): PricingRow[] {
+  return pkgs.map((p) => ({
+    name: p.name,
+    price:
+      p.priceBasis === "starting at" && p.price.startsWith("From ")
+        ? p.price.slice(5)
+        : p.priceBasis === "per month" && p.price.endsWith("/mo")
+          ? p.price.slice(0, -3)
+          : p.price,
+    basis: p.priceBasis,
+    bestFor: p.bestFor,
+  }));
+}
+
+// Package rows come from src/lib/pricing.ts so this page cannot drift from
+// the vertical pages. Only the per-vertical blurbs live here.
 const verticals = [
   {
     slug: "real-estate",
@@ -15,14 +45,10 @@ const verticals = [
     tag: "Most Requested",
     headline: "Listing Media",
     range: "From $299",
+    rangeBasis: "per shoot",
     description:
-      "HDR photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 48-hour delivery guarantee.",
-    packages: [
-      { name: "Listing Launch Kit", price: "From $299" },
-      { name: "Listing Domination System", price: "From $499" },
-      { name: "Market Takeover Blueprint", price: "From $849" },
-    ],
-    orderFormId: "01918da6-2d38-7375-8fe1-96d7d74f812a",
+      "HDR photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 48-hour delivery.",
+    packages: rows(realEstatePricing.packages),
   },
   {
     slug: "airbnb-rentals",
@@ -30,14 +56,10 @@ const verticals = [
     tag: "Short-Term Rentals",
     headline: "STR Media",
     range: "From $449",
+    rangeBasis: "per shoot",
     description:
-      "Booking-optimized photography, drone, video tours, and social reels built to maximize nightly rate and occupancy.",
-    packages: [
-      { name: "Revenue Ready Kit", price: "From $449" },
-      { name: "Revenue Boost System", price: "$695" },
-      { name: "5-Star Showcase Blueprint", price: "$1,095" },
-    ],
-    orderFormId: "01918dcc-0824-72a8-abbe-61a9c9d9edb1",
+      "Booking-optimized photography, drone, video tours, and social reels for Airbnb, VRBO, and direct booking sites.",
+    packages: rows(airbnbPricing.packages),
   },
   {
     slug: "multi-family",
@@ -45,14 +67,10 @@ const verticals = [
     tag: "Apartment Communities",
     headline: "Leasing Media",
     range: "From $995",
+    rangeBasis: "one-time packages",
     description:
-      "Model unit photography, campus aerials, 3D tours, cinematic drone video, and leasing content that drives tour requests.",
-    packages: [
-      { name: "Leasing Launch Kit", price: "$995" },
-      { name: "Full Property Command", price: "$1,695" },
-      { name: "Leasing Domination Suite", price: "From $2,995" },
-    ],
-    orderFormId: "01914ab7-5488-710c-b2c9-62a929eed936",
+      "Model unit photography, campus aerials, 3D tours, cinematic drone video, and leasing content. One-off community sets from $295 plus model units from $165, sized to your square footage on a call.",
+    packages: rows(multiFamilyPricing.packages),
   },
   {
     slug: "lot-land",
@@ -60,46 +78,32 @@ const verticals = [
     tag: "Vacant Land",
     headline: "Land Media",
     range: "From $249",
+    rangeBasis: "per shoot",
     description:
-      "Aerial photography, boundary overlays, flyover video, and AI-rendered home visualizations on the lot.",
-    packages: [
-      { name: "Aerial Survey Kit", price: "$249" },
-      { name: "Land Marketing System", price: "$399" },
-      { name: "Vision Blueprint", price: "$649" },
-      { name: "Dream Home Vision", price: "$995" },
-    ],
-    orderFormId: "d6f632d8-1b59-4163-a63a-aeff8decce83",
+      "Aerial photography, illustrative boundary overlays, flyover video, and labeled concept renderings of a home on the lot.",
+    packages: rows(lotLandPricing.packages),
   },
   {
     slug: "builders",
     label: "Builders",
     tag: "New Construction",
     headline: "Builder Media",
-    range: "From $325/mo",
+    range: "From $1,395",
+    rangeBasis: "per finished-home shoot",
     description:
-      "Monthly construction documentation, model home launches, and builder marketing systems.",
-    packages: [
-      { name: "Build Tracker", price: "$325/mo" },
-      { name: "Builder Marketing System", price: "$1,395" },
-      { name: "Model Home Launch Blueprint", price: "$1,895" },
-    ],
-    orderFormId: "01914ab4-8713-72aa-b503-63ed6d4a11a5",
+      "Finished-home and model launch packages, plus a monthly progress program (Build Tracker, $325 per month) set up on a call.",
+    packages: rows(buildersPricing.packages),
   },
   {
     slug: "commercial",
     label: "Commercial",
     tag: "CRE & Specialty",
     headline: "Commercial Media",
-    range: "From $995",
+    range: "From $295",
+    rangeBasis: "photos, sized to your square footage",
     description:
-      "Commercial listing packages, dealership programs, hospitality photography, and industrial media.",
-    packages: [
-      { name: "CRE Launch Package", price: "$995" },
-      { name: "CRE Command System", price: "$1,695" },
-      { name: "Lot Command (Dealership)", price: "$995/mo" },
-      { name: "Guest Experience Package", price: "$1,495" },
-    ],
-    orderFormId: null,
+      "One-off commercial photography is sized to your square footage and quoted on a call. Listing packages, a dealership program, and hospitality photography below.",
+    packages: [...rows(commercialPackages), ...rows(commercialSpecialty)],
   },
   {
     slug: "branding",
@@ -107,14 +111,13 @@ const verticals = [
     tag: "Agent & Team Media",
     headline: "Branding",
     range: "From $95",
+    rangeBasis: "per person",
     description:
       "Headshots and brand sessions in our Little Rock studio. Content days, team days and ongoing content are scoped on a free call.",
     packages: [
-      { name: "Headshot Session", price: "$95" },
-      { name: "Brand Session", price: "$299" },
-      { name: "Content days, teams, ongoing", price: "On a call" },
+      ...rows(brandingPackages),
+      { name: "Content days, teams, ongoing", price: "Scoped on a call" },
     ],
-    orderFormId: null,
   },
 ];
 
@@ -148,8 +151,10 @@ export default function PricingPage() {
             <span className="text-fg-secondary">Every package.</span>
           </h1>
           <p className="mt-6 text-[15px] text-fg-secondary max-w-xl leading-relaxed">
-            Select your property type below to see full package details and book
-            online. All packages include our delivery guarantee.
+            Select your property type below to see full package details. Listing
+            packages book online; commercial, multi-family one-offs and every
+            monthly program are set up on a free call. Every shoot carries our
+            reshoot guarantee.
           </p>
           <Link
             href="/get-started"
@@ -176,8 +181,13 @@ export default function PricingPage() {
                 <h2 className="font-display text-xl font-bold text-fg mb-1">
                   {v.label}
                 </h2>
-                <p className="font-display text-2xl font-extrabold text-crimson mb-4 tracking-tight">
-                  {v.range}
+                <p className="mb-4 flex flex-wrap items-baseline gap-x-2">
+                  <span className="font-display text-2xl font-extrabold tracking-tight text-crimson">
+                    {v.range}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.15em] text-fg-secondary">
+                    {v.rangeBasis}
+                  </span>
                 </p>
                 <p className="text-[13px] text-fg-secondary leading-relaxed mb-5">
                   {v.description}
@@ -188,11 +198,25 @@ export default function PricingPage() {
                   {v.packages.map((pkg) => (
                     <li
                       key={pkg.name}
-                      className="flex items-center justify-between text-[12px]"
+                      className="flex items-start justify-between gap-3 text-[12px]"
                     >
-                      <span className="text-fg-secondary">{pkg.name}</span>
-                      <span className="text-fg-strong font-semibold tabular-nums">
-                        {pkg.price}
+                      <span className="min-w-0">
+                        <span className="text-fg-secondary">{pkg.name}</span>
+                        {pkg.bestFor && (
+                          <span className="mt-0.5 block text-[11px] leading-snug text-fg-secondary/70">
+                            {pkg.bestFor}
+                          </span>
+                        )}
+                      </span>
+                      <span className="shrink-0 text-right">
+                        <span className="block font-semibold tabular-nums text-fg-strong">
+                          {pkg.price}
+                        </span>
+                        {pkg.basis && (
+                          <span className="block text-[10px] uppercase tracking-[0.1em] text-fg-secondary">
+                            {pkg.basis}
+                          </span>
+                        )}
                       </span>
                     </li>
                   ))}
@@ -200,7 +224,7 @@ export default function PricingPage() {
 
                 <div className="flex items-center gap-2 text-[11px] text-crimson font-medium group-hover:gap-3 transition-all">
                   View full packages
-                  <span>→</span>
+                  <span>&rarr;</span>
                 </div>
               </Link>
             ))}
@@ -212,7 +236,7 @@ export default function PricingPage() {
       <section className="py-16 border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60 mb-6">
-            À La Carte Add-Ons
+            A La Carte Add-Ons
           </p>
           <p className="text-[13px] text-fg-secondary mb-8 max-w-md">
             Available across most verticals. Pricing varies by package, see
@@ -272,12 +296,14 @@ export default function PricingPage() {
             >
               Book a Shoot
             </OrderLink>
-            <Link
-              href="/book"
-              className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/30 hover:text-white"
+            <a
+              href={consultUrl("pricing")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/30 hover:text-white"
             >
-              Book a Free Consult
-            </Link>
+              Book a free 30-min call
+            </a>
           </div>
         </div>
       </section>

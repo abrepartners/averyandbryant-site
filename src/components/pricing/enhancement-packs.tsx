@@ -8,18 +8,18 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
           Enhancement Packs
         </p>
         <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-          Bundle &amp; save.{" "}
-          <span className="text-fg-secondary">Add to any package.</span>
+          Add what your package is missing.{" "}
+          <span className="text-fg-secondary">Nothing it already has.</span>
         </h2>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           {packs.map((pack) => (
             <div
               key={pack.name}
-              className="pricing-card group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-6 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-8"
+              className="pricing-card group min-w-0 rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-6 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-8"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="min-w-0">
                   <h3 className="font-display text-lg font-medium text-fg">
                     {pack.name}
                   </h3>
@@ -31,8 +31,8 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
                   <span className="pricing-price font-display text-2xl font-light text-crimson">
                     {pack.price}
                   </span>
-                  <span className="mt-1 block text-[11px] font-medium uppercase tracking-[0.15em] text-amber-200/80">
-                    Save {pack.savedAmount}
+                  <span className="mt-1 block text-[11px] uppercase tracking-[0.15em] text-fg-secondary">
+                    one-time
                   </span>
                 </div>
               </div>
@@ -48,6 +48,18 @@ export function EnhancementPacks({ packs }: { packs: EnhancementPack[] }) {
                   </li>
                 ))}
               </ul>
+
+              {pack.note && (
+                <p className="mt-4 rounded border border-amber-400/20 bg-amber-400/5 px-3 py-2 text-[12px] leading-relaxed text-amber-100/80">
+                  {pack.note}
+                </p>
+              )}
+
+              {pack.savedAmount && (
+                <p className="mt-4 text-[11px] text-fg-secondary/70">
+                  Saves {pack.savedAmount} against buying the items separately.
+                </p>
+              )}
             </div>
           ))}
         </div>
