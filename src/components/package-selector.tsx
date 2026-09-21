@@ -12,6 +12,7 @@ import {
   type Package,
 } from "@/lib/pricing";
 import { orderFormUrl, type Vertical } from "@/lib/order-forms";
+import { consultUrl } from "@/lib/consult";
 import { QuoteLeadForm } from "@/components/quote-lead-form";
 
 /**
@@ -21,9 +22,11 @@ import { QuoteLeadForm } from "@/components/quote-lead-form";
  * that don't self-serve). Removes the cross-vertical guesswork.
  */
 
+// Consult routes go to the real Free Consultation calendar (GHL, 30-minute
+// slots), never to /book: /book is the shoot order form.
 type Route =
   | { kind: "order"; vertical: Vertical }
-  | { kind: "consult"; href: string; verticalPage: string };
+  | { kind: "consult"; href: string; verticalPage: string; note?: string };
 
 type TypeOption = {
   id: string;
@@ -94,7 +97,12 @@ const TYPES: TypeOption[] = [
     label: "A commercial property",
     subject: "Commercial shoots",
     blurb: "Office, retail, industrial",
-    route: { kind: "consult", href: "/book", verticalPage: "/commercial" },
+    route: {
+      kind: "consult",
+      href: consultUrl("commercial"),
+      verticalPage: "/commercial",
+      note: "One-off commercial photography starts at $295 and is sized to your square footage on the call. Monthly programs are scoped the same way.",
+    },
     verticalPage: "/commercial",
   },
   {
@@ -102,7 +110,12 @@ const TYPES: TypeOption[] = [
     label: "My personal brand",
     subject: "Personal brand shoots",
     blurb: "Headshots & agent content",
-    route: { kind: "consult", href: "/book", verticalPage: "/branding" },
+    route: {
+      kind: "consult",
+      href: consultUrl("branding"),
+      verticalPage: "/branding",
+      note: "Two sessions carry a fixed price: Headshot Session $95 (on a scheduled studio day) and Brand Session $299. The call books your date. Content days, team days and ongoing content are scoped on the same call.",
+    },
     verticalPage: "/branding",
   },
 ];
@@ -329,7 +342,9 @@ function Result({
 }) {
   // Consult verticals (commercial / branding): no self-serve form
   if (!type.pricing || type.route.kind === "consult") {
-    const href = type.route.kind === "consult" ? type.route.href : "/book";
+    const href =
+      type.route.kind === "consult" ? type.route.href : consultUrl(type.id);
+    const note = type.route.kind === "consult" ? type.route.note : undefined;
     return (
       <div className="rounded-lg border border-crimson/30 bg-[rgba(17,17,17,0.6)] p-8 md:p-10">
         <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
@@ -346,15 +361,22 @@ function Result({
           expression makes the spacing impossible to collapse.
         */}
         <p className="mt-4 max-w-xl text-base text-fg-strong">
-          {`${type.subject} are custom, so we'll build the right package live in a free 30-minute consult. No pressure.`}
+          {`${type.subject} are scoped on a free 30-minute call, so we'll build the right package with you live. No pressure.`}
         </p>
+        {note && (
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-fg-secondary">
+            {note}
+          </p>
+        )}
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <Link
+          <a
             href={href}
-            className="inline-flex items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark"
           >
-            Book a Free Consult
-          </Link>
+            Book a free 30-min call
+          </a>
           <Link
             href={type.verticalPage}
             className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:border-white/30 hover:text-white"
@@ -425,9 +447,14 @@ function Result({
       <p className="mt-6 text-xs text-fg-secondary">
         Not sure? Every package is backed by our {type.pricing.guarantee.name}.
         Prefer to talk it through?{" "}
-        <Link href="/book" className="text-fg-secondary underline hover:text-white">
-          Book a free consult.
-        </Link>
+        <a
+          href={consultUrl(type.id)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-fg-secondary underline hover:text-white"
+        >
+          Book a free 30-minute call.
+        </a>
       </p>
       {leadCapture && (
         <QuoteLeadForm

@@ -5,12 +5,12 @@ import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { brandingPackages, brandingGuarantee } from "@/lib/pricing";
+import { consultUrl } from "@/lib/consult";
 
 // Every CTA on this page opens the same free consultation calendar used by the
 // nav and the ConsultCTA block. /book is the listing media order form and is
 // the wrong door for a headshot, a brand session or a content day.
-const CONSULT_URL =
-  "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc?interest=branding";
+const CONSULT_URL = consultUrl("branding");
 
 export const metadata = {
   alternates: { canonical: "/branding" },
@@ -310,7 +310,9 @@ export default function BrandingPage() {
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-secondary">
             These two are the same for everybody, so they get a number. Take a
-            time on the calendar, tell us which one you want, and turn up.
+            time on the calendar, tell us which one you want, and turn up. The
+            button below books a free scheduling call, not the session itself:
+            the session date is set on that call.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -320,7 +322,7 @@ export default function BrandingPage() {
                 pkg={pkg}
                 ctaHref={CONSULT_URL}
                 ctaTarget="_blank"
-                ctaLabel="Get on the calendar"
+                ctaLabel="Book a scheduling call"
               />
             ))}
           </div>

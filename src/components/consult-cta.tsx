@@ -1,13 +1,12 @@
 import Link from "next/link";
+import { consultUrl } from "@/lib/consult";
 
-// Free Consultation calendar in GHL (30-min slots, published).
-// We deep-link with ?prefill=<interest> so Thomas sees context before the call.
-const CONSULT_BASE =
-  "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc";
+// Free Consultation calendar in GHL (30-min slots, published). Deep-linked with
+// ?interest=<vertical> so the team sees context before the call.
 
 type ConsultCTAProps = {
   /**
-   * Short label for the vertical — e.g. "real-estate", "multi-family",
+   * Short label for the vertical, e.g. "real-estate", "multi-family",
    * "studio", "branding". Prefills into the consult form.
    */
   interest: string;
@@ -22,7 +21,7 @@ type ConsultCTAProps = {
 };
 
 export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
-  const url = `${CONSULT_BASE}?interest=${encodeURIComponent(interest)}`;
+  const url = consultUrl(interest);
 
   return (
     <section
@@ -70,9 +69,9 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book a Free Consult
+              Book a free 30-min call
             </a>
             <Link
               href="/pricing"
@@ -81,7 +80,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
               Or compare all services &rarr;
             </Link>
             <p className="text-xs text-fg-secondary md:text-right">
-              30 minutes on Google Meet, or call (501) 502-2925 if you'd rather talk
+              30 minutes on Google Meet, or call (501) 502-2925 if you&apos;d rather talk
             </p>
           </div>
         </div>

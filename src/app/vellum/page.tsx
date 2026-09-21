@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import { requestUrl } from "@/lib/consult";
 
 export const metadata = {
   alternates: { canonical: "/vellum" },
@@ -145,36 +145,20 @@ export default function VellumPage() {
             >
               Start Free with Google
             </a>
-            <Link
-              href="/book"
-              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
+            {/* No demo calendar exists yet, so this is an honest request by
+                email, never the shoot-booking page. */}
+            <a
+              href={requestUrl("Vellum demo request")}
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
             >
-              Book a Demo
-            </Link>
+              Request a demo by email
+            </a>
           </div>
 
-          {/* Social proof */}
-          <div className="mt-10 flex flex-col items-center gap-2.5">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-0.5">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <svg
-                    key={i}
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="h-4 w-4 text-crimson"
-                    aria-hidden="true"
-                  >
-                    <path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.51L10 14.02l-4.94 2.7.94-5.51-4-3.9 5.53-.8L10 1.5z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-sm font-medium text-fg">4.9/5</span>
-            </div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-              Proven on real client listings by a working media team
-            </p>
-          </div>
+          {/* Rating removed 2026-09-21: no published source for a score. */}
+          <p className="mt-10 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
+            Used on real client listings by a working media team
+          </p>
         </div>
       </section>
 
