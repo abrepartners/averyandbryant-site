@@ -9,13 +9,14 @@ import {
   commercialSpecialty,
   commercialGuarantee,
 } from "@/lib/pricing";
+import { consultUrl } from "@/lib/consult";
 
 export const metadata = {
   alternates: { canonical: "/commercial" },
   title:
     "Commercial Media: CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
   description:
-    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Packages from $995.",
+    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Photos from $295, sized to your square footage; listing packages from $995.",
 };
 
 const QUOTE_EMAIL =
@@ -175,7 +176,7 @@ const steps = [
     number: "01",
     title: "Scope Call",
     description:
-      "15 minutes to align on property, use cases, and deliverables.",
+      "A free 30-minute call to align on property, square footage, use cases, and deliverables.",
   },
   {
     number: "02",
@@ -194,7 +195,7 @@ const faqs = [
   {
     question: "How much does commercial photography cost in Arkansas?",
     answer:
-      "Every commercial project is scoped custom around the property, the brand, and how the media will be used. Baseline package structures are listed on this page, and a 15 minute scope call gets you a written quote within 24 hours.",
+      "One-off commercial photography is sized to your square footage: photos start at $295 for a single suite or small building, and a free 30-minute scope call produces the exact number. The listing packages and hospitality package on this page are fixed prices; the dealership program is monthly and set up on a call.",
   },
   {
     question: "How fast do we get our media?",
@@ -303,16 +304,49 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      {/* ── ONE-OFF PHOTOGRAPHY, SIZED TO SQUARE FOOTAGE ── */}
+      <section className="border-t border-white/5 py-20 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="grid items-center gap-8 rounded-lg border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:grid-cols-[1.4fr_auto] md:p-12">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                Just need photos of a building or suite?
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
+                Photos from $295, sized to your square footage.
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-secondary">
+                HDR interior and exterior photography in one visit, delivered
+                in 48 hours. A free 30-minute call sizes the shoot to your
+                property and produces the exact quote.
+              </p>
+            </div>
+            <a
+              href={consultUrl("commercial")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)] md:justify-self-end"
+            >
+              Book a free 30-min call
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── CRE PACKAGES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Commercial Real Estate
+            Listing or selling a commercial property
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             CRE listing media.{" "}
             <span className="text-fg-secondary">Built for brokers.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Fixed-price, one-time packages for a property you are listing or
+            selling. Request a quote by email and we confirm scope and date.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
             {commercialPackages.map((pkg) => (
@@ -320,7 +354,7 @@ export default function CommercialPage() {
                 key={pkg.name}
                 pkg={pkg}
                 ctaHref={QUOTE_EMAIL}
-                ctaLabel="Request a Quote"
+                ctaLabel="Request a quote by email"
               />
             ))}
           </div>
@@ -335,20 +369,26 @@ export default function CommercialPage() {
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Specialty Programs
+            A commercial business that needs content
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Dealerships. Hospitality.{" "}
-            <span className="text-fg-secondary">Ongoing content.</span>
+            <span className="text-fg-secondary">Monthly programs.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Different job from listing a property. The dealership program is
+            monthly and set up on a call; the hospitality package is a one-time
+            shoot.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
             {commercialSpecialty.map((pkg) => (
               <PackageCard
                 key={pkg.name}
                 pkg={pkg}
+                interest="commercial"
                 ctaHref={QUOTE_EMAIL}
-                ctaLabel="Request a Quote"
+                ctaLabel={pkg.ctaMode === "call" ? undefined : "Request a quote by email"}
               />
             ))}
           </div>
@@ -436,8 +476,8 @@ export default function CommercialPage() {
 
       <ConsultCTA
         interest="commercial"
-        headline="Commercial work is always custom."
-        subhead="Dealership, office, retail, hospitality. Every property has a different story to tell. Free 30-min scoping call to get a real quote, not a guess."
+        headline="Not sure which track you are on?"
+        subhead="Listing a property, or a business that needs content every month: the free 30-minute call sorts that out, sizes any one-off photography to your square footage, and ends with a written quote."
       />
 
       {/* ── CTA ── */}

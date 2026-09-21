@@ -88,9 +88,10 @@ export function HeroAirbnbRentals() {
               </p>
             </div>
             <p className="text-sm leading-relaxed text-fg-secondary">
-              Airbnb&apos;s own 2024 to 2025 study of 14,700+ listings found
-              professional photography drove ~19% more bookings and ~21% higher
-              earnings over the next year. Your photos pay for themselves.
+              Source: Airbnb&apos;s own 2024 to 2025 study of 14,700+ listings,
+              which found professional photography drove about 19% more bookings
+              and 21% higher host earnings over the following year. Platform
+              aggregate, not a promise for any one listing.
             </p>
           </div>
         </div>

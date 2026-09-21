@@ -7,7 +7,7 @@ export const metadata = {
   title:
     "Zillow Showcase Listings in Arkansas | Avery & Bryant, Zillow Media Expert",
   description:
-    "Avery & Bryant is a Zillow Media Expert producing Showcase-ready listing media in Central Arkansas: interactive floor plans, immersive galleries, and aerial. Zillow Showcase listings sell for about 2% more.",
+    "Avery & Bryant is a Zillow Media Expert producing Showcase-ready listing media in Central Arkansas: interactive floor plans, immersive galleries, and aerial.",
 };
 
 const heroFrame = {
@@ -39,13 +39,19 @@ const showcaseGallery = [
   },
 ];
 
-// Zillow's own published figures (Zillow Showcase Fast Facts / Zillow Research, 2025).
+// Ruling (Thomas, 2026-09-21): every Zillow performance number on the site
+// carries the attribution "per Zillow, via Aryeo's Zillow Media Advantage" or
+// comes off. The only figures with that named source are the HD-photo saves
+// and shares comparison below. The Showcase page-view / sale-price figures
+// that used to sit here had no verifiable source in hand, so they are removed.
+// TODO(catalog): restore Showcase-specific figures only with a dated Zillow
+// source URL on file.
 const stats = [
-  { value: "79%", label: "more page views" },
-  { value: "76%", label: "more saves" },
-  { value: "91%", label: "more shares" },
-  { value: "~2%", label: "higher sale price (about $7,000)" },
+  { value: "+11%", label: "saves vs similar listings without HD photos" },
+  { value: "+12%", label: "shares vs similar listings without HD photos" },
 ];
+const statsSource =
+  "Per Zillow, via Aryeo's Zillow Media Advantage. Aggregate platform comparison; results vary by market and property.";
 
 const steps = [
   {
@@ -80,9 +86,9 @@ const faqs = [
       "Yes. Avery & Bryant is a Zillow Media Expert, which means we are qualified to produce the interactive floor plans, immersive galleries, and media that make a listing eligible for Zillow Showcase.",
   },
   {
-    question: "Do Zillow Showcase listings actually perform better?",
+    question: "Does better listing media actually perform better on Zillow?",
     answer:
-      "According to Zillow, Showcase listings get roughly 79% more page views, 76% more saves, and 91% more shares than similar non-Showcase listings, and sell for about 2% more (around $7,000 on an average home). Agents who use Showcase on most of their listings win about 35% more listings.",
+      "Per Zillow, via Aryeo's Zillow Media Advantage, listings with HD photos see about 11% more saves and 12% more shares than similar listings without them. That is an aggregate platform comparison, not a promise about any one listing, and results vary by market and property.",
   },
   {
     question: "Do you produce Showcase media across Central Arkansas?",
@@ -120,7 +126,7 @@ export default function ZillowShowcasePage() {
             Showcase is Zillow&apos;s premium listing experience, and the media
             behind it has to come from a Zillow Media Expert. That&apos;s us. We
             produce the interactive floor plans, immersive galleries, and aerial
-            that make your listing stand out and sell for more.
+            that make your listing stand out.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -197,9 +203,9 @@ export default function ZillowShowcasePage() {
             Why it matters
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
-            Showcase listings don&apos;t just look better. They perform.
+            Better listing media gets more attention on Zillow.
           </h2>
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {stats.map((s) => (
               <div
                 key={s.label}
@@ -212,10 +218,7 @@ export default function ZillowShowcasePage() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs text-fg-secondary">
-            Source: Zillow, comparing Showcase listings to similar non-Showcase
-            listings (2025). Results vary by market and property.
-          </p>
+          <p className="mt-6 text-xs text-fg-secondary">{statsSource}</p>
         </div>
       </section>
 

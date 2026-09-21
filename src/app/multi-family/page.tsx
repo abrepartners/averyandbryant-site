@@ -7,13 +7,14 @@ import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { multiFamilyPricing } from "@/lib/pricing";
+import { consultUrl } from "@/lib/consult";
 
 export const metadata = {
   alternates: { canonical: "/multi-family" },
   title:
     "Multi-Family & Apartment Media: Leasing Launch Kit, Property Command & Domination Suite | Avery & Bryant",
   description:
-    "Professional photography, drone aerials, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas. Packages from $995 with leasing guarantee.",
+    "Professional photography, drone aerials, video tours, and virtual staging for apartment complexes and multi-family properties across Arkansas. Community sets from $295 plus model units from $165, sized to your square footage; packages from $995.",
 };
 
 const sellingPoints = [
@@ -42,13 +43,15 @@ const sellingPoints = [
 const steps = [
   {
     number: "01",
-    title: "Book Online",
-    description: "Pick your date and services in under 2 minutes.",
+    title: "Scope or Book",
+    description:
+      "Packages book online. One-off community and unit photography is sized to your square footage on a free call.",
   },
   {
     number: "02",
     title: "We Shoot",
-    description: "Our team arrives on time and captures everything.",
+    description:
+      "Our team coordinates model unit and amenity access with your leasing office and captures everything in one visit.",
   },
   {
     number: "03",
@@ -61,7 +64,7 @@ const faqs = [
   {
     question: "How much does apartment photography cost in Arkansas?",
     answer:
-      "Multi-family scope varies with property size, amenity count, and how many units you want covered. Packages are listed on this page, you can compare across property types on our pricing page, and for lease-ups or larger communities a quick call is the fastest way to get an exact number.",
+      "One-off photography is sized to your square footage: community sets (exteriors, grounds, leasing office, amenities) start at $295 and each model unit starts at $165, and a free call produces the exact number. The one-time packages on this page are fixed prices. Ongoing monthly content is a program option, quoted on a call.",
   },
   {
     question: "How fast do we get our media?",
@@ -152,16 +155,50 @@ export default function MultiFamilyPage() {
         </div>
       </section>
 
+      {/* ── ONE-OFF PHOTOGRAPHY, SIZED TO SQUARE FOOTAGE ── */}
+      <section className="border-b border-white/5 py-20 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="grid items-center gap-8 rounded-lg border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:grid-cols-[1.4fr_auto] md:p-12">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                Just need photos?
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
+                Community sets from $295 plus model units from $165, sized to
+                your square footage.
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-secondary">
+                Exteriors, grounds, leasing office and amenities are one part;
+                each model unit interior is the other. A free 30-minute call
+                sizes both to your property and produces the exact quote.
+              </p>
+            </div>
+            <a
+              href={consultUrl("multi-family")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)] md:justify-self-end"
+            >
+              Book a free 30-min call
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Packages
+            One-time packages
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Media built for leasing teams.{" "}
             <span className="text-fg-secondary">Not just agents.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Each package is a one-time shoot at a fixed price. Ongoing monthly
+            content and annual refreshes are program options, quoted on a call.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {packages.map((pkg) => (
@@ -248,7 +285,7 @@ export default function MultiFamilyPage() {
       <ConsultCTA
         interest="multi-family"
         headline="Planning a lease-up or refresh?"
-        subhead="Multi-family scope varies a lot by property size, amenity count, and timeline. Free 30-min call to right-size the package and talk recurring content programs."
+        subhead="Multi-family scope varies a lot by property size, amenity count, and timeline. A free 30-minute call right-sizes the shoot, quotes one-off photography by square footage, and covers monthly content programs."
       />
 
       {/* ── CTA ── */}

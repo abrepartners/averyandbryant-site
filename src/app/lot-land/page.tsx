@@ -10,26 +10,26 @@ import { lotLandPricing } from "@/lib/pricing";
 export const metadata = {
   alternates: { canonical: "/lot-land" },
   title:
-    "Lot & Land Media — Aerial Survey Kit, Land Marketing System & Vision Blueprint | Avery & Bryant",
+    "Lot & Land Media: Aerial Parcel Kit, Land Marketing System & Vision Blueprint | Avery & Bryant",
   description:
-    "Professional aerial drone photography, ground-level photos, and video flyovers for lots, land, and development sites across Arkansas. Packages from $249 with AI home rendering.",
+    "Professional aerial drone photography, ground-level photos, and video flyovers for lots, land, and development sites across Arkansas. Packages from $249, with labeled concept renderings available.",
 };
 
 const sellingPoints = [
   {
-    title: "Aerial Boundary Shots",
+    title: "Aerial Parcel Shots",
     description:
-      "Drone photography that clearly shows property lines, lot shape, and total acreage from a perspective buyers can't get on foot.",
+      "Drone photography that shows lot shape, acreage and access from a perspective buyers can't get on foot. Boundary overlays are drawn from the source you provide and are illustrative.",
   },
   {
     title: "Neighboring Features",
     description:
-      "We capture what's around the property — roads, utilities, water features, schools, and shopping. Context sells land.",
+      "We capture what's around the property: roads, utilities, water features, schools, and shopping. Context sells land.",
   },
   {
     title: "Development Potential",
     description:
-      "Aerial views that help buyers and developers visualize buildable areas, drainage patterns, and subdivision possibilities.",
+      "Aerial views that help buyers and developers picture the site. Marketing media, not an engineering or survey product.",
   },
   {
     title: "FAA-Licensed Pilots",
@@ -80,7 +80,7 @@ const faqs = [
   {
     question: "Can you show property boundary lines on aerial photos?",
     answer:
-      "Yes. Boundary overlays are available as a land add-on. We mark lot lines and lot shape directly on the aerial images so buyers understand exactly what they are looking at.",
+      "Yes. Boundary overlays are available as a land add-on. We draw the lot lines on the aerial images from the boundary source you provide (plat, survey or GIS). The overlay is illustrative marketing media, not a survey, and should not be relied on for legal boundaries.",
   },
   {
     question: "What if I am not happy with the media?",
@@ -106,6 +106,10 @@ export default function LotLandPage() {
             Land doesn&apos;t sell itself.{" "}
             <span className="text-fg-secondary">But great media helps.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Everything here is marketing media, not a survey. Boundary overlays
+            are illustrative and drawn from the boundary source you provide.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {packages.map((pkg) => (
@@ -192,7 +196,7 @@ export default function LotLandPage() {
       <ConsultCTA
         interest="lot-land"
         headline="Land shoot questions before booking?"
-        subhead="Acreage, boundaries, access, timing — tell us about the property on a quick call and we'll scope the right aerial package in minutes."
+        subhead="Acreage, boundaries, access, timing: tell us about the property on a quick call and we'll scope the right aerial package in minutes."
       />
 
       {/* ── CTA ── */}
