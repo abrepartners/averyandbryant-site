@@ -3,6 +3,10 @@ import Image from "next/image";
 import { Hero } from "@/components/hero";
 import { GoogleReviews } from "@/components/google-reviews";
 import { ServiceCard, type Service } from "@/components/service-card";
+import { WorkingOn } from "@/components/working-on";
+import { PackageCard } from "@/components/pricing/package-card";
+import { realEstatePricing } from "@/lib/pricing";
+import { consultUrl } from "@/lib/consult";
 
 // Canonical must be declared per-page, never in layout.tsx (a layout-level
 // canonical would be inherited by every route and point them all at "/").
@@ -15,8 +19,12 @@ const services: Service[] = [
   {
     title: "Photos",
     price: "From $185",
+    useWhen:
+      "Every listing. Coverage (25, 40 or 55 photos) is the choice: more photos for larger homes and more rooms worth showing.",
+    includedIn:
+      "every listing package; the photo count sets the tier.",
     description:
-      "HDR photography calibrated for MLS, print, and social. 25, 40, or 55 photo shoots. Delivered same-day or next-day.",
+      "HDR photography calibrated for MLS, print, and social. 25, 40, or 55 photo shoots. Delivered within 48 hours.",
     image: "/images/services/photos/great-room-beams-little-rock.jpg",
     imageAlt:
       "Beamed great room with a vaulted ceiling in a Little Rock home, photographed for the listing",
@@ -49,6 +57,10 @@ const services: Service[] = [
   {
     title: "Reels Pack",
     price: "$595",
+    useWhen:
+      "When the listing needs to travel on Instagram, TikTok and Facebook, or the agent wants to be on camera.",
+    includedIn:
+      "Market Takeover Blueprint (4 reels); one reel in Listing Domination; add to any package.",
     description:
       "4 platform-native reels: listing walkthrough, viral hook, cinematic trailer, teaser. Shot and edited in one visit. Single reels are $195.",
     image: "/images/services/reels/reel-frame-aerial-beebe.jpg",
@@ -79,6 +91,10 @@ const services: Service[] = [
   {
     title: "Drone",
     price: "$150",
+    useWhen:
+      "When the lot, the setting, the water or the neighborhood is part of the story.",
+    includedIn:
+      "Listing Domination and above; add to the Launch Kit.",
     description:
       "FAA-licensed aerials. Property context, neighborhood scale, lot boundaries. Photos and video in one flight.",
     image: "/images/services/drone/lakefront-home-aerial-hot-springs.jpg",
@@ -108,6 +124,10 @@ const services: Service[] = [
   {
     title: "Video Tours",
     price: "From $295",
+    useWhen:
+      "When the property has a flow worth walking, or the price point expects a film, not just photos.",
+    includedIn:
+      "Market Takeover Blueprint; add to any package.",
     description:
       "Cinematic walkthrough video with music, pacing, and branded intro. 60 seconds at $295, 90 to 120 seconds at $395.",
     image: "/images/services/video-tours/cover.jpg",
@@ -138,6 +158,10 @@ const services: Service[] = [
   {
     title: "3D Tours",
     price: "From $149",
+    useWhen:
+      "When out-of-town buyers or busy schedules mean the first showing happens on a phone.",
+    includedIn:
+      "Listing Domination and above; add to the Launch Kit.",
     description:
       "Interactive 3D walkthrough. Buyers explore the home remotely, room by room. Zillow 3D with floor plan at $149, 3D walkthrough tour at $299.",
     image: "/images/portfolio-interior-2.jpg",
@@ -168,6 +192,10 @@ const services: Service[] = [
   {
     title: "Virtual Staging",
     price: "$49/room",
+    useWhen:
+      "When rooms are empty or dated and buyers need help seeing the layout furnished. Always labeled as virtually staged.",
+    includedIn:
+      "Market Takeover Blueprint (3 rooms); add per room to any package.",
     description:
       "AI-powered staging. 12+ interior styles. Empty rooms to styled spaces in under 48 hours. Virtual twilight is $39 per image.",
     image: "/images/showcase-staging-after.jpg",
@@ -188,84 +216,6 @@ const services: Service[] = [
         },
       ],
     },
-  },
-];
-
-const systemSteps = [
-  {
-    num: "01",
-    title: "Professional Shoot",
-    description:
-      "HDR photography, cinematic video, drone aerials, and 3D tours captured on-site. One visit. Everything your listing needs.",
-  },
-  {
-    num: "02",
-    title: "Vellum Post-Production",
-    description:
-      "AI-powered color grading, sky replacement, and twilight conversion. Magazine-quality edits in hours, not days.",
-  },
-  {
-    num: "03",
-    title: "Virtual Staging",
-    description:
-      "Empty rooms transformed into styled interiors. 12+ design styles. Ready overnight.",
-  },
-  {
-    num: "04",
-    title: "Delivery & MLS-Ready Assets",
-    description:
-      "Branded gallery, downloadable files, social-ready crops, and MLS-formatted exports. Everything organized.",
-  },
-  {
-    num: "05",
-    title: "Answr Lead Capture",
-    description:
-      "AI voice and chat agents answer buyer calls 24/7. Every inquiry routed and qualified automatically.",
-  },
-];
-
-const verticals = [
-  {
-    title: "Real Estate Listings",
-    description:
-      "Residential resale. Photography, video, drone, staging, and 3D tours from one shoot.",
-    href: "/real-estate",
-  },
-  {
-    title: "Airbnb & Rentals",
-    description:
-      "Short-term rental media that drives bookings. Optimized for Airbnb, VRBO, and direct booking sites.",
-    href: "/airbnb-rentals",
-  },
-  {
-    title: "Multi-Family",
-    description:
-      "Apartment complexes, student housing, and multi-unit communities. Amenity-focused production.",
-    href: "/multi-family",
-  },
-  {
-    title: "Lot & Land",
-    description:
-      "Aerial boundary surveys, topography context, and development-ready visuals for undeveloped parcels.",
-    href: "/lot-land",
-  },
-  {
-    title: "Builders",
-    description:
-      "Progress documentation, model home media, and development marketing for builders and GCs.",
-    href: "/builders",
-  },
-  {
-    title: "Commercial",
-    description:
-      "Office, retail, industrial, and dealership media. Built for commercial listing platforms and investor decks.",
-    href: "/commercial",
-  },
-  {
-    title: "Personal Branding",
-    description:
-      "Professional headshots, team photos, and social content for agents building a personal brand.",
-    href: "/branding",
   },
 ];
 
@@ -333,28 +283,149 @@ const brokerageMarks = [
   },
 ];
 
+// One real listing, its delivered media, and the job each asset does. All
+// three frames are from the same property (164 Blue Heron Drive, Hot Springs)
+// and already ship on the Real Estate page. Reels, tours and plans are shown
+// by service in the section below rather than attributed to this listing.
+const oneProject = {
+  address: "164 Blue Heron Drive, Hot Springs",
+  assets: [
+    {
+      src: "/images/real-estate/164-blue-heron-dr-hot-springs-pool-over-lake.jpg",
+      alt: "Pool overlooking the lake at a waterfront home listing in Hot Springs, Arkansas",
+      job: "Get attention",
+      note: "The cover photo. The one frame that earns the click on Zillow, the MLS and social.",
+    },
+    {
+      src: "/images/real-estate/164-blue-heron-dr-hot-springs-two-story-great-room.jpg",
+      alt: "Two story great room with lake facing windows in a waterfront home listing in Hot Springs, Arkansas",
+      job: "Explain the layout",
+      note: "Interior HDR photos, and on larger packages a floor plan and 3D tour, answer how the house lives.",
+    },
+    {
+      src: "/images/real-estate/164-blue-heron-dr-hot-springs-lakefront-aerial.jpg",
+      alt: "Aerial photo of a lakefront estate listing at 164 Blue Heron Drive in Hot Springs, Arkansas, with the mountains behind it",
+      job: "Show the context",
+      note: "Drone aerials put the lot, the water and the neighborhood in one frame.",
+    },
+  ],
+};
+
+const threeWays = [
+  {
+    title: "Done for you",
+    blurb:
+      "Our team shoots, edits and delivers property media, brand content and video. You book, we handle the rest.",
+    example: "A listing shoot with photos, drone and a reel, delivered in 48 hours.",
+    href: "/pricing",
+    cta: "See packages",
+  },
+  {
+    title: "Space and production at The Spot",
+    blurb:
+      "Rent the podcast studio by the hour, or book a produced episode with an engineer on the desk.",
+    example: "A weekly show recorded in a finished room, clips cut for social.",
+    href: "/studio",
+    cta: "See The Spot",
+  },
+  {
+    title: "Do it yourself with our tools",
+    blurb:
+      "Vellum edits and stages your own listing photos. Answr handles inquiries so calls are not missed.",
+    example: "Upload a photo, get a virtually staged version back in minutes.",
+    href: "/vellum",
+    cta: "See Vellum",
+  },
+];
+
+const nextSteps = [
+  {
+    num: "01",
+    title: "Scope and select",
+    description:
+      "Pick a package online, or take a free 30-minute call for commercial, multi-family and monthly programs.",
+  },
+  {
+    num: "02",
+    title: "Capture",
+    description:
+      "One visit. Photos, drone, video and tours are shot together so the media matches.",
+  },
+  {
+    num: "03",
+    title: "Produce and review",
+    description:
+      "Editing, staging and reels are produced in-house. Reshoots on our work are free within 7 days.",
+  },
+  {
+    num: "04",
+    title: "Deliver and use",
+    description:
+      "Listing photos and media within 48 hours of the shoot (commercial within 72). Branded gallery, MLS exports, social crops.",
+  },
+];
+
+const capabilities = [
+  {
+    name: "Vellum",
+    job: "Edit and stage your own listing photos",
+    who: "Agents and small teams who want to do the editing themselves",
+    scope:
+      "Virtual staging, cleanup, day to dusk and sky replacement. Separate from our shoots; free plan to start.",
+    href: "/vellum",
+    cta: "See how Vellum works",
+    image: {
+      before: "/images/showcase-staging-before.jpg",
+      after: "/images/showcase-staging-after.jpg",
+    },
+  },
+  {
+    name: "The Spot",
+    job: "A podcast and video studio in Little Rock",
+    who: "Podcasters, agents and businesses recording their own show",
+    scope:
+      "Rent the room by the hour, or book a produced episode. Memberships are separate from media packages.",
+    href: "/studio",
+    cta: "See rooms and rates",
+    image: { single: "/images/studio/spot-1.jpg" },
+  },
+  {
+    name: "Answr",
+    job: "Answer and route inquiries when you cannot",
+    who: "Agents and offices that miss calls and messages",
+    scope:
+      "Voice and chat handling with human handoff. Priced separately from media; availability is confirmed on request.",
+    href: "/answr",
+    cta: "Learn about Answr",
+  },
+];
+
 export default function HomePage() {
+  const listingPackages = realEstatePricing.packages;
+
   return (
     <>
-      {/* ── HERO ── */}
+      {/* 1. HERO */}
       <Hero
-        tag="The ALYT System"
-        title="Shoot Today."
-        titleAccent="Market Tomorrow."
-        subtitle="Professional photography, cinematic video, drone, AI editing, virtual staging, and lead capture. One system. One company. The fastest path from signed listing to live marketing in Arkansas."
-        primaryCta={{ label: "Book a Shoot", href: "/book" }}
-        secondaryCta={{ label: "See How It Works", href: "#system" }}
+        tag="Real estate media, Central Arkansas"
+        title="Media that markets your property."
+        titleAccent="Content that builds your business."
+        subtitle="Property media, brand content, studio production and self-service software, from one Little Rock team."
+        primaryCta={{ label: "Find the right service", href: "/get-started" }}
+        secondaryCta={{ label: "Book a shoot", href: "/book" }}
         backgroundImage="/images/staging-twilight.jpg"
       />
 
-      {/* ── TRUST BAR ── */}
+      {/* 2. TRUST STRIP */}
       <section className="border-y border-white/5 bg-[rgba(17,17,17,0.3)]">
         <div className="mx-auto max-w-[1280px] px-6 py-8 md:px-12 md:py-10">
           <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-            <p className="shrink-0 text-[11px] uppercase tracking-[0.25em] text-fg-secondary">
+            <p className="shrink-0 text-center text-[11px] uppercase tracking-[0.25em] text-fg-secondary md:text-left">
+              Little Rock, Arkansas
+              <span className="mx-3 text-fg-secondary">|</span>
               <span className="text-fg-strong">200+</span> Arkansas agents
               <span className="mx-3 text-fg-secondary">|</span>
-              48-hour avg. delivery
+              48-hour delivery
             </p>
 
             <div className="flex shrink-0 items-center gap-6">
@@ -366,9 +437,9 @@ export default function HomePage() {
                   href={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-[11px] text-fg-secondary transition-colors hover:text-fg-strong"
+                  className="flex min-h-[44px] items-center gap-1.5 text-[11px] text-fg-secondary transition-colors hover:text-fg-strong"
                 >
-                  <span className="text-crimson">★★★★★</span>
+                  <span className="text-crimson">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                   <span>Google</span>
                 </a>
               ) : null}
@@ -395,21 +466,206 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── THE ALYT SYSTEM ── */}
-      <section id="system" className="py-24 md:py-32">
+      {/* 3. WHAT ARE YOU WORKING ON */}
+      <section id="start" className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            How It Works
+            Start here
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            From Shoot to Market{" "}
-            <span className="text-fg-secondary">in 48 Hours.</span>
+            What are you working on?
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            Pick the job and we take you to the right place. No product names
+            to decode first.
+          </p>
+          <div className="mt-12">
+            <WorkingOn />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. SEE WHAT ONE PROJECT BECOMES */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            One project
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            See what one listing becomes.{" "}
+            <span className="text-fg-secondary">{oneProject.address}.</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            Every asset from a shoot has a job. Here are three from one
+            waterfront listing we delivered, and what each one does.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {oneProject.assets.map((asset) => (
+              <figure key={asset.src}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
+                  <Image
+                    src={asset.src}
+                    alt={asset.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
+                    {asset.job}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-fg-secondary">
+                    {asset.note}
+                  </p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/real-estate"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+            >
+              See the full listing kit
+            </Link>
+            <Link
+              href="/gallery"
+              className="inline-flex min-h-[44px] items-center justify-center px-2 text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
+            >
+              More delivered work &rarr;
+            </Link>
+          </div>
+          <p className="mt-4 text-xs text-fg-secondary">
+            Reels, 3D tours and floor plans are shown by service below. Not every
+            asset is standard in every package; each card says what it carries.
+          </p>
+        </div>
+      </section>
+
+      {/* 5. THREE WAYS A&B HELPS */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Three ways we help
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Hire the team, use the studio,{" "}
+            <span className="text-fg-secondary">or do it yourself.</span>
           </h2>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-5">
-            {systemSteps.map((step, i) => (
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {threeWays.map((way) => (
+              <div
+                key={way.title}
+                className="flex flex-col rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20"
+              >
+                <h3 className="font-display text-lg font-medium text-fg">
+                  {way.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
+                  {way.blurb}
+                </p>
+                <p className="mt-4 text-[13px] leading-relaxed text-fg-secondary">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                    Example
+                  </span>{" "}
+                  {way.example}
+                </p>
+                <Link
+                  href={way.href}
+                  className="mt-6 inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                >
+                  {way.cta} &rarr;
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. UNDERSTAND THE MEDIA */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Understand the media
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            What each asset does,{" "}
+            <span className="text-fg-secondary">and when it changes your choice.</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            Listing packages are flat prices. Commercial and multi-family
+            photography is sized to your square footage on a call. Prices shown
+            are the a la carte starting points.
+          </p>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <ServiceCard key={service.title} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CHOOSE COVERAGE */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Choose coverage
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            A starting point for a home listing.{" "}
+            <span className="text-fg-secondary">Other property types have their own.</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
+            These three are the residential listing packages. Rentals,
+            communities, land, builders and commercial each have fit-led options
+            on their pages.
+          </p>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {listingPackages.map((pkg) => (
+              <PackageCard key={pkg.name} pkg={pkg} vertical="real-estate" />
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/get-started"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+            >
+              Help me choose
+            </Link>
+            <Link
+              href="/pricing"
+              className="inline-flex min-h-[44px] items-center justify-center px-2 text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
+            >
+              Every property type and a la carte &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. WHAT HAPPENS NEXT */}
+      <section className="border-t border-white/5 py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            What happens next
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Choose what you need.{" "}
+            <span className="text-fg-secondary">
+              We capture it, prepare the right assets, and deliver them ready for your channels.
+            </span>
+          </h2>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-4">
+            {nextSteps.map((step, i) => (
               <div key={step.num} className="relative">
-                {i < systemSteps.length - 1 && (
+                {i < nextSteps.length - 1 && (
                   <div className="absolute right-0 top-4 hidden h-px w-8 translate-x-full bg-gradient-to-r from-crimson/30 to-transparent md:block" />
                 )}
                 <span className="font-display text-3xl font-extralight text-crimson">
@@ -425,195 +681,147 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <Link
-              href="/book"
-              className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
-            >
-              Book a Shoot
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES GRID ── */}
-      <section className="border-t border-white/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Services & Pricing
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            One Shoot. Every Asset.{" "}
-            <span className="text-fg-secondary">One Flat Price.</span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
-            Every package is a flat price. No square footage math, no surprise
-            line items, no quote you have to wait on.
-          </p>
-
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
-          </div>
-
-          <p className="mt-8 text-center">
-            <Link
-              href="/gallery"
-              className="text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-fg-strong"
-            >
-              See Our Work &rarr;
-            </Link>
+          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Add virtual staging, a studio session or self-service editing when
+            your project calls for it. None of them are bundled by default; each
+            package card says what it carries.
           </p>
         </div>
       </section>
 
-      {/* ── AI INFRASTRUCTURE ── */}
+      {/* 9. CONNECTED CAPABILITIES */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            AI Infrastructure
+            Connected capabilities
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            Your Listings Keep Working{" "}
-            <span className="text-fg-secondary">After You Leave.</span>
+            Three tools, each with one job.
           </h2>
 
-          <div className="mt-16">
-            <div className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-12">
-              <div className="grid items-center gap-8 md:grid-cols-[1.2fr_auto]">
-                <div>
-                  <span className="inline-block rounded-full border border-crimson/30 bg-crimson/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-crimson">
-                    Vellum
-                  </span>
-                  <h3 className="mt-6 font-display text-2xl font-light text-fg">
-                    Edit Your Own Listing Photos. Instantly.
-                  </h3>
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-fg-secondary">
-                    Virtual staging, twilight conversion, sky replacement, and
-                    object removal. Upload a photo, get a finished asset. No
-                    design skills. No waiting on editors.
-                  </p>
-                </div>
-                <Link
-                  href="https://vellum.homes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block justify-self-start rounded bg-crimson px-6 py-3 text-center text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)] md:justify-self-end"
-                >
-                  Try Free
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VERTICALS ── */}
-      <section className="border-t border-white/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Property Verticals
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            Built for Every Property Type{" "}
-            <span className="text-fg-secondary">in Arkansas.</span>
-          </h2>
-          <p className="mt-4 text-base text-fg-secondary">
-            Not sure which fits?{" "}
-            <Link
-              href="/get-started"
-              className="text-crimson transition-colors hover:text-white"
-            >
-              Answer 3 questions and we&apos;ll recommend your package &rarr;
-            </Link>
-          </p>
-
-          <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {verticals.map((vertical) => (
-              <Link
-                key={vertical.title}
-                href={vertical.href}
-                className="group rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 transition-all duration-500 hover:border-crimson/20 hover:bg-[rgba(17,17,17,0.8)] md:p-10"
+          <div className="mt-16 grid gap-6 lg:grid-cols-3">
+            {capabilities.map((cap) => (
+              <div
+                key={cap.name}
+                className="flex flex-col overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-crimson/20"
               >
-                <h3 className="font-display text-lg font-medium text-fg transition-colors group-hover:text-crimson">
-                  {vertical.title}
-                </h3>
-                <p className="mt-2 text-sm text-fg-secondary">
-                  {vertical.description}
-                </p>
-                <span className="mt-4 inline-block text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors group-hover:text-crimson">
-                  Learn More &rarr;
-                </span>
-              </Link>
+                {cap.image?.before && cap.image.after ? (
+                  <div className="grid grid-cols-2 gap-px bg-white/5">
+                    <div className="relative aspect-[4/3]">
+                      <Image
+                        src={cap.image.before}
+                        alt="Primary bedroom photographed empty before virtual staging"
+                        fill
+                        sizes="(min-width: 1024px) 200px, 50vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute bottom-2 left-2 rounded bg-black/60 px-2 py-0.5 text-[9px] uppercase tracking-[0.15em] text-fg-strong">
+                        Before
+                      </span>
+                    </div>
+                    <div className="relative aspect-[4/3]">
+                      <Image
+                        src={cap.image.after}
+                        alt="The same primary bedroom after virtual staging, furnished and styled"
+                        fill
+                        sizes="(min-width: 1024px) 200px, 50vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute bottom-2 left-2 rounded bg-black/60 px-2 py-0.5 text-[9px] uppercase tracking-[0.15em] text-fg-strong">
+                        After, virtually staged
+                      </span>
+                    </div>
+                  </div>
+                ) : cap.image?.single ? (
+                  <div className="relative aspect-[2/1]">
+                    <Image
+                      src={cap.image.single}
+                      alt="The Spot podcast studio room in Little Rock, Arkansas"
+                      fill
+                      sizes="(min-width: 1024px) 400px, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-[2/1] items-center justify-center border-b border-white/5 bg-[rgba(10,10,10,0.6)]">
+                    <span className="font-display text-3xl font-extralight text-crimson">
+                      {cap.name}
+                    </span>
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col p-8">
+                  <span className="inline-block w-fit rounded-full border border-crimson/30 bg-crimson/5 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-crimson">
+                    {cap.name}
+                  </span>
+                  <h3 className="mt-4 font-display text-xl font-light text-fg">
+                    {cap.job}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-amber-200/80">
+                      For
+                    </span>{" "}
+                    {cap.who}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
+                    {cap.scope}
+                  </p>
+                  <Link
+                    href={cap.href}
+                    className="mt-6 inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+                  >
+                    {cap.cta} &rarr;
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── GOOGLE REVIEWS ── */}
+      {/* GOOGLE REVIEWS */}
       <GoogleReviews />
 
-      {/* ── REFERRAL PROGRAM ── */}
-      <section className="border-t border-white/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <div className="rounded-lg border border-crimson/10 bg-gradient-to-br from-crimson/5 to-transparent p-10 md:p-16">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-                Referral Program
-              </p>
-              <h2 className="mt-4 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
-                Refer an Agent. Get Paid.
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-fg-secondary">
-                Every agent you refer who books a shoot earns you cash. Not a
-                gift card. Not a thank-you email. Real money for real referrals.
-              </p>
-              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <a
-                  href="tel:+15015022925"
-                  className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
-                >
-                  Call to Learn More
-                </a>
-                <a
-                  href="mailto:book@averyandbryant.com?subject=Referral%20Program"
-                  className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
-                >
-                  Email Us
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA SECTION ── */}
+      {/* 10. FINAL DECISION */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Get Started
+            Ready when you are
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            Your Next Listing Deserves the ALYT System.
+            Book the shoot, or let us point you to the right one.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
-            Book online in under 2 minutes. We handle the rest.
+            Listing shoots book online in under 2 minutes. Complex or ongoing
+            projects start with a free 30-minute call.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/book"
-              className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book a Shoot
+              Book a shoot
+            </Link>
+            <Link
+              href="/get-started"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
+            >
+              Find the right service
             </Link>
             <a
-              href="tel:+15015022925"
-              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
+              href={consultUrl("home")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-amber-400/30 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-amber-200/90 transition-all hover:border-amber-400/60 hover:text-white"
             >
-              Call Us: (501) 502-2925
+              Request scoping (free call)
             </a>
           </div>
+          <p className="mt-10 text-xs text-fg-secondary">
+            Know an agent who should shoot with us?{" "}
+            <Link href="/referral" className="underline transition-colors hover:text-white">
+              Our referral program pays cash.
+            </Link>
+          </p>
         </div>
       </section>
     </>
