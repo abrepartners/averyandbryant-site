@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { GALLERY_VERTICALS } from "@/lib/gallery";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.averyandbryant.com";
@@ -93,5 +94,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...GALLERY_VERTICALS.map((v) => ({
+      url: `${baseUrl}/gallery/${v.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
   ];
 }
