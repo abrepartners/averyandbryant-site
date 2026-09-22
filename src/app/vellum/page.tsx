@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { requestUrl } from "@/lib/consult";
+import { CALENDARS, calendarUrlFor } from "@/lib/consult";
 
 export const metadata = {
   alternates: { canonical: "/vellum" },
@@ -145,13 +145,14 @@ export default function VellumPage() {
             >
               Start Free with Google
             </a>
-            {/* No demo calendar exists yet, so this is an honest request by
-                email, never the shoot-booking page. */}
+            {/* AI Demo Call calendar (15 min), never the shoot-booking page. */}
             <a
-              href={requestUrl("Vellum demo request")}
+              href={calendarUrlFor("demo", "vellum")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-[44px] items-center justify-center rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
             >
-              Request a demo by email
+              {CALENDARS.demo.label}
             </a>
           </div>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { consultUrl } from "@/lib/consult";
+import { CALENDARS, calendarUrlFor, type CalendarService } from "@/lib/consult";
 
 // Free Consultation calendar in GHL (30-min slots, published). Deep-linked with
 // ?interest=<vertical> so the team sees context before the call.
@@ -18,10 +18,21 @@ type ConsultCTAProps = {
    * Optional subhead override.
    */
   subhead?: string;
+  /**
+   * Which calendar opens. Default is the Free Consultation; branding pages
+   * pass "branding" for the Agent Branding Discovery calendar.
+   */
+  service?: CalendarService;
 };
 
-export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
-  const url = consultUrl(interest);
+export function ConsultCTA({
+  interest,
+  headline,
+  subhead,
+  service = "consult",
+}: ConsultCTAProps) {
+  const cal = CALENDARS[service];
+  const url = calendarUrlFor(service, interest);
 
   return (
     <section
@@ -34,7 +45,9 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/5 px-3 py-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
               <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
-                Free 30-min consult
+                {service === "consult"
+                  ? "Free 30-min consult"
+                  : `Free ${cal.minutes}-min call`}
               </span>
             </div>
             <h2 className="mt-5 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
@@ -71,7 +84,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
               rel="noopener noreferrer"
               className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book a free 30-min call
+              {cal.label}
             </a>
             <Link
               href="/pricing"
@@ -80,7 +93,7 @@ export function ConsultCTA({ interest, headline, subhead }: ConsultCTAProps) {
               Or compare all services &rarr;
             </Link>
             <p className="text-xs text-fg-secondary md:text-right">
-              30 minutes on Google Meet, or call (501) 502-2925 if you&apos;d rather talk
+              {`${cal.minutes} minutes on Google Meet, or call (501) 502-2925 if you'd rather talk`}
             </p>
           </div>
         </div>

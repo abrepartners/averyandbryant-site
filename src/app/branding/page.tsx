@@ -5,12 +5,15 @@ import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { brandingPackages, brandingGuarantee } from "@/lib/pricing";
-import { consultUrl } from "@/lib/consult";
+import { CALENDARS, calendarUrlFor } from "@/lib/consult";
 
 // Every CTA on this page opens the same free consultation calendar used by the
 // nav and the ConsultCTA block. /book is the listing media order form and is
 // the wrong door for a headshot, a brand session or a content day.
-const CONSULT_URL = consultUrl("branding");
+// Branding conversations open the Agent Branding Discovery calendar (30 min);
+// the $95 Headshot Session books itself on the Headshot Session calendar.
+const CONSULT_URL = calendarUrlFor("branding");
+const HEADSHOT_URL = calendarUrlFor("headshot");
 
 export const metadata = {
   alternates: { canonical: "/branding" },
@@ -309,22 +312,27 @@ export default function BrandingPage() {
             </span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-secondary">
-            These two are the same for everybody, so they get a number. Take a
-            time on the calendar, tell us which one you want, and turn up. The
-            button below books a free scheduling call, not the session itself:
-            the session date is set on that call.
+            These two are the same for everybody, so they get a number. The
+            Headshot Session books straight onto the next studio day. The Brand
+            Session starts with a short discovery call where we set your date
+            and plan the two looks.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
-            {brandingPackages.map((pkg) => (
-              <PackageCard
-                key={pkg.name}
-                pkg={pkg}
-                ctaHref={CONSULT_URL}
-                ctaTarget="_blank"
-                ctaLabel="Book a scheduling call"
-              />
-            ))}
+            {brandingPackages.map((pkg) => {
+              const headshot = /headshot/i.test(pkg.name);
+              return (
+                <PackageCard
+                  key={pkg.name}
+                  pkg={pkg}
+                  ctaHref={headshot ? HEADSHOT_URL : CONSULT_URL}
+                  ctaTarget="_blank"
+                  ctaLabel={
+                    headshot ? CALENDARS.headshot.label : CALENDARS.branding.label
+                  }
+                />
+              );
+            })}
           </div>
 
           {/* How headshot days work, said plainly */}
@@ -719,6 +727,7 @@ export default function BrandingPage() {
 
       <ConsultCTA
         interest="branding"
+        service="branding"
         headline="Not sure whether you need a headshot or a content day?"
         subhead="That is the most common question we get, and it is a five minute answer. Free 30 minute call, we work out which one fits and what it costs, and you leave with a real number."
       />
@@ -734,16 +743,24 @@ export default function BrandingPage() {
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
             A $95 headshot on the next studio day, a $299 brand session, or a
-            call about the bigger version. All three start in the same place.
+            call about the bigger version. Book the session, or book the call.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href={HEADSHOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+            >
+              {CALENDARS.headshot.label}
+            </a>
             <a
               href={CONSULT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
-              Get on the calendar
+              {CALENDARS.branding.label}
             </a>
             <a
               href="mailto:book@averyandbryant.com?subject=Headshots%20and%20branding"
