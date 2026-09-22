@@ -2,24 +2,29 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { CALENDARS, STUDIO_BOOKING_URL, calendarUrlFor } from "@/lib/consult";
 
 /**
  * Home page section 3, "What are you working on?": four client jobs. The
- * property job reveals the six property verticals in place; the other three
- * link straight to their page. Every control is a real link or a 44px button,
- * no hover-only behavior, no horizontal scroll at phone width.
+ * property job reveals the six property verticals in place; the Vellum job
+ * reveals the product page and its demo calendar; brand and content link
+ * straight out. Every control is a real link or a 44px button, no hover-only
+ * behavior, no horizontal scroll at phone width.
  */
+
+type Reveal = { title: string; blurb: string; href: string; external?: boolean };
 
 type Job = {
   id: string;
   title: string;
   blurb: string;
   href?: string;
+  external?: boolean;
   cta?: string;
-  reveals?: { title: string; blurb: string; href: string }[];
+  reveals?: Reveal[];
 };
 
-const propertyVerticals = [
+const propertyVerticals: Reveal[] = [
   { title: "Home for sale", blurb: "Residential listings", href: "/real-estate" },
   { title: "Short-term rental", blurb: "Airbnb, VRBO, direct booking", href: "/airbnb-rentals" },
   { title: "Apartment community", blurb: "Multi-family and student housing", href: "/multi-family" },
@@ -46,16 +51,22 @@ const jobs: Job[] = [
     id: "content",
     title: "Record or create content",
     blurb: "Rent The Spot podcast studio, or have an episode produced for you.",
-    href: "/studio",
-    cta: "See The Spot",
+    href: STUDIO_BOOKING_URL,
+    external: true,
+    cta: "Book a room at The Spot",
   },
   {
-    id: "software",
-    title: "Edit media or handle inquiries myself",
-    blurb: "Vellum edits your own listing photos. Answr answers and routes inquiries.",
+    id: "edit",
+    title: "Edit or stage my photos myself",
+    blurb: "Vellum edits and stages your own listing photos.",
     reveals: [
-      { title: "Vellum", blurb: "Self-service photo editing and staging", href: "/vellum" },
-      { title: "Answr", blurb: "Inquiry handling for agents and offices", href: "/answr" },
+      { title: "See Vellum", blurb: "Self-service photo editing and staging", href: "/vellum" },
+      {
+        title: CALENDARS.demo.label,
+        blurb: "A live walkthrough of Vellum on your photos",
+        href: calendarUrlFor("demo", "vellum"),
+        external: true,
+      },
     ],
   },
 ];
@@ -89,23 +100,41 @@ export function WorkingOn() {
                 {job.reveals
                   ? active
                     ? "Choose below"
-                    : "Choose a property type"
+                    : job.id === "property"
+                      ? "Choose a property type"
+                      : "See the options"
                   : job.cta}
               </span>
             </>
           );
-          return job.reveals ? (
-            <button
-              key={job.id}
-              type="button"
-              aria-expanded={active}
-              aria-controls={`working-on-${job.id}`}
-              onClick={() => setOpen(active ? null : job.id)}
-              className={className}
-            >
-              {body}
-            </button>
-          ) : (
+          if (job.reveals) {
+            return (
+              <button
+                key={job.id}
+                type="button"
+                aria-expanded={active}
+                aria-controls={`working-on-${job.id}`}
+                onClick={() => setOpen(active ? null : job.id)}
+                className={className}
+              >
+                {body}
+              </button>
+            );
+          }
+          if (job.external) {
+            return (
+              <a
+                key={job.id}
+                href={job.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                {body}
+              </a>
+            );
+          }
+          return (
             <Link key={job.id} href={job.href ?? "/"} className={className}>
               {body}
             </Link>
@@ -122,18 +151,33 @@ export function WorkingOn() {
             {openJob.title}
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {openJob.reveals.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex min-h-[44px] flex-col rounded border border-white/10 p-4 transition-colors hover:border-crimson/40"
-              >
-                <span className="text-sm font-medium text-fg group-hover:text-white">
-                  {item.title}
-                </span>
-                <span className="mt-1 text-xs text-fg-secondary">{item.blurb}</span>
-              </Link>
-            ))}
+            {openJob.reveals.map((item) => {
+              const inner = (
+                <>
+                  <span className="text-sm font-medium text-fg group-hover:text-white">
+                    {item.title}
+                  </span>
+                  <span className="mt-1 text-xs text-fg-secondary">{item.blurb}</span>
+                </>
+              );
+              const cls =
+                "group flex min-h-[44px] flex-col rounded border border-white/10 p-4 transition-colors hover:border-crimson/40";
+              return item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cls}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <Link key={item.href} href={item.href} className={cls}>
+                  {inner}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
