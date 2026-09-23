@@ -11,6 +11,7 @@
  *  - No repeats: dedupe by exact URL and by perceptual similarity (dHash over a
  *    9x8 grayscale thumbnail, Hamming distance <= 6 drops the frame).
  *  - QC decisions live in scripts/aryeo/featured-overrides.json:
+ *      { "_pick": { "<cat>": ["<listingId>", ...] },  reviewed picks for a vertical
  *      { "_skip": ["<listingId>"],            projects reviewed out
  *        "_add": ["<listingId>"],             projects pulled in by review
  *        "<listingId>": { "frames": [pos, ...],   verified by eye, hero first
@@ -59,14 +60,13 @@ const overrides = fs.existsSync(overridesPath)
 const FRAMES = 12;
 const HAMMING_MAX = 6;
 // Projects per vertical. Multi-family has 4 candidates, one of them with 13
-// images; commercial has a single project.
+// images. Commercial candidates are the order-tagged COMMERCIAL shoots
+// (slice 1c, 2026-09-23): the three with the most images, facade hero first.
 const PER_VERTICAL = {
   "residential-listing": 3,
   "airbnb-str": 3,
   "multi-family": 3,
-  // The one curated commercial project is a house (reviewed 2026-09-22), so
-  // commercial has no featured set until a real commercial shoot is curated.
-  commercial: 0,
+  commercial: 3,
   "lot-land": 3,
   "builder-new-construction": 3,
 };
@@ -77,6 +77,16 @@ const skip = new Set(overrides._skip || []);
 function pickProjects() {
   const picked = [];
   for (const [cat, want] of Object.entries(PER_VERTICAL)) {
+    // Reviewed picks replace the automatic selection for a vertical.
+    const pick = overrides._pick && overrides._pick[cat];
+    if (pick) {
+      for (const id of pick) {
+        const p = curated.find((c) => c.id === id);
+        if (p) picked.push(p);
+        else console.error("pick not in curated", cat, id);
+      }
+      continue;
+    }
     const pool = curated
       .filter(
         (p) => p.cat === cat && (p.count || 0) >= MIN_IMAGES && !skip.has(p.id),

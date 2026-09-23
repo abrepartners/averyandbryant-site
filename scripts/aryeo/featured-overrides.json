@@ -1,7 +1,8 @@
 {
  "_skip": [
   "019dcb71-3be8-72b4-b101-20b6367d9a6c",
-  "019d6375-ae70-7259-9d28-326dc568a720"
+  "019d6375-ae70-7259-9d28-326dc568a720",
+  "019ecc73-4940-713a-8894-1599f6cd8be9"
  ],
  "_add": [
   "019377f3-d200-735d-9487-e982445465a7"
@@ -260,5 +261,89 @@
    32,
    39
   ]
- }
+ },
+ "_pick": {
+  "residential-listing": [
+   "019f19ab-f680-7349-8b50-e93d097513c5",
+   "019ed64d-6180-718e-9168-622cbc0a5331",
+   "019ef1f2-e928-70f0-89f8-c38010069c38"
+  ],
+  "airbnb-str": [
+   "75a3dcf5-3d1a-4f39-92c2-3577edf31005",
+   "019e3be7-a790-7157-8314-7db2a447d23c",
+   "019a0345-4270-72f9-b9ca-3835df1c8b63"
+  ],
+  "multi-family": [
+   "0198ec33-a7a8-7362-b1e9-2b62ef5cafb5",
+   "019756ca-ed08-7162-8caf-d74f171a6ec6",
+   "019a0c8a-f668-70fd-a588-f0159493e6af"
+  ],
+  "commercial": [
+   "019ffc59-cf20-7304-a65e-2bf12fcc3e5e",
+   "019b7197-4e20-73cd-b3ea-de174b503ac0",
+   "0193b0a6-54d8-7052-b027-83046532df84"
+  ],
+  "lot-land": [
+   "019d91ea-1390-7090-92d8-adeae5cf6cb5",
+   "019730ff-1568-7228-b8db-1a6c03e478e1",
+   "019dd5a9-e718-71c5-961e-6becb323aba8"
+  ],
+  "builder-new-construction": [
+   "019cf8dd-b7b0-72fa-ab19-449c95431dac",
+   "019e2934-7038-71a1-8ce9-70ff2e77659a",
+   "019377f3-d200-735d-9487-e982445465a7"
+  ]
+ },
+ "019ffc59-cf20-7304-a65e-2bf12fcc3e5e": {
+  "_note": "2400 W 31st Ave church (commercial)",
+  "frames": [
+   1,
+   7,
+   20,
+   23,
+   25,
+   27,
+   29,
+   40,
+   48,
+   62,
+   66,
+   68
+  ]
+ },
+ "019b7197-4e20-73cd-b3ea-de174b503ac0": {
+  "_note": "401 Scott St (commercial)",
+  "frames": [
+   6,
+   1,
+   7,
+   9,
+   13,
+   15,
+   20,
+   23,
+   26,
+   29,
+   38,
+   61
+  ]
+ },
+ "0193b0a6-54d8-7052-b027-83046532df84": {
+  "_note": "3110 Auto Dr (commercial)",
+  "frames": [
+   0,
+   2,
+   4,
+   8,
+   9,
+   11,
+   16,
+   24,
+   44,
+   51,
+   55,
+   62
+  ]
+ },
+ "_pick_note": "Reviewed sets (slice 1b for five verticals, slice 1c for commercial). Order-tagged newcomers 73 Tournay Cir, 110 Jamison Ln, 5910 Ramick Rd, 510 Binghamwood Rd and 125 Hallen Ct were checked on 2026-09-23 and not swapped in: not clearly stronger than the verified sets, or not frame-verified."
 }

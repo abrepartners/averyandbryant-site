@@ -41,6 +41,7 @@ export async function makeSheets(items, file, { cols = 6, perSheet = 30, tileW =
       } catch {
         continue;
       }
+      if (!buf.length) continue; // CDN sometimes answers 200 with an empty body
       const tile = await sharp(buf)
         .resize(tileW, tileH, { fit: "cover" })
         .composite([
