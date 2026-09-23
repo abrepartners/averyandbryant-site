@@ -211,6 +211,8 @@ export function ServiceCard({ service }: { service: Service }) {
                         }
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
+                        // Aryeo CDN renditions are already sized; serve them as-is.
+                        unoptimized={item.src.startsWith("http")}
                         className="object-cover"
                       />
                     )}

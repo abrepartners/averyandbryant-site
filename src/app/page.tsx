@@ -7,6 +7,9 @@ import { WorkingOn } from "@/components/working-on";
 import { PackageCard } from "@/components/pricing/package-card";
 import { realEstatePricing } from "@/lib/pricing";
 import { consultUrl } from "@/lib/consult";
+import featured from "../../data/featured-homes.json";
+import drone from "../../data/drone-showcase.json";
+import type { FeaturedHome } from "@/components/featured-homes";
 
 // Canonical must be declared per-page, never in layout.tsx (a layout-level
 // canonical would be inherited by every route and point them all at "/").
@@ -14,6 +17,56 @@ import { consultUrl } from "@/lib/consult";
 export const metadata = {
   alternates: { canonical: "/" },
 };
+
+/**
+ * Every "See Examples" modal shows only that tile's media type. Photos and
+ * Drone draw from the same by-eye verified data the gallery uses: the cover
+ * (front exterior, first frame) of six different featured homes, and the
+ * first frame of six different land listings in the drone showcase.
+ */
+const PHOTO_SAMPLE_HOMES = [
+  "019f19ab-f680-7349-8b50-e93d097513c5", // 8812 Ranch Blvd, Little Rock
+  "019ed64d-6180-718e-9168-622cbc0a5331", // 3428 McCord Dr, North Little Rock
+  "019ef1f2-e928-70f0-89f8-c38010069c38", // 8 Woodsong Dr, Roland
+  "019a0345-4270-72f9-b9ca-3835df1c8b63", // 4 N Cres Dr, Mount Ida
+  "019cf8dd-b7b0-72fa-ab19-449c95431dac", // 68 Wellington Pl, Cabot
+  "019e2934-7038-71a1-8ce9-70ff2e77659a", // 106 W End St, Beebe
+];
+
+const homes = featured as FeaturedHome[];
+
+const photoSamples = PHOTO_SAMPLE_HOMES.flatMap((id) => {
+  const home = homes.find((h) => h.id === id);
+  const cover = home?.images[0];
+  if (!home || !cover) return [];
+  return [
+    {
+      src: cover.medium ?? cover.url,
+      label: `${home.label}, ${home.city}`,
+      alt: `Front exterior of ${home.street ? `${home.street}, ` : ""}${home.city}, Arkansas, photographed for the listing`,
+    },
+  ];
+});
+
+type DroneShot = { url: string; thumb: string; city: string; label: string };
+
+const droneSamples = (() => {
+  const seen = new Set<string>();
+  const out: { src: string; label: string; alt: string }[] = [];
+  for (const shot of drone as DroneShot[]) {
+    // One frame per listing: the listing slug is the path segment after /listings/.
+    const listing = shot.url.split("/listings/")[1]?.split("/")[0] ?? shot.url;
+    if (seen.has(listing)) continue;
+    seen.add(listing);
+    out.push({
+      src: shot.url,
+      label: `Aerial, ${shot.city}`,
+      alt: `Aerial drone frame over ${shot.label.toLowerCase()} in ${shot.city}, Arkansas`,
+    });
+    if (out.length === 6) break;
+  }
+  return out;
+})();
 
 const services: Service[] = [
   {
@@ -30,28 +83,7 @@ const services: Service[] = [
       "Beamed great room with a vaulted ceiling in a Little Rock home, photographed for the listing",
     preview: {
       kind: "images",
-      items: [
-        {
-          src: "/images/services/photos/white-kitchen-little-rock.jpg",
-          label: "Interior, Little Rock",
-          alt: "White kitchen with gray perimeter cabinets and a subway tile backsplash in a Little Rock listing",
-        },
-        {
-          src: "/images/services/photos/game-room.jpg",
-          label: "Feature Space",
-          alt: "Game room photographed as a feature space in an Arkansas listing",
-        },
-        {
-          src: "/images/services/photos/styled-bedroom.jpg",
-          label: "Styled Interior",
-          alt: "Styled bedroom photographed for an Arkansas listing",
-        },
-        {
-          src: "/images/services/photos/twilight-exterior-little-rock.jpg",
-          label: "Twilight, Little Rock",
-          alt: "Twilight exterior of a Little Rock home with the porch and windows lit",
-        },
-      ],
+      items: photoSamples,
     },
   },
   {
@@ -102,23 +134,7 @@ const services: Service[] = [
       "Aerial view of a lakefront home in Hot Springs, Arkansas, with the water and ridgeline behind it",
     preview: {
       kind: "images",
-      items: [
-        {
-          src: "/images/hero-drone-2.jpg",
-          label: "Property Aerial",
-          alt: "Aerial of a stone and brick home on an open lot, with a gravel drive, a pond, and pasture behind it",
-        },
-        {
-          src: "/images/portfolio-drone-3.jpg",
-          label: "Neighborhood Context",
-          alt: "High aerial over a tree lined neighborhood, with a main street running through it and a tall building on the horizon",
-        },
-        {
-          src: "/images/services/drone/aerial-ranch.jpg",
-          label: "Lot & Acreage",
-          alt: "Low aerial of a single story home with a wood deck and a wide lawn shaded by mature trees",
-        },
-      ],
+      items: droneSamples,
     },
   },
   {
@@ -206,12 +222,12 @@ const services: Service[] = [
       items: [
         {
           src: "/images/showcase-staging-before.jpg",
-          label: "Before, Empty Room",
+          label: "Before",
           alt: "Primary bedroom photographed empty before virtual staging",
         },
         {
           src: "/images/showcase-staging-after.jpg",
-          label: "After, Virtually Staged",
+          label: "After",
           alt: "The same primary bedroom after virtual staging, furnished and styled",
         },
       ],
