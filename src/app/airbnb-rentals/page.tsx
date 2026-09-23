@@ -141,9 +141,11 @@ const rentalGroups: RentalGroup[] = [
 
 const sellingPoints = [
   {
-    title: "More Bookings, Proven",
+    // The Airbnb photography study is cited once on this page, in the hero,
+    // with its source. It is not repeated here.
+    title: "Photo Sequencing Guide",
     description:
-      "Airbnb's own 2024 to 2025 study of 14,700+ listings found professional photography drove ~19% more bookings and ~21% higher host earnings over the following year.",
+      "Every kit includes an Airbnb photo sequencing guide, so your cover shot and the first five photos do the work when a guest is comparing listings on a phone.",
   },
   {
     title: "Amenity Showcase",
@@ -206,7 +208,7 @@ const faqs = [
     question:
       "Does professional photography actually increase Airbnb bookings?",
     answer:
-      "Airbnb's own study of more than 14,700 listings found that professional photography drove roughly 19 percent more bookings and 21 percent higher host earnings over the following year. That is why booking-optimized photography is the core of every rental package we offer.",
+      "Airbnb has published its own study on this, which we cite at the top of this page. Results vary by property and market. What we control is the part guests see first: a cover shot that stops the scroll, a photo order that answers their questions, and amenities shown the way they search for them.",
   },
   {
     question: "What if I am not happy with the photos?",
@@ -399,8 +401,8 @@ export default function AirbnbRentalsPage() {
             Ready to fill your calendar?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-fg-secondary md:text-lg">
-            Book a shoot in under 2 minutes. Professional media that pays for
-            itself in one booking.
+            Book a shoot in under 2 minutes. Photos, drone and reels built for
+            the way guests compare listings.
           </p>
           <div className="mt-10">
             <OrderLink

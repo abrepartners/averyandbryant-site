@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { consultUrl } from "@/lib/consult";
 import { Instagram, Facebook, Youtube, MapPin, Phone } from "lucide-react";
 
 const locations = [
@@ -221,12 +222,14 @@ export function Footer() {
             reserved.
           </p>
           <div className="flex gap-6">
-            <Link
-              href="/book"
+            <a
+              href={consultUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs text-fg-secondary transition-colors hover:text-white"
             >
-              Book a Consultation
-            </Link>
+              Book a free consultation
+            </a>
           </div>
         </div>
       </div>

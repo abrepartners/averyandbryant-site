@@ -90,10 +90,10 @@ export function HeroRealEstate() {
             Book a Shoot
           </Link>
           <Link
-            href="/gallery"
+            href="/gallery/real-estate"
             className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
           >
-            View Gallery
+            See the real estate gallery
           </Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HeroCommercial } from "@/components/heroes/hero-commercial";
 import { ConsultCTA } from "@/components/consult-cta";
+import { commercialGroups, commercialHeroFrame } from "@/lib/commercial-work";
 import { FaqSection } from "@/components/faq-section";
 import { PackageCard } from "@/components/pricing/package-card";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
@@ -9,143 +10,21 @@ import {
   commercialSpecialty,
   commercialGuarantee,
 } from "@/lib/pricing";
+import { consultUrl } from "@/lib/consult";
 
 export const metadata = {
   alternates: { canonical: "/commercial" },
   title:
     "Commercial Media: CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
   description:
-    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Packages from $995.",
+    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Photos from $295, sized to your square footage; listing packages from $995.",
 };
 
 const QUOTE_EMAIL =
   "mailto:book@averyandbryant.com?subject=Commercial%20Media%20Quote";
 
-const heroFrame = {
-  src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-exterior.jpg",
-  alt: "Exterior of a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
-  caption: "Quick service restaurant, Maumelle",
-};
-
-type PortfolioShot = { src: string; alt: string; caption: string };
-type PortfolioGroup = {
-  label: string;
-  /** Optional full-width frame that leads the group, for the strongest shot. */
-  lead?: PortfolioShot;
-  shots: PortfolioShot[];
-};
-
-// Rose City Center leads the portfolio: it is the strongest retail work we have,
-// and the overhead site aerial and the pylon signage frame are both content types
-// this page never had. The named tenants on the signage are tenants of the
-// property we photographed, not clients of ours, so no copy here says otherwise.
-const portfolioGroups: PortfolioGroup[] = [
-  {
-    label: "Retail centers",
-    lead: {
-      src: "/images/commercial/rose-city-center-north-little-rock-grocery-anchor-exterior.jpg",
-      alt: "Elevated three quarter view of the grocery anchor at Rose City Center in North Little Rock, Arkansas, with a tan stucco facade, green standing seam gables and a parking lot of cars and pickups under a blue sky",
-      caption: "Grocery anchor, North Little Rock",
-    },
-    shots: [
-      {
-        src: "/images/commercial/rose-city-center-north-little-rock-overhead-site-aerial.jpg",
-        alt: "Overhead drone photo of Rose City Center in North Little Rock, Arkansas, showing the white flat roofs of the strip and its grocery anchor, the full striped parking field, an out parcel building with a drive through lane, and a four lane highway along the bottom of the frame",
-        caption: "Site aerial, North Little Rock",
-      },
-      {
-        src: "/images/commercial/rose-city-center-north-little-rock-pylon-sign.jpg",
-        alt: "Elevated view of the Rose City Center pylon sign in North Little Rock, Arkansas, with a rose logo above stacked tenant panels, beside a highway with route markers and grain silos on the horizon",
-        caption: "Center signage, North Little Rock",
-      },
-      {
-        src: "/images/commercial/rose-city-center-north-little-rock-tenant-storefront.jpg",
-        alt: "Angled ground level view along the red metal awning of the in line shops at Rose City Center in North Little Rock, Arkansas, with glass storefronts, brick bulkheads and red steel canopy posts receding to the right under a blue sky",
-        caption: "In line tenants, North Little Rock",
-      },
-    ],
-  },
-  {
-    label: "Hospitality and restaurants",
-    shots: [
-      {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-bar.jpg",
-        alt: "Restaurant bar with a pressed tin ceiling and warm lighting at 10 Anglers Way in Little Rock, Arkansas",
-        caption: "Bar, Little Rock",
-      },
-      {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-dining-room.jpg",
-        alt: "Bar with high stools, a pressed tin ceiling and framed memorabilia on exposed brick at 10 Anglers Way in Little Rock, Arkansas",
-        caption: "Bar seating, Little Rock",
-      },
-      {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-entrance.jpg",
-        alt: "Covered entry with wood double doors and steakhouse signage etched on the glass at 10 Anglers Way in Little Rock, Arkansas",
-        caption: "Entrance, Little Rock",
-      },
-    ],
-  },
-  {
-    label: "Quick service and small retail",
-    shots: [
-      {
-        src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-dining-room.jpg",
-        alt: "Dining room with gold pendant lighting and booths inside a quick service restaurant in Maumelle, Arkansas",
-        caption: "Interior, Maumelle",
-      },
-      {
-        src: "/images/commercial/12401-maumelle-blvd-maumelle-drive-thru-exterior.jpg",
-        alt: "Side elevation and channel letter signage on a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
-        caption: "Exterior signage, Maumelle",
-      },
-      {
-        src: "/images/commercial/4109-e-broadway-north-little-rock-retail-storefronts.jpg",
-        alt: "Low aerial of a row of retail storefronts and the parking lot at a shopping center on East Broadway in North Little Rock, Arkansas",
-        caption: "Retail center, North Little Rock",
-      },
-    ],
-  },
-  {
-    label: "Historic and institutional",
-    shots: [
-      {
-        src: "/images/commercial/2400-w-31st-ave-pine-bluff-church-sanctuary.jpg",
-        alt: "Church sanctuary with warm wood and pews at 2400 West 31st Avenue in Pine Bluff, Arkansas",
-        caption: "Sanctuary, Pine Bluff",
-      },
-      {
-        src: "/images/commercial/411-7th-st-little-rock-columned-portico.jpg",
-        alt: "Columned portico and front lawn of a Greek Revival mansion at 411 7th Street in Little Rock, Arkansas",
-        caption: "Greek Revival mansion, Little Rock",
-      },
-      {
-        src: "/images/commercial/2400-w-31st-ave-pine-bluff-church-exterior.jpg",
-        alt: "Brick church exterior photographed under a clear sky in Pine Bluff, Arkansas",
-        caption: "Church exterior, Pine Bluff",
-      },
-    ],
-  },
-  {
-    label: "Aerial and site context",
-    shots: [
-      {
-        src: "/images/commercial/111-smarthouse-way-north-little-rock-skyline-aerial.jpg",
-        alt: "Aerial photo over the Arkansas River showing the Little Rock skyline and its bridges, from a commercial shoot in North Little Rock, Arkansas",
-        caption: "River and skyline, North Little Rock",
-      },
-      {
-        src: "/images/commercial/4109-e-broadway-north-little-rock-retail-center-aerial.jpg",
-        alt: "Aerial photo of a retail strip center and its parking field in North Little Rock, Arkansas",
-        caption: "Retail center aerial, North Little Rock",
-      },
-      {
-        src: "/images/commercial/411-7th-st-little-rock-mansion-and-skyline.jpg",
-        alt: "Aerial photo over a historic Little Rock neighborhood with the downtown skyline behind it, from a shoot at 411 7th Street",
-        caption: "Downtown aerial, Little Rock",
-      },
-    ],
-  },
-];
+const heroFrame = commercialHeroFrame;
+const portfolioGroups = commercialGroups;
 
 const sellingPoints = [
   {
@@ -175,7 +54,7 @@ const steps = [
     number: "01",
     title: "Scope Call",
     description:
-      "15 minutes to align on property, use cases, and deliverables.",
+      "A free 30-minute call to align on property, square footage, use cases, and deliverables.",
   },
   {
     number: "02",
@@ -194,7 +73,7 @@ const faqs = [
   {
     question: "How much does commercial photography cost in Arkansas?",
     answer:
-      "Every commercial project is scoped custom around the property, the brand, and how the media will be used. Baseline package structures are listed on this page, and a 15 minute scope call gets you a written quote within 24 hours.",
+      "One-off commercial photography is sized to your square footage: photos start at $295 for a single suite or small building, and a free 30-minute scope call produces the exact number. The listing packages and hospitality package on this page are fixed prices; the dealership program is monthly and set up on a call.",
   },
   {
     question: "How fast do we get our media?",
@@ -303,16 +182,49 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      {/* ── ONE-OFF PHOTOGRAPHY, SIZED TO SQUARE FOOTAGE ── */}
+      <section className="border-t border-white/5 py-20 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="grid items-center gap-8 rounded-lg border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:grid-cols-[1.4fr_auto] md:p-12">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                Just need photos of a building or suite?
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
+                Photos from $295, sized to your square footage.
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-secondary">
+                HDR interior and exterior photography in one visit, delivered
+                in 48 hours. A free 30-minute call sizes the shoot to your
+                property and produces the exact quote.
+              </p>
+            </div>
+            <a
+              href={consultUrl("commercial")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)] md:justify-self-end"
+            >
+              Book a free 30-min call
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── CRE PACKAGES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Commercial Real Estate
+            Listing or selling a commercial property
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             CRE listing media.{" "}
             <span className="text-fg-secondary">Built for brokers.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Fixed-price, one-time packages for a property you are listing or
+            selling. Request a quote by email and we confirm scope and date.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
             {commercialPackages.map((pkg) => (
@@ -320,7 +232,7 @@ export default function CommercialPage() {
                 key={pkg.name}
                 pkg={pkg}
                 ctaHref={QUOTE_EMAIL}
-                ctaLabel="Request a Quote"
+                ctaLabel="Request a quote by email"
               />
             ))}
           </div>
@@ -335,20 +247,26 @@ export default function CommercialPage() {
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-            Specialty Programs
+            A commercial business that needs content
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Dealerships. Hospitality.{" "}
-            <span className="text-fg-secondary">Ongoing content.</span>
+            <span className="text-fg-secondary">Monthly programs.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Different job from listing a property. The dealership program is
+            monthly and set up on a call; the hospitality package is a one-time
+            shoot.
+          </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
             {commercialSpecialty.map((pkg) => (
               <PackageCard
                 key={pkg.name}
                 pkg={pkg}
+                interest="commercial"
                 ctaHref={QUOTE_EMAIL}
-                ctaLabel="Request a Quote"
+                ctaLabel={pkg.ctaMode === "call" ? undefined : "Request a quote by email"}
               />
             ))}
           </div>
@@ -436,8 +354,8 @@ export default function CommercialPage() {
 
       <ConsultCTA
         interest="commercial"
-        headline="Commercial work is always custom."
-        subhead="Dealership, office, retail, hospitality. Every property has a different story to tell. Free 30-min scoping call to get a real quote, not a guess."
+        headline="Not sure which track you are on?"
+        subhead="Listing a property, or a business that needs content every month: the free 30-minute call sorts that out, sizes any one-off photography to your square footage, and ends with a written quote."
       />
 
       {/* ── CTA ── */}

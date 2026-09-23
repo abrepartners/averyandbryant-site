@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { CALENDARS, calendarUrlFor, requestUrl } from "@/lib/consult";
 
 export const metadata = {
   alternates: { canonical: "/answr" },
@@ -127,18 +127,23 @@ export default function AnswrPage() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/book"
-              className="inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+            {/* No self-serve signup or demo calendar exists yet, so both
+                trial actions are honest email requests and the demo opens the AI Demo Call
+                calendar (15 min), never the shoot-booking page. */}
+            <a
+              href={requestUrl("Answr free trial request")}
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Start 7 Day Free Trial
-            </Link>
-            <Link
-              href="/book"
-              className="inline-block rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
+              Request trial access
+            </a>
+            <a
+              href={calendarUrlFor("demo", "answr")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-white/10 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/30 hover:text-white"
             >
-              Book a Demo
-            </Link>
+              {CALENDARS.demo.label}
+            </a>
           </div>
         </div>
       </section>
@@ -214,16 +219,16 @@ export default function AnswrPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/book"
+                <a
+                  href={requestUrl(`Answr trial request: ${plan.name}`)}
                   className={`mt-8 block w-full rounded py-3 text-center text-[11px] uppercase tracking-[0.2em] transition-all ${
                     plan.featured
                       ? "bg-crimson text-white hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
                       : "border border-white/10 text-fg-strong hover:border-white/30 hover:text-white"
                   }`}
                 >
-                  Start Free Trial
-                </Link>
+                  Request trial access
+                </a>
               </div>
             ))}
           </div>
@@ -268,12 +273,12 @@ export default function AnswrPage() {
           <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
             Stop losing leads to your voicemail.
           </h2>
-          <Link
-            href="/book"
-            className="mt-8 inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+          <a
+            href={requestUrl("Answr free trial request")}
+            className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
           >
-            Start Free Trial
-          </Link>
+            Request trial access
+          </a>
         </div>
       </section>
     </>

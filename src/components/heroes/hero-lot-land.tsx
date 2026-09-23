@@ -82,10 +82,10 @@ export function HeroLotLand() {
             Book an Aerial
           </Link>
           <Link
-            href="/gallery"
+            href="/gallery/lot-land"
             className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
           >
-            View Portfolio
+            See the lot and land gallery
           </Link>
         </div>
 

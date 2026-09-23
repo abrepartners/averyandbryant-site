@@ -25,6 +25,10 @@ export type Service = {
   image: string;
   /** Alt text describing the real property and service in the tile image. */
   imageAlt?: string;
+  /** One line on when this asset changes the buyer's choice. */
+  useWhen?: string;
+  /** Which packages carry it, or how it is added. */
+  includedIn?: string;
   preview?: ServicePreview;
 };
 
@@ -106,18 +110,34 @@ export function ServiceCard({ service }: { service: Service }) {
           <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
             {service.description}
           </p>
+          {service.useWhen && (
+            <p className="mt-3 text-[13px] leading-relaxed text-fg-secondary">
+              <span className="font-medium uppercase tracking-[0.15em] text-amber-200/80 text-[10px]">
+                When to use it
+              </span>{" "}
+              {service.useWhen}
+            </p>
+          )}
+          {service.includedIn && (
+            <p className="mt-2 text-[12px] leading-relaxed text-fg-secondary/80">
+              <span className="font-medium uppercase tracking-[0.15em] text-[10px]">
+                Included in
+              </span>{" "}
+              {service.includedIn}
+            </p>
+          )}
           <div className="mt-4 flex items-center gap-6">
             <Link
               href="/book"
-              className="inline-block text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+              className="inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
             >
-              Book Now &rarr;
+              Book a shoot &rarr;
             </Link>
             {hasPreview && (
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-block text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
+                className="inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
               >
                 See Examples
               </button>
@@ -213,7 +233,7 @@ export function ServiceCard({ service }: { service: Service }) {
                 href="/book"
                 className="inline-flex items-center rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark"
               >
-                Book This Service
+                Book a shoot
               </Link>
             </div>
           </div>
