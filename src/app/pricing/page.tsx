@@ -20,7 +20,12 @@ export const metadata = {
     "Transparent pricing for real estate photography, drone, video, virtual tours, and branding across all property types. Central Arkansas.",
 };
 
-type PricingRow = { name: string; price: string; basis?: string; bestFor?: string };
+type PricingRow = {
+  name: string;
+  price: string;
+  basis?: string;
+  bestFor?: string;
+};
 
 function rows(pkgs: Package[]): PricingRow[] {
   return pkgs.map((p) => ({
@@ -38,7 +43,19 @@ function rows(pkgs: Package[]): PricingRow[] {
 
 // Package rows come from src/lib/pricing.ts so this page cannot drift from
 // the vertical pages. Only the per-vertical blurbs live here.
-const verticals = [
+// `samples` is that vertical's own gallery. Branding has no samples section
+// yet, so its card offers none rather than pointing at a mixed gallery.
+const verticals: {
+  slug: string;
+  label: string;
+  tag: string;
+  headline: string;
+  range: string;
+  rangeBasis: string;
+  description: string;
+  packages: PricingRow[];
+  samples?: string;
+}[] = [
   {
     slug: "real-estate",
     label: "Real Estate",
@@ -49,6 +66,7 @@ const verticals = [
     description:
       "HDR photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 48-hour delivery.",
     packages: rows(realEstatePricing.packages),
+    samples: "/gallery/real-estate",
   },
   {
     slug: "airbnb-rentals",
@@ -60,6 +78,7 @@ const verticals = [
     description:
       "Booking-optimized photography, drone, video tours, and social reels for Airbnb, VRBO, and direct booking sites.",
     packages: rows(airbnbPricing.packages),
+    samples: "/gallery/airbnb-rentals",
   },
   {
     slug: "multi-family",
@@ -71,6 +90,7 @@ const verticals = [
     description:
       "Model unit photography, campus aerials, 3D tours, cinematic drone video, and leasing content. One-off community sets from $295 plus model units from $165, sized to your square footage on a call.",
     packages: rows(multiFamilyPricing.packages),
+    samples: "/gallery/multi-family",
   },
   {
     slug: "lot-land",
@@ -82,6 +102,7 @@ const verticals = [
     description:
       "Aerial photography, illustrative boundary overlays, flyover video, and labeled concept renderings of a home on the lot.",
     packages: rows(lotLandPricing.packages),
+    samples: "/gallery/lot-land",
   },
   {
     slug: "builders",
@@ -93,6 +114,7 @@ const verticals = [
     description:
       "Finished-home and model launch packages, plus a monthly progress program (Build Tracker, $325 per month) set up on a call.",
     packages: rows(buildersPricing.packages),
+    samples: "/gallery/builders",
   },
   {
     slug: "commercial",
@@ -104,6 +126,7 @@ const verticals = [
     description:
       "One-off commercial photography is sized to your square footage and quoted on a call. Listing packages, a dealership program, and hospitality photography below.",
     packages: [...rows(commercialPackages), ...rows(commercialSpecialty)],
+    samples: "/gallery/commercial",
   },
   {
     slug: "branding",
@@ -170,63 +193,72 @@ export default function PricingPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {verticals.map((v) => (
-              <Link
+              <div
                 key={v.slug}
-                href={`/${v.slug}`}
-                className="group block bg-white/[0.03] border border-white/5 rounded-lg p-6 hover:border-crimson/40 transition-all duration-200"
+                className="group flex flex-col bg-white/[0.03] border border-white/5 rounded-lg hover:border-crimson/40 transition-all duration-200"
               >
-                <p className="text-[9px] uppercase tracking-[0.25em] text-fg-secondary mb-3">
-                  {v.tag}
-                </p>
-                <h2 className="font-display text-xl font-bold text-fg mb-1">
-                  {v.label}
-                </h2>
-                <p className="mb-4 flex flex-wrap items-baseline gap-x-2">
-                  <span className="font-display text-2xl font-extrabold tracking-tight text-crimson">
-                    {v.range}
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.15em] text-fg-secondary">
-                    {v.rangeBasis}
-                  </span>
-                </p>
-                <p className="text-[13px] text-fg-secondary leading-relaxed mb-5">
-                  {v.description}
-                </p>
+                <Link href={`/${v.slug}`} className="block flex-1 p-6">
+                  <p className="text-[9px] uppercase tracking-[0.25em] text-fg-secondary mb-3">
+                    {v.tag}
+                  </p>
+                  <h2 className="font-display text-xl font-bold text-fg mb-1">
+                    {v.label}
+                  </h2>
+                  <p className="mb-4 flex flex-wrap items-baseline gap-x-2">
+                    <span className="font-display text-2xl font-extrabold tracking-tight text-crimson">
+                      {v.range}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.15em] text-fg-secondary">
+                      {v.rangeBasis}
+                    </span>
+                  </p>
+                  <p className="text-[13px] text-fg-secondary leading-relaxed mb-5">
+                    {v.description}
+                  </p>
 
-                {/* Package list */}
-                <ul className="space-y-2 mb-6">
-                  {v.packages.map((pkg) => (
-                    <li
-                      key={pkg.name}
-                      className="flex items-start justify-between gap-3 text-[12px]"
-                    >
-                      <span className="min-w-0">
-                        <span className="text-fg-secondary">{pkg.name}</span>
-                        {pkg.bestFor && (
-                          <span className="mt-0.5 block text-[11px] leading-snug text-fg-secondary/70">
-                            {pkg.bestFor}
-                          </span>
-                        )}
-                      </span>
-                      <span className="shrink-0 text-right">
-                        <span className="block font-semibold tabular-nums text-fg-strong">
-                          {pkg.price}
+                  {/* Package list */}
+                  <ul className="space-y-2 mb-6">
+                    {v.packages.map((pkg) => (
+                      <li
+                        key={pkg.name}
+                        className="flex items-start justify-between gap-3 text-[12px]"
+                      >
+                        <span className="min-w-0">
+                          <span className="text-fg-secondary">{pkg.name}</span>
+                          {pkg.bestFor && (
+                            <span className="mt-0.5 block text-[11px] leading-snug text-fg-secondary/70">
+                              {pkg.bestFor}
+                            </span>
+                          )}
                         </span>
-                        {pkg.basis && (
-                          <span className="block text-[10px] uppercase tracking-[0.1em] text-fg-secondary">
-                            {pkg.basis}
+                        <span className="shrink-0 text-right">
+                          <span className="block font-semibold tabular-nums text-fg-strong">
+                            {pkg.price}
                           </span>
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                          {pkg.basis && (
+                            <span className="block text-[10px] uppercase tracking-[0.1em] text-fg-secondary">
+                              {pkg.basis}
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <div className="flex items-center gap-2 text-[11px] text-crimson font-medium group-hover:gap-3 transition-all">
-                  View full packages
-                  <span>&rarr;</span>
-                </div>
-              </Link>
+                  <div className="flex items-center gap-2 text-[11px] text-crimson font-medium group-hover:gap-3 transition-all">
+                    View full packages
+                    <span>&rarr;</span>
+                  </div>
+                </Link>
+                {v.samples && (
+                  <Link
+                    href={v.samples}
+                    className="inline-flex min-h-[44px] items-center border-t border-white/5 px-6 text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
+                  >
+                    See {v.label} samples
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -239,8 +271,8 @@ export default function PricingPage() {
             A La Carte Add-Ons
           </p>
           <p className="text-[13px] text-fg-secondary mb-8 max-w-md">
-            Available across most verticals. Pricing varies by package, see
-            each vertical page for exact rates.
+            Available across most verticals. Pricing varies by package, see each
+            vertical page for exact rates.
           </p>
           <div className="flex flex-wrap gap-2">
             {addOns.map((a) => (

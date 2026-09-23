@@ -12,7 +12,14 @@ import { CALENDARS, STUDIO_BOOKING_URL, calendarUrlFor } from "@/lib/consult";
  * behavior, no horizontal scroll at phone width.
  */
 
-type Reveal = { title: string; blurb: string; href: string; external?: boolean };
+type Reveal = {
+  title: string;
+  blurb: string;
+  href: string;
+  external?: boolean;
+  /** That vertical's own gallery page, so a tile only ever offers its own samples. */
+  samples?: string;
+};
 
 type Job = {
   id: string;
@@ -25,19 +32,50 @@ type Job = {
 };
 
 const propertyVerticals: Reveal[] = [
-  { title: "Home for sale", blurb: "Residential listings", href: "/real-estate" },
-  { title: "Airbnb / rental", blurb: "Airbnb, VRBO, direct booking", href: "/airbnb-rentals" },
-  { title: "Apartment community", blurb: "Multi-family and student housing", href: "/multi-family" },
-  { title: "Lot or land", blurb: "Parcels, acreage, development sites", href: "/lot-land" },
-  { title: "New construction", blurb: "Builders, progress, model homes", href: "/builders" },
-  { title: "Commercial property", blurb: "Office, retail, industrial, hospitality", href: "/commercial" },
+  {
+    title: "Home for sale",
+    blurb: "Residential listings",
+    href: "/real-estate",
+    samples: "/gallery/real-estate",
+  },
+  {
+    title: "Airbnb / rental",
+    blurb: "Airbnb, VRBO, direct booking",
+    href: "/airbnb-rentals",
+    samples: "/gallery/airbnb-rentals",
+  },
+  {
+    title: "Apartment community",
+    blurb: "Multi-family and student housing",
+    href: "/multi-family",
+    samples: "/gallery/multi-family",
+  },
+  {
+    title: "Lot or land",
+    blurb: "Parcels, acreage, development sites",
+    href: "/lot-land",
+    samples: "/gallery/lot-land",
+  },
+  {
+    title: "New construction",
+    blurb: "Builders, progress, model homes",
+    href: "/builders",
+    samples: "/gallery/builders",
+  },
+  {
+    title: "Commercial property",
+    blurb: "Office, retail, industrial, hospitality",
+    href: "/commercial",
+    samples: "/gallery/commercial",
+  },
 ];
 
 const jobs: Job[] = [
   {
     id: "property",
     title: "Market a property",
-    blurb: "Photos, drone, video, tours and plans for a listing, rental, community or site.",
+    blurb:
+      "Photos, drone, video, tours and plans for a listing, rental, community or site.",
     reveals: propertyVerticals,
   },
   {
@@ -60,7 +98,11 @@ const jobs: Job[] = [
     title: "Edit or stage my photos myself",
     blurb: "Vellum edits and stages your own listing photos.",
     reveals: [
-      { title: "See Vellum", blurb: "Self-service photo editing and staging", href: "/vellum" },
+      {
+        title: "See Vellum",
+        blurb: "Self-service photo editing and staging",
+        href: "/vellum",
+      },
       {
         title: CALENDARS.demo.label,
         blurb: "A live walkthrough of Vellum on your photos",
@@ -157,14 +199,15 @@ export function WorkingOn() {
                   <span className="text-sm font-medium text-fg group-hover:text-white">
                     {item.title}
                   </span>
-                  <span className="mt-1 text-xs text-fg-secondary">{item.blurb}</span>
+                  <span className="mt-1 text-xs text-fg-secondary">
+                    {item.blurb}
+                  </span>
                 </>
               );
               const cls =
-                "group flex min-h-[44px] flex-col rounded border border-white/10 p-4 transition-colors hover:border-crimson/40";
-              return item.external ? (
+                "group flex min-h-[44px] flex-1 flex-col p-4 transition-colors";
+              const primary = item.external ? (
                 <a
-                  key={item.href}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -173,9 +216,25 @@ export function WorkingOn() {
                   {inner}
                 </a>
               ) : (
-                <Link key={item.href} href={item.href} className={cls}>
+                <Link href={item.href} className={cls}>
                   {inner}
                 </Link>
+              );
+              return (
+                <div
+                  key={item.href}
+                  className="flex flex-col rounded border border-white/10 transition-colors hover:border-crimson/40"
+                >
+                  {primary}
+                  {item.samples && (
+                    <Link
+                      href={item.samples}
+                      className="inline-flex min-h-[44px] items-center border-t border-white/10 px-4 text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
+                    >
+                      See samples
+                    </Link>
+                  )}
+                </div>
               );
             })}
           </div>

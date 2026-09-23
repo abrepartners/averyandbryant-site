@@ -75,7 +75,7 @@ export function HeroCommercial() {
             href="/gallery/commercial"
             className="mt-6 inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:text-white"
           >
-            See the commercial gallery &rarr;
+            See the commercial gallery
           </Link>
 
           <p className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-fg-secondary">

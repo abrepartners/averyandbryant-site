@@ -74,8 +74,7 @@ const services: Service[] = [
     price: "From $185",
     useWhen:
       "Every listing. Coverage (25, 40 or 55 photos) is the choice: more photos for larger homes and more rooms worth showing.",
-    includedIn:
-      "every listing package; the photo count sets the tier.",
+    includedIn: "every listing package; the photo count sets the tier.",
     description:
       "HDR photography calibrated for MLS, print, and social. 25, 40, or 55 photo shoots. Delivered within 48 hours.",
     image: "/images/services/photos/great-room-beams-little-rock.jpg",
@@ -125,8 +124,7 @@ const services: Service[] = [
     price: "$150",
     useWhen:
       "When the lot, the setting, the water or the neighborhood is part of the story.",
-    includedIn:
-      "Listing Domination and above; add to the Launch Kit.",
+    includedIn: "Listing Domination and above; add to the Launch Kit.",
     description:
       "FAA-licensed aerials. Property context, neighborhood scale, lot boundaries. Photos and video in one flight.",
     image: "/images/services/drone/lakefront-home-aerial-hot-springs.jpg",
@@ -142,8 +140,7 @@ const services: Service[] = [
     price: "From $295",
     useWhen:
       "When the property has a flow worth walking, or the price point expects a film, not just photos.",
-    includedIn:
-      "Market Takeover Blueprint; add to any package.",
+    includedIn: "Market Takeover Blueprint; add to any package.",
     description:
       "Cinematic walkthrough video with music, pacing, and branded intro. 60 seconds at $295, 90 to 120 seconds at $395.",
     image: "/images/services/video-tours/cover.jpg",
@@ -176,8 +173,7 @@ const services: Service[] = [
     price: "From $149",
     useWhen:
       "When out-of-town buyers or busy schedules mean the first showing happens on a phone.",
-    includedIn:
-      "Listing Domination and above; add to the Launch Kit.",
+    includedIn: "Listing Domination and above; add to the Launch Kit.",
     description:
       "Interactive 3D walkthrough. Buyers explore the home remotely, room by room. Zillow 3D with floor plan at $149, 3D walkthrough tour at $299.",
     image: "/images/portfolio-interior-2.jpg",
@@ -332,7 +328,8 @@ const threeWays = [
     title: "Done for you",
     blurb:
       "Our team shoots, edits and delivers property media, brand content and video. You book, we handle the rest.",
-    example: "A listing shoot with photos, drone and a reel, delivered in 48 hours.",
+    example:
+      "A listing shoot with photos, drone and a reel, delivered in 48 hours.",
     href: "/pricing",
     cta: "See packages",
   },
@@ -455,7 +452,9 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="flex min-h-[44px] items-center gap-1.5 text-[11px] text-fg-secondary transition-colors hover:text-fg-strong"
                 >
-                  <span className="text-crimson">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span className="text-crimson">
+                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                  </span>
                   <span>Google</span>
                 </a>
               ) : null}
@@ -492,8 +491,8 @@ export default function HomePage() {
             What are you working on?
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
-            Pick the job and we take you to the right place. No product names
-            to decode first.
+            Pick the job and we take you to the right place. No product names to
+            decode first.
           </p>
           <div className="mt-12">
             <WorkingOn />
@@ -555,8 +554,9 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="mt-4 text-xs text-fg-secondary">
-            Reels, 3D tours and floor plans are shown by service below. Not every
-            asset is standard in every package; each card says what it carries.
+            Reels, 3D tours and floor plans are shown by service below. Not
+            every asset is standard in every package; each card says what it
+            carries.
           </p>
         </div>
       </section>
@@ -610,7 +610,9 @@ export default function HomePage() {
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             What each asset does,{" "}
-            <span className="text-fg-secondary">and when it changes your choice.</span>
+            <span className="text-fg-secondary">
+              and when it changes your choice.
+            </span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
             Listing packages are flat prices. Commercial and multi-family
@@ -634,7 +636,9 @@ export default function HomePage() {
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             A starting point for a home listing.{" "}
-            <span className="text-fg-secondary">Other property types have their own.</span>
+            <span className="text-fg-secondary">
+              Other property types have their own.
+            </span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
             These three are the residential listing packages. Rentals,
@@ -674,7 +678,8 @@ export default function HomePage() {
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
             Choose what you need.{" "}
             <span className="text-fg-secondary">
-              We capture it, prepare the right assets, and deliver them ready for your channels.
+              We capture it, prepare the right assets, and deliver them ready
+              for your channels.
             </span>
           </h2>
 
@@ -834,7 +839,10 @@ export default function HomePage() {
           </div>
           <p className="mt-10 text-xs text-fg-secondary">
             Know an agent who should shoot with us?{" "}
-            <Link href="/referral" className="underline transition-colors hover:text-white">
+            <Link
+              href="/referral"
+              className="underline transition-colors hover:text-white"
+            >
               Our referral program pays cash.
             </Link>
           </p>

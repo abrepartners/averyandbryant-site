@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import type { Package } from "@/lib/pricing";
 import type { Vertical } from "@/lib/order-forms";
 import { OrderLink } from "@/components/order-link";
@@ -27,6 +28,15 @@ type PackageCardProps = {
   ctaLabel?: string;
   ctaTarget?: string;
   children?: ReactNode;
+};
+
+/** Plain names for the "See <vertical> samples" link; every key is a /gallery/<vertical> page. */
+const SAMPLE_NAMES: Record<Vertical, string> = {
+  "real-estate": "real estate",
+  builders: "new construction",
+  "airbnb-rentals": "Airbnb / Rentals",
+  "lot-land": "lot and land",
+  "multi-family": "multi-family",
 };
 
 const ctaClass =
@@ -105,7 +115,10 @@ export function PackageCard({
       {/* 4. decisive inclusions */}
       <ul className="mt-6 space-y-2.5">
         {inclusions.map((item) => (
-          <li key={item} className="flex items-start gap-3 text-sm text-fg-strong">
+          <li
+            key={item}
+            className="flex items-start gap-3 text-sm text-fg-strong"
+          >
             <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/60" />
             <span className="min-w-0">{item}</span>
           </li>
@@ -179,6 +192,14 @@ export function PackageCard({
         <p className="mt-3 text-[11px] text-fg-secondary">
           Programs are set up on a free 30-minute call, not booked online.
         </p>
+      )}
+      {vertical && (
+        <Link
+          href={`/gallery/${vertical}`}
+          className="mt-4 inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
+        >
+          See {SAMPLE_NAMES[vertical]} samples
+        </Link>
       )}
     </div>
   );
