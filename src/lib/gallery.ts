@@ -2,7 +2,6 @@ import curated from "../../data/gallery-curated.json";
 import featured from "../../data/featured-homes.json";
 import type { GalleryItem } from "@/components/gallery-grid";
 import type { FeaturedHome } from "@/components/featured-homes";
-import { commercialLead } from "@/lib/commercial-work";
 
 /**
  * One gallery per vertical. `cat` is the category field in
@@ -75,7 +74,10 @@ export const GALLERY_VERTICALS: GalleryVertical[] = [
     blurb: "Retail centers, restaurants, offices and institutional buildings, ground level and aerial.",
     page: "/commercial",
     interest: "commercial",
-    tile: { src: commercialLead.src, alt: commercialLead.alt },
+    tile: {
+      featuredId: "019b7197-4e20-73cd-b3ea-de174b503ac0",
+      alt: "Front of a historic three-story brick office building on Scott Street in downtown Little Rock, Arkansas",
+    },
   },
   {
     slug: "lot-land",

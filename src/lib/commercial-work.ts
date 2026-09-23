@@ -1,8 +1,7 @@
 /**
  * Real commercial work already on the site (A&B's own photography under
- * public/images/commercial). Shared by /commercial and /gallery/commercial so
- * the commercial gallery shows commercial buildings, not a curated card that
- * happens to carry the category.
+ * public/images/commercial). Shared by /commercial and /gallery/commercial,
+ * where it follows the order-tagged commercial shoots from Aryeo.
  */
 export type PortfolioShot = { src: string; alt: string; caption: string };
 export type PortfolioGroup = {

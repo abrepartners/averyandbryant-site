@@ -102,13 +102,34 @@ export default async function VerticalGalleryPage({
         </section>
       )}
 
-      {/* Commercial: the real commercial work from the service page */}
-      {isCommercial && (
-        <section className="pb-16 md:pb-20">
+      {/* Project grid */}
+      {projects.length > 0 && (
+        <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
           <div className="mx-auto max-w-[1280px] px-6 md:px-12">
             <div className="mb-8">
               <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
-                Commercial work
+                More {v.name} projects
+              </h2>
+              <p className="mt-2 text-sm text-fg-secondary">
+                Tap any project for its cover frame and the full property tour.
+              </p>
+            </div>
+            <GalleryGrid
+              items={projects}
+              showFilter={false}
+              priorityFirst={homes.length === 0}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Commercial: the site's own commercial photography, after the Aryeo shoots */}
+      {isCommercial && (
+        <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
+          <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+            <div className="mb-8">
+              <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
+                More commercial work
               </h2>
               <p className="mt-2 text-sm text-fg-secondary">
                 Retail, hospitality, institutional and site aerials across
@@ -116,7 +137,7 @@ export default async function VerticalGalleryPage({
               </p>
             </div>
             <div className="space-y-14">
-              {commercialGroups.map((group, gi) => (
+              {commercialGroups.map((group) => (
                 <div key={group.label}>
                   <h3 className="font-display text-lg font-medium text-fg">
                     {group.label}
@@ -128,7 +149,6 @@ export default async function VerticalGalleryPage({
                           src={group.lead.src}
                           alt={group.lead.alt}
                           fill
-                          priority={gi === 0}
                           sizes="(min-width: 1280px) 1216px, 100vw"
                           className="object-cover"
                         />
@@ -159,27 +179,6 @@ export default async function VerticalGalleryPage({
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Project grid */}
-      {projects.length > 0 && (
-        <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
-          <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-            <div className="mb-8">
-              <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
-                More {v.name} projects
-              </h2>
-              <p className="mt-2 text-sm text-fg-secondary">
-                Tap any project for its cover frame and the full property tour.
-              </p>
-            </div>
-            <GalleryGrid
-              items={projects}
-              showFilter={false}
-              priorityFirst={homes.length === 0 && !isCommercial}
-            />
           </div>
         </section>
       )}
