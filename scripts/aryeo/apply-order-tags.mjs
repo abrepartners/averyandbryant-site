@@ -19,7 +19,7 @@ import path from "node:path";
 export const TAG_TO_VERTICAL = [
   ["COMMERCIAL", "commercial"],
   ["church", "commercial"],
-  ["Golf Course", "commercial"],
+  // "Golf Course" is a highlight tag (homes on a course), not a vertical (Thomas 2026-09-23).
   ["Apartment", "multi-family"],
   ["AirBNB/Rental", "airbnb-str"],
   ["Land/Lot", "lot-land"],

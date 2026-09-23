@@ -1,408 +1,410 @@
 {
- "_doc": "Reviewed-by-eye card decisions replayed by curate-gallery.mjs. hero/thumb replace the Aryeo cover (pos = 0-based position in index order, verified on a contact sheet); cat overrides the inferred vertical only when no order tag applies. Log: slice 1b and 1c hero-verification.md.",
- "019f476a-55f8-7325-83b5-237240ac0ee3": {
-  "pos": 41,
-  "hero": "https://cdn.aryeo.com/listings/3905-oakwood-rd-little-rock-ar-72205-26568339/resized/large/large-019f4771-bee2-722e-8822-7bf03440067b.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/3905-oakwood-rd-little-rock-ar-72205-26568339/resized/thumbnail/thumbnail-019f4771-bee2-722e-8822-7bf03440067b.jpeg",
-  "_note": "3905 Oakwood Rd, Little Rock"
- },
- "019e1824-9c28-7129-b35e-1f2ddbcae737": {
-  "pos": 46,
-  "hero": "https://cdn.aryeo.com/listings/30-mountain-brook-road-little-rock-ar-72223-24719457/resized/large/large-019e4c8d-cdf0-708e-a9fe-bbca99d0613b.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/30-mountain-brook-road-little-rock-ar-72223-24719457/resized/thumbnail/thumbnail-019e4c8d-cdf0-708e-a9fe-bbca99d0613b.jpeg",
-  "_note": "30 Mountain Brook Road, Little Rock"
- },
- "019f3f14-d630-7190-805a-483f9977a750": {
-  "pos": 39,
-  "hero": "https://cdn.aryeo.com/listings/28-mountain-brook-road-little-rock-ar-72223-26506277/resized/large/large-019f475d-86de-71d4-bff7-6485a01bcad3.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/28-mountain-brook-road-little-rock-ar-72223-26506277/resized/thumbnail/thumbnail-019f475d-86de-71d4-bff7-6485a01bcad3.jpeg",
-  "_note": "28 Mountain Brook Road, Little Rock"
- },
- "019e181f-3170-7112-8d5e-d5ab37e21d07": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/28-mountain-brook-little-rock-ar-72223-24719240/resized/large/large-019e4c8d-df23-726a-af73-a8f4588bd26f.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/28-mountain-brook-little-rock-ar-72223-24719240/resized/thumbnail/thumbnail-019e4c8d-df23-726a-af73-a8f4588bd26f.jpeg",
-  "_note": "28 Mountain Brook, Little Rock"
- },
- "019f3f13-b138-70c8-9f16-d8fba4997af7": {
-  "pos": 47,
-  "hero": "https://cdn.aryeo.com/listings/26-mountain-brook-road-little-rock-ar-72223-26506242/resized/large/large-019f476e-4c08-73df-ba95-302477379108.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/26-mountain-brook-road-little-rock-ar-72223-26506242/resized/thumbnail/thumbnail-019f476e-4c08-73df-ba95-302477379108.jpeg",
-  "_note": "26 Mountain Brook Road, Little Rock"
- },
- "019f3810-86b8-7028-b40d-1d10b91cb1ab": {
-  "pos": 62,
-  "hero": "https://cdn.aryeo.com/listings/2-greathouse-bend-dr-little-rock-ar-72207-26446525/resized/large/large-019f41f3-55b4-729d-adf4-e62b8bb4b9f5.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/2-greathouse-bend-dr-little-rock-ar-72207-26446525/resized/thumbnail/thumbnail-019f41f3-55b4-729d-adf4-e62b8bb4b9f5.jpeg",
-  "_note": "2 Greathouse Bend Dr, Little Rock"
- },
- "019f28e6-d7c8-7323-9a15-14bb080b1c1f": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/1126-oakview-dr-benton-ar-72015-26412148/resized/large/large-019f3942-a13e-7324-86ff-2f687ad572f8.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1126-oakview-dr-benton-ar-72015-26412148/resized/thumbnail/thumbnail-019f3942-a13e-7324-86ff-2f687ad572f8.jpeg",
-  "_note": "1126 Oakview Dr, Benton"
- },
- "019d37c4-f560-72f4-b611-613a83a6fc99": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/1126-oakview-cv-benton-ar-72015-23342655/resized/large/large-019d4f22-f219-70dc-b7ea-ee76549e8ad5.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1126-oakview-cv-benton-ar-72015-23342655/resized/thumbnail/thumbnail-019d4f22-f219-70dc-b7ea-ee76549e8ad5.jpeg",
-  "_note": "1126 Oakview Cv, Benton"
- },
- "019f18e3-4780-7270-9259-1f23909cebe5": {
-  "pos": 19,
-  "hero": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-26295045/resized/large/large-019f18e3-dbf9-72d9-82e6-422370373e63.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-26295045/resized/thumbnail/thumbnail-019f18e3-dbf9-72d9-82e6-422370373e63.jpeg",
-  "_note": "9213 Merrivale Dr, Little Rock"
- },
- "019f19ab-f680-7349-8b50-e93d097513c5": {
-  "pos": 8,
-  "hero": "https://cdn.aryeo.com/listings/8812-ranch-blvd-little-rock-ar-72223-26305769/resized/large/large-019f1cd2-c6cd-73e7-9ab2-59bbf363dd21.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/8812-ranch-blvd-little-rock-ar-72223-26305769/resized/thumbnail/thumbnail-019f1cd2-c6cd-73e7-9ab2-59bbf363dd21.jpeg",
-  "_note": "8812 Ranch Blvd, Little Rock"
- },
- "019f0ad7-f140-72d2-bb7c-cc35bc214247": {
-  "pos": 45,
-  "hero": "https://cdn.aryeo.com/listings/985-mound-view-dr-england-ar-72046-26241250/resized/large/large-019f24b3-5572-7285-bca3-9105e2b1f7bb.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/985-mound-view-dr-england-ar-72046-26241250/resized/thumbnail/thumbnail-019f24b3-5572-7285-bca3-9105e2b1f7bb.jpeg",
-  "_note": "985 Mound View Dr, England"
- },
- "019f05a8-84f0-701e-a525-5d64183e217d": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/10-epernay-cir-little-rock-ar-72223-26221832/resized/large/large-019f1e3f-f272-70f5-92ac-2aa99d9d58cf.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/10-epernay-cir-little-rock-ar-72223-26221832/resized/thumbnail/thumbnail-019f1e3f-f272-70f5-92ac-2aa99d9d58cf.jpeg",
-  "_note": "10 Epernay Cir, Little Rock"
- },
- "019f0480-1638-7122-997a-b527c610cab9": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/7015-amherst-dr-little-rock-ar-72205-26207923/resized/large/large-019f3dab-a6ac-73e2-a7bc-ff6350fccddf.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/7015-amherst-dr-little-rock-ar-72205-26207923/resized/thumbnail/thumbnail-019f3dab-a6ac-73e2-a7bc-ff6350fccddf.jpeg",
-  "_note": "7015 Amherst Dr, Little Rock"
- },
- "019efff8-f008-7114-9554-903a8d5a458c": {
-  "pos": 42,
-  "hero": "https://cdn.aryeo.com/listings/1724-w-24th-st-little-rock-ar-72206-26177361/resized/large/large-019f1e29-1b7f-73fd-8a8b-375c6ec28a2c.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1724-w-24th-st-little-rock-ar-72206-26177361/resized/thumbnail/thumbnail-019f1e29-1b7f-73fd-8a8b-375c6ec28a2c.jpeg",
-  "_note": "1724 W 24th St, Little Rock"
- },
- "019ef1f2-e928-70f0-89f8-c38010069c38": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/8-woodsong-dr-roland-ar-72135-26070660/resized/large/large-019f0454-8c7d-71b9-93f7-6fd2944af6f2.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/8-woodsong-dr-roland-ar-72135-26070660/resized/thumbnail/thumbnail-019f0454-8c7d-71b9-93f7-6fd2944af6f2.jpeg",
-  "_note": "8 Woodsong Dr, Roland"
- },
- "019ef089-cfc0-7155-9a2b-d36d79bba59a": {
-  "pos": 2,
-  "hero": "https://cdn.aryeo.com/listings/601-chenal-woods-311-little-rock-ar-72223-26056282/resized/large/large-019f1a2d-5ac8-72c8-91e5-77b5e26be541.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/601-chenal-woods-311-little-rock-ar-72223-26056282/resized/thumbnail/thumbnail-019f1a2d-5ac8-72c8-91e5-77b5e26be541.jpeg",
-  "_note": "601 Chenal  Woods 311, Little Rock"
- },
- "019edc58-12a0-7334-8778-c18784732bba": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/1330-salem-rd-conway-ar-72034-25972044/resized/large/large-019ef64a-d3a2-7215-8b24-b21961da0303.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1330-salem-rd-conway-ar-72034-25972044/resized/thumbnail/thumbnail-019ef64a-d3a2-7215-8b24-b21961da0303.jpeg",
-  "_note": "1330 Salem Rd, Conway"
- },
- "019ed64d-6180-718e-9168-622cbc0a5331": {
-  "pos": 7,
-  "hero": "https://cdn.aryeo.com/listings/3428-mccord-dr-north-little-rock-ar-72116-25921168/resized/large/large-019efbca-4766-722d-83c5-d7be3792fcd4.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/3428-mccord-dr-north-little-rock-ar-72116-25921168/resized/thumbnail/thumbnail-019efbca-4766-722d-83c5-d7be3792fcd4.jpeg",
-  "_note": "3428 McCord Dr, North Little Rock"
- },
- "019ecc89-a3e8-7312-8a7a-1ef4a1f2bd42": {
-  "pos": 75,
-  "hero": "https://cdn.aryeo.com/listings/311-devoe-bnd-dr-maumelle-ar-72113-25843209/resized/large/large-019ed1e2-46a3-70a5-b7db-33da269cecba.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/311-devoe-bnd-dr-maumelle-ar-72113-25843209/resized/thumbnail/thumbnail-019ed1e2-46a3-70a5-b7db-33da269cecba.jpeg",
-  "_note": "311 Devoe Bnd Dr, Maumelle"
- },
- "019ecc73-4940-713a-8894-1599f6cd8be9": {
-  "pos": 15,
-  "hero": "https://cdn.aryeo.com/listings/1808-bishop-st-little-rock-ar-72202-25842019/resized/large/large-019ed1e3-9049-7152-9f46-daf42d434978.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1808-bishop-st-little-rock-ar-72202-25842019/resized/thumbnail/thumbnail-019ed1e3-9049-7152-9f46-daf42d434978.jpeg",
-  "_note": "1808 Bishop St, Little Rock"
- },
- "019eccb0-5df8-7228-8f06-4dd560038c26": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/10-short-leaf-ln-little-rock-ar-72223-25845330/resized/large/large-019ed660-5218-7160-889b-661502067e15.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/10-short-leaf-ln-little-rock-ar-72223-25845330/resized/thumbnail/thumbnail-019ed660-5218-7160-889b-661502067e15.jpeg",
-  "_note": "10 Short Leaf Ln, Little Rock"
- },
- "019cf8dd-b7b0-72fa-ab19-449c95431dac": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/68-wellington-pl-cabot-ar-72023-22972516/resized/large/large-019de3bc-6cd1-72ea-8e98-8354f1ef351c.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/68-wellington-pl-cabot-ar-72023-22972516/resized/thumbnail/thumbnail-019de3bc-6cd1-72ea-8e98-8354f1ef351c.jpeg",
-  "_note": "68 Wellington Pl, Cabot"
- },
- "0199c46a-aef0-7285-bf7d-c0b8d67552c3": {
-  "cat": "commercial",
-  "_note": "1420 Campground Rd, Cabot"
- },
- "019377f3-d200-735d-9487-e982445465a7": {
-  "pos": 43,
-  "hero": "https://cdn.aryeo.com/listings/131-arlington-park-ct-hot-springs-ar-71901-12973646/resized/large/large-01937911-c529-72b6-a297-67df17b66822.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/131-arlington-park-ct-hot-springs-ar-71901-12973646/resized/thumbnail/thumbnail-01937911-c529-72b6-a297-67df17b66822.jpg",
-  "_note": "131 Arlington Park Ct, Hot Springs"
- },
- "019dd5a9-e718-71c5-961e-6becb323aba8": {
-  "pos": 19,
-  "hero": "https://cdn.aryeo.com/listings/1800-waterview-meadow-ct-roland-ar-72135-24303062/resized/large/large-019de9d0-bb20-7318-abee-871809dce618.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1800-waterview-meadow-ct-roland-ar-72135-24303062/resized/thumbnail/thumbnail-019de9d0-bb20-7318-abee-871809dce618.jpeg",
-  "_note": "1800 Waterview Meadow Ct, Roland"
- },
- "019d91ea-1390-7090-92d8-adeae5cf6cb5": {
-  "pos": 32,
-  "hero": "https://cdn.aryeo.com/listings/apn-633-19127-000-arlington-dr-this-lot-is-directly-adjacent-to-149-arlington-dr-this-lot-sits-just-to-the-east-of-that-home-hot-springs-ar-71913-23872289/resized/large/large-019db137-fdbe-73ed-b452-34fdf9209228.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/apn-633-19127-000-arlington-dr-this-lot-is-directly-adjacent-to-149-arlington-dr-this-lot-sits-just-to-the-east-of-that-home-hot-springs-ar-71913-23872289/resized/thumbnail/thumbnail-019db137-fdbe-73ed-b452-34fdf9209228.jpeg",
-  "_note": "APN: 633-19127-000 Arlington Dr - This lot is directly adjacent to 149 Arlington Dr.  This lot sits just to the East of that home., Hot Springs"
- },
- "019e8565-b600-70ce-802b-82fdc25ade94": {
-  "pos": 16,
-  "hero": "https://cdn.aryeo.com/listings/128-burning-tree-ct-hot-springs-ar-71913-25397932/resized/large/large-019e985d-eac0-7052-9269-53c3073eb22b.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/128-burning-tree-ct-hot-springs-ar-71913-25397932/resized/thumbnail/thumbnail-019e985d-eac0-7052-9269-53c3073eb22b.jpeg",
-  "_note": "128 Burning Tree Ct, Hot Springs"
- },
- "019e3be7-a790-7157-8314-7db2a447d23c": {
-  "pos": 4,
-  "hero": "https://cdn.aryeo.com/listings/141-crossridge-ln-hot-springs-ar-71913-24949834/resized/large/large-019e50c5-5455-73c8-9778-2d724da4243b.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/141-crossridge-ln-hot-springs-ar-71913-24949834/resized/thumbnail/thumbnail-019e50c5-5455-73c8-9778-2d724da4243b.jpeg",
-  "_note": "141 Crossridge Ln, Hot Springs"
- },
- "019df7ee-70a0-7236-967c-04bc45f0b0ee": {
-  "pos": 38,
-  "hero": "https://cdn.aryeo.com/listings/304-w-7th-st-north-little-rock-ar-72114-24512040/resized/large/large-019e08da-1921-7052-b33d-db1ef0f46475.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/304-w-7th-st-north-little-rock-ar-72114-24512040/resized/thumbnail/thumbnail-019e08da-1921-7052-b33d-db1ef0f46475.jpeg",
-  "_note": "304 W 7th St, North Little Rock"
- },
- "019df7eb-1158-71e4-a84b-37115887f97c": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/405-w-4th-st-north-little-rock-ar-72114-24511970/resized/large/large-019e177e-b5af-7149-a621-c5bba58d6170.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/405-w-4th-st-north-little-rock-ar-72114-24511970/resized/thumbnail/thumbnail-019e177e-b5af-7149-a621-c5bba58d6170.jpeg",
-  "_note": "405 W 4th St, North Little Rock"
- },
- "75a3dcf5-3d1a-4f39-92c2-3577edf31005": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/501-main-st-north-little-rock-ar-72114-8424969/resized/large/large-2132918d-8d54-499b-a823-eaf17c93f581.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/501-main-st-north-little-rock-ar-72114-8424969/resized/thumbnail/thumbnail-2132918d-8d54-499b-a823-eaf17c93f581.jpg",
-  "_note": "501 Main St, North Little Rock"
- },
- "019a0345-4270-72f9-b9ca-3835df1c8b63": {
-  "pos": 44,
-  "hero": "https://cdn.aryeo.com/listings/4-n-cres-dr-20-b-mount-ida-ar-71957-20014575/resized/large/large-019a1ecd-5246-703b-9b7d-7709dd7fd6d3.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/4-n-cres-dr-20-b-mount-ida-ar-71957-20014575/resized/thumbnail/thumbnail-019a1ecd-5246-703b-9b7d-7709dd7fd6d3.jpeg",
-  "_note": "4 N Cres Dr 20-B, Mount Ida"
- },
- "0198ec33-a7a8-7362-b1e9-2b62ef5cafb5": {
-  "pos": 6,
-  "hero": "https://cdn.aryeo.com/listings/1809-reservoir-rd-little-rock-ar-72227-18712316/resized/large/large-019921ba-430b-71a6-bac5-83a744a10ef6.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1809-reservoir-rd-little-rock-ar-72227-18712316/resized/thumbnail/thumbnail-019921ba-430b-71a6-bac5-83a744a10ef6.jpeg",
-  "_note": "1809 Reservoir Rd 19/20, Little Rock"
- },
- "019756ca-ed08-7162-8caf-d74f171a6ec6": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/1001-dennison-st-little-rock-ar-72202-16831612/resized/large/large-01978152-9988-701a-a64f-9cb49c2ba60d.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/1001-dennison-st-little-rock-ar-72202-16831612/resized/thumbnail/thumbnail-01978152-9988-701a-a64f-9cb49c2ba60d.jpg",
-  "_note": "1001 Dennison St, Little Rock"
- },
- "0192f7c9-74e0-718e-a520-762a21d15f52": {
-  "pos": 17,
-  "hero": "https://cdn.aryeo.com/listings/16901-valley-falls-dr-little-rock-ar-72223-12594778/resized/large/large-0192f7ca-9944-720f-a97e-ad65726423ee.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/16901-valley-falls-dr-little-rock-ar-72223-12594778/resized/thumbnail/thumbnail-0192f7ca-9944-720f-a97e-ad65726423ee.jpg",
-  "cat": "residential-listing",
-  "_note": "16901 Valley Falls Dr, Little Rock"
- },
- "019ffc59-cf20-7304-a65e-2bf12fcc3e5e": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/2400-w-31st-ave-pine-bluff-ar-71603-27793430/resized/large/large-01a01165-2600-7122-929a-778e12d7eb5f.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/2400-w-31st-ave-pine-bluff-ar-71603-27793430/resized/thumbnail/thumbnail-01a01165-2600-7122-929a-778e12d7eb5f.jpeg",
-  "_note": "2400 W 31st Ave, Pine Bluff: church front with steeple and entry portico (slice 1c)"
- },
- "019b7197-4e20-73cd-b3ea-de174b503ac0": {
-  "pos": 6,
-  "hero": "https://cdn.aryeo.com/listings/401-scott-st-little-rock-ar-72201-21239799/resized/large/large-019b7f67-996d-73e1-8d53-be9e066a7a00.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/401-scott-st-little-rock-ar-72201-21239799/resized/thumbnail/thumbnail-019b7f67-996d-73e1-8d53-be9e066a7a00.jpeg",
-  "_note": "401 Scott St, Little Rock: straight-on front of the historic brick building (slice 1c)"
- },
- "0193b0a6-54d8-7052-b027-83046532df84": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/3110-auto-dr-pine-bluff-ar-71601-13093108/resized/large/large-0193b0a7-49c3-73d7-bc0c-8fd7c912ccb3.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/3110-auto-dr-pine-bluff-ar-71601-13093108/resized/thumbnail/thumbnail-0193b0a7-49c3-73d7-bc0c-8fd7c912ccb3.jpg",
-  "_note": "3110 Auto Dr, Pine Bluff: Aryeo cover already the straight-on facade (slice 1c)"
- },
- "01998147-cf18-7266-aa6c-9b6af0860659": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/1613-s-main-st-pine-bluff-ar-71601-19420898/resized/large/large-0199a5ae-f882-71b5-9f9d-815030654f69.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/1613-s-main-st-pine-bluff-ar-71601-19420898/resized/thumbnail/thumbnail-0199a5ae-f882-71b5-9f9d-815030654f69.jpeg",
-  "_note": "1613 S Main St, Pine Bluff: Aryeo cover already the street-front facade (slice 1c)"
- },
- "019a3065-db48-71c5-be8a-79a7613b9670": {
-  "pos": 40,
-  "hero": "https://cdn.aryeo.com/listings/207-campbell-dr-beebe-ar-72012-20220312/resized/large/large-019a4537-4b75-73e3-b5ee-f911269aae6b.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/207-campbell-dr-beebe-ar-72012-20220312/resized/thumbnail/thumbnail-019a4537-4b75-73e3-b5ee-f911269aae6b.jpeg",
-  "_note": "207 Campbell Dr, Beebe: close front with the red awning, straight on (slice 1c)"
- },
- "019d5527-fbe8-71ef-b76a-0bb2d4d75b51": {
-  "pos": 13,
-  "hero": "https://cdn.aryeo.com/listings/702-w-dewitt-henry-dr-beebe-ar-72012-23525817/resized/large/large-019db073-1939-72e4-9fd8-c0629afa81d0.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/702-w-dewitt-henry-dr-beebe-ar-72012-23525817/resized/thumbnail/thumbnail-019db073-1939-72e4-9fd8-c0629afa81d0.jpeg",
-  "_note": "702 W Dewitt Henry Dr, Beebe: straight-on facade with the two wood doors (slice 1c)"
- },
- "019d4a9d-7b80-722a-9776-0cbc6e24c70e": {
-  "pos": 2,
-  "hero": "https://cdn.aryeo.com/listings/2390-malvern-rd-arkadelphia-ar-71923-23451666/resized/large/large-019d693e-cac4-720a-ad05-d067a51bc192.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/2390-malvern-rd-arkadelphia-ar-71923-23451666/resized/thumbnail/thumbnail-019d693e-cac4-720a-ad05-d067a51bc192.jpeg",
-  "_note": "2390 Malvern Rd, Arkadelphia: straight-on front of the drive-thru stand (slice 1c)"
- },
- "019d913a-bcd8-7214-b9a3-80a6f92037ce": {
-  "pos": 13,
-  "hero": "https://cdn.aryeo.com/listings/3000-w-28th-ave-pine-bluff-ar-71603-23861621/resized/large/large-019e5efc-a915-72b1-954c-5d99d52a8120.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/3000-w-28th-ave-pine-bluff-ar-71603-23861621/resized/thumbnail/thumbnail-019e5efc-a915-72b1-954c-5d99d52a8120.jpeg",
-  "_note": "3000 W 28th Ave, Pine Bluff: ground-level front of the center with the entrance (slice 1c)"
- },
- "0195f13c-e230-704d-b1e6-75619d63bb72": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/125-hallen-ct-little-rock-ar-72223-14985404/resized/large/large-019a54e2-a39a-71b3-b073-d81cc6c070ce.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/125-hallen-ct-little-rock-ar-72223-14985404/resized/thumbnail/thumbnail-019a54e2-a39a-71b3-b073-d81cc6c070ce.jpeg",
-  "_note": "125 Hallen Ct, Little Rock: straight-on front in daylight (slice 1c)"
- },
- "01939c43-a090-712c-819b-e24e001739a6": {
-  "pos": 4,
-  "hero": "https://cdn.aryeo.com/listings/bart-moreland-dr-ar-72135-13054419/resized/large/large-01939c45-6c50-7380-be17-17a18b8305cd.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/bart-moreland-dr-ar-72135-13054419/resized/thumbnail/thumbnail-01939c45-6c50-7380-be17-17a18b8305cd.jpg",
-  "_note": "Bart Moreland Dr, null: front with the drive; cover 0 is tree-shadowed (slice 1c)"
- },
- "01922976-af68-71c8-9226-312bbb055824": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/9509-meadow-oak-dr-sherwood-ar-72120-11903948/resized/large/large-0192297b-fa88-70ab-936c-687b268b7949.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/9509-meadow-oak-dr-sherwood-ar-72120-11903948/resized/thumbnail/thumbnail-0192297b-fa88-70ab-936c-687b268b7949.jpg",
-  "_note": "9509 Meadow Oak Dr, Sherwood: Aryeo cover already the straight-on front (slice 1c)"
- },
- "0192fc65-7300-734d-86f9-ce4cf3dbe7d3": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/148-fletcher-rdg-dr-little-rock-ar-72223-12609184/resized/large/large-01932699-0634-715a-be1b-a3f5495ef45b.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/148-fletcher-rdg-dr-little-rock-ar-72223-12609184/resized/thumbnail/thumbnail-01932699-0634-715a-be1b-a3f5495ef45b.jpeg",
-  "_note": "148 Fletcher Rdg Dr, Little Rock: straight-on front (slice 1c)"
- },
- "0196f9c2-17a8-70bd-9892-b6962d46c575": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/68-copper-cir-little-rock-ar-72223-16402575/resized/large/large-01971f85-071b-70d2-9bf4-54b4c24f1448.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/68-copper-cir-little-rock-ar-72223-16402575/resized/thumbnail/thumbnail-01971f85-071b-70d2-9bf4-54b4c24f1448.jpg",
-  "_note": "68 Copper Cir, Little Rock: straight-on front, two garages (slice 1c)"
- },
- "019fd994-1b30-7101-ac96-bcf63a19563e": {
-  "pos": 38,
-  "hero": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-27522341/resized/large/large-019fd99e-066f-73f7-9757-eda7a9e21690.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-27522341/resized/thumbnail/thumbnail-019fd99e-066f-73f7-9757-eda7a9e21690.jpeg",
-  "_note": "9213 Merrivale Dr, Little Rock: straight-on renovated front; cover 0 is carport and trees (slice 1c)"
- },
- "01939739-86f0-7000-a803-2fa07bfb3e56": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/52-copper-cir-little-rock-ar-72223-13038207/resized/large/large-0193973a-47b2-7081-88e6-c136e72c2961.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/52-copper-cir-little-rock-ar-72223-13038207/resized/thumbnail/thumbnail-0193973a-47b2-7081-88e6-c136e72c2961.jpg",
-  "_note": "52 Copper Cir, Little Rock: straight-on front (slice 1c)"
- },
- "27e89bf0-2a6f-4bb4-997e-80afe90f70be": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/woodlands-park-ln-little-rock-ar-72211-6470051/resized/large/large-b4ff8e9f-d702-4be8-b7d5-5d5486731d49.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/woodlands-park-ln-little-rock-ar-72211-6470051/resized/thumbnail/thumbnail-b4ff8e9f-d702-4be8-b7d5-5d5486731d49.jpg",
-  "_note": "Woodlands Park Ln, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
- },
- "01933002-e788-7038-934e-6446bb723b10": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/146-woodlands-park-dr-little-rock-ar-72211-12783141/resized/large/large-01933003-8d24-71f6-b133-1154f11f9730.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/146-woodlands-park-dr-little-rock-ar-72211-12783141/resized/thumbnail/thumbnail-01933003-8d24-71f6-b133-1154f11f9730.jpg",
-  "_note": "146 Woodlands Park Dr, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
- },
- "01951932-3660-733e-b176-6ab3e0b42ca9": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/346-fletcher-lp-little-rock-ar-72223-14072058/resized/large/large-01951932-e216-716f-853d-494200782c73.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/346-fletcher-lp-little-rock-ar-72223-14072058/resized/thumbnail/thumbnail-01951932-e216-716f-853d-494200782c73.jpg",
-  "_note": "346 Fletcher Lp, Little Rock: straight-on front (slice 1c)"
- },
- "019391d5-c048-717b-9b2f-75022131345b": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/18-copper-cir-little-rock-ar-72223-13017739/resized/large/large-019391d6-42f7-72ee-b584-07aecb797147.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/18-copper-cir-little-rock-ar-72223-13017739/resized/thumbnail/thumbnail-019391d6-42f7-72ee-b584-07aecb797147.jpg",
-  "_note": "18 Copper Cir, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
- },
- "0193973b-c140-73d1-8f7d-2bdd77fbaff7": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/115-edgewood-circle-little-rock-ar-72223-13038284/resized/large/large-0194b86b-0ca8-73f9-8681-626e9acb29e0.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/115-edgewood-circle-little-rock-ar-72223-13038284/resized/thumbnail/thumbnail-0194b86b-0ca8-73f9-8681-626e9acb29e0.jpeg",
-  "_note": "115 Edgewood Circle, Little Rock: straight-on front (slice 1c)"
- },
- "019fa541-b658-70c6-a498-567ea5db85a8": {
-  "pos": 16,
-  "hero": "https://cdn.aryeo.com/listings/5000-w-29th-st-little-rock-ar-72204-27132672/resized/large/large-019fa54f-5323-7038-a797-2bddf8e1024f.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/5000-w-29th-st-little-rock-ar-72204-27132672/resized/thumbnail/thumbnail-019fa54f-5323-7038-a797-2bddf8e1024f.jpeg",
-  "_note": "5000 W 29th St, Little Rock: front of the bungalow with lawn; cover 0 is overgrown; progress shoot, weak card (slice 1c)"
- },
- "01971849-85a8-735d-bd90-bbb3589e4cf9": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/9-quartz-cove-little-rock-ar-72223-16525152/resized/large/large-01971f5a-11cb-726f-86c9-bf47d06c90e9.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/9-quartz-cove-little-rock-ar-72223-16525152/resized/thumbnail/thumbnail-01971f5a-11cb-726f-86c9-bf47d06c90e9.jpg",
-  "_note": "9 Quartz Cove, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
- },
- "0195713b-3af0-7316-bfea-6b80c9937e46": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/13909-ridge-point-ln-roland-ar-72135-14440034/resized/large/large-0195713b-f50e-7323-a7d6-e26149e511d6.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/13909-ridge-point-ln-roland-ar-72135-14440034/resized/thumbnail/thumbnail-0195713b-f50e-7323-a7d6-e26149e511d6.jpg",
-  "_note": "13909 Ridge Point Ln, Roland: straight-on front with three gables (slice 1c)"
- },
- "0196850c-be18-70bf-9a23-58c12527c8f5": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/718-edgewood-dr-maumelle-ar-72113-15813280/resized/large/large-01968f77-e1f4-70db-aa41-96412662d77b.jpg",
-  "thumb": "https://cdn.aryeo.com/listings/718-edgewood-dr-maumelle-ar-72113-15813280/resized/thumbnail/thumbnail-01968f77-e1f4-70db-aa41-96412662d77b.jpg",
-  "_note": "718 Edgewood Dr, Maumelle: Aryeo cover already the straight-on front (slice 1c)"
- },
- "01a0879b-ba08-734f-8508-c75d2b540ed8": {
-  "pos": 59,
-  "hero": "https://cdn.aryeo.com/listings/73-tournay-cir-little-rock-ar-72223-28789439/resized/large/large-01a08bc9-d6f9-73f1-9350-03e837cef111.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/73-tournay-cir-little-rock-ar-72223-28789439/resized/thumbnail/thumbnail-01a08bc9-d6f9-73f1-9350-03e837cef111.jpeg",
-  "_note": "73 Tournay Cir, Little Rock: front three-quarter with garage; cover 0 is a distant aerial (slice 1c)"
- },
- "0199bba3-8d50-71d6-9c68-ac2ce79fe4c0": {
-  "pos": 1,
-  "hero": "https://cdn.aryeo.com/listings/110-jamison-ln-lake-hamilton-ar-71913-19683902/resized/large/large-0199ce94-e0d0-72e6-8f11-e2407f116d6f.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/110-jamison-ln-lake-hamilton-ar-71913-19683902/resized/thumbnail/thumbnail-0199ce94-e0d0-72e6-8f11-e2407f116d6f.jpeg",
-  "_note": "110 Jamison Ln, Lake Hamilton: straight-on front of the lakefront condo building (slice 1c)"
- },
- "01a0c2a1-3178-7074-b883-a30505ef556e": {
-  "pos": 2,
-  "hero": "https://cdn.aryeo.com/listings/2965-orch-vw-dr-12-conway-ar-72034-29183651/resized/large/large-01a0c2a5-6b1f-728c-a5d6-b428cac70aa8.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/2965-orch-vw-dr-12-conway-ar-72034-29183651/resized/thumbnail/thumbnail-01a0c2a5-6b1f-728c-a5d6-b428cac70aa8.jpeg",
-  "_note": "2965 Orch Vw Dr 12, Conway: low aerial showing the lot against the neighboring homes (slice 1c)"
- },
- "0197bbeb-b460-737e-be3d-63c6069d8f60": {
-  "pos": 10,
-  "hero": "https://cdn.aryeo.com/listings/510-binghamwood-rd-little-rock-ar-72206-17337936/resized/large/large-0197cb90-e1d5-7245-b740-d0d62a9d14cb.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/510-binghamwood-rd-little-rock-ar-72206-17337936/resized/thumbnail/thumbnail-0197cb90-e1d5-7245-b740-d0d62a9d14cb.jpeg",
-  "_note": "510 Binghamwood Rd, Little Rock: aerial with the parcel outlined in red (slice 1c)"
- },
- "019edbc4-a470-7266-91bc-921ebf4695c8": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/5910-ramick-rd-pine-bluff-ar-71603-25964631/resized/large/large-019efcbb-f7eb-7260-9610-639b33e24124.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/5910-ramick-rd-pine-bluff-ar-71603-25964631/resized/thumbnail/thumbnail-019efcbb-f7eb-7260-9610-639b33e24124.jpeg",
-  "_note": "5910 Ramick Rd, Pine Bluff: Aryeo cover already the outlined 7.2 acre parcel (slice 1c)"
- },
- "019eb281-a770-725f-ae52-3b1c0e3910f0": {
-  "pos": 0,
-  "hero": "https://cdn.aryeo.com/listings/301-white-blossom-cir-bryant-ar-72022-25700619/resized/large/large-019ed0e5-feed-7285-bb10-3351fb37ff10.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/301-white-blossom-cir-bryant-ar-72022-25700619/resized/thumbnail/thumbnail-019ed0e5-feed-7285-bb10-3351fb37ff10.jpeg",
-  "_note": "310 White Blossom Cir, Bryant: Aryeo cover already the front with lawn (slice 1c)"
- },
- "019eb2ab-3bf8-71d4-b9a2-6cceb8359060": {
-  "pos": 70,
-  "hero": "https://cdn.aryeo.com/listings/69-mountain-brook-road-little-rock-ar-72223-25702719/resized/large/large-019ed2c2-e1d5-72bb-8c8e-7676b2487ffe.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/69-mountain-brook-road-little-rock-ar-72223-25702719/resized/thumbnail/thumbnail-019ed2c2-e1d5-72bb-8c8e-7676b2487ffe.jpeg",
-  "_note": "69 Mountain Brook Road, Little Rock: living room with fireplace; the set is fixture close-ups with no exterior (slice 1c)"
- },
- "019e2231-de10-70f1-b90a-b7ad981fab8c": {
-  "pos": 3,
-  "hero": "https://cdn.aryeo.com/listings/69-mountain-brook-little-rock-ar-72223-24804773/resized/large/large-019e9860-cc39-72ec-b039-afab675c0845.jpeg",
-  "thumb": "https://cdn.aryeo.com/listings/69-mountain-brook-little-rock-ar-72223-24804773/resized/thumbnail/thumbnail-019e9860-cc39-72ec-b039-afab675c0845.jpeg",
-  "_note": "69 Mountain Brook, Little Rock: straight-on front (slice 1c)"
- },
- "019f707a-8710-7071-947e-1071f41d07c7": {
-  "skip": true,
-  "_note": "209 Cobblestone Dr, Cabot: order #3636 tagged Golf Course (unfulfilled) is a brick residence on a golf course, not a commercial property; held out of the commercial gallery pending the owner's call (slice 1c)"
- }
+  "_doc": "Reviewed-by-eye card decisions replayed by curate-gallery.mjs. hero/thumb replace the Aryeo cover (pos = 0-based position in index order, verified on a contact sheet); cat overrides the inferred vertical only when no order tag applies. Log: slice 1b and 1c hero-verification.md.",
+  "019f476a-55f8-7325-83b5-237240ac0ee3": {
+    "pos": 41,
+    "hero": "https://cdn.aryeo.com/listings/3905-oakwood-rd-little-rock-ar-72205-26568339/resized/large/large-019f4771-bee2-722e-8822-7bf03440067b.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/3905-oakwood-rd-little-rock-ar-72205-26568339/resized/thumbnail/thumbnail-019f4771-bee2-722e-8822-7bf03440067b.jpeg",
+    "_note": "3905 Oakwood Rd, Little Rock"
+  },
+  "019e1824-9c28-7129-b35e-1f2ddbcae737": {
+    "pos": 46,
+    "hero": "https://cdn.aryeo.com/listings/30-mountain-brook-road-little-rock-ar-72223-24719457/resized/large/large-019e4c8d-cdf0-708e-a9fe-bbca99d0613b.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/30-mountain-brook-road-little-rock-ar-72223-24719457/resized/thumbnail/thumbnail-019e4c8d-cdf0-708e-a9fe-bbca99d0613b.jpeg",
+    "_note": "30 Mountain Brook Road, Little Rock"
+  },
+  "019f3f14-d630-7190-805a-483f9977a750": {
+    "pos": 39,
+    "hero": "https://cdn.aryeo.com/listings/28-mountain-brook-road-little-rock-ar-72223-26506277/resized/large/large-019f475d-86de-71d4-bff7-6485a01bcad3.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/28-mountain-brook-road-little-rock-ar-72223-26506277/resized/thumbnail/thumbnail-019f475d-86de-71d4-bff7-6485a01bcad3.jpeg",
+    "_note": "28 Mountain Brook Road, Little Rock"
+  },
+  "019e181f-3170-7112-8d5e-d5ab37e21d07": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/28-mountain-brook-little-rock-ar-72223-24719240/resized/large/large-019e4c8d-df23-726a-af73-a8f4588bd26f.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/28-mountain-brook-little-rock-ar-72223-24719240/resized/thumbnail/thumbnail-019e4c8d-df23-726a-af73-a8f4588bd26f.jpeg",
+    "_note": "28 Mountain Brook, Little Rock"
+  },
+  "019f3f13-b138-70c8-9f16-d8fba4997af7": {
+    "pos": 47,
+    "hero": "https://cdn.aryeo.com/listings/26-mountain-brook-road-little-rock-ar-72223-26506242/resized/large/large-019f476e-4c08-73df-ba95-302477379108.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/26-mountain-brook-road-little-rock-ar-72223-26506242/resized/thumbnail/thumbnail-019f476e-4c08-73df-ba95-302477379108.jpeg",
+    "_note": "26 Mountain Brook Road, Little Rock"
+  },
+  "019f3810-86b8-7028-b40d-1d10b91cb1ab": {
+    "pos": 62,
+    "hero": "https://cdn.aryeo.com/listings/2-greathouse-bend-dr-little-rock-ar-72207-26446525/resized/large/large-019f41f3-55b4-729d-adf4-e62b8bb4b9f5.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/2-greathouse-bend-dr-little-rock-ar-72207-26446525/resized/thumbnail/thumbnail-019f41f3-55b4-729d-adf4-e62b8bb4b9f5.jpeg",
+    "_note": "2 Greathouse Bend Dr, Little Rock"
+  },
+  "019f28e6-d7c8-7323-9a15-14bb080b1c1f": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/1126-oakview-dr-benton-ar-72015-26412148/resized/large/large-019f3942-a13e-7324-86ff-2f687ad572f8.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1126-oakview-dr-benton-ar-72015-26412148/resized/thumbnail/thumbnail-019f3942-a13e-7324-86ff-2f687ad572f8.jpeg",
+    "_note": "1126 Oakview Dr, Benton"
+  },
+  "019d37c4-f560-72f4-b611-613a83a6fc99": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/1126-oakview-cv-benton-ar-72015-23342655/resized/large/large-019d4f22-f219-70dc-b7ea-ee76549e8ad5.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1126-oakview-cv-benton-ar-72015-23342655/resized/thumbnail/thumbnail-019d4f22-f219-70dc-b7ea-ee76549e8ad5.jpeg",
+    "_note": "1126 Oakview Cv, Benton"
+  },
+  "019f18e3-4780-7270-9259-1f23909cebe5": {
+    "pos": 19,
+    "hero": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-26295045/resized/large/large-019f18e3-dbf9-72d9-82e6-422370373e63.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-26295045/resized/thumbnail/thumbnail-019f18e3-dbf9-72d9-82e6-422370373e63.jpeg",
+    "_note": "9213 Merrivale Dr, Little Rock | REMOVED by owner 2026-09-23 (tear-down, weak card)",
+    "skip": true
+  },
+  "019f19ab-f680-7349-8b50-e93d097513c5": {
+    "pos": 8,
+    "hero": "https://cdn.aryeo.com/listings/8812-ranch-blvd-little-rock-ar-72223-26305769/resized/large/large-019f1cd2-c6cd-73e7-9ab2-59bbf363dd21.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/8812-ranch-blvd-little-rock-ar-72223-26305769/resized/thumbnail/thumbnail-019f1cd2-c6cd-73e7-9ab2-59bbf363dd21.jpeg",
+    "_note": "8812 Ranch Blvd, Little Rock"
+  },
+  "019f0ad7-f140-72d2-bb7c-cc35bc214247": {
+    "pos": 45,
+    "hero": "https://cdn.aryeo.com/listings/985-mound-view-dr-england-ar-72046-26241250/resized/large/large-019f24b3-5572-7285-bca3-9105e2b1f7bb.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/985-mound-view-dr-england-ar-72046-26241250/resized/thumbnail/thumbnail-019f24b3-5572-7285-bca3-9105e2b1f7bb.jpeg",
+    "_note": "985 Mound View Dr, England"
+  },
+  "019f05a8-84f0-701e-a525-5d64183e217d": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/10-epernay-cir-little-rock-ar-72223-26221832/resized/large/large-019f1e3f-f272-70f5-92ac-2aa99d9d58cf.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/10-epernay-cir-little-rock-ar-72223-26221832/resized/thumbnail/thumbnail-019f1e3f-f272-70f5-92ac-2aa99d9d58cf.jpeg",
+    "_note": "10 Epernay Cir, Little Rock"
+  },
+  "019f0480-1638-7122-997a-b527c610cab9": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/7015-amherst-dr-little-rock-ar-72205-26207923/resized/large/large-019f3dab-a6ac-73e2-a7bc-ff6350fccddf.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/7015-amherst-dr-little-rock-ar-72205-26207923/resized/thumbnail/thumbnail-019f3dab-a6ac-73e2-a7bc-ff6350fccddf.jpeg",
+    "_note": "7015 Amherst Dr, Little Rock"
+  },
+  "019efff8-f008-7114-9554-903a8d5a458c": {
+    "pos": 42,
+    "hero": "https://cdn.aryeo.com/listings/1724-w-24th-st-little-rock-ar-72206-26177361/resized/large/large-019f1e29-1b7f-73fd-8a8b-375c6ec28a2c.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1724-w-24th-st-little-rock-ar-72206-26177361/resized/thumbnail/thumbnail-019f1e29-1b7f-73fd-8a8b-375c6ec28a2c.jpeg",
+    "_note": "1724 W 24th St, Little Rock"
+  },
+  "019ef1f2-e928-70f0-89f8-c38010069c38": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/8-woodsong-dr-roland-ar-72135-26070660/resized/large/large-019f0454-8c7d-71b9-93f7-6fd2944af6f2.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/8-woodsong-dr-roland-ar-72135-26070660/resized/thumbnail/thumbnail-019f0454-8c7d-71b9-93f7-6fd2944af6f2.jpeg",
+    "_note": "8 Woodsong Dr, Roland"
+  },
+  "019ef089-cfc0-7155-9a2b-d36d79bba59a": {
+    "pos": 2,
+    "hero": "https://cdn.aryeo.com/listings/601-chenal-woods-311-little-rock-ar-72223-26056282/resized/large/large-019f1a2d-5ac8-72c8-91e5-77b5e26be541.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/601-chenal-woods-311-little-rock-ar-72223-26056282/resized/thumbnail/thumbnail-019f1a2d-5ac8-72c8-91e5-77b5e26be541.jpeg",
+    "_note": "601 Chenal  Woods 311, Little Rock"
+  },
+  "019edc58-12a0-7334-8778-c18784732bba": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/1330-salem-rd-conway-ar-72034-25972044/resized/large/large-019ef64a-d3a2-7215-8b24-b21961da0303.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1330-salem-rd-conway-ar-72034-25972044/resized/thumbnail/thumbnail-019ef64a-d3a2-7215-8b24-b21961da0303.jpeg",
+    "_note": "1330 Salem Rd, Conway"
+  },
+  "019ed64d-6180-718e-9168-622cbc0a5331": {
+    "pos": 7,
+    "hero": "https://cdn.aryeo.com/listings/3428-mccord-dr-north-little-rock-ar-72116-25921168/resized/large/large-019efbca-4766-722d-83c5-d7be3792fcd4.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/3428-mccord-dr-north-little-rock-ar-72116-25921168/resized/thumbnail/thumbnail-019efbca-4766-722d-83c5-d7be3792fcd4.jpeg",
+    "_note": "3428 McCord Dr, North Little Rock"
+  },
+  "019ecc89-a3e8-7312-8a7a-1ef4a1f2bd42": {
+    "pos": 75,
+    "hero": "https://cdn.aryeo.com/listings/311-devoe-bnd-dr-maumelle-ar-72113-25843209/resized/large/large-019ed1e2-46a3-70a5-b7db-33da269cecba.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/311-devoe-bnd-dr-maumelle-ar-72113-25843209/resized/thumbnail/thumbnail-019ed1e2-46a3-70a5-b7db-33da269cecba.jpeg",
+    "_note": "311 Devoe Bnd Dr, Maumelle"
+  },
+  "019ecc73-4940-713a-8894-1599f6cd8be9": {
+    "pos": 15,
+    "hero": "https://cdn.aryeo.com/listings/1808-bishop-st-little-rock-ar-72202-25842019/resized/large/large-019ed1e3-9049-7152-9f46-daf42d434978.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1808-bishop-st-little-rock-ar-72202-25842019/resized/thumbnail/thumbnail-019ed1e3-9049-7152-9f46-daf42d434978.jpeg",
+    "_note": "1808 Bishop St, Little Rock | REMOVED by owner 2026-09-23 (tear-down, weak card)",
+    "skip": true
+  },
+  "019eccb0-5df8-7228-8f06-4dd560038c26": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/10-short-leaf-ln-little-rock-ar-72223-25845330/resized/large/large-019ed660-5218-7160-889b-661502067e15.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/10-short-leaf-ln-little-rock-ar-72223-25845330/resized/thumbnail/thumbnail-019ed660-5218-7160-889b-661502067e15.jpeg",
+    "_note": "10 Short Leaf Ln, Little Rock"
+  },
+  "019cf8dd-b7b0-72fa-ab19-449c95431dac": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/68-wellington-pl-cabot-ar-72023-22972516/resized/large/large-019de3bc-6cd1-72ea-8e98-8354f1ef351c.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/68-wellington-pl-cabot-ar-72023-22972516/resized/thumbnail/thumbnail-019de3bc-6cd1-72ea-8e98-8354f1ef351c.jpeg",
+    "_note": "68 Wellington Pl, Cabot"
+  },
+  "0199c46a-aef0-7285-bf7d-c0b8d67552c3": {
+    "cat": "commercial",
+    "_note": "1420 Campground Rd, Cabot"
+  },
+  "019377f3-d200-735d-9487-e982445465a7": {
+    "pos": 43,
+    "hero": "https://cdn.aryeo.com/listings/131-arlington-park-ct-hot-springs-ar-71901-12973646/resized/large/large-01937911-c529-72b6-a297-67df17b66822.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/131-arlington-park-ct-hot-springs-ar-71901-12973646/resized/thumbnail/thumbnail-01937911-c529-72b6-a297-67df17b66822.jpg",
+    "_note": "131 Arlington Park Ct, Hot Springs"
+  },
+  "019dd5a9-e718-71c5-961e-6becb323aba8": {
+    "pos": 19,
+    "hero": "https://cdn.aryeo.com/listings/1800-waterview-meadow-ct-roland-ar-72135-24303062/resized/large/large-019de9d0-bb20-7318-abee-871809dce618.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1800-waterview-meadow-ct-roland-ar-72135-24303062/resized/thumbnail/thumbnail-019de9d0-bb20-7318-abee-871809dce618.jpeg",
+    "_note": "1800 Waterview Meadow Ct, Roland"
+  },
+  "019d91ea-1390-7090-92d8-adeae5cf6cb5": {
+    "pos": 32,
+    "hero": "https://cdn.aryeo.com/listings/apn-633-19127-000-arlington-dr-this-lot-is-directly-adjacent-to-149-arlington-dr-this-lot-sits-just-to-the-east-of-that-home-hot-springs-ar-71913-23872289/resized/large/large-019db137-fdbe-73ed-b452-34fdf9209228.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/apn-633-19127-000-arlington-dr-this-lot-is-directly-adjacent-to-149-arlington-dr-this-lot-sits-just-to-the-east-of-that-home-hot-springs-ar-71913-23872289/resized/thumbnail/thumbnail-019db137-fdbe-73ed-b452-34fdf9209228.jpeg",
+    "_note": "APN: 633-19127-000 Arlington Dr - This lot is directly adjacent to 149 Arlington Dr.  This lot sits just to the East of that home., Hot Springs"
+  },
+  "019e8565-b600-70ce-802b-82fdc25ade94": {
+    "pos": 16,
+    "hero": "https://cdn.aryeo.com/listings/128-burning-tree-ct-hot-springs-ar-71913-25397932/resized/large/large-019e985d-eac0-7052-9269-53c3073eb22b.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/128-burning-tree-ct-hot-springs-ar-71913-25397932/resized/thumbnail/thumbnail-019e985d-eac0-7052-9269-53c3073eb22b.jpeg",
+    "_note": "128 Burning Tree Ct, Hot Springs"
+  },
+  "019e3be7-a790-7157-8314-7db2a447d23c": {
+    "pos": 4,
+    "hero": "https://cdn.aryeo.com/listings/141-crossridge-ln-hot-springs-ar-71913-24949834/resized/large/large-019e50c5-5455-73c8-9778-2d724da4243b.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/141-crossridge-ln-hot-springs-ar-71913-24949834/resized/thumbnail/thumbnail-019e50c5-5455-73c8-9778-2d724da4243b.jpeg",
+    "_note": "141 Crossridge Ln, Hot Springs"
+  },
+  "019df7ee-70a0-7236-967c-04bc45f0b0ee": {
+    "pos": 38,
+    "hero": "https://cdn.aryeo.com/listings/304-w-7th-st-north-little-rock-ar-72114-24512040/resized/large/large-019e08da-1921-7052-b33d-db1ef0f46475.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/304-w-7th-st-north-little-rock-ar-72114-24512040/resized/thumbnail/thumbnail-019e08da-1921-7052-b33d-db1ef0f46475.jpeg",
+    "_note": "304 W 7th St, North Little Rock"
+  },
+  "019df7eb-1158-71e4-a84b-37115887f97c": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/405-w-4th-st-north-little-rock-ar-72114-24511970/resized/large/large-019e177e-b5af-7149-a621-c5bba58d6170.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/405-w-4th-st-north-little-rock-ar-72114-24511970/resized/thumbnail/thumbnail-019e177e-b5af-7149-a621-c5bba58d6170.jpeg",
+    "_note": "405 W 4th St, North Little Rock"
+  },
+  "75a3dcf5-3d1a-4f39-92c2-3577edf31005": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/501-main-st-north-little-rock-ar-72114-8424969/resized/large/large-2132918d-8d54-499b-a823-eaf17c93f581.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/501-main-st-north-little-rock-ar-72114-8424969/resized/thumbnail/thumbnail-2132918d-8d54-499b-a823-eaf17c93f581.jpg",
+    "_note": "501 Main St, North Little Rock"
+  },
+  "019a0345-4270-72f9-b9ca-3835df1c8b63": {
+    "pos": 44,
+    "hero": "https://cdn.aryeo.com/listings/4-n-cres-dr-20-b-mount-ida-ar-71957-20014575/resized/large/large-019a1ecd-5246-703b-9b7d-7709dd7fd6d3.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/4-n-cres-dr-20-b-mount-ida-ar-71957-20014575/resized/thumbnail/thumbnail-019a1ecd-5246-703b-9b7d-7709dd7fd6d3.jpeg",
+    "_note": "4 N Cres Dr 20-B, Mount Ida"
+  },
+  "0198ec33-a7a8-7362-b1e9-2b62ef5cafb5": {
+    "pos": 6,
+    "hero": "https://cdn.aryeo.com/listings/1809-reservoir-rd-little-rock-ar-72227-18712316/resized/large/large-019921ba-430b-71a6-bac5-83a744a10ef6.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1809-reservoir-rd-little-rock-ar-72227-18712316/resized/thumbnail/thumbnail-019921ba-430b-71a6-bac5-83a744a10ef6.jpeg",
+    "_note": "1809 Reservoir Rd 19/20, Little Rock"
+  },
+  "019756ca-ed08-7162-8caf-d74f171a6ec6": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/1001-dennison-st-little-rock-ar-72202-16831612/resized/large/large-01978152-9988-701a-a64f-9cb49c2ba60d.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/1001-dennison-st-little-rock-ar-72202-16831612/resized/thumbnail/thumbnail-01978152-9988-701a-a64f-9cb49c2ba60d.jpg",
+    "_note": "1001 Dennison St, Little Rock"
+  },
+  "0192f7c9-74e0-718e-a520-762a21d15f52": {
+    "pos": 17,
+    "hero": "https://cdn.aryeo.com/listings/16901-valley-falls-dr-little-rock-ar-72223-12594778/resized/large/large-0192f7ca-9944-720f-a97e-ad65726423ee.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/16901-valley-falls-dr-little-rock-ar-72223-12594778/resized/thumbnail/thumbnail-0192f7ca-9944-720f-a97e-ad65726423ee.jpg",
+    "cat": "residential-listing",
+    "_note": "16901 Valley Falls Dr, Little Rock"
+  },
+  "019ffc59-cf20-7304-a65e-2bf12fcc3e5e": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/2400-w-31st-ave-pine-bluff-ar-71603-27793430/resized/large/large-01a01165-2600-7122-929a-778e12d7eb5f.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/2400-w-31st-ave-pine-bluff-ar-71603-27793430/resized/thumbnail/thumbnail-01a01165-2600-7122-929a-778e12d7eb5f.jpeg",
+    "_note": "2400 W 31st Ave, Pine Bluff: church front with steeple and entry portico (slice 1c)"
+  },
+  "019b7197-4e20-73cd-b3ea-de174b503ac0": {
+    "pos": 6,
+    "hero": "https://cdn.aryeo.com/listings/401-scott-st-little-rock-ar-72201-21239799/resized/large/large-019b7f67-996d-73e1-8d53-be9e066a7a00.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/401-scott-st-little-rock-ar-72201-21239799/resized/thumbnail/thumbnail-019b7f67-996d-73e1-8d53-be9e066a7a00.jpeg",
+    "_note": "401 Scott St, Little Rock: straight-on front of the historic brick building (slice 1c)"
+  },
+  "0193b0a6-54d8-7052-b027-83046532df84": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/3110-auto-dr-pine-bluff-ar-71601-13093108/resized/large/large-0193b0a7-49c3-73d7-bc0c-8fd7c912ccb3.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/3110-auto-dr-pine-bluff-ar-71601-13093108/resized/thumbnail/thumbnail-0193b0a7-49c3-73d7-bc0c-8fd7c912ccb3.jpg",
+    "_note": "3110 Auto Dr, Pine Bluff: Aryeo cover already the straight-on facade (slice 1c)"
+  },
+  "01998147-cf18-7266-aa6c-9b6af0860659": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/1613-s-main-st-pine-bluff-ar-71601-19420898/resized/large/large-0199a5ae-f882-71b5-9f9d-815030654f69.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/1613-s-main-st-pine-bluff-ar-71601-19420898/resized/thumbnail/thumbnail-0199a5ae-f882-71b5-9f9d-815030654f69.jpeg",
+    "_note": "1613 S Main St, Pine Bluff: Aryeo cover already the street-front facade (slice 1c)"
+  },
+  "019a3065-db48-71c5-be8a-79a7613b9670": {
+    "pos": 40,
+    "hero": "https://cdn.aryeo.com/listings/207-campbell-dr-beebe-ar-72012-20220312/resized/large/large-019a4537-4b75-73e3-b5ee-f911269aae6b.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/207-campbell-dr-beebe-ar-72012-20220312/resized/thumbnail/thumbnail-019a4537-4b75-73e3-b5ee-f911269aae6b.jpeg",
+    "_note": "207 Campbell Dr, Beebe: close front with the red awning, straight on (slice 1c)"
+  },
+  "019d5527-fbe8-71ef-b76a-0bb2d4d75b51": {
+    "pos": 13,
+    "hero": "https://cdn.aryeo.com/listings/702-w-dewitt-henry-dr-beebe-ar-72012-23525817/resized/large/large-019db073-1939-72e4-9fd8-c0629afa81d0.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/702-w-dewitt-henry-dr-beebe-ar-72012-23525817/resized/thumbnail/thumbnail-019db073-1939-72e4-9fd8-c0629afa81d0.jpeg",
+    "_note": "702 W Dewitt Henry Dr, Beebe: straight-on facade with the two wood doors (slice 1c)"
+  },
+  "019d4a9d-7b80-722a-9776-0cbc6e24c70e": {
+    "pos": 2,
+    "hero": "https://cdn.aryeo.com/listings/2390-malvern-rd-arkadelphia-ar-71923-23451666/resized/large/large-019d693e-cac4-720a-ad05-d067a51bc192.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/2390-malvern-rd-arkadelphia-ar-71923-23451666/resized/thumbnail/thumbnail-019d693e-cac4-720a-ad05-d067a51bc192.jpeg",
+    "_note": "2390 Malvern Rd, Arkadelphia: straight-on front of the drive-thru stand (slice 1c)"
+  },
+  "019d913a-bcd8-7214-b9a3-80a6f92037ce": {
+    "pos": 13,
+    "hero": "https://cdn.aryeo.com/listings/3000-w-28th-ave-pine-bluff-ar-71603-23861621/resized/large/large-019e5efc-a915-72b1-954c-5d99d52a8120.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/3000-w-28th-ave-pine-bluff-ar-71603-23861621/resized/thumbnail/thumbnail-019e5efc-a915-72b1-954c-5d99d52a8120.jpeg",
+    "_note": "3000 W 28th Ave, Pine Bluff: ground-level front of the center with the entrance (slice 1c)"
+  },
+  "0195f13c-e230-704d-b1e6-75619d63bb72": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/125-hallen-ct-little-rock-ar-72223-14985404/resized/large/large-019a54e2-a39a-71b3-b073-d81cc6c070ce.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/125-hallen-ct-little-rock-ar-72223-14985404/resized/thumbnail/thumbnail-019a54e2-a39a-71b3-b073-d81cc6c070ce.jpeg",
+    "_note": "125 Hallen Ct, Little Rock: straight-on front in daylight (slice 1c)"
+  },
+  "01939c43-a090-712c-819b-e24e001739a6": {
+    "pos": 4,
+    "hero": "https://cdn.aryeo.com/listings/bart-moreland-dr-ar-72135-13054419/resized/large/large-01939c45-6c50-7380-be17-17a18b8305cd.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/bart-moreland-dr-ar-72135-13054419/resized/thumbnail/thumbnail-01939c45-6c50-7380-be17-17a18b8305cd.jpg",
+    "_note": "Bart Moreland Dr, null: front with the drive; cover 0 is tree-shadowed (slice 1c)"
+  },
+  "01922976-af68-71c8-9226-312bbb055824": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/9509-meadow-oak-dr-sherwood-ar-72120-11903948/resized/large/large-0192297b-fa88-70ab-936c-687b268b7949.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/9509-meadow-oak-dr-sherwood-ar-72120-11903948/resized/thumbnail/thumbnail-0192297b-fa88-70ab-936c-687b268b7949.jpg",
+    "_note": "9509 Meadow Oak Dr, Sherwood: Aryeo cover already the straight-on front (slice 1c)"
+  },
+  "0192fc65-7300-734d-86f9-ce4cf3dbe7d3": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/148-fletcher-rdg-dr-little-rock-ar-72223-12609184/resized/large/large-01932699-0634-715a-be1b-a3f5495ef45b.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/148-fletcher-rdg-dr-little-rock-ar-72223-12609184/resized/thumbnail/thumbnail-01932699-0634-715a-be1b-a3f5495ef45b.jpeg",
+    "_note": "148 Fletcher Rdg Dr, Little Rock: straight-on front (slice 1c)"
+  },
+  "0196f9c2-17a8-70bd-9892-b6962d46c575": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/68-copper-cir-little-rock-ar-72223-16402575/resized/large/large-01971f85-071b-70d2-9bf4-54b4c24f1448.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/68-copper-cir-little-rock-ar-72223-16402575/resized/thumbnail/thumbnail-01971f85-071b-70d2-9bf4-54b4c24f1448.jpg",
+    "_note": "68 Copper Cir, Little Rock: straight-on front, two garages (slice 1c)"
+  },
+  "019fd994-1b30-7101-ac96-bcf63a19563e": {
+    "pos": 38,
+    "hero": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-27522341/resized/large/large-019fd99e-066f-73f7-9757-eda7a9e21690.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/9213-merrivale-dr-little-rock-ar-72209-27522341/resized/thumbnail/thumbnail-019fd99e-066f-73f7-9757-eda7a9e21690.jpeg",
+    "_note": "9213 Merrivale Dr, Little Rock: straight-on renovated front; cover 0 is carport and trees (slice 1c) | REMOVED by owner 2026-09-23 (tear-down, weak card)",
+    "skip": true
+  },
+  "01939739-86f0-7000-a803-2fa07bfb3e56": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/52-copper-cir-little-rock-ar-72223-13038207/resized/large/large-0193973a-47b2-7081-88e6-c136e72c2961.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/52-copper-cir-little-rock-ar-72223-13038207/resized/thumbnail/thumbnail-0193973a-47b2-7081-88e6-c136e72c2961.jpg",
+    "_note": "52 Copper Cir, Little Rock: straight-on front (slice 1c)"
+  },
+  "27e89bf0-2a6f-4bb4-997e-80afe90f70be": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/woodlands-park-ln-little-rock-ar-72211-6470051/resized/large/large-b4ff8e9f-d702-4be8-b7d5-5d5486731d49.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/woodlands-park-ln-little-rock-ar-72211-6470051/resized/thumbnail/thumbnail-b4ff8e9f-d702-4be8-b7d5-5d5486731d49.jpg",
+    "_note": "Woodlands Park Ln, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
+  },
+  "01933002-e788-7038-934e-6446bb723b10": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/146-woodlands-park-dr-little-rock-ar-72211-12783141/resized/large/large-01933003-8d24-71f6-b133-1154f11f9730.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/146-woodlands-park-dr-little-rock-ar-72211-12783141/resized/thumbnail/thumbnail-01933003-8d24-71f6-b133-1154f11f9730.jpg",
+    "_note": "146 Woodlands Park Dr, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
+  },
+  "01951932-3660-733e-b176-6ab3e0b42ca9": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/346-fletcher-lp-little-rock-ar-72223-14072058/resized/large/large-01951932-e216-716f-853d-494200782c73.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/346-fletcher-lp-little-rock-ar-72223-14072058/resized/thumbnail/thumbnail-01951932-e216-716f-853d-494200782c73.jpg",
+    "_note": "346 Fletcher Lp, Little Rock: straight-on front (slice 1c)"
+  },
+  "019391d5-c048-717b-9b2f-75022131345b": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/18-copper-cir-little-rock-ar-72223-13017739/resized/large/large-019391d6-42f7-72ee-b584-07aecb797147.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/18-copper-cir-little-rock-ar-72223-13017739/resized/thumbnail/thumbnail-019391d6-42f7-72ee-b584-07aecb797147.jpg",
+    "_note": "18 Copper Cir, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
+  },
+  "0193973b-c140-73d1-8f7d-2bdd77fbaff7": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/115-edgewood-circle-little-rock-ar-72223-13038284/resized/large/large-0194b86b-0ca8-73f9-8681-626e9acb29e0.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/115-edgewood-circle-little-rock-ar-72223-13038284/resized/thumbnail/thumbnail-0194b86b-0ca8-73f9-8681-626e9acb29e0.jpeg",
+    "_note": "115 Edgewood Circle, Little Rock: straight-on front (slice 1c)"
+  },
+  "019fa541-b658-70c6-a498-567ea5db85a8": {
+    "pos": 16,
+    "hero": "https://cdn.aryeo.com/listings/5000-w-29th-st-little-rock-ar-72204-27132672/resized/large/large-019fa54f-5323-7038-a797-2bddf8e1024f.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/5000-w-29th-st-little-rock-ar-72204-27132672/resized/thumbnail/thumbnail-019fa54f-5323-7038-a797-2bddf8e1024f.jpeg",
+    "_note": "5000 W 29th St, Little Rock: front of the bungalow with lawn; cover 0 is overgrown; progress shoot, weak card (slice 1c)"
+  },
+  "01971849-85a8-735d-bd90-bbb3589e4cf9": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/9-quartz-cove-little-rock-ar-72223-16525152/resized/large/large-01971f5a-11cb-726f-86c9-bf47d06c90e9.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/9-quartz-cove-little-rock-ar-72223-16525152/resized/thumbnail/thumbnail-01971f5a-11cb-726f-86c9-bf47d06c90e9.jpg",
+    "_note": "9 Quartz Cove, Little Rock: Aryeo cover already the straight-on front (slice 1c)"
+  },
+  "0195713b-3af0-7316-bfea-6b80c9937e46": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/13909-ridge-point-ln-roland-ar-72135-14440034/resized/large/large-0195713b-f50e-7323-a7d6-e26149e511d6.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/13909-ridge-point-ln-roland-ar-72135-14440034/resized/thumbnail/thumbnail-0195713b-f50e-7323-a7d6-e26149e511d6.jpg",
+    "_note": "13909 Ridge Point Ln, Roland: straight-on front with three gables (slice 1c)"
+  },
+  "0196850c-be18-70bf-9a23-58c12527c8f5": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/718-edgewood-dr-maumelle-ar-72113-15813280/resized/large/large-01968f77-e1f4-70db-aa41-96412662d77b.jpg",
+    "thumb": "https://cdn.aryeo.com/listings/718-edgewood-dr-maumelle-ar-72113-15813280/resized/thumbnail/thumbnail-01968f77-e1f4-70db-aa41-96412662d77b.jpg",
+    "_note": "718 Edgewood Dr, Maumelle: Aryeo cover already the straight-on front (slice 1c)"
+  },
+  "01a0879b-ba08-734f-8508-c75d2b540ed8": {
+    "pos": 59,
+    "hero": "https://cdn.aryeo.com/listings/73-tournay-cir-little-rock-ar-72223-28789439/resized/large/large-01a08bc9-d6f9-73f1-9350-03e837cef111.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/73-tournay-cir-little-rock-ar-72223-28789439/resized/thumbnail/thumbnail-01a08bc9-d6f9-73f1-9350-03e837cef111.jpeg",
+    "_note": "73 Tournay Cir, Little Rock: front three-quarter with garage; cover 0 is a distant aerial (slice 1c)"
+  },
+  "0199bba3-8d50-71d6-9c68-ac2ce79fe4c0": {
+    "pos": 1,
+    "hero": "https://cdn.aryeo.com/listings/110-jamison-ln-lake-hamilton-ar-71913-19683902/resized/large/large-0199ce94-e0d0-72e6-8f11-e2407f116d6f.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/110-jamison-ln-lake-hamilton-ar-71913-19683902/resized/thumbnail/thumbnail-0199ce94-e0d0-72e6-8f11-e2407f116d6f.jpeg",
+    "_note": "110 Jamison Ln, Lake Hamilton: straight-on front of the lakefront condo building (slice 1c)"
+  },
+  "01a0c2a1-3178-7074-b883-a30505ef556e": {
+    "pos": 2,
+    "hero": "https://cdn.aryeo.com/listings/2965-orch-vw-dr-12-conway-ar-72034-29183651/resized/large/large-01a0c2a5-6b1f-728c-a5d6-b428cac70aa8.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/2965-orch-vw-dr-12-conway-ar-72034-29183651/resized/thumbnail/thumbnail-01a0c2a5-6b1f-728c-a5d6-b428cac70aa8.jpeg",
+    "_note": "2965 Orch Vw Dr 12, Conway: low aerial showing the lot against the neighboring homes (slice 1c)"
+  },
+  "0197bbeb-b460-737e-be3d-63c6069d8f60": {
+    "pos": 10,
+    "hero": "https://cdn.aryeo.com/listings/510-binghamwood-rd-little-rock-ar-72206-17337936/resized/large/large-0197cb90-e1d5-7245-b740-d0d62a9d14cb.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/510-binghamwood-rd-little-rock-ar-72206-17337936/resized/thumbnail/thumbnail-0197cb90-e1d5-7245-b740-d0d62a9d14cb.jpeg",
+    "_note": "510 Binghamwood Rd, Little Rock: aerial with the parcel outlined in red (slice 1c)"
+  },
+  "019edbc4-a470-7266-91bc-921ebf4695c8": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/5910-ramick-rd-pine-bluff-ar-71603-25964631/resized/large/large-019efcbb-f7eb-7260-9610-639b33e24124.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/5910-ramick-rd-pine-bluff-ar-71603-25964631/resized/thumbnail/thumbnail-019efcbb-f7eb-7260-9610-639b33e24124.jpeg",
+    "_note": "5910 Ramick Rd, Pine Bluff: Aryeo cover already the outlined 7.2 acre parcel (slice 1c)"
+  },
+  "019eb281-a770-725f-ae52-3b1c0e3910f0": {
+    "pos": 0,
+    "hero": "https://cdn.aryeo.com/listings/301-white-blossom-cir-bryant-ar-72022-25700619/resized/large/large-019ed0e5-feed-7285-bb10-3351fb37ff10.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/301-white-blossom-cir-bryant-ar-72022-25700619/resized/thumbnail/thumbnail-019ed0e5-feed-7285-bb10-3351fb37ff10.jpeg",
+    "_note": "310 White Blossom Cir, Bryant: Aryeo cover already the front with lawn (slice 1c)"
+  },
+  "019eb2ab-3bf8-71d4-b9a2-6cceb8359060": {
+    "pos": 70,
+    "hero": "https://cdn.aryeo.com/listings/69-mountain-brook-road-little-rock-ar-72223-25702719/resized/large/large-019ed2c2-e1d5-72bb-8c8e-7676b2487ffe.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/69-mountain-brook-road-little-rock-ar-72223-25702719/resized/thumbnail/thumbnail-019ed2c2-e1d5-72bb-8c8e-7676b2487ffe.jpeg",
+    "_note": "69 Mountain Brook Road, Little Rock: living room with fireplace; the set is fixture close-ups with no exterior (slice 1c)"
+  },
+  "019e2231-de10-70f1-b90a-b7ad981fab8c": {
+    "pos": 3,
+    "hero": "https://cdn.aryeo.com/listings/69-mountain-brook-little-rock-ar-72223-24804773/resized/large/large-019e9860-cc39-72ec-b039-afab675c0845.jpeg",
+    "thumb": "https://cdn.aryeo.com/listings/69-mountain-brook-little-rock-ar-72223-24804773/resized/thumbnail/thumbnail-019e9860-cc39-72ec-b039-afab675c0845.jpeg",
+    "_note": "69 Mountain Brook, Little Rock: straight-on front (slice 1c)"
+  },
+  "019f707a-8710-7071-947e-1071f41d07c7": {
+    "_note": "209 Cobblestone Dr, Cabot: Golf Course is a highlight tag, not a vertical; back to inferred residential (Thomas 2026-09-23)"
+  }
 }

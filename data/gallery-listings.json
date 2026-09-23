@@ -82367,11 +82367,9 @@
     "login-gated-url": "https://avery-bryant.aryeo.com/admin/listings/019f707a-8710-7071-947e-1071f41d07c7/edit",
     "is-showcasable": false,
     "is-showcase": false,
-    "vertical": "commercial",
-    "confidence": "high",
-    "classification-source": "order-tag:Golf Course",
-    "inferred-vertical": "residential-listing",
-    "inferred-source": "type-default",
+    "vertical": "residential-listing",
+    "confidence": "low",
+    "classification-source": "type-default",
     "order-tag": "Golf Course"
   },
   {
