@@ -10,7 +10,7 @@ export const metadata = {
   title:
     "Portfolio & Gallery | Real Estate Photography Arkansas | Avery & Bryant",
   description:
-    "Browse real work from Avery & Bryant: real estate, Airbnb rentals, multi-family, commercial, land and new construction media across Central Arkansas. Every image is a real client listing.",
+    "Browse real work from Avery & Bryant: real estate, Airbnb / Rentals, multi-family, commercial, land and new construction media across Central Arkansas. Every image is a real client listing.",
 };
 
 const items = curated as GalleryItem[];

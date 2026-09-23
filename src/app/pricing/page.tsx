@@ -52,9 +52,9 @@ const verticals = [
   },
   {
     slug: "airbnb-rentals",
-    label: "Airbnb & Rentals",
-    tag: "Short-Term Rentals",
-    headline: "STR Media",
+    label: "Airbnb / Rentals",
+    tag: "Short-term and vacation rentals",
+    headline: "Airbnb / Rentals Media",
     range: "From $449",
     rangeBasis: "per shoot",
     description:

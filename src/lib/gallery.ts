@@ -43,8 +43,8 @@ export const GALLERY_VERTICALS: GalleryVertical[] = [
   {
     slug: "airbnb-rentals",
     cat: "airbnb-str",
-    name: "Airbnb rental",
-    title: "Airbnb Rentals",
+    name: "Airbnb / rental",
+    title: "Airbnb / Rentals",
     blurb: "Short-term rentals shot to book: the setting, the rooms guests search for, the amenities.",
     page: "/airbnb-rentals",
     interest: "airbnb",

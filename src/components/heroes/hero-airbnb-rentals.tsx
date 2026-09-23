@@ -32,7 +32,7 @@ export function HeroAirbnbRentals() {
 
   return (
     <section
-      aria-label="Short-term rental media hero"
+      aria-label="Airbnb / Rentals media hero"
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
       {/* Crimson ambient glows (brand accent) */}
@@ -45,7 +45,7 @@ export function HeroAirbnbRentals() {
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
             <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
-              Short-Term Rental Media
+              Airbnb / Rentals Media
             </span>
           </div>
 
@@ -73,7 +73,7 @@ export function HeroAirbnbRentals() {
               href="/gallery/airbnb-rentals"
               className="inline-flex items-center justify-center rounded border border-white/20 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
-              See the Airbnb rental gallery
+              See the Airbnb / Rentals gallery
             </Link>
           </div>
 

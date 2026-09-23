@@ -11,17 +11,17 @@ const VERTICAL_META: Record<
     heading: "Start your real estate shoot.",
     tag: "Real Estate Media",
     description:
-      "Tell us where and who — we'll line up the shoot and send a confirmation.",
+      "Tell us where and who. We'll line up the shoot and send a confirmation.",
   },
   builders: {
     heading: "Book your builder shoot.",
     tag: "Builder & Construction Media",
     description:
-      "Progress docs, model homes, or marketing launch — let's get it scheduled.",
+      "Progress docs, model homes, or marketing launch. Let's get it scheduled.",
   },
   "airbnb-rentals": {
     heading: "Book your rental shoot.",
-    tag: "Short-Term Rental Media",
+    tag: "Airbnb / Rentals Media",
     description:
       "Photos, video, drone, and twilight media that fill your calendar.",
   },
@@ -54,7 +54,7 @@ export async function generateMetadata({
   if (!(vertical in ORDER_FORMS)) return {};
   const meta = VERTICAL_META[vertical as Vertical];
   return {
-    title: `${meta.tag} — Book a Shoot | Avery & Bryant`,
+    title: `${meta.tag}: Book a Shoot | Avery & Bryant`,
     description: meta.description,
     alternates: { canonical: `/order/${vertical}` },
   };

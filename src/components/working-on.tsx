@@ -26,7 +26,7 @@ type Job = {
 
 const propertyVerticals: Reveal[] = [
   { title: "Home for sale", blurb: "Residential listings", href: "/real-estate" },
-  { title: "Short-term rental", blurb: "Airbnb, VRBO, direct booking", href: "/airbnb-rentals" },
+  { title: "Airbnb / rental", blurb: "Airbnb, VRBO, direct booking", href: "/airbnb-rentals" },
   { title: "Apartment community", blurb: "Multi-family and student housing", href: "/multi-family" },
   { title: "Lot or land", blurb: "Parcels, acreage, development sites", href: "/lot-land" },
   { title: "New construction", blurb: "Builders, progress, model homes", href: "/builders" },

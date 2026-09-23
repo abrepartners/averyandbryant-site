@@ -77,8 +77,8 @@ const PROPERTY_TYPES: TypeOption[] = [
   },
   {
     id: "airbnb",
-    label: "A short-term rental",
-    subject: "Short-term rentals",
+    label: "An Airbnb / rental",
+    subject: "Airbnb / rentals",
     blurb: "Airbnb / VRBO / direct booking",
     pricing: airbnbPricing,
     route: { kind: "order", vertical: "airbnb-rentals" },

@@ -14,7 +14,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 // internal <Link> would prefetch a cross-origin redirect (console error on
 // every page load) and cost every visitor an extra hop.
 const services = [
-  { label: "Airbnb Rentals", href: "/airbnb-rentals" },
+  { label: "Airbnb / Rentals", href: "/airbnb-rentals" },
   { label: "Multi-Family", href: "/multi-family" },
   { label: "Commercial", href: "/commercial" },
   { label: "Lot & Land", href: "/lot-land" },

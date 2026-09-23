@@ -11,7 +11,7 @@ import { airbnbPricing } from "@/lib/pricing";
 export const metadata = {
   alternates: { canonical: "/airbnb-rentals" },
   title:
-    "Airbnb & Rental Media: Revenue Ready Kit, Boost System & 5-Star Showcase | Avery & Bryant",
+    "Airbnb / Rentals Media: Revenue Ready Kit, Boost System & 5-Star Showcase | Avery & Bryant",
   description:
     "Professional photography, video tours, drone, and twilight media for Airbnb and short-term rental properties across Arkansas. Packages from $449 with a satisfaction reshoot guarantee.",
 };

@@ -94,7 +94,7 @@ export default async function VerticalGalleryPage({
               </h2>
               <p className="mt-2 text-sm text-fg-secondary">
                 Twelve frames from each delivered set, front exterior first.
-                Tap a {v.name} shoot to browse it.
+                Tap {/^[aeiou]/i.test(v.name) ? "an" : "a"} {v.name} shoot to browse it.
               </p>
             </div>
             <FeaturedHomes homes={homes} priorityFirst />

@@ -36,7 +36,7 @@ const LABEL = {
   "residential-listing": "Residential",
   "builder-new-construction": "New Construction",
   "lot-land": "Land",
-  "airbnb-str": "Short-Term Rentals",
+  "airbnb-str": "Airbnb / Rentals",
   "multi-family": "Multi-Family",
   commercial: "Commercial",
 };

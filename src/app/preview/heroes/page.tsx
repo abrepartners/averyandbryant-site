@@ -7,7 +7,7 @@ import { HeroAirbnbRentals } from "@/components/heroes/hero-airbnb-rentals";
 import { HeroBranding } from "@/components/heroes/hero-branding";
 
 export const metadata = {
-  title: "Hero variants preview — all verticals | Avery & Bryant",
+  title: "Hero variants preview: all verticals | Avery & Bryant",
   robots: { index: false, follow: false },
 };
 
@@ -21,46 +21,46 @@ type HeroEntry = {
 const heroes: HeroEntry[] = [
   {
     vertical: "Real Estate",
-    template: "V1 · Cinematic Drone",
-    psychology: "Agents want prestige association — property as product",
+    template: "V1, Cinematic Drone",
+    psychology: "Agents want prestige association: property as product",
     Component: HeroRealEstate,
   },
   {
     vertical: "Lot & Land",
-    template: "V1-variant · Aerial-pushed",
-    psychology: "Aerial IS the sell — FAA trust line matters",
+    template: "V1-variant, Aerial-pushed",
+    psychology: "Aerial IS the sell: FAA trust line matters",
     Component: HeroLotLand,
   },
   {
     vertical: "Multi-Family",
-    template: "V2 · Editorial + stats",
-    psychology: "B2B property managers — credibility + turnaround speed",
+    template: "V2, Editorial + stats",
+    psychology: "B2B property managers: credibility + turnaround speed",
     Component: HeroMultiFamily,
   },
   {
     vertical: "Builders",
-    template: "V2-variant · Documentary timeline",
+    template: "V2-variant, Documentary timeline",
     psychology: "Proof-of-work + premium marketing framing",
     Component: HeroBuilders,
   },
   {
     vertical: "Commercial",
-    template: "Mosaic · 2x2 category grid",
+    template: "Mosaic, 2x2 category grid",
     psychology:
       "Commercial = category of categories; mosaic welcomes CRE brokers AND owners/operators in one hero",
     Component: HeroCommercial,
   },
   {
-    vertical: "Airbnb & Rentals",
-    template: "Lifestyle Warm · amber palette",
-    psychology: "Revenue-driven hosts — lifestyle + 40% booking stat",
+    vertical: "Airbnb / Rentals",
+    template: "Lifestyle Warm, amber palette",
+    psychology: "Revenue-driven hosts: lifestyle + 40% booking stat",
     Component: HeroAirbnbRentals,
   },
   {
     vertical: "Personal Branding",
-    template: "Content Engine · reel stack",
+    template: "Content Engine, reel stack",
     psychology:
-      "Motion sells branding — 3 phone-framed reels prove we make scroll-worthy content, not just headshots",
+      "Motion sells branding: 3 phone-framed reels prove we make scroll-worthy content, not just headshots",
     Component: HeroBranding,
   },
 ];
@@ -83,7 +83,7 @@ function Label({
           {num}
         </span>
         <span className="font-display text-lg text-fg">{vertical}</span>
-        <span className="text-sm text-fg-secondary">· {template}</span>
+        <span className="text-sm text-fg-secondary">{template}</span>
         <span className="hidden basis-full text-xs text-fg-secondary md:inline-block md:basis-auto">
           {psychology}
         </span>
