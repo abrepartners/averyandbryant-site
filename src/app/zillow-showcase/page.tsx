@@ -1,76 +1,130 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaqSection } from "@/components/faq-section";
+import { ZillowTourEmbed } from "@/components/zillow-tour";
+import { FEATURED_LIVE_TOUR } from "@/lib/live-tours";
+
+// PRICE NOT YET APPROVED FOR DISPLAY: Thomas has not signed off on showing
+// this number publicly (as of 2026-10-09). It is rendered so the preview
+// shows the full page; every mention on this page reads from this one
+// constant, so change or pull it here.
+// Source: Aryeo product "Main Package", designated in Showcase Select as
+// "Photography and Zillow 3D Home Interactive Tour and Floor Plan".
+// Do NOT confuse with the Aryeo "5-Star Showcase Blueprint" ($1,095): that is
+// an Airbnb / rental package and has nothing to do with Zillow Showcase.
+const SHOWCASE_PACKAGE_PRICE = "$249.99";
+
+// Aryeo "2026, Zillow 3D Tour + Interactive Floor Plan". Already public on the
+// homepage 3D Tours card.
+const ZILLOW_3D_STANDALONE_PRICE = "$149";
+
+// Name the package carries inside Zillow's Showcase ordering platform, so
+// agents recognize it when they order there.
+const SHOWCASE_PRODUCT_NAME =
+  "Photography and Zillow 3D Home Interactive Tour and Floor Plan";
+
+const SHOWCASE_FACTS_URL = "https://www.zillow.com/agents/showcase-facts/";
+const ZILLOW_3D_HOME_URL = "https://www.zillow.com/3d-home/";
+
+const title = "Zillow Showcase Photography in Arkansas | Avery & Bryant";
+const description =
+  "Showcase-ready listing media in Central Arkansas: photos plus a Zillow 3D Home tour and interactive floor plan. Agents can book us inside Zillow Showcase.";
 
 export const metadata = {
   alternates: { canonical: "/zillow-showcase" },
-  title:
-    "Zillow Showcase Listings in Arkansas | Avery & Bryant, Zillow Media Expert",
-  description:
-    "Avery & Bryant is a Zillow Media Expert producing Showcase-ready listing media in Central Arkansas: interactive floor plans, immersive galleries, and aerial.",
+  title,
+  description,
+  openGraph: {
+    type: "website",
+    title,
+    description,
+    url: "/zillow-showcase",
+    siteName: "Avery & Bryant",
+    images: [
+      "/images/zillow-showcase/69-mountain-brook-little-rock-marble-island-kitchen.jpg",
+    ],
+  },
 };
 
+// Captions and alt text name the city and the room, never the street.
 const heroFrame = {
   src: "/images/zillow-showcase/69-mountain-brook-little-rock-marble-island-kitchen.jpg",
-  alt: "Wide kitchen with a stone topped island, grey cabinets and a wood range hood in a finished home listing at 69 Mountain Brook in Little Rock, Arkansas",
-  caption: "69 Mountain Brook, Little Rock",
+  alt: "Wide kitchen with a stone topped island, grey cabinets and a wood range hood in a finished home listing in Little Rock, Arkansas",
+  caption: "Kitchen, Little Rock",
 };
 
 const showcaseGallery = [
   {
     src: "/images/zillow-showcase/69-mountain-brook-little-rock-bath-vanity.jpg",
-    alt: "Bathroom with a grey vanity, brushed gold fixtures, a framed mirror and a tiled tub and shower surround at 69 Mountain Brook in Little Rock, Arkansas",
+    alt: "Bathroom with a grey vanity, brushed gold fixtures, a framed mirror and a tiled tub and shower surround in a Little Rock, Arkansas listing",
     caption: "Bath, Little Rock",
   },
   {
     src: "/images/zillow-showcase/69-mountain-brook-little-rock-brick-front.jpg",
-    alt: "Finished brick and board and batten front elevation at 69 Mountain Brook in Little Rock, Arkansas, with a covered porch, an arched front door and new sod",
+    alt: "Finished brick and board and batten front elevation of a Little Rock, Arkansas home, with a covered porch, an arched front door and new sod",
     caption: "Front elevation, Little Rock",
   },
   {
     src: "/images/zillow-showcase/18-lefever-ln-little-rock-beamed-great-room.jpg",
-    alt: "Designer furnished great room with exposed beams in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
+    alt: "Designer furnished great room with exposed beams in a single family listing in Little Rock, Arkansas",
     caption: "Beamed great room, Little Rock",
   },
   {
     src: "/images/zillow-showcase/18-lefever-ln-little-rock-white-kitchen.jpg",
-    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood at 18 Lefever Lane in Little Rock, Arkansas",
+    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood in a Little Rock, Arkansas listing",
     caption: "Kitchen, Little Rock",
   },
 ];
 
-// Ruling (Thomas, 2026-09-21): every Zillow performance number on the site
-// carries the attribution "per Zillow, via Aryeo's Zillow Media Advantage" or
-// comes off. The only figures with that named source are the HD-photo saves
-// and shares comparison below. The Showcase page-view / sale-price figures
-// that used to sit here had no verifiable source in hand, so they are removed.
-// TODO(catalog): restore Showcase-specific figures only with a dated Zillow
-// source URL on file.
-const stats = [
-  { value: "+11%", label: "saves vs similar listings without HD photos" },
-  { value: "+12%", label: "shares vs similar listings without HD photos" },
+// Zillow's media requirements for a Showcase listing (Aryeo Showcase
+// photographer resource center, checked 2026-10-09).
+const requirements = [
+  "At least 10 photos showing at least 3 distinct interior rooms.",
+  "A Zillow 3D Home tour, captured in the Zillow 3D Home app.",
+  "An interactive floor plan, which Zillow creates from that 3D Home capture.",
+  "Matterport tours and other floor plans do not count toward Showcase.",
 ];
-const statsSource =
-  "Per Zillow, via Aryeo's Zillow Media Advantage. Aggregate platform comparison; results vary by market and property.";
+
+const packageIncludes = [
+  "Listing photography that meets Zillow's Showcase minimum: at least 10 photos covering at least 3 interior rooms.",
+  "A Zillow 3D Home tour, captured in the same visit as the photos.",
+  "An interactive floor plan, created by Zillow from our 3D Home capture.",
+];
+
+// Every number below is Zillow's, quoted as published, with its source.
+// Zillow Showcase Facts, page last updated July 8, 2026 (June 2026 data).
+const showcaseStats = [
+  { value: "84%", label: "more page views" },
+  { value: "77%", label: "more saves" },
+  { value: "93%", label: "more shares" },
+  { value: "2%", label: "more at sale" },
+];
+
+// Zillow 3D Home page (June 2026 data, 12 month average).
+const floorPlanStats = [
+  { value: "43%", label: "more page views" },
+  { value: "49%", label: "more saves" },
+  { value: "47%", label: "more shares" },
+];
 
 const steps = [
   {
     number: "01",
-    title: "Book the shoot",
+    title: "The agent buys Showcase",
     description:
-      "Pick your date. We handle the full Showcase media capture in one visit: HDR photography, aerial, and the assets Zillow needs.",
+      "Showcase is purchased from Zillow by the listing agent, directly or through a brokerage agreement. Zillow sets that fee and bills the agent.",
   },
   {
     number: "02",
-    title: "We produce it",
+    title: "Book Avery & Bryant",
     description:
-      "As a Zillow Media Expert, we build the interactive floor plan, immersive gallery, and virtual tour that qualify your listing for Showcase.",
+      "Order our Showcase package directly inside Zillow's Showcase ordering platform, or book it with us here. Either way, one visit covers it.",
   },
   {
     number: "03",
-    title: "Your listing goes Showcase",
+    title: "We capture and deliver",
     description:
-      "Your listing gets the Showcase badge and elevated placement on Zillow. Delivered fast, ready to publish.",
+      "We shoot the photos and the Zillow 3D Home tour in the same visit, Zillow creates the interactive floor plan from our capture, and we deliver the media for the Showcase listing.",
   },
 ];
 
@@ -78,22 +132,39 @@ const faqs = [
   {
     question: "What is a Zillow Showcase listing?",
     answer:
-      "Zillow Showcase is a premium listing experience on Zillow with an interactive floor plan, an immersive high-resolution gallery, virtual tour, and elevated placement in search. Showcase listings carry a Showcase badge that helps them stand out. The media has to be produced by a Zillow Media Expert.",
+      "Zillow Showcase is a premium listing experience available only on Zillow. Zillow describes it as scrolling high resolution photography, a virtual tour and an interactive floor plan, with prioritized placement in personalized search results and dedicated emails to shoppers whose criteria match the home. The listing agent buys Showcase from Zillow.",
   },
   {
-    question: "Is Avery & Bryant a Zillow Media Expert?",
+    question: "What media does a Showcase listing need?",
     answer:
-      "Yes. Avery & Bryant is a Zillow Media Expert, which means we are qualified to produce the interactive floor plans, immersive galleries, and media that make a listing eligible for Zillow Showcase.",
+      "Zillow requires at least 10 photos showing at least 3 distinct interior rooms, plus a Zillow 3D Home tour and interactive floor plan captured in the Zillow 3D Home app. Matterport tours and other floor plans are not accepted. Our Showcase package covers all of it in one visit.",
   },
   {
-    question: "Does better listing media actually perform better on Zillow?",
+    question: "Can any photographer shoot Showcase media?",
     answer:
-      "Per Zillow, via Aryeo's Zillow Media Advantage, listings with HD photos see about 11% more saves and 12% more shares than similar listings without them. That is an aggregate platform comparison, not a promise about any one listing, and results vary by market and property.",
+      "Agents are free to choose their own photographer for Showcase. What matters is the media: the photographer has to capture a Zillow 3D Home tour and interactive floor plan with a compatible 360 camera, along with the photos. We capture both in the same visit, so the furniture and finishes match across every photo and the tour.",
   },
   {
-    question: "Do you produce Showcase media across Central Arkansas?",
+    question: "How do agents book Avery & Bryant for Showcase?",
+    answer: `Two ways. Inside Zillow's Showcase ordering platform, find Avery & Bryant among the local photographers and order "${SHOWCASE_PRODUCT_NAME}". Or book with us directly on this site and tell us the listing is going Showcase.`,
+  },
+  {
+    question: "What does Showcase cost, and what do you charge?",
+    answer: `They are two separate costs. Zillow sets the Showcase fee, bills it to the listing agent and does not publish it. Our Showcase media package is ${SHOWCASE_PACKAGE_PRICE}: listing photography plus the Zillow 3D Home tour and interactive floor plan. Booking media with us does not activate Showcase; that purchase is made with Zillow.`,
+  },
+  {
+    question: "Can I get a Zillow 3D Home tour without Showcase?",
+    answer: `Yes. For listings that are not going Showcase, our Zillow 3D Tour + Interactive Floor Plan is ${ZILLOW_3D_STANDALONE_PRICE}. Per Zillow, listings with an interactive floor plan drew more page views, saves and shares on average than similar nearby listings without one.`,
+  },
+  {
+    question: "Does Showcase guarantee more views or a higher price?",
     answer:
-      "Yes. We are based in Little Rock at (501) 502-2925 and produce Showcase-ready listing media across Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas.",
+      "No. The figures on this page are Zillow's averages, comparing listings with similar nearby listings. They are not a promise for any one listing, and results vary by market and property.",
+  },
+  {
+    question: "Do you shoot Showcase media across Central Arkansas?",
+    answer:
+      "Yes. We are based in Little Rock at (501) 502-2925 and capture Showcase media across Central Arkansas, including Little Rock, Benton, Conway, Hot Springs, and surrounding areas.",
   },
 ];
 
@@ -106,27 +177,25 @@ export default function ZillowShowcasePage() {
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
           <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-            <a
-              href="https://www.zillow.com/agents/media-experts/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson transition-colors hover:text-white"
-            >
-              Zillow Media Expert
-            </a>
+            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
+              Showcase-ready media
+            </span>
           </div>
 
           <h1 className="mt-8 max-w-3xl font-display text-[clamp(34px,6vw,72px)] font-extralight leading-[1.05] tracking-tight text-fg">
-            Zillow Showcase,
+            Zillow Showcase photography,
             <br />
-            <span className="text-fg-secondary">produced in Arkansas.</span>
+            <span className="text-fg-secondary">
+              captured in Central Arkansas.
+            </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
-            Showcase is Zillow&apos;s premium listing experience, and the media
-            behind it has to come from a Zillow Media Expert. That&apos;s us. We
-            produce the interactive floor plans, immersive galleries, and aerial
-            that make your listing stand out.
+            Showcase is the premium listing experience agents buy from Zillow.
+            We produce the media it requires: listing photos plus a Zillow 3D
+            Home tour and interactive floor plan, captured in one visit. Agents
+            can book us directly inside Zillow&apos;s Showcase ordering
+            platform.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -134,15 +203,267 @@ export default function ZillowShowcasePage() {
               href="/book"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
-              Book a Showcase Shoot
+              Book Showcase Media
             </Link>
-            <Link
-              href="/real-estate"
+            <a
+              href="#live-tour"
               className="inline-flex items-center justify-center rounded border border-white/15 px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-all hover:border-white/40 hover:text-white"
             >
-              See Our Listing Media
-            </Link>
+              See a Live 3D Tour
+            </a>
           </div>
+        </div>
+      </section>
+
+      {/* What Showcase requires */}
+      <section className="border-b border-border py-16 md:py-24">
+        <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:grid-cols-2 md:px-12">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+              The requirement
+            </p>
+            <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
+              What Zillow asks for in a Showcase listing.
+            </h2>
+            <p className="mt-5 leading-relaxed text-fg-secondary">
+              The listing agent buys Showcase from Zillow. What Zillow asks of
+              the photographer is the media, and agents are free to choose who
+              captures it.
+            </p>
+          </div>
+          <div className="space-y-5 text-fg-secondary">
+            <ul className="space-y-3">
+              {requirements.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-3 rounded-lg border border-white/5 bg-card p-5 text-sm leading-relaxed"
+                >
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="leading-relaxed">
+              We capture the photos and the 3D Home tour in the same visit, so
+              furniture and finishes match across every image and the tour.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="border-b border-border py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+            How it works
+          </p>
+          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
+            Three steps to Showcase-ready media.
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="rounded-lg border border-white/5 bg-card p-8 transition-colors hover:border-crimson/20"
+              >
+                <span className="font-display text-4xl font-extralight text-crimson">
+                  {step.number}
+                </span>
+                <h3 className="mt-4 font-display text-lg font-medium text-fg">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The package */}
+      <section className="border-b border-border py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+            The Showcase package
+          </p>
+          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
+            Everything Showcase asks for, from one visit.
+          </h2>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+            <div className="rounded-lg border border-crimson/20 bg-card p-6 md:p-10">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
+                For Showcase listings
+              </p>
+              <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                <h3 className="max-w-md font-display text-xl font-medium text-fg md:text-2xl">
+                  Photography plus a Zillow 3D Home tour and interactive floor
+                  plan
+                </h3>
+                <span className="font-display text-4xl font-extralight text-crimson">
+                  {SHOWCASE_PACKAGE_PRICE}
+                </span>
+              </div>
+              <ul className="mt-8 space-y-3">
+                {packageIncludes.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-relaxed text-fg-secondary"
+                  >
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 border-t border-white/5 pt-6 text-sm leading-relaxed text-fg-secondary">
+                Ordering inside Zillow&apos;s Showcase platform? Look for{" "}
+                <span className="text-fg-strong">
+                  &ldquo;{SHOWCASE_PRODUCT_NAME}&rdquo;
+                </span>{" "}
+                from Avery &amp; Bryant.
+              </p>
+              <p className="mt-3 text-xs leading-relaxed text-fg-secondary">
+                This is our media price. Zillow bills the Showcase fee to the
+                agent separately, and booking media with us does not activate
+                Showcase.
+              </p>
+              <Link
+                href="/book"
+                className="mt-8 inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
+              >
+                Book Showcase Media
+              </Link>
+            </div>
+
+            <div className="flex flex-col rounded-lg border border-white/5 bg-card p-6 md:p-10">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-fg-secondary">
+                Not going Showcase?
+              </p>
+              <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                <h3 className="font-display text-xl font-medium text-fg">
+                  Zillow 3D Tour + Interactive Floor Plan
+                </h3>
+                <span className="font-display text-3xl font-extralight text-crimson">
+                  {ZILLOW_3D_STANDALONE_PRICE}
+                </span>
+              </div>
+              <p className="mt-6 text-sm leading-relaxed text-fg-secondary">
+                The same Zillow 3D Home tour and interactive floor plan for any
+                listing, Showcase or not. Once the tour link is on the MLS,
+                Zillow says it syndicates to most major real estate sites.
+              </p>
+              <Link
+                href="/real-estate"
+                className="mt-auto inline-flex min-h-[44px] items-center pt-6 text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
+              >
+                See all listing packages &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live tour */}
+      <section
+        id="live-tour"
+        className="scroll-mt-24 border-b border-border py-16 md:py-24"
+      >
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+            See it live
+          </p>
+          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
+            Walk through a home we captured.
+          </h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
+            A Zillow 3D Home tour from a new construction listing we shot in
+            Benton. Load it, then drag to look around and move room to room.
+            The tour loads from Zillow when you open it.
+          </p>
+          <div className="mt-10">
+            <ZillowTourEmbed tour={FEATURED_LIVE_TOUR} />
+          </div>
+        </div>
+      </section>
+
+      {/* Zillow's numbers */}
+      <section className="border-b border-border py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+            Why it matters
+          </p>
+          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
+            What Zillow reports, as of July 2026.
+          </h2>
+
+          <h3 className="mt-12 font-display text-lg font-medium text-fg">
+            Zillow Showcase listings
+          </h3>
+          <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {showcaseStats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-lg border border-white/5 bg-card p-6 md:p-8"
+              >
+                <div className="font-display text-4xl font-extralight text-crimson md:text-5xl">
+                  {s.value}
+                </div>
+                <div className="mt-2 text-sm text-fg-secondary">{s.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 max-w-3xl text-xs leading-relaxed text-fg-secondary">
+            Per Zillow, as of July 2026: active Showcase listings drove on
+            average 84% more page views, 77% more saves and 93% more shares
+            than similar nearby non-Showcase listings, and Showcase listings
+            sold for 2% more than similar non-Showcase listings. Source:{" "}
+            <a
+              href={SHOWCASE_FACTS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-fg-strong underline underline-offset-2 hover:text-white"
+            >
+              Zillow Showcase Facts
+            </a>
+            .
+          </p>
+
+          <h3 className="mt-12 font-display text-lg font-medium text-fg">
+            Listings with an interactive floor plan
+          </h3>
+          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {floorPlanStats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-lg border border-white/5 bg-card p-6 md:p-8"
+              >
+                <div className="font-display text-4xl font-extralight text-crimson md:text-5xl">
+                  {s.value}
+                </div>
+                <div className="mt-2 text-sm text-fg-secondary">{s.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 max-w-3xl text-xs leading-relaxed text-fg-secondary">
+            Per Zillow, as of July 2026: active listings with a Zillow 3D Home
+            interactive floor plan drove on average 43% more page views, 49%
+            more saves and 47% more shares than similar nearby listings without
+            one. This applies with or without Showcase. Source:{" "}
+            <a
+              href={ZILLOW_3D_HOME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-fg-strong underline underline-offset-2 hover:text-white"
+            >
+              Zillow 3D Home
+            </a>
+            .
+          </p>
+          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-fg-secondary">
+            These are Zillow&apos;s averages, not a promise for any one
+            listing. Results vary by market and property.
+          </p>
         </div>
       </section>
 
@@ -156,8 +477,15 @@ export default function ZillowShowcasePage() {
             Recent Central Arkansas listings we photographed.
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
-            Showcase assets are built from captures like these: full HDR
-            interiors and exteriors from a single visit.
+            Full interiors and exteriors from a single visit, the same standard
+            we bring to every Showcase shoot.{" "}
+            <Link
+              href="/gallery"
+              className="text-fg-strong underline underline-offset-2 hover:text-white"
+            >
+              See the full gallery
+            </Link>
+            .
           </p>
 
           <figure className="mt-10">
@@ -196,103 +524,25 @@ export default function ZillowShowcasePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-border py-16 md:py-24">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
-            Why it matters
-          </p>
-          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
-            Better listing media gets more attention on Zillow.
-          </h2>
-          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="rounded-lg border border-white/5 bg-card p-6 md:p-8"
-              >
-                <div className="font-display text-4xl font-extralight text-crimson md:text-5xl">
-                  {s.value}
-                </div>
-                <div className="mt-2 text-sm text-fg-secondary">{s.label}</div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-xs text-fg-secondary">{statsSource}</p>
-        </div>
-      </section>
-
-      {/* Why A&B */}
-      <section className="border-b border-border py-16 md:py-24">
-        <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:grid-cols-2 md:px-12">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
-              The requirement
-            </p>
-            <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
-              Only a Zillow Media Expert can make a listing Showcase-eligible.
-            </h2>
-          </div>
-          <div className="space-y-5 text-fg-secondary">
-            <p className="leading-relaxed">
-              Zillow Showcase isn&apos;t a filter you turn on. The interactive
-              floor plan, the immersive gallery, and the virtual tour all have
-              to be produced to Zillow&apos;s spec by a qualified Media Expert.
-            </p>
-            <p className="leading-relaxed">
-              Avery &amp; Bryant is a Zillow Media Expert. We shoot the
-              property, build the Showcase assets, and deliver a listing
-              that&apos;s ready to publish with the Showcase badge. One shoot,
-              the full package.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="border-b border-border py-16 md:py-24">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
-            How it works
-          </p>
-          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
-            Three steps to a Showcase listing.
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {steps.map((step) => (
-              <div
-                key={step.number}
-                className="rounded-lg border border-white/5 bg-card p-8 transition-colors hover:border-crimson/20"
-              >
-                <span className="font-display text-4xl font-extralight text-crimson">
-                  {step.number}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <FaqSection faqs={faqs} />
 
       {/* CTA */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 text-center md:px-12">
           <h2 className="font-display text-[clamp(24px,4vw,48px)] font-extralight tracking-tight text-fg">
-            Give your next listing the Showcase edge.
+            Going Showcase? Book the media in one visit.
           </h2>
           <Link
             href="/book"
             className="mt-8 inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
           >
-            Book a Showcase Shoot
+            Book Showcase Media
           </Link>
+          <p className="mx-auto mt-12 max-w-2xl text-xs leading-relaxed text-fg-secondary">
+            Zillow, Zillow Showcase and Zillow 3D Home are trademarks of Zillow,
+            Inc. Avery &amp; Bryant is an independent real estate media
+            company.
+          </p>
         </div>
       </section>
     </>

@@ -3,6 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { Rotate3d } from "lucide-react";
+import type { LiveTour } from "@/lib/live-tours";
+import { LiveTourModal } from "@/components/zillow-tour";
 
 export type ServicePreviewItem = {
   src: string;
@@ -30,6 +33,8 @@ export type Service = {
   /** Which packages carry it, or how it is added. */
   includedIn?: string;
   preview?: ServicePreview;
+  /** A real, clickable tour shown in a full-screen layer on request. */
+  liveTour?: LiveTour;
 };
 
 /**
@@ -46,6 +51,8 @@ function previewGridClass(preview: ServicePreview) {
 
 export function ServiceCard({ service }: { service: Service }) {
   const [open, setOpen] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
+  const closeTour = useCallback(() => setTourOpen(false), []);
   // The shimmer placeholder is a loading state, not decoration: it is removed
   // the moment the tile image resolves (or fails) so nothing pulses forever.
   const [imageReady, setImageReady] = useState(false);
@@ -67,36 +74,49 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <>
       <div className="pricing-card group overflow-hidden rounded border border-white/5 bg-[rgba(17,17,17,0.5)] transition-all duration-500 hover:border-white/10">
-        <button
-          type="button"
-          onClick={() => hasPreview && setOpen(true)}
-          disabled={!hasPreview}
-          aria-label={
-            hasPreview ? `See real examples of ${service.title}` : undefined
-          }
-          className={`relative block h-48 w-full overflow-hidden text-left disabled:cursor-default ${
-            imageReady ? "" : "image-loading"
-          }`}
-        >
-          <Image
-            src={service.image}
-            alt={
-              service.imageAlt ||
-              `${service.title} delivered by Avery & Bryant for an Arkansas listing`
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => hasPreview && setOpen(true)}
+            disabled={!hasPreview}
+            aria-label={
+              hasPreview ? `See real examples of ${service.title}` : undefined
             }
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            onLoad={() => setImageReady(true)}
-            onError={() => setImageReady(true)}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
-          {hasPreview && (
-            <span className="absolute bottom-3 right-3 rounded border border-white/20 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm transition-colors group-hover:border-crimson/50 group-hover:text-white">
-              See Examples
-            </span>
+            className={`relative block h-48 w-full overflow-hidden text-left disabled:cursor-default ${
+              imageReady ? "" : "image-loading"
+            }`}
+          >
+            <Image
+              src={service.image}
+              alt={
+                service.imageAlt ||
+                `${service.title} delivered by Avery & Bryant for an Arkansas listing`
+              }
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+              onLoad={() => setImageReady(true)}
+              onError={() => setImageReady(true)}
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+            {hasPreview && (
+              <span className="absolute bottom-3 right-3 rounded border border-white/20 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm transition-colors group-hover:border-crimson/50 group-hover:text-white">
+                See Examples
+              </span>
+            )}
+          </button>
+          {service.liveTour && (
+            <button
+              type="button"
+              onClick={() => setTourOpen(true)}
+              aria-label="Open the live tour"
+              className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded bg-crimson px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-crimson-dark"
+            >
+              <Rotate3d className="h-3.5 w-3.5" aria-hidden="true" />
+              Live 3D tour
+            </button>
           )}
-        </button>
+        </div>
 
         <div className="p-6 md:p-8">
           <div className="flex items-baseline justify-between">
@@ -126,7 +146,7 @@ export function ServiceCard({ service }: { service: Service }) {
               {service.includedIn}
             </p>
           )}
-          <div className="mt-4 flex items-center gap-6">
+          <div className="mt-4 flex flex-wrap items-center gap-x-6">
             <Link
               href="/book"
               className="inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
@@ -142,9 +162,26 @@ export function ServiceCard({ service }: { service: Service }) {
                 See Examples
               </button>
             )}
+            {service.liveTour && (
+              <button
+                type="button"
+                onClick={() => setTourOpen(true)}
+                className="inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-white"
+              >
+                Open the live tour
+              </button>
+            )}
           </div>
         </div>
       </div>
+
+      {service.liveTour && (
+        <LiveTourModal
+          tour={service.liveTour}
+          open={tourOpen}
+          onClose={closeTour}
+        />
+      )}
 
       {open && service.preview && (
         <div

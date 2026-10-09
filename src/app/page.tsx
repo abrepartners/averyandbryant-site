@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Hero } from "@/components/hero";
 import { GoogleReviews } from "@/components/google-reviews";
 import { ServiceCard, type Service } from "@/components/service-card";
+import { FEATURED_LIVE_TOUR } from "@/lib/live-tours";
 import { WorkingOn } from "@/components/working-on";
 import { PackageCard } from "@/components/pricing/package-card";
 import { realEstatePricing } from "@/lib/pricing";
@@ -200,6 +201,7 @@ const services: Service[] = [
         },
       ],
     },
+    liveTour: FEATURED_LIVE_TOUR,
   },
   {
     title: "Virtual Staging",
