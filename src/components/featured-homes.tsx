@@ -116,21 +116,6 @@ export function FeaturedHomes({
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-              <span className="absolute right-3 top-3 rounded bg-black/50 px-2 py-1 text-[10px] uppercase tracking-[0.15em] text-fg-strong backdrop-blur-sm">
-                {h.images.length} photos
-              </span>
-              <div className="absolute inset-x-4 bottom-4">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
-                  {h.label}
-                </p>
-                <p className="mt-1 font-display text-lg font-light text-white">
-                  {h.city}
-                </p>
-                {stats(h) && (
-                  <p className="mt-0.5 text-xs text-fg-strong">{stats(h)}</p>
-                )}
-              </div>
             </button>
           );
         })}

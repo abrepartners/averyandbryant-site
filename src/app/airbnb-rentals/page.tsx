@@ -252,9 +252,6 @@ export default function AirbnbRentalsPage() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-              {heroFrame.caption}
-            </figcaption>
           </figure>
 
           <div className="mt-16 space-y-16">
@@ -280,9 +277,6 @@ export default function AirbnbRentalsPage() {
                           className="object-cover"
                         />
                       </div>
-                      <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                        {shot.caption}
-                      </figcaption>
                     </figure>
                   ))}
                 </div>

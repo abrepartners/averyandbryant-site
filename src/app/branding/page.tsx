@@ -390,9 +390,6 @@ export default function BrandingPage() {
                     style={{ objectPosition: frame.position }}
                   />
                 </div>
-                <figcaption className="px-4 py-4 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                  {frame.caption}
-                </figcaption>
               </figure>
             ))}
           </div>
@@ -432,9 +429,6 @@ export default function BrandingPage() {
                     style={{ objectPosition: frame.position }}
                   />
                 </div>
-                <figcaption className="px-5 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-                  {frame.caption}
-                </figcaption>
               </figure>
             ))}
           </div>
@@ -470,9 +464,6 @@ export default function BrandingPage() {
                       style={{ objectPosition: frame.position }}
                     />
                   </div>
-                  <figcaption className="px-4 py-4 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                    {frame.caption}
-                  </figcaption>
                 </figure>
               ))}
             </div>

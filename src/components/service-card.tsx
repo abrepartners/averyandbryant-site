@@ -254,11 +254,6 @@ export function ServiceCard({ service }: { service: Service }) {
                       />
                     )}
                   </div>
-                  {item.label && (
-                    <figcaption className="mt-2 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                      {item.label}
-                    </figcaption>
-                  )}
                 </figure>
               ))}
             </div>

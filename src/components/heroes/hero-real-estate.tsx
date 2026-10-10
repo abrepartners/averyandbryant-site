@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Eyebrow } from "@/components/eyebrow";
 
 const words = ["Real", "Estate", "Media"];
 
@@ -50,12 +51,7 @@ export function HeroRealEstate() {
 
       {/* Content */}
       <div className="relative z-[4] mx-auto w-full max-w-[1280px] px-6 py-24 md:px-12">
-        <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5 backdrop-blur-sm">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-          <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-            Core Service
-          </span>
-        </div>
+        <Eyebrow>Core Service</Eyebrow>
 
         <h1 className="mt-8 font-display text-[clamp(40px,8vw,96px)] font-extralight leading-[0.98] tracking-tight text-fg">
           <span className="block overflow-hidden">

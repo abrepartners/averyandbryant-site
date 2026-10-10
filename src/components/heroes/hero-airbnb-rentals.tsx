@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Eyebrow } from "@/components/eyebrow";
 
 const slides = [
   {
@@ -42,12 +43,7 @@ export function HeroAirbnbRentals() {
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[1fr_1fr] md:items-center md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT: typography + revenue stat */}
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
-              Airbnb / Rentals Media
-            </span>
-          </div>
+          <Eyebrow className="w-fit">Airbnb / Rentals Media</Eyebrow>
 
           <h1 className="mt-10 font-display text-[clamp(44px,7vw,84px)] font-extralight leading-[0.95] tracking-tight text-fg">
             More bookings

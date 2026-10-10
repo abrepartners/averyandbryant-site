@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { OrderLink } from "@/components/order-link";
 import type { Vertical } from "@/lib/order-forms";
+import { Eyebrow } from "@/components/eyebrow";
 
 type CtaProp = {
   label: string;
@@ -50,12 +51,7 @@ export function Hero({
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center md:px-12">
         {tag && (
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              {tag}
-            </span>
-          </div>
+          <Eyebrow className="mb-8">{tag}</Eyebrow>
         )}
 
         <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-fg">

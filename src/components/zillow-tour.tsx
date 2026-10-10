@@ -88,7 +88,6 @@ export function ZillowTourEmbed({
                 className="absolute inset-0 flex items-center justify-center p-6"
               >
                 <span className="inline-flex items-center gap-3 rounded border border-white/20 bg-black/60 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
                   Loading the tour
                 </span>
               </div>

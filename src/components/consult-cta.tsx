@@ -42,8 +42,8 @@ export function ConsultCTA({
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
         <div className="grid items-center gap-10 rounded-lg border border-white/5 bg-[rgba(10,10,10,0.6)] p-8 md:grid-cols-[1.4fr_1fr] md:gap-12 md:p-12">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/5 px-3 py-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+            <div className="inline-flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-amber-300" />
               <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-amber-200/90">
                 {service === "consult"
                   ? "Free 30-min consult"

@@ -1,13 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { FaqSection } from "@/components/faq-section";
 import { ZillowTourEmbed } from "@/components/zillow-tour";
 import { FEATURED_LIVE_TOUR } from "@/lib/live-tours";
+import { Eyebrow } from "@/components/eyebrow";
 
-// PRICE NOT YET APPROVED FOR DISPLAY: Thomas has not signed off on showing
-// this number publicly (as of 2026-10-09). It is rendered so the preview
-// shows the full page; every mention on this page reads from this one
-// constant, so change or pull it here.
+// Showcase package price, approved for display by Thomas 2026-10-09. Every
+// mention on this page reads from this one constant.
 // Source: Aryeo product "Main Package", designated in Showcase Select as
 // "Photography and Zillow 3D Home Interactive Tour and Floor Plan".
 // Do NOT confuse with the Aryeo "5-Star Showcase Blueprint" ($1,095): that is
@@ -45,36 +43,6 @@ export const metadata = {
     ],
   },
 };
-
-// Captions and alt text name the city and the room, never the street.
-const heroFrame = {
-  src: "/images/zillow-showcase/69-mountain-brook-little-rock-marble-island-kitchen.jpg",
-  alt: "Wide kitchen with a stone topped island, grey cabinets and a wood range hood in a finished home listing in Little Rock, Arkansas",
-  caption: "Kitchen, Little Rock",
-};
-
-const showcaseGallery = [
-  {
-    src: "/images/zillow-showcase/69-mountain-brook-little-rock-bath-vanity.jpg",
-    alt: "Bathroom with a grey vanity, brushed gold fixtures, a framed mirror and a tiled tub and shower surround in a Little Rock, Arkansas listing",
-    caption: "Bath, Little Rock",
-  },
-  {
-    src: "/images/zillow-showcase/69-mountain-brook-little-rock-brick-front.jpg",
-    alt: "Finished brick and board and batten front elevation of a Little Rock, Arkansas home, with a covered porch, an arched front door and new sod",
-    caption: "Front elevation, Little Rock",
-  },
-  {
-    src: "/images/zillow-showcase/18-lefever-ln-little-rock-beamed-great-room.jpg",
-    alt: "Designer furnished great room with exposed beams in a single family listing in Little Rock, Arkansas",
-    caption: "Beamed great room, Little Rock",
-  },
-  {
-    src: "/images/zillow-showcase/18-lefever-ln-little-rock-white-kitchen.jpg",
-    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood in a Little Rock, Arkansas listing",
-    caption: "Kitchen, Little Rock",
-  },
-];
 
 // Zillow's media requirements for a Showcase listing (Aryeo Showcase
 // photographer resource center, checked 2026-10-09).
@@ -175,12 +143,7 @@ export default function ZillowShowcasePage() {
       <section className="relative flex min-h-[70vh] items-center overflow-hidden border-b border-white/5">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/5 blur-[160px]" />
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
-          <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              Showcase-ready media
-            </span>
-          </div>
+          <Eyebrow>Showcase-ready media</Eyebrow>
 
           <h1 className="mt-8 max-w-3xl font-display text-[clamp(34px,6vw,72px)] font-extralight leading-[1.05] tracking-tight text-fg">
             Zillow Showcase photography,
@@ -464,63 +427,6 @@ export default function ZillowShowcasePage() {
             These are Zillow&apos;s averages, not a promise for any one
             listing. Results vary by market and property.
           </p>
-        </div>
-      </section>
-
-      {/* Recent listing media (real delivered work) */}
-      <section className="border-b border-border py-16 md:py-24">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
-            The media behind it
-          </p>
-          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
-            Recent Central Arkansas listings we photographed.
-          </h2>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
-            Full interiors and exteriors from a single visit, the same standard
-            we bring to every Showcase shoot.{" "}
-            <Link
-              href="/gallery"
-              className="text-fg-strong underline underline-offset-2 hover:text-white"
-            >
-              See the full gallery
-            </Link>
-            .
-          </p>
-
-          <figure className="mt-10">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
-              <Image
-                src={heroFrame.src}
-                alt={heroFrame.alt}
-                fill
-                sizes="(min-width: 1280px) 1216px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-              {heroFrame.caption}
-            </figcaption>
-          </figure>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {showcaseGallery.map((shot) => (
-              <figure key={shot.src}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/5 bg-[#111]">
-                  <Image
-                    src={shot.src}
-                    alt={shot.alt}
-                    fill
-                    sizes="(min-width: 640px) 600px, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                  {shot.caption}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
         </div>
       </section>
 

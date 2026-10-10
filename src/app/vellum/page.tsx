@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CALENDARS, calendarUrlFor } from "@/lib/consult";
+import { Eyebrow } from "@/components/eyebrow";
 
 export const metadata = {
   alternates: { canonical: "/vellum" },
@@ -118,12 +119,7 @@ export default function VellumPage() {
         <div className="absolute bottom-24 right-8 h-20 w-20 border-b border-r border-crimson/20" />
 
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center md:px-12">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              AI Photo Editing for Real Estate
-            </span>
-          </div>
+          <Eyebrow className="mb-8">AI Photo Editing for Real Estate</Eyebrow>
 
           <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-fg">
             Stage it. Clean it.

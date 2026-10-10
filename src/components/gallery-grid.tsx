@@ -101,7 +101,6 @@ export function GalleryGrid({
               }`}
             >
               {c.label}
-              <span className="ml-2 text-fg-secondary">{c.count}</span>
             </button>
           ))}
         </div>
@@ -133,20 +132,6 @@ export function GalleryGrid({
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-80 transition-opacity group-hover:opacity-100" />
-              <span className="absolute left-3 top-3 rounded bg-black/50 px-2 py-1 text-[9px] uppercase tracking-[0.2em] text-fg-strong backdrop-blur-sm">
-                {item.label}
-              </span>
-              <div className="absolute inset-x-3 bottom-3">
-                <p className="truncate text-xs font-medium text-white">
-                  {item.city || "Arkansas"}
-                </p>
-                {stats(item) && (
-                  <p className="mt-0.5 truncate text-[10px] text-fg-strong">
-                    {stats(item)}
-                  </p>
-                )}
-              </div>
             </button>
           );
         })}

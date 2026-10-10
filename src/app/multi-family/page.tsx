@@ -146,9 +146,6 @@ export default function MultiFamilyPage() {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                  {shot.caption}
-                </figcaption>
               </figure>
             ))}
           </div>

@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Eyebrow } from "@/components/eyebrow";
 
 const slides = [
   {
     src: "/images/studio/carousel-1.jpg",
     alt: "The Spot podcast studio — Studio A set in Little Rock",
-    caption: "Studio A · The Podcast Set",
+    caption: "Studio A: The Podcast Set",
   },
   {
     src: "/images/studio/carousel-2.jpg",
     alt: "The Spot production room — Studio B set in Little Rock",
-    caption: "Studio B · Production Room",
+    caption: "Studio B: Production Room",
   },
   {
     src: "/images/studio/carousel-3.jpg",
@@ -47,12 +48,9 @@ export function PodcastCarousel() {
         />
       ))}
 
-      {/* Top-left "live" badge */}
-      <div className="absolute left-6 top-6 z-10 inline-flex items-center gap-2 rounded-full border border-crimson/40 bg-black/50 px-3 py-1.5 backdrop-blur-md">
-        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-        <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-          The Spot · Little Rock Studios
-        </span>
+      {/* Top-left label */}
+      <div className="absolute left-6 top-6 z-10 rounded bg-black/50 px-3 py-1.5 backdrop-blur-md">
+        <Eyebrow>The Spot, Little Rock Studios</Eyebrow>
       </div>
 
       {/* Bottom gradient + caption */}

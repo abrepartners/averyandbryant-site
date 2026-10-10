@@ -1,4 +1,5 @@
 import { CALENDARS, calendarUrlFor, requestUrl } from "@/lib/consult";
+import { Eyebrow } from "@/components/eyebrow";
 
 export const metadata = {
   alternates: { canonical: "/answr" },
@@ -108,12 +109,7 @@ export default function AnswrPage() {
         <div className="absolute bottom-24 right-8 h-20 w-20 border-b border-r border-crimson/20" />
 
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center md:px-12">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              AI Answering Service
-            </span>
-          </div>
+          <Eyebrow className="mb-8">AI Answering Service</Eyebrow>
 
           <h1 className="font-display text-[clamp(32px,6vw,72px)] font-extralight leading-[1.1] tracking-tight text-fg">
             Every call answered.

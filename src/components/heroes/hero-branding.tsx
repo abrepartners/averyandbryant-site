@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Eyebrow } from "@/components/eyebrow";
 
 const chips = [
   "Headshot Session, $95",
@@ -26,12 +27,7 @@ export function HeroBranding() {
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1fr_1fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT, typography */}
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
-              Headshots / Brand Sessions / Central Arkansas
-            </span>
-          </div>
+          <Eyebrow className="w-fit">Headshots / Brand Sessions / Central Arkansas</Eyebrow>
 
           <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,76px)] font-extralight leading-[0.98] tracking-tight text-fg">
             Your face is{" "}

@@ -131,9 +131,6 @@ export default function CommercialPage() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-              {heroFrame.caption}
-            </figcaption>
           </figure>
 
           <div className="mt-16 space-y-16">
@@ -153,9 +150,6 @@ export default function CommercialPage() {
                         className="object-cover"
                       />
                     </div>
-                    <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                      {group.lead.caption}
-                    </figcaption>
                   </figure>
                 ) : null}
                 <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -170,9 +164,6 @@ export default function CommercialPage() {
                           className="object-cover"
                         />
                       </div>
-                      <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                        {shot.caption}
-                      </figcaption>
                     </figure>
                   ))}
                 </div>

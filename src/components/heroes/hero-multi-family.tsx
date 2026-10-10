@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Eyebrow } from "@/components/eyebrow";
 
 const thumbs = [
   "/images/multi-family/thumb-exterior-1.jpg",
@@ -25,12 +26,7 @@ export function HeroMultiFamily() {
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              Multi-Family Media
-            </span>
-          </div>
+          <Eyebrow className="w-fit">Multi-Family Media</Eyebrow>
 
           <h1 className="mt-10 font-display text-[clamp(44px,7vw,88px)] font-extralight leading-[0.95] tracking-tight text-fg">
             Fill vacancies

@@ -12,6 +12,7 @@ import {
   projectsFor,
 } from "@/lib/gallery";
 import { commercialGroups } from "@/lib/commercial-work";
+import boundary from "../../../../data/boundary-showcase.json";
 
 type Params = { vertical: string };
 
@@ -51,6 +52,7 @@ export default async function VerticalGalleryPage({
   const homes = featuredFor(v.cat);
   const projects = projectsFor(v.cat);
   const isCommercial = v.slug === "commercial";
+  const boundaryShots = v.slug === "lot-land" ? (boundary as { url: string; thumb: string; city: string }[]) : [];
   const others = GALLERY_VERTICALS.filter((o) => o.slug !== v.slug);
 
   return (
@@ -73,13 +75,6 @@ export default async function VerticalGalleryPage({
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-secondary">
             {v.blurb}
-          </p>
-          <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-            {homes.length > 0 ? `${homes.length} full shoots` : ""}
-            {homes.length > 0 && projects.length > 0 ? ", " : ""}
-            {projects.length > 0
-              ? `${projects.length} ${projects.length === 1 ? "project" : "projects"}`
-              : ""}
           </p>
         </div>
       </section>
@@ -123,6 +118,40 @@ export default async function VerticalGalleryPage({
         </section>
       )}
 
+      {/* Lot & Land: drone aerials with the property lines drawn in */}
+      {boundaryShots.length > 0 && (
+        <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
+          <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+            <div className="mb-8">
+              <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
+                Lot lines &amp; site plans
+              </h2>
+              <p className="mt-2 max-w-xl text-sm text-fg-secondary">
+                Drone aerials with property boundaries mapped in, so buyers
+                see exactly what they&apos;re getting.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+              {boundaryShots.map((shot, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-[3/2] overflow-hidden rounded-lg border border-white/5 bg-[#111]"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={shot.thumb || shot.url}
+                    alt={`Property lot-line and boundary map of ${shot.city}, Arkansas by Avery & Bryant`}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Commercial: the site's own commercial photography, after the Aryeo shoots */}
       {isCommercial && (
         <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">
@@ -153,9 +182,6 @@ export default async function VerticalGalleryPage({
                           className="object-cover"
                         />
                       </div>
-                      <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                        {group.lead.caption}
-                      </figcaption>
                     </figure>
                   )}
                   <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -170,9 +196,6 @@ export default async function VerticalGalleryPage({
                             className="object-cover"
                           />
                         </div>
-                        <figcaption className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
-                          {shot.caption}
-                        </figcaption>
                       </figure>
                     ))}
                   </div>

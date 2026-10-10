@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Eyebrow } from "@/components/eyebrow";
 
 export const metadata = {
   alternates: { canonical: "/members" },
@@ -91,12 +92,7 @@ export default function MembersPage() {
         <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-crimson/6 blur-[160px]" />
 
         <div className="relative mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
-          <div className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-crimson" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson">
-              The Spot Studios / Member Account
-            </span>
-          </div>
+          <Eyebrow>The Spot Studios / Member Account</Eyebrow>
 
           <h1 className="mt-8 font-display text-[clamp(36px,6vw,72px)] font-extralight leading-[0.98] tracking-tight text-fg">
             Welcome back.

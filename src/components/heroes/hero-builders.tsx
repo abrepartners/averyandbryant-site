@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Eyebrow } from "@/components/eyebrow";
 
 const progress = [
   {
@@ -43,12 +44,7 @@ export function HeroBuilders() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16 lg:gap-20">
           {/* LEFT — typography */}
           <div className="flex flex-col justify-center">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-crimson/30 bg-crimson/5 px-4 py-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-crimson/90">
-                Builder Media
-              </span>
-            </div>
+            <Eyebrow className="w-fit">Builder Media</Eyebrow>
 
             <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,80px)] font-extralight leading-[0.95] tracking-tight text-fg">
               Document the build.
