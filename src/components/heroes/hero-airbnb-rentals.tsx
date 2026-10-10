@@ -38,7 +38,6 @@ export function HeroAirbnbRentals() {
     >
       {/* Crimson ambient glows (brand accent) */}
       <div className="pointer-events-none absolute -right-20 top-0 h-[700px] w-[700px] rounded-full bg-crimson/10 blur-[200px]" />
-      <div className="pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/8 blur-[160px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[1fr_1fr] md:items-center md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT: typography + revenue stat */}

@@ -22,7 +22,6 @@ export function HeroMultiFamily() {
       aria-label="Multi-Family Media hero"
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
-      <div className="pointer-events-none absolute -right-40 top-0 h-[600px] w-[600px] rounded-full bg-crimson/8 blur-[180px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         <div className="flex flex-col justify-center">

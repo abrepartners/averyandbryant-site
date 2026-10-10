@@ -37,8 +37,6 @@ export function HeroBuilders() {
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
       {/* Crimson ambient glow (brand accent) */}
-      <div className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-crimson/5 blur-[180px]" />
-      <div className="pointer-events-none absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[160px]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16 lg:gap-20">

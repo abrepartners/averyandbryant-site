@@ -59,7 +59,6 @@ export default async function VerticalGalleryPage({
     <>
       {/* Header */}
       <section className="relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-crimson/5 blur-[150px]" />
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 md:px-12">
           <Link
             href="/gallery"

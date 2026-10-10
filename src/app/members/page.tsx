@@ -88,8 +88,6 @@ export default function MembersPage() {
     <>
       {/* ── HERO ── */}
       <section className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]">
-        <div className="pointer-events-none absolute -left-32 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
-        <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-crimson/6 blur-[160px]" />
 
         <div className="relative mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
           <Eyebrow>The Spot Studios / Member Account</Eyebrow>

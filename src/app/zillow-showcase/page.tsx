@@ -141,7 +141,6 @@ export default function ZillowShowcasePage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[70vh] items-center overflow-hidden border-b border-white/5">
-        <div className="pointer-events-none absolute left-1/2 top-1/3 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/5 blur-[160px]" />
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
           <Eyebrow>Showcase-ready media</Eyebrow>
 
@@ -154,11 +153,8 @@ export default function ZillowShowcasePage() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
-            Showcase is the premium listing experience agents buy from Zillow.
-            We produce the media it requires: listing photos plus a Zillow 3D
-            Home tour and interactive floor plan, captured in one visit. Agents
-            can book us directly inside Zillow&apos;s Showcase ordering
-            platform.
+            Photos, a Zillow 3D tour and the floor plan in one visit. Book us
+            right inside Zillow.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -312,9 +308,7 @@ export default function ZillowShowcasePage() {
                 </span>
               </div>
               <p className="mt-6 text-sm leading-relaxed text-fg-secondary">
-                The same Zillow 3D Home tour and interactive floor plan for any
-                listing, Showcase or not. Once the tour link is on the MLS,
-                Zillow says it syndicates to most major real estate sites.
+                The same tour and floor plan, for any listing.
               </p>
               <Link
                 href="/real-estate"
@@ -340,9 +334,7 @@ export default function ZillowShowcasePage() {
             Walk through a home we captured.
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-fg-secondary">
-            A Zillow 3D Home tour from a new construction listing we shot in
-            Benton. Load it, then drag to look around and move room to room.
-            The tour loads from Zillow when you open it.
+            New construction in Benton. Tap to load, then drag to look around.
           </p>
           <div className="mt-10">
             <ZillowTourEmbed tour={FEATURED_LIVE_TOUR} />
@@ -377,10 +369,8 @@ export default function ZillowShowcasePage() {
             ))}
           </div>
           <p className="mt-4 max-w-3xl text-xs leading-relaxed text-fg-secondary">
-            Per Zillow, as of July 2026: active Showcase listings drove on
-            average 84% more page views, 77% more saves and 93% more shares
-            than similar nearby non-Showcase listings, and Showcase listings
-            sold for 2% more than similar non-Showcase listings. Source:{" "}
+            Zillow averages vs. similar nearby listings without Showcase, July
+            2026. Source:{" "}
             <a
               href={SHOWCASE_FACTS_URL}
               target="_blank"
@@ -409,10 +399,8 @@ export default function ZillowShowcasePage() {
             ))}
           </div>
           <p className="mt-4 max-w-3xl text-xs leading-relaxed text-fg-secondary">
-            Per Zillow, as of July 2026: active listings with a Zillow 3D Home
-            interactive floor plan drove on average 43% more page views, 49%
-            more saves and 47% more shares than similar nearby listings without
-            one. This applies with or without Showcase. Source:{" "}
+            Zillow averages vs. similar nearby listings without one, July 2026.
+            Source:{" "}
             <a
               href={ZILLOW_3D_HOME_URL}
               target="_blank"

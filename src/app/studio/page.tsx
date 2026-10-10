@@ -223,7 +223,6 @@ export default async function StudioPage({
         className="relative isolate overflow-hidden bg-background"
       >
         <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-crimson/8 blur-[200px]" />
-        <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
 
         <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
           <div className="flex flex-col justify-center">

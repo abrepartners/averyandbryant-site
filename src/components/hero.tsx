@@ -42,7 +42,6 @@ export function Hero({
       />
 
       {/* Crimson glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/5 blur-[150px]" />
 
       {/* Corner accents */}
       <div className="absolute left-8 top-24 h-20 w-20 border-l border-t border-crimson/20" />

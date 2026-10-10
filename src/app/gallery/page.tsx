@@ -24,7 +24,6 @@ export default function GalleryPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-crimson/5 blur-[150px]" />
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center md:px-12">
           <Eyebrow className="mb-6">The Portfolio</Eyebrow>
           <h1 className="font-display text-[clamp(32px,6vw,64px)] font-extralight leading-[1.1] tracking-tight text-fg">

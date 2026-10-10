@@ -22,7 +22,6 @@ export function HeroBranding() {
       className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]"
     >
       <div className="pointer-events-none absolute -left-32 top-1/3 h-[600px] w-[600px] rounded-full bg-crimson/8 blur-[200px]" />
-      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-crimson/6 blur-[180px]" />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1fr_1fr] md:gap-16 md:px-12 md:py-32 lg:gap-20">
         {/* LEFT, typography */}
