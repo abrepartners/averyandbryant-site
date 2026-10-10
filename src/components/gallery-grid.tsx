@@ -25,14 +25,6 @@ export type GalleryItem = {
 const CARD_SIZES =
   "(min-width: 1024px) 300px, (min-width: 768px) 33vw, 50vw";
 
-function stats(item: GalleryItem) {
-  const parts: string[] = [];
-  if (item.beds) parts.push(`${item.beds} bd`);
-  if (item.baths) parts.push(`${item.baths} ba`);
-  if (item.sqft) parts.push(`${item.sqft.toLocaleString()} sqft`);
-  return parts.join(", ");
-}
-
 export function GalleryGrid({
   items,
   showFilter = true,
@@ -163,7 +155,7 @@ export function GalleryGrid({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={lightbox.hero}
-                alt={`${lightbox.label}, ${lightbox.street ? lightbox.street + ", " : ""}${lightbox.city}, Arkansas real estate media by Avery & Bryant`}
+                alt={`${lightbox.label}, ${lightbox.city}, Arkansas real estate media by Avery & Bryant`}
                 decoding="async"
                 className="h-full w-full object-cover"
               />
@@ -174,16 +166,8 @@ export function GalleryGrid({
                   {lightbox.label}, real client listing
                 </p>
                 <h3 className="mt-2 font-display text-xl font-light text-fg">
-                  {lightbox.street ? `${lightbox.street}, ` : ""}
                   {lightbox.city}
                 </h3>
-                {(stats(lightbox) || lightbox.count) && (
-                  <p className="mt-1 text-sm text-fg-secondary">
-                    {[stats(lightbox), `${lightbox.count} photos delivered`]
-                      .filter(Boolean)
-                      .join(", ")}
-                  </p>
-                )}
               </div>
               <div className="flex shrink-0 flex-wrap items-center gap-4">
                 {lightbox.tour && (

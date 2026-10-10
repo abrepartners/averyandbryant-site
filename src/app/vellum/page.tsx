@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { CALENDARS, calendarUrlFor } from "@/lib/consult";
 import { Eyebrow } from "@/components/eyebrow";
+import { BeforeAfter } from "@/components/before-after";
 
 export const metadata = {
   alternates: { canonical: "/vellum" },
@@ -12,16 +12,19 @@ export const metadata = {
 const beforeAfterPairs = [
   {
     label: "Virtual Staging",
+    alt: "Empty living room virtually staged with Vellum",
     before: "/images/showcase-staging-before.jpg",
     after: "/images/showcase-staging-after.jpg",
   },
   {
     label: "Smart Cleanup",
+    alt: "Listing photo cleaned up with Vellum",
     before: "/images/showcase-cleanup-before.jpg",
     after: "/images/showcase-cleanup-after.jpg",
   },
   {
     label: "Day to Dusk",
+    alt: "Daytime exterior turned to twilight with Vellum",
     before: "/images/showcase-dusk-before.jpg",
     after: "/images/showcase-dusk-after.jpg",
   },
@@ -166,44 +169,12 @@ export default function VellumPage() {
               Real Results
             </h2>
             <p className="mt-4 text-fg-secondary">
-              See what Vellum can do with a single click.
+              Drag the line to compare.
             </p>
           </div>
 
-          <div className="grid gap-12 md:gap-16">
-            {beforeAfterPairs.map((pair) => (
-              <div key={pair.label}>
-                <h3 className="mb-4 text-center text-sm font-medium uppercase tracking-[0.2em] text-crimson">
-                  {pair.label}
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative overflow-hidden rounded-lg border border-white/5">
-                    <div className="absolute left-3 top-3 z-10 rounded bg-black/60 px-2 py-1 text-[10px] uppercase tracking-widest text-fg-strong">
-                      Before
-                    </div>
-                    <Image
-                      src={pair.before}
-                      alt={`${pair.label} before`}
-                      width={640}
-                      height={427}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border border-crimson/20">
-                    <div className="absolute left-3 top-3 z-10 rounded bg-crimson/80 px-2 py-1 text-[10px] uppercase tracking-widest text-white">
-                      After
-                    </div>
-                    <Image
-                      src={pair.after}
-                      alt={`${pair.label} after`}
-                      width={640}
-                      height={427}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="mx-auto max-w-[1080px]">
+            <BeforeAfter pairs={beforeAfterPairs} sizes="(min-width: 1080px) 1080px, 100vw" />
           </div>
         </div>
       </section>

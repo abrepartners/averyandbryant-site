@@ -65,9 +65,7 @@ export function HeroLotLand() {
         </h1>
 
         <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
-          FAA Part 107 licensed aerial drone, boundary overlays, proximity maps,
-          and cinematic flyover video for land, lots, and development sites
-          across Arkansas.
+          Licensed drone photos, boundary overlays and flyover video for land and lots.
         </p>
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">

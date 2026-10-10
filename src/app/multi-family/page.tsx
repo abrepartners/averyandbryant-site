@@ -100,14 +100,12 @@ const faqs = [
 // is left is the high establishing shot and the low architectural shot.
 const communityAerials = [
   {
-    src: "/images/multi-family/parham-pointe-apartments-aerial-community-scale.jpg",
+    src: "/images/multi-family/apartments-aerial-community.jpg",
     alt: "High aerial over an Arkansas apartment community of three story buildings ringed by green tree canopy, with an interstate and a city skyline beyond",
-    caption: "Community aerial, Arkansas",
   },
   {
-    src: "/images/multi-family/parham-pointe-apartments-aerial-arched-breezeway.jpg",
+    src: "/images/multi-family/apartments-aerial-courtyard.jpg",
     alt: "Low aerial of one Arkansas apartment building with white arched breezeways across its face, a curving drive and parked cars at left",
-    caption: "Low aerial, building detail",
   },
 ];
 

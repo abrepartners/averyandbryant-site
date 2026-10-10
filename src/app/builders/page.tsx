@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { HeroBuilders } from "@/components/heroes/hero-builders";
+import { RevealImage } from "@/components/reveal-image";
+import { Eyebrow } from "@/components/eyebrow";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
 import { FaqSection } from "@/components/faq-section";
@@ -18,78 +20,70 @@ export const metadata = {
 
 const leadFrames = [
   {
-    src: "/images/builders/40-orle-cir-little-rock-french-country-front.jpg",
-    alt: "Stone and brick French country home at 40 Orle Circle in Little Rock, Arkansas, photographed in bright daylight under a blue sky, with finished beds, a green lawn and a curved concrete driveway",
-    caption: "40 Orle Circle, Little Rock",
+    src: "/images/builders/little-rock-front-exterior-2.jpg",
+    alt: "Stone and brick French country home in Little Rock, Arkansas, photographed in bright daylight under a blue sky, with finished beds, a green lawn and a curved concrete driveway",
   },
   {
-    src: "/images/builders/45-mountain-brook-little-rock-finished-front-elevation.jpg",
-    alt: "Finished brick and stone front elevation of a new construction home at 45 Mountain Brook Road in Little Rock, Arkansas, with fresh sod, a young staked tree and a brown double garage door",
-    caption: "45 Mountain Brook Road, Little Rock",
+    src: "/images/builders/little-rock-front-exterior-3.jpg",
+    alt: "Finished brick and stone front elevation of a new construction home in Little Rock, Arkansas, with fresh sod, a young staked tree and a brown double garage door",
   },
 ];
 
 const buildGallery = [
   {
-    src: "/images/builders/40-orle-cir-little-rock-marble-kitchen.jpg",
-    alt: "Kitchen with marble counters and backsplash, a wood island and a wood clad range hood in a new construction home at 40 Orle Circle in Little Rock, Arkansas",
-    caption: "40 Orle Circle, Little Rock",
+    src: "/images/builders/little-rock-kitchen-2.jpg",
+    alt: "Kitchen with marble counters and backsplash, a wood island and a wood clad range hood in a new construction home in Little Rock, Arkansas",
   },
   {
-    src: "/images/builders/7048-hannah-ln-bryant-farmhouse-front.jpg",
-    alt: "Board and batten farmhouse front elevation with a brick columned porch at 7048 Hannah Lane in Bryant, Arkansas",
-    caption: "7048 Hannah Lane, Bryant",
+    src: "/images/builders/bryant-front-exterior.jpg",
+    alt: "Board and batten farmhouse front elevation with a brick columned porch in Bryant, Arkansas",
   },
   {
-    src: "/images/builders/7048-hannah-ln-bryant-white-oak-kitchen.jpg",
+    src: "/images/builders/bryant-kitchen.jpg",
     alt: "White oak kitchen with black windows in a new construction home in Bryant, Arkansas",
-    caption: "7048 Hannah Lane, Bryant",
   },
   {
-    src: "/images/builders/30-miramont-cir-little-rock-modern-brick-front.jpg",
-    alt: "Modern white brick front elevation with black windows on a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
-    caption: "30 Miramont Circle, Little Rock",
+    src: "/images/builders/little-rock-front-exterior.jpg",
+    alt: "Modern white brick front elevation with black windows on a new construction home in Little Rock, Arkansas",
   },
   {
-    src: "/images/builders/30-miramont-cir-little-rock-shaker-kitchen.jpg",
-    alt: "Kitchen island with shaker drawer fronts opening to a great room with a linear fireplace in a new construction home at 30 Miramont Circle in Little Rock, Arkansas",
-    caption: "30 Miramont Circle, Little Rock",
+    src: "/images/builders/little-rock-kitchen.jpg",
+    alt: "Kitchen island with shaker drawer fronts opening to a great room with a linear fireplace in a new construction home in Little Rock, Arkansas",
   },
   {
-    src: "/images/builders/1583-bighorn-dr-benton-acadian-brick-front.jpg",
-    alt: "Acadian brick front elevation with dormers on a new construction home at 1583 Bighorn Drive in Benton, Arkansas",
-    caption: "1583 Bighorn Drive, Benton",
+    src: "/images/builders/benton-front-exterior.jpg",
+    alt: "Acadian brick front elevation with dormers on a new construction home in Benton, Arkansas",
   },
   {
-    src: "/images/builders/1052-stagecoach-blvd-cabot-kitchen-island.jpg",
-    alt: "Kitchen island with a sink, sage green cabinets and a veined stone backsplash in a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas",
-    caption: "1052 Stagecoach Boulevard, Cabot",
+    src: "/images/builders/cabot-kitchen.jpg",
+    alt: "Kitchen island with a sink, sage green cabinets and a veined stone backsplash in a new construction home in Cabot, Arkansas",
   },
   {
-    src: "/images/builders/40-orle-cir-little-rock-walk-in-closet.jpg",
-    alt: "Walk in closet with white built in shelving, hanging rods and a stone topped island in a new construction home at 40 Orle Circle in Little Rock, Arkansas",
-    caption: "40 Orle Circle, Little Rock",
+    src: "/images/builders/little-rock-closet.jpg",
+    alt: "Walk in closet with white built in shelving, hanging rods and a stone topped island in a new construction home in Little Rock, Arkansas",
   },
   {
-    src: "/images/builders/1583-bighorn-dr-benton-walk-in-pantry.jpg",
-    alt: "Walk in pantry with white shelving and a stone counter in a new construction home at 1583 Bighorn Drive in Benton, Arkansas",
-    caption: "1583 Bighorn Drive, Benton",
+    src: "/images/builders/benton-pantry.jpg",
+    alt: "Walk in pantry with white shelving and a stone counter in a new construction home in Benton, Arkansas",
   },
   {
-    src: "/images/builders/1052-stagecoach-blvd-cabot-front-elevation.jpg",
-    alt: "Front elevation of a new construction home at 1052 Stagecoach Boulevard in Cabot, Arkansas, photographed in bright daylight, with a wide concrete driveway running up to the garage",
-    caption: "1052 Stagecoach Boulevard, Cabot",
+    src: "/images/builders/cabot-front-exterior.jpg",
+    alt: "Front elevation of a new construction home in Cabot, Arkansas, photographed in bright daylight, with a wide concrete driveway running up to the garage",
   },
   {
-    src: "/images/builders/7048-hannah-ln-bryant-wooded-lot-aerial.jpg",
-    alt: "Aerial photo of a new construction home on a wooded lot at 7048 Hannah Lane in Bryant, Arkansas",
-    caption: "7048 Hannah Lane, Bryant",
+    src: "/images/builders/bryant-aerial.jpg",
+    alt: "Aerial photo of a new construction home on a wooded lot in Bryant, Arkansas",
   },
   {
-    src: "/images/builders/45-mountain-brook-little-rock-development-aerial.jpg",
+    src: "/images/builders/little-rock-development-aerial.jpg",
     alt: "Aerial photo of a residential development under construction in Little Rock, Arkansas, with graded lots beside a street of finished homes",
-    caption: "45 Mountain Brook Road, Little Rock",
   },
+];
+
+const stages = [
+  { n: "01", title: "Foundation", line: "Slab, framing and site work on the record from day one." },
+  { n: "02", title: "Vertical build", line: "Structure, systems and finishes, phase by phase." },
+  { n: "03", title: "Model launch", line: "Finished photos, drone and video to sell the result." },
 ];
 
 const sellingPoints = [
@@ -172,6 +166,31 @@ export default function BuildersPage() {
   return (
     <>
       <HeroBuilders />
+
+      {/* ── EVERY STAGE (REVEAL) ── */}
+      <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <Eyebrow>Every stage</Eyebrow>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            From graded lot to finished street.
+          </h2>
+          <div className="mt-12">
+            <RevealImage
+              src="/images/builders/little-rock-development-aerial.jpg"
+              alt="Drone photo of a new residential development in Little Rock, Arkansas, with graded lots beside a street of finished homes"
+            />
+          </div>
+          <ol className="mt-12 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-3">
+            {stages.map((s) => (
+              <li key={s.n}>
+                <span className="font-mono text-xs text-fg-muted">{s.n}</span>
+                <p className="mt-2 font-display text-xl font-light text-fg">{s.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">{s.line}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* ── RECENT BUILDS (REAL DELIVERED WORK) ── */}
       <section className="border-b border-white/5 py-24 md:py-32">

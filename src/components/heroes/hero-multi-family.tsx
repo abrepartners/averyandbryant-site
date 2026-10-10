@@ -40,9 +40,7 @@ export function HeroMultiFamily() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
-            Professional photography, aerial drone, video tours, and
-            leasing-ready assets for apartment complexes across Arkansas. Built
-            for property managers who can&apos;t afford a slow lease-up.
+            Photos, drone and leasing video for apartment communities, built for a fast lease-up.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">

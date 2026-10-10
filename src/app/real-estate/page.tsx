@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { HeroRealEstate } from "@/components/heroes/hero-real-estate";
+import { ScrollVideo } from "@/components/scroll-video";
+import { Eyebrow } from "@/components/eyebrow";
 import { OrderLink } from "@/components/order-link";
 import { ConsultCTA } from "@/components/consult-cta";
 import { FaqSection } from "@/components/faq-section";
@@ -19,41 +21,34 @@ export const metadata = {
 };
 
 const heroFrame = {
-  src: "/images/real-estate/18-lefever-ln-little-rock-beamed-great-room.jpg",
-  alt: "Designer furnished great room with exposed beams in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
-  caption: "18 Lefever Lane, Little Rock",
+  src: "/images/real-estate/little-rock-living-room.jpg",
+  alt: "Designer furnished great room with exposed beams in a single family listing in Little Rock, Arkansas",
 };
 
 const listingGallery = [
   {
-    src: "/images/real-estate/18-lefever-ln-little-rock-twilight-front.jpg",
-    alt: "Twilight exterior of a single family listing at 18 Lefever Lane in Little Rock, Arkansas, with the windows glowing",
-    caption: "Twilight, Little Rock",
+    src: "/images/real-estate/little-rock-twilight-exterior.jpg",
+    alt: "Twilight exterior of a single family listing in Little Rock, Arkansas, with the windows glowing",
   },
   {
-    src: "/images/real-estate/18-lefever-ln-little-rock-white-kitchen.jpg",
-    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood in a single family listing at 18 Lefever Lane in Little Rock, Arkansas",
-    caption: "Interiors, Little Rock",
+    src: "/images/real-estate/little-rock-kitchen.jpg",
+    alt: "Kitchen range wall with white subway tile, white upper cabinets, grey lower cabinets and a stainless range and hood in a single family listing in Little Rock, Arkansas",
   },
   {
-    src: "/images/real-estate/164-blue-heron-dr-hot-springs-lakefront-aerial.jpg",
-    alt: "Aerial photo of a lakefront estate listing at 164 Blue Heron Drive in Hot Springs, Arkansas, with the mountains behind it",
-    caption: "Aerial, Hot Springs",
+    src: "/images/real-estate/hot-springs-lake-aerial.jpg",
+    alt: "Aerial photo of a lakefront estate listing in Hot Springs, Arkansas, with the mountains behind it",
   },
   {
-    src: "/images/real-estate/164-blue-heron-dr-hot-springs-pool-over-lake.jpg",
+    src: "/images/real-estate/hot-springs-pool.jpg",
     alt: "Pool overlooking the lake at a waterfront home listing in Hot Springs, Arkansas",
-    caption: "Waterfront, Hot Springs",
   },
   {
-    src: "/images/real-estate/164-blue-heron-dr-hot-springs-two-story-great-room.jpg",
+    src: "/images/real-estate/hot-springs-living-room.jpg",
     alt: "Two story great room with lake facing windows in a waterfront home listing in Hot Springs, Arkansas",
-    caption: "Interiors, Hot Springs",
   },
   {
-    src: "/images/real-estate/10-recinto-way-hot-springs-village-golf-course-aerial.jpg",
-    alt: "Aerial photo over the golf course at 10 Recinto Way in Hot Springs Village, Arkansas, with homes set along the fairway and wooded hills behind",
-    caption: "Aerial, Hot Springs Village",
+    src: "/images/real-estate/hot-springs-village-aerial.jpg",
+    alt: "Aerial photo over the golf course in Hot Springs Village, Arkansas, with homes set along the fairway and wooded hills behind",
   },
 ];
 
@@ -97,6 +92,20 @@ export default function RealEstatePage() {
   return (
     <>
       <HeroRealEstate />
+
+      {/* ── VIDEO, PLAYED BY THE SCROLL ── */}
+      {/* Stand-in clip from one of our video tours until Thomas picks a drone clip. */}
+      <ScrollVideo
+        src="/images/real-estate/scroll/walk-up.mp4"
+        poster="/images/real-estate/scroll/walk-up-poster.jpg"
+        label="Listing video"
+      >
+        <Eyebrow>Listing video</Eyebrow>
+        <p className="mt-5 max-w-2xl font-display text-[clamp(28px,5vw,56px)] font-extralight leading-[1.05] tracking-tight text-fg">
+          Walk buyers up to the front door
+          <span className="text-fg-secondary"> before they ever book a showing.</span>
+        </p>
+      </ScrollVideo>
 
       {/* ── RECENT LISTINGS (REAL DELIVERED WORK) ── */}
       <section className="border-b border-white/5 py-24 md:py-32">

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { MobileMenu } from "./mobile-menu";
 
 // Real Estate is promoted to its own top-level link: the flagship service.
 // The remaining six property verticals live under "Explore" (labeled so
@@ -31,6 +32,9 @@ const browse = [
   { label: "Pricing", href: "/pricing" },
 ];
 
+const CONSULT_URL =
+  "https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc";
+
 const products = [
   {
     label: "The Spot Studios",
@@ -45,10 +49,9 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const productsRef = useRef<HTMLDivElement>(null);
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -76,6 +79,7 @@ export function Nav() {
   }, []);
 
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -220,7 +224,9 @@ export function Nav() {
           <button
             className="flex h-11 w-11 items-center justify-center text-fg-strong md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? (
               <X className="h-5 w-5" />
@@ -231,112 +237,15 @@ export function Nav() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="border-t border-border bg-[rgba(10,10,10,0.97)] px-6 py-8 backdrop-blur-2xl md:hidden">
-          <Link
-            href="/real-estate"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-fg hover:text-white"
-          >
-            Real Estate
-          </Link>
-
-          <button
-            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-            className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-fg-strong"
-          >
-            Explore
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-          {mobileServicesOpen && (
-            <div className="ml-4 border-l border-border pl-4">
-              {services.map((s) => (
-                <Link
-                  key={s.href}
-                  href={s.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-fg-secondary hover:text-white"
-                >
-                  {s.label}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          <button
-            onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-            className="flex min-h-[44px] w-full items-center justify-between py-3 text-sm uppercase tracking-[0.15em] text-fg-strong"
-          >
-            Products
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-          {mobileProductsOpen && (
-            <div className="ml-4 border-l border-border pl-4">
-              {products.map((p) =>
-                p.external ? (
-                  <a
-                    key={p.href}
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileOpen(false)}
-                    className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-fg-secondary hover:text-white"
-                  >
-                    {p.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={p.href}
-                    href={p.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.12em] text-fg-secondary hover:text-white"
-                  >
-                    {p.label}
-                  </Link>
-                ),
-              )}
-            </div>
-          )}
-
-          <Link
-            href="/gallery"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-fg-strong hover:text-white"
-          >
-            Gallery
-          </Link>
-
-          <Link
-            href="/pricing"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-fg-strong hover:text-white"
-          >
-            Pricing
-          </Link>
-
-          <a
-            href="https://api.leadconnectorhq.com/widget/booking/FYjHtkIcX1ebCSfCxQVc"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="block min-h-[44px] py-3 text-sm uppercase tracking-[0.15em] text-amber-200/80 hover:text-amber-200"
-          >
-            Free Consult
-          </a>
-          <Link
-            href="/book"
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 block w-full rounded bg-crimson py-3.5 text-center text-sm uppercase tracking-[0.15em] text-white"
-          >
-            Book Now
-          </Link>
-        </div>
-      )}
     </nav>
+    <MobileMenu
+      open={mobileOpen}
+      onClose={closeMobile}
+      primary={[{ label: "Real Estate", href: "/real-estate" }, ...browse]}
+      services={services}
+      products={products}
+      consultHref={CONSULT_URL}
+    />
+    </>
   );
 }

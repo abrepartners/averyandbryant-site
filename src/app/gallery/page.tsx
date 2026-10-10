@@ -4,6 +4,26 @@ import { GALLERY_VERTICALS, tileFor } from "@/lib/gallery";
 import curated from "../../../data/gallery-curated.json";
 import drone from "../../../data/drone-showcase.json";
 import { Eyebrow } from "@/components/eyebrow";
+import { VideoSamples, type VideoSample } from "@/components/video-samples";
+import { BeforeAfter, type BeforeAfterPair } from "@/components/before-after";
+
+const reels: VideoSample[] = [1, 2, 3].map((n) => ({
+  src: `/images/services/reels/reel-${n}.mp4`,
+  poster: `/images/services/reels/reel-${n}-poster.jpg`,
+  alt: "Vertical listing reel for Instagram and TikTok",
+}));
+
+const tours: VideoSample[] = [1, 2, 3].map((n) => ({
+  src: `/images/services/video-tours/tour-${n}.mp4`,
+  poster: `/images/services/video-tours/tour-${n}-poster.jpg`,
+  alt: "Cinematic listing video tour",
+}));
+
+const edits: BeforeAfterPair[] = [
+  { label: "Virtual staging", before: "/images/showcase-staging-before.jpg", after: "/images/showcase-staging-after.jpg", alt: "Empty room virtually staged" },
+  { label: "Cleanup", before: "/images/showcase-cleanup-before.jpg", after: "/images/showcase-cleanup-after.jpg", alt: "Listing photo cleaned up" },
+  { label: "Day to dusk", before: "/images/showcase-dusk-before.jpg", after: "/images/showcase-dusk-after.jpg", alt: "Daytime exterior turned to twilight" },
+];
 
 export const metadata = {
   alternates: { canonical: "/gallery" },
@@ -113,6 +133,48 @@ export default function GalleryPage() {
           </div>
         </section>
       )}
+
+      {/* Video, by format */}
+      <section className="border-t border-border py-16 md:py-20">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="mb-8">
+            <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
+              Listing reels
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-fg-secondary">
+              Vertical video for Instagram, TikTok and Facebook.
+            </p>
+          </div>
+          <VideoSamples videos={reels} vertical />
+
+          <div className="mb-8 mt-16">
+            <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
+              Video tours
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-fg-secondary">
+              Widescreen walkthroughs for the MLS, YouTube and the listing site.
+            </p>
+          </div>
+          <VideoSamples videos={tours} />
+        </div>
+      </section>
+
+      {/* Edits: drag to compare */}
+      <section className="border-t border-border py-16 md:py-20">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <div className="mb-8">
+            <h2 className="font-display text-[clamp(20px,3vw,32px)] font-extralight tracking-tight text-fg">
+              Before &amp; after
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-fg-secondary">
+              Virtual staging and photo edits. Drag the line to compare.
+            </p>
+          </div>
+          <div className="mx-auto max-w-[1080px]">
+            <BeforeAfter pairs={edits} sizes="(min-width: 1080px) 1080px, 100vw" />
+          </div>
+        </div>
+      </section>
 
       {/* Full portfolio grid, collapsed */}
       <section className="border-t border-border pt-16 pb-24 md:pt-20 md:pb-32">

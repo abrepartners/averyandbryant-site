@@ -52,9 +52,7 @@ export function HeroAirbnbRentals() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
-            Professional photos, drone, video tours, and twilight media for
-            Airbnb, VRBO, and short-term rental hosts across Arkansas. Turn
-            browsers into guests.
+            Photos, drone and video that turn browsers into booked guests.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">

@@ -3,7 +3,7 @@
  * public/images/commercial). Shared by /commercial and /gallery/commercial,
  * where it follows the order-tagged commercial shoots from Aryeo.
  */
-export type PortfolioShot = { src: string; alt: string; caption: string };
+export type PortfolioShot = { src: string; alt: string };
 export type PortfolioGroup = {
   label: string;
   /** Optional full-width frame that leads the group, for the strongest shot. */
@@ -16,34 +16,29 @@ export type PortfolioGroup = {
 // this page never had. The named tenants on the signage are tenants of the
 // property we photographed, not clients of ours, so no copy here says otherwise.
 export const commercialHeroFrame: PortfolioShot = {
-  src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-exterior.jpg",
-  alt: "Exterior of a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
-  caption: "Quick service restaurant, Maumelle",
+  src: "/images/commercial/maumelle-restaurant-exterior.jpg",
+  alt: "Exterior of a newly built quick service restaurant in Maumelle, Arkansas",
 };
 
 export const commercialGroups: PortfolioGroup[] = [
   {
     label: "Retail centers",
     lead: {
-      src: "/images/commercial/rose-city-center-north-little-rock-grocery-anchor-exterior.jpg",
+      src: "/images/commercial/north-little-rock-retail-exterior.jpg",
       alt: "Elevated three quarter view of the grocery anchor at Rose City Center in North Little Rock, Arkansas, with a tan stucco facade, green standing seam gables and a parking lot of cars and pickups under a blue sky",
-      caption: "Grocery anchor, North Little Rock",
     },
     shots: [
       {
-        src: "/images/commercial/rose-city-center-north-little-rock-overhead-site-aerial.jpg",
+        src: "/images/commercial/north-little-rock-site-aerial.jpg",
         alt: "Overhead drone photo of Rose City Center in North Little Rock, Arkansas, showing the white flat roofs of the strip and its grocery anchor, the full striped parking field, an out parcel building with a drive through lane, and a four lane highway along the bottom of the frame",
-        caption: "Site aerial, North Little Rock",
       },
       {
-        src: "/images/commercial/rose-city-center-north-little-rock-pylon-sign.jpg",
+        src: "/images/commercial/north-little-rock-signage.jpg",
         alt: "Elevated view of the Rose City Center pylon sign in North Little Rock, Arkansas, with a rose logo above stacked tenant panels, beside a highway with route markers and grain silos on the horizon",
-        caption: "Center signage, North Little Rock",
       },
       {
-        src: "/images/commercial/rose-city-center-north-little-rock-tenant-storefront.jpg",
+        src: "/images/commercial/north-little-rock-storefront.jpg",
         alt: "Angled ground level view along the red metal awning of the in line shops at Rose City Center in North Little Rock, Arkansas, with glass storefronts, brick bulkheads and red steel canopy posts receding to the right under a blue sky",
-        caption: "In line tenants, North Little Rock",
       },
     ],
   },
@@ -51,19 +46,16 @@ export const commercialGroups: PortfolioGroup[] = [
     label: "Hospitality and restaurants",
     shots: [
       {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-bar.jpg",
-        alt: "Restaurant bar with a pressed tin ceiling and warm lighting at 10 Anglers Way in Little Rock, Arkansas",
-        caption: "Bar, Little Rock",
+        src: "/images/commercial/little-rock-restaurant-bar.jpg",
+        alt: "Restaurant bar with a pressed tin ceiling and warm lighting in Little Rock, Arkansas",
       },
       {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-dining-room.jpg",
-        alt: "Bar with high stools, a pressed tin ceiling and framed memorabilia on exposed brick at 10 Anglers Way in Little Rock, Arkansas",
-        caption: "Bar seating, Little Rock",
+        src: "/images/commercial/little-rock-restaurant-dining-room.jpg",
+        alt: "Bar with high stools, a pressed tin ceiling and framed memorabilia on exposed brick in Little Rock, Arkansas",
       },
       {
-        src: "/images/commercial/10-anglers-way-little-rock-restaurant-entrance.jpg",
-        alt: "Covered entry with wood double doors and steakhouse signage etched on the glass at 10 Anglers Way in Little Rock, Arkansas",
-        caption: "Entrance, Little Rock",
+        src: "/images/commercial/little-rock-restaurant-entrance.jpg",
+        alt: "Covered entry with wood double doors and steakhouse signage etched on the glass in Little Rock, Arkansas",
       },
     ],
   },
@@ -71,19 +63,16 @@ export const commercialGroups: PortfolioGroup[] = [
     label: "Quick service and small retail",
     shots: [
       {
-        src: "/images/commercial/12401-maumelle-blvd-maumelle-restaurant-dining-room.jpg",
+        src: "/images/commercial/maumelle-restaurant-dining-room.jpg",
         alt: "Dining room with gold pendant lighting and booths inside a quick service restaurant in Maumelle, Arkansas",
-        caption: "Interior, Maumelle",
       },
       {
-        src: "/images/commercial/12401-maumelle-blvd-maumelle-drive-thru-exterior.jpg",
-        alt: "Side elevation and channel letter signage on a newly built quick service restaurant at 12401 Maumelle Boulevard in Maumelle, Arkansas",
-        caption: "Exterior signage, Maumelle",
+        src: "/images/commercial/maumelle-drive-thru-exterior.jpg",
+        alt: "Side elevation and channel letter signage on a newly built quick service restaurant in Maumelle, Arkansas",
       },
       {
-        src: "/images/commercial/4109-e-broadway-north-little-rock-retail-storefronts.jpg",
+        src: "/images/commercial/north-little-rock-retail-storefronts.jpg",
         alt: "Low aerial of a row of retail storefronts and the parking lot at a shopping center on East Broadway in North Little Rock, Arkansas",
-        caption: "Retail center, North Little Rock",
       },
     ],
   },
@@ -91,19 +80,16 @@ export const commercialGroups: PortfolioGroup[] = [
     label: "Historic and institutional",
     shots: [
       {
-        src: "/images/commercial/2400-w-31st-ave-pine-bluff-church-sanctuary.jpg",
+        src: "/images/commercial/pine-bluff-church-sanctuary.jpg",
         alt: "Church sanctuary with warm wood and pews at 2400 West 31st Avenue in Pine Bluff, Arkansas",
-        caption: "Sanctuary, Pine Bluff",
       },
       {
-        src: "/images/commercial/411-7th-st-little-rock-columned-portico.jpg",
+        src: "/images/commercial/little-rock-exterior.jpg",
         alt: "Columned portico and front lawn of a Greek Revival mansion at 411 7th Street in Little Rock, Arkansas",
-        caption: "Greek Revival mansion, Little Rock",
       },
       {
-        src: "/images/commercial/2400-w-31st-ave-pine-bluff-church-exterior.jpg",
+        src: "/images/commercial/pine-bluff-church-exterior.jpg",
         alt: "Brick church exterior photographed under a clear sky in Pine Bluff, Arkansas",
-        caption: "Church exterior, Pine Bluff",
       },
     ],
   },
@@ -111,19 +97,16 @@ export const commercialGroups: PortfolioGroup[] = [
     label: "Aerial and site context",
     shots: [
       {
-        src: "/images/commercial/111-smarthouse-way-north-little-rock-skyline-aerial.jpg",
+        src: "/images/commercial/north-little-rock-skyline-aerial.jpg",
         alt: "Aerial photo over the Arkansas River showing the Little Rock skyline and its bridges, from a commercial shoot in North Little Rock, Arkansas",
-        caption: "River and skyline, North Little Rock",
       },
       {
-        src: "/images/commercial/4109-e-broadway-north-little-rock-retail-center-aerial.jpg",
+        src: "/images/commercial/north-little-rock-retail-center-aerial.jpg",
         alt: "Aerial photo of a retail strip center and its parking field in North Little Rock, Arkansas",
-        caption: "Retail center aerial, North Little Rock",
       },
       {
-        src: "/images/commercial/411-7th-st-little-rock-mansion-and-skyline.jpg",
+        src: "/images/commercial/little-rock-skyline-aerial.jpg",
         alt: "Aerial photo over a historic Little Rock neighborhood with the downtown skyline behind it, from a shoot at 411 7th Street",
-        caption: "Downtown aerial, Little Rock",
       },
     ],
   },

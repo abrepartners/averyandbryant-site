@@ -36,11 +36,7 @@ export function HeroBranding() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
-            Two sessions are simple enough to price on a page, so they are
-            priced on this page: a $95 headshot and a $299 brand session, both
-            shot in our Little Rock studio. Content days, team days and ongoing
-            work get built around you on a free call, because a single printed
-            number would be wrong for almost everyone who reads it.
+            A $95 headshot or a $299 brand session in our Little Rock studio. Bigger shoots get planned on a free call.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">

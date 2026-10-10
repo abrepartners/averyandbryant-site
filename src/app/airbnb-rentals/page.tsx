@@ -17,12 +17,11 @@ export const metadata = {
 };
 
 const heroFrame = {
-  src: "/images/airbnb-rentals/326-houston-dr-hot-springs-cabin-living-room.jpg",
-  alt: "Styled living room with a wood plank ceiling, a sectional sofa and a wall of windows onto the deck in a short term rental cabin at 326 Houston Drive in Hot Springs, Arkansas",
-  caption: "326 Houston Drive, Hot Springs",
+  src: "/images/airbnb-rentals/hot-springs-living-room.jpg",
+  alt: "Styled living room with a wood plank ceiling, a sectional sofa and a wall of windows onto the deck in a short term rental cabin in Hot Springs, Arkansas",
 };
 
-type RentalShot = { src: string; alt: string; caption: string };
+type RentalShot = { src: string; alt: string };
 type RentalGroup = { label: string; note: string; shots: RentalShot[] };
 
 /**
@@ -42,19 +41,16 @@ const rentalGroups: RentalGroup[] = [
     note: "Timber, bunks and a covered deck, plus the aerial that sells the water.",
     shots: [
       {
-        src: "/images/airbnb-rentals/326-houston-dr-hot-springs-bunk-room.jpg",
+        src: "/images/airbnb-rentals/hot-springs-bunk-room.jpg",
         alt: "Bunk room with log beds in a short term rental lake cabin in Hot Springs, Arkansas",
-        caption: "Sleeps more, Hot Springs",
       },
       {
-        src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lakeside-deck-dining.jpg",
+        src: "/images/airbnb-rentals/hot-springs-deck.jpg",
         alt: "Covered deck with wood chairs and a table under a timber ceiling at a short term rental cabin in Hot Springs, Arkansas",
-        caption: "Covered deck, Hot Springs",
       },
       {
-        src: "/images/airbnb-rentals/326-houston-dr-hot-springs-lake-cabin-aerial.jpg",
+        src: "/images/airbnb-rentals/hot-springs-aerial.jpg",
         alt: "Aerial photo of a wooded lakefront lined with covered boat docks in Hot Springs, Arkansas, with the mountains on the horizon",
-        caption: "Lakefront aerial, Hot Springs",
       },
     ],
   },
@@ -63,14 +59,12 @@ const rentalGroups: RentalGroup[] = [
     note: "Hotel clean, shot tight, for a guest comparing listings on a phone.",
     shots: [
       {
-        src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-guest-bedroom.jpg",
-        alt: "Guest bedroom made up with white hotel bedding in a short term rental at 3714 Idlewild Avenue in North Little Rock, Arkansas",
-        caption: "Guest bedroom, North Little Rock",
+        src: "/images/airbnb-rentals/north-little-rock-guest-bedroom.jpg",
+        alt: "Guest bedroom made up with white hotel bedding in a short term rental in North Little Rock, Arkansas",
       },
       {
-        src: "/images/airbnb-rentals/3714-idlewild-ave-north-little-rock-marble-shower.jpg",
+        src: "/images/airbnb-rentals/north-little-rock-bathroom.jpg",
         alt: "Marble shower with a folded towel niche in a short term rental in North Little Rock, Arkansas",
-        caption: "Bath detail, North Little Rock",
       },
     ],
   },
@@ -81,17 +75,14 @@ const rentalGroups: RentalGroup[] = [
       {
         src: "/images/airbnb-rentals/neutral-luxe-rental-primary-bedroom-canopy-bed.jpg",
         alt: "Primary bedroom in a short term rental, with a cane canopy bed, layered cream bedding and a glass balcony door behind full length drapes",
-        caption: "Primary bedroom",
       },
       {
         src: "/images/airbnb-rentals/neutral-luxe-rental-living-room-sectional.jpg",
         alt: "Living room in a short term rental, with a cream sectional under a large gold framed canvas and a round fluted white coffee table",
-        caption: "Living space",
       },
       {
         src: "/images/airbnb-rentals/neutral-luxe-rental-two-tone-kitchen.jpg",
         alt: "Kitchen in a short term rental, with cream upper cabinets over stained oak lowers, white subway tile, quartz counters and a stainless range",
-        caption: "Kitchen",
       },
     ],
   },
@@ -102,17 +93,14 @@ const rentalGroups: RentalGroup[] = [
       {
         src: "/images/airbnb-rentals/glass-sunroom-rental-living-area-fall-woods.jpg",
         alt: "Glass walled sunroom in a short term rental, with a leather sofa, velvet chairs, and fall woods and a neighboring house beyond the glass",
-        caption: "Sunroom, glass on three sides",
       },
       {
         src: "/images/airbnb-rentals/glass-sunroom-rental-wood-stove-green-tile.jpg",
         alt: "Short term rental sunroom, with emerald velvet chairs beside a lit wood stove on a glossy green tile wall and firewood stacked alongside",
-        caption: "Wood stove and green tile",
       },
       {
         src: "/images/airbnb-rentals/glass-sunroom-rental-dining-table-glass-wall.jpg",
         alt: "Dining end of the sunroom, with a black table and amber chairs at a full height glass wall facing a neighboring two story house",
-        caption: "Dining, glass wall",
       },
     ],
   },
@@ -123,17 +111,14 @@ const rentalGroups: RentalGroup[] = [
       {
         src: "/images/airbnb-rentals/stilt-cabin-rental-exterior-fire-pit.jpg",
         alt: "Modern short term rental cabin on black steel stilts in a fall oak forest, with a cable rail deck and a stone fire pit",
-        caption: "Cabin on stilts",
       },
       {
         src: "/images/airbnb-rentals/stilt-cabin-rental-deck-lounge-fall-canopy.jpg",
         alt: "Deck of the stilt cabin rental, with a rope daybed and striped chairs behind cable railing, under a thinning oak canopy and open sky",
-        caption: "Deck, fall canopy",
       },
       {
         src: "/images/airbnb-rentals/stilt-cabin-rental-bedroom-open-deck-doors.jpg",
         alt: "Open plan interior of the stilt cabin rental, with a king bed, a curved olive sofa and sliding doors open onto the deck",
-        caption: "Bed, sofa, open doors",
       },
     ],
   },

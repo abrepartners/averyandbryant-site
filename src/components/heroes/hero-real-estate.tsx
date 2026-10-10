@@ -74,8 +74,7 @@ export function HeroRealEstate() {
         </h1>
 
         <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
-          HDR photography, cinematic video tours, aerial drone, 3D virtual
-          tours, and floor plans. Everything your listing needs to stand out.
+          HDR photos, video, drone, 3D tours and floor plans for your listing.
         </p>
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">

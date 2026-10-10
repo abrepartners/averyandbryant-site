@@ -44,7 +44,7 @@ const photoSamples = PHOTO_SAMPLE_HOMES.flatMap((id) => {
     {
       src: cover.medium ?? cover.url,
       label: `${home.label}, ${home.city}`,
-      alt: `Front exterior of ${home.street ? `${home.street}, ` : ""}${home.city}, Arkansas, photographed for the listing`,
+      alt: `Front exterior of a home listing in ${home.city}, Arkansas, photographed by Avery & Bryant`,
     },
   ];
 });
@@ -302,23 +302,22 @@ const brokerageMarks = [
 // and already ship on the Real Estate page. Reels, tours and plans are shown
 // by service in the section below rather than attributed to this listing.
 const oneProject = {
-  address: "164 Blue Heron Drive, Hot Springs",
   assets: [
     {
-      src: "/images/real-estate/164-blue-heron-dr-hot-springs-pool-over-lake.jpg",
+      src: "/images/real-estate/hot-springs-pool.jpg",
       alt: "Pool overlooking the lake at a waterfront home listing in Hot Springs, Arkansas",
       job: "Get attention",
       note: "The cover photo. The one frame that earns the click on Zillow, the MLS and social.",
     },
     {
-      src: "/images/real-estate/164-blue-heron-dr-hot-springs-two-story-great-room.jpg",
+      src: "/images/real-estate/hot-springs-living-room.jpg",
       alt: "Two story great room with lake facing windows in a waterfront home listing in Hot Springs, Arkansas",
       job: "Explain the layout",
       note: "Interior HDR photos, and on larger packages a floor plan and 3D tour, answer how the house lives.",
     },
     {
-      src: "/images/real-estate/164-blue-heron-dr-hot-springs-lakefront-aerial.jpg",
-      alt: "Aerial photo of a lakefront estate listing at 164 Blue Heron Drive in Hot Springs, Arkansas, with the mountains behind it",
+      src: "/images/real-estate/hot-springs-lake-aerial.jpg",
+      alt: "Aerial photo of a lakefront estate listing in Hot Springs, Arkansas, with the mountains behind it",
       job: "Show the context",
       note: "Drone aerials put the lot, the water and the neighborhood in one frame.",
     },
@@ -509,8 +508,7 @@ export default function HomePage() {
             One project
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
-            See what one listing becomes.{" "}
-            <span className="text-fg-secondary">{oneProject.address}.</span>
+            See what one listing becomes.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
             Every asset from a shoot has a job. Here are three from one

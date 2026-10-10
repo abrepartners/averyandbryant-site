@@ -39,7 +39,7 @@ export const metadata = {
     url: "/zillow-showcase",
     siteName: "Avery & Bryant",
     images: [
-      "/images/zillow-showcase/69-mountain-brook-little-rock-marble-island-kitchen.jpg",
+      "/images/zillow-showcase/little-rock-kitchen-2.jpg",
     ],
   },
 };
