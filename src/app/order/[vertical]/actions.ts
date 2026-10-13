@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { ORDER_FORMS, type Vertical } from "@/lib/order-forms";
+import { ORDER_FORMS, orderFormUrl, type Vertical } from "@/lib/order-forms";
 import { AryeoApiError, createOrderFormSession } from "@/lib/aryeo";
 
 export type OrderState = {
@@ -40,10 +40,13 @@ export async function submitOrder(
     });
   } catch (err) {
     if (err instanceof AryeoApiError) {
-      console.error("[order] Aryeo error", err.status, err.body);
-    } else {
-      console.error("[order] unexpected error", err);
+      // A session can fail for a form Aryeo will not pre-fill (for example a
+      // private form). The booking page itself still works by link, so send
+      // the visitor straight there instead of showing an error (2026-10-13).
+      console.error("[order] Aryeo error, falling back to the form link", err.status, err.body);
+      redirect(orderFormUrl(vertical));
     }
+    console.error("[order] unexpected error", err);
     return {
       error:
         "We couldn't start your order. Please try again or call (501) 502-2925.",

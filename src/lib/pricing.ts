@@ -86,13 +86,17 @@ export const realEstatePricing: VerticalPricing = {
       priceBasis: "starting at",
       keyInclusions: [
         "25+ HDR photos",
+        "Aerial drone photos",
         "2D floor plan",
+        "Proximity map",
         "3 social graphics (Just Listed, Open House, Price Drop)",
         "MLS-ready property description",
       ],
       valueItems: [
         { label: "25+ HDR Professional Photos", value: "$185" },
+        { label: "Aerial Drone Photos", value: "$115" },
         { label: "2D Floor Plan", value: "$99" },
+        { label: "Proximity Map", value: "$39" },
         {
           label: "3 Social Graphics (Just Listed / Open House / Price Drop)",
           value: "$149",
@@ -114,8 +118,8 @@ export const realEstatePricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$706",
-      savings: "Save $407",
+      totalValue: "$860",
+      savings: "Save $561",
     },
     {
       name: "Listing Domination System",
@@ -128,17 +132,22 @@ export const realEstatePricing: VerticalPricing = {
       keyInclusions: [
         "40+ HDR photos",
         "Aerial drone photos + video",
-        "3D virtual tour",
+        "Zillow 3D Home tour with interactive floor plan",
         "1 Cinematic Listing Reel",
+        "Virtual twilight hero image",
       ],
       stepUp:
-        "Adds to the Launch Kit: 15 more photos, drone, the 3D tour, one reel and the Seller Wow Report.",
+        "Adds to the Launch Kit: 15 more photos, drone video, the Zillow 3D tour, one reel, a virtual twilight hero and the Seller Wow Report.",
       valueItems: [
-        { label: "Everything in Listing Launch Kit", value: "$706" },
+        { label: "Everything in Listing Launch Kit", value: "$860" },
         { label: "Upgrade to 40+ HDR Photos", value: "$30" },
-        { label: "Aerial Drone Photos + Video", value: "$150" },
-        { label: "3D Virtual Tour", value: "$299" },
+        { label: "Add Aerial Drone Video", value: "$35" },
+        {
+          label: "Zillow 3D Home tour with interactive floor plan",
+          value: "$149",
+        },
         { label: "1 Cinematic Listing Reel", value: "$195" },
+        { label: "Virtual Twilight Hero Image", value: "$39" },
         {
           label:
             "Seller Wow Report, branded PDF of all marketing for your seller",
@@ -146,8 +155,8 @@ export const realEstatePricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$1,479",
-      savings: "Save $980",
+      totalValue: "$1,407",
+      savings: "Save $908",
     },
     {
       name: "Market Takeover Blueprint",
@@ -157,13 +166,14 @@ export const realEstatePricing: VerticalPricing = {
         "Running a full launch campaign: cinematic video, four reels, staging and a property website",
       priceBasis: "starting at",
       keyInclusions: [
+        "50+ HDR photos",
         "Cinematic property video (60 to 90s)",
         "4 reels total: Cinematic Listing, Trailer-style (:10 to :15), Viral-style (with the realtor), Lifestyle (neighborhood)",
         "Virtual staging (3 rooms)",
         "Single-property website",
       ],
       stepUp:
-        "Adds to Domination: the cinematic video, three more reels (4 total), 3 staged rooms, a property website and 2 presentation graphics.",
+        "Adds to Domination: 10 more photos, the cinematic video, three more reels (4 total), 3 staged rooms, a second twilight image, a property website and 2 presentation graphics.",
       // Ruling (Thomas, 2026-09-21): Takeover carries exactly four reels. The
       // Cinematic Listing Reel is inherited from Domination; the other three
       // are listed here. Never present this as 5 reels.
@@ -173,8 +183,9 @@ export const realEstatePricing: VerticalPricing = {
       valueItems: [
         {
           label: "Everything in Listing Domination System",
-          value: "$1,479",
+          value: "$1,407",
         },
+        { label: "Upgrade to 50+ HDR Photos", value: "$50" },
         { label: "Cinematic Property Video (60-90s)", value: "$295" },
         {
           label:
@@ -182,6 +193,7 @@ export const realEstatePricing: VerticalPricing = {
           value: "$595",
         },
         { label: "Virtual Staging (3 rooms)", value: "$147" },
+        { label: "Second Virtual Twilight Image", value: "$39" },
         {
           label: "Single-Property Website",
           value: "$149",
@@ -193,8 +205,8 @@ export const realEstatePricing: VerticalPricing = {
           isBonus: true,
         },
       ],
-      totalValue: "$2,764",
-      savings: "Save $1,915",
+      totalValue: "$2,781",
+      savings: "Save $1,932",
     },
   ],
   enhancementPacks: [
