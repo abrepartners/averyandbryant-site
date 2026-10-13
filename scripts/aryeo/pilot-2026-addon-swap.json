@@ -1,0 +1,13 @@
+{
+  "_note": "Pilot form add-on swap 2026-10-13: replace the two kept August add-ons with their 2026 catalog versions ($150 / $245). Products untouched.",
+  "form_id": "01a03823-e64f-7178-b97b-af50681d3f8d",
+  "form_addons_add": [
+    "2026 — Drone Flyover Video",
+    "2026 — Real Twilight Shoot"
+  ],
+  "form_addons_remove": [
+    "Aerial Drone Video",
+    "Real Twilight"
+  ],
+  "products": []
+}

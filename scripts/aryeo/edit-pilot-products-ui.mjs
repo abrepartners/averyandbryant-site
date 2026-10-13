@@ -4,7 +4,7 @@
  * description, price) and rewire the pilot order form's add-on list, through the
  * admin dashboard UI (the public API is READ-ONLY for products and forms).
  *
- * Manifest: scripts/aryeo/pilot-2026-products.json (ids are explicit: this script
+ * Manifest: scripts/aryeo/pilot-2026-products.json, or --manifest <path> (ids are explicit: this script
  * only ever opens the edit pages named in the manifest).
  *
  * Steps per product (edit page /admin/products/{id}/edit):
@@ -34,7 +34,7 @@ const DRY_RUN = args.includes("--dry-run");
 const ONLY = argValue("--only");
 const SHOTS = argValue("--shots");
 if (!PROFILE) { console.error("--profile <copied chromium profile> is required"); process.exit(2); }
-const manifest = JSON.parse(readFileSync(join(HERE, "pilot-2026-products.json"), "utf8"));
+const manifest = JSON.parse(readFileSync(argValue("--manifest") || join(HERE, "pilot-2026-products.json"), "utf8"));
 
 const { chromium } = await import(PLAYWRIGHT);
 const ctx = await chromium.launchPersistentContext(PROFILE, { headless: true, viewport: { width: 1280, height: 900 } });
