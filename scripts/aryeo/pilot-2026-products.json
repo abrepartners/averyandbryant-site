@@ -1,0 +1,33 @@
+{
+  "form_id": "01a03823-e64f-7178-b97b-af50681d3f8d",
+  "form_addons_add": [
+    "2026 — Social Reel (single)",
+    "2026 — Aerial Drone Photos + Video",
+    "2026 — Zillow 3D Tour + Interactive Floor Plan",
+    "2026 — Proximity Map"
+  ],
+  "form_addons_remove": ["Social Reel", "Aerial Drone Photos"],
+  "products": [
+    {
+      "id": "01a036a7-55e1-7150-9052-6e1b92f927d4",
+      "old_title": "Listing Essentials",
+      "title": "Listing Launch Kit",
+      "price": 299,
+      "description": "Everything a listing needs to go live.\n\nIncludes:\n- 25 to 30 HDR photos\n- Aerial drone photos\n- 2D floor plan (free)\n- Proximity map\n- 3 social graphics (Just Listed, Open House, Price Drop)\n- MLS-ready property description\n\nPhotos within 48 hours. Satisfaction Reshoot Guarantee.\nStarting price; oversized properties quoted at booking."
+    },
+    {
+      "id": "01a036ac-3ece-710e-8756-b33f108e654e",
+      "old_title": "Listing Complete",
+      "title": "Listing Domination System",
+      "price": 499,
+      "description": "Our most popular package. Everything in the Launch Kit plus:\n\n- 40 to 50 HDR photos\n- Aerial drone photos and video\n- Zillow 3D Home tour with interactive floor plan\n- Social listing reel\n- Virtual twilight hero image\n- Seller Wow Report\n\nPhotos within 48 hours. Satisfaction Reshoot Guarantee."
+    },
+    {
+      "id": "01a036b3-4de0-7198-a238-d3f811a17b79",
+      "old_title": "Listing Signature",
+      "title": "Market Takeover Blueprint",
+      "price": 849,
+      "description": "Every listing is an event. Everything in Domination plus:\n\n- 50 to 60 HDR photos\n- Cinematic property video, 60 to 90 seconds (branded and unbranded)\n- 4 reels in total (cinematic listing, trailer, viral with the agent, lifestyle)\n- Virtual staging for 3 rooms\n- A second virtual twilight image\n- Single-property website\n- 2 listing presentation graphics\n\nPhotos and video within 48 hours. Satisfaction Reshoot Guarantee."
+    }
+  ]
+}
