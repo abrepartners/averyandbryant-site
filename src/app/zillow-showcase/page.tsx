@@ -77,9 +77,15 @@ const showcaseSteps: ScrollStep[] = [
     title: "Listing photos",
     body: "Zillow asks for at least 10 photos showing at least 3 distinct interior rooms. We shoot them in the same visit as the tour, so furniture and finishes match everywhere.",
     media: {
-      kind: "image",
-      src: "/images/zillow-showcase/little-rock-living-room.jpg",
-      alt: "Living room with exposed wood beams and a view into the kitchen, photographed by Avery & Bryant",
+      kind: "gallery",
+      caption: "One home, one visit",
+      photos: [
+        { src: "/images/zillow-showcase/little-rock-front-exterior.jpg", alt: "Front exterior of a Little Rock home photographed by Avery & Bryant" },
+        { src: "/images/zillow-showcase/little-rock-living-room.jpg", alt: "Living room with exposed wood beams and a view into the kitchen" },
+        { src: "/images/zillow-showcase/little-rock-kitchen.jpg", alt: "Kitchen in the same Little Rock home" },
+        { src: "/images/zillow-showcase/little-rock-kitchen-2.jpg", alt: "Second angle of the same kitchen" },
+        { src: "/images/zillow-showcase/little-rock-bathroom.jpg", alt: "Bathroom in the same Little Rock home" },
+      ],
     },
   },
   {
@@ -91,6 +97,7 @@ const showcaseSteps: ScrollStep[] = [
       src: "/images/services/3d-tours/tour3d-2.mp4",
       poster: "/images/services/3d-tours/tour3d-2-poster.jpg",
       alt: "Moving through a Zillow 3D Home tour captured by Avery & Bryant",
+      framed: true,
     },
   },
   {
@@ -101,16 +108,22 @@ const showcaseSteps: ScrollStep[] = [
       kind: "image",
       src: "/images/zillow-showcase/benton-floor-plan.jpg",
       alt: "Zillow floor plan with room dimensions for a new construction home in Benton, Arkansas",
+      fit: "contain",
     },
   },
   {
     number: "04",
     title: "Booked right inside Zillow",
-    body: `After buying Showcase, the agent orders "${SHOWCASE_PRODUCT_NAME}" from Avery & Bryant in Zillow's Showcase ordering platform. Or book it with us here.`,
+    body: `This is the agent's side. After buying Showcase for a listing, the agent picks Avery & Bryant as the photographer and orders "${SHOWCASE_PRODUCT_NAME}" right there. Or book it with us here.`,
     media: {
-      kind: "image",
-      src: "/images/zillow-showcase/benton-new-build-front-porch.jpg",
-      alt: "Brick front porch with three arched wood double doors on a new construction home in Benton, Arkansas",
+      kind: "path",
+      label: "What the agent does",
+      items: [
+        "Buys Showcase for the listing from Zillow",
+        "Picks Avery & Bryant as the photographer",
+        `Orders "${SHOWCASE_PRODUCT_NAME}"`,
+        "We shoot and upload. Showcase goes live with the MLS listing",
+      ],
     },
   },
 ];
