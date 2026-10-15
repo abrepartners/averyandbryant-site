@@ -3,6 +3,7 @@ import { FaqSection } from "@/components/faq-section";
 import { ZillowTourEmbed } from "@/components/zillow-tour";
 import { FEATURED_LIVE_TOUR } from "@/lib/live-tours";
 import { Eyebrow } from "@/components/eyebrow";
+import { ScrollSteps, type ScrollStep } from "@/components/scroll-steps";
 
 // Showcase package price, approved for display by Thomas 2026-10-09. Every
 // mention on this page reads from this one constant.
@@ -44,15 +45,6 @@ export const metadata = {
   },
 };
 
-// Zillow's media requirements for a Showcase listing (Aryeo Showcase
-// photographer resource center, checked 2026-10-09).
-const requirements = [
-  "At least 10 photos showing at least 3 distinct interior rooms.",
-  "A Zillow 3D Home tour, captured in the Zillow 3D Home app.",
-  "An interactive floor plan, which Zillow creates from that 3D Home capture.",
-  "Matterport tours and other floor plans do not count toward Showcase.",
-];
-
 const packageIncludes = [
   "Listing photography that meets Zillow's Showcase minimum: at least 10 photos covering at least 3 interior rooms.",
   "A Zillow 3D Home tour, captured in the same visit as the photos.",
@@ -75,24 +67,51 @@ const floorPlanStats = [
   { value: "47%", label: "more shares" },
 ];
 
-const steps = [
+// The four parts of a Showcase listing, in the order a buyer meets them.
+// Media rules: Aryeo Showcase photographer resource center and Zillow's
+// Showcase pages, checked 2026-10-09. The floor plan is Zillow's, from the
+// same Benton home as the live tour, cropped so no street prints.
+const showcaseSteps: ScrollStep[] = [
   {
     number: "01",
-    title: "The agent buys Showcase",
-    description:
-      "Showcase is purchased from Zillow by the listing agent, directly or through a brokerage agreement. Zillow sets that fee and bills the agent.",
+    title: "Listing photos",
+    body: "Zillow asks for at least 10 photos showing at least 3 distinct interior rooms. We shoot them in the same visit as the tour, so furniture and finishes match everywhere.",
+    media: {
+      kind: "image",
+      src: "/images/zillow-showcase/little-rock-living-room.jpg",
+      alt: "Living room with exposed wood beams and a view into the kitchen, photographed by Avery & Bryant",
+    },
   },
   {
     number: "02",
-    title: "Book Avery & Bryant",
-    description:
-      "Order our Showcase package directly inside Zillow's Showcase ordering platform, or book it with us here. Either way, one visit covers it.",
+    title: "A Zillow 3D Home tour",
+    body: "Captured in the Zillow 3D Home app with a 360 camera. Matterport and other tours do not count toward Showcase.",
+    media: {
+      kind: "video",
+      src: "/images/services/3d-tours/tour3d-2.mp4",
+      poster: "/images/services/3d-tours/tour3d-2-poster.jpg",
+      alt: "Moving through a Zillow 3D Home tour captured by Avery & Bryant",
+    },
   },
   {
     number: "03",
-    title: "We capture and deliver",
-    description:
-      "We shoot the photos and the Zillow 3D Home tour in the same visit, Zillow creates the interactive floor plan from our capture, and we deliver the media for the Showcase listing.",
+    title: "An interactive floor plan",
+    body: "Zillow builds it from our 3D Home capture, room by room with dimensions. Floor plans from other tools do not count toward Showcase.",
+    media: {
+      kind: "image",
+      src: "/images/zillow-showcase/benton-floor-plan.jpg",
+      alt: "Zillow floor plan with room dimensions for a new construction home in Benton, Arkansas",
+    },
+  },
+  {
+    number: "04",
+    title: "Booked right inside Zillow",
+    body: `After buying Showcase, the agent orders "${SHOWCASE_PRODUCT_NAME}" from Avery & Bryant in Zillow's Showcase ordering platform. Or book it with us here.`,
+    media: {
+      kind: "image",
+      src: "/images/zillow-showcase/benton-new-build-front-porch.jpg",
+      alt: "Brick front porch with three arched wood double doors on a new construction home in Benton, Arkansas",
+    },
   },
 ];
 
@@ -174,68 +193,21 @@ export default function ZillowShowcasePage() {
         </div>
       </section>
 
-      {/* What Showcase requires */}
-      <section className="border-b border-border py-16 md:py-24">
-        <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:grid-cols-2 md:px-12">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
-              The requirement
-            </p>
-            <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
-              What Zillow asks for in a Showcase listing.
-            </h2>
-            <p className="mt-5 leading-relaxed text-fg-secondary">
-              The listing agent buys Showcase from Zillow. What Zillow asks of
-              the photographer is the media, and agents are free to choose who
-              captures it.
-            </p>
-          </div>
-          <div className="space-y-5 text-fg-secondary">
-            <ul className="space-y-3">
-              {requirements.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 rounded-lg border border-white/5 bg-card p-5 text-sm leading-relaxed"
-                >
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="leading-relaxed">
-              We capture the photos and the 3D Home tour in the same visit, so
-              furniture and finishes match across every image and the tour.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
+      {/* What Showcase needs: pinned media beside scrolling steps */}
       <section className="border-b border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
-            How it works
+            The requirement
           </p>
-          <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-extralight tracking-tight text-fg">
-            Three steps to Showcase-ready media.
+          <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
+            What a Showcase listing needs, from one visit.
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {steps.map((step) => (
-              <div
-                key={step.number}
-                className="rounded-lg border border-white/5 bg-card p-8 transition-colors hover:border-crimson/20"
-              >
-                <span className="font-display text-4xl font-extralight text-crimson">
-                  {step.number}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-medium text-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+          <p className="mt-5 max-w-xl leading-relaxed text-fg-secondary">
+            The listing agent buys Showcase from Zillow. Zillow asks the
+            photographer for the media, and agents choose who captures it.
+          </p>
+          <div className="mt-12 md:mt-4">
+            <ScrollSteps steps={showcaseSteps} />
           </div>
         </div>
       </section>
