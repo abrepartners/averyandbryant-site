@@ -107,6 +107,7 @@ export async function startHomeBooking(
         phone: str(formData, "phone") || undefined,
       },
       address: address ?? undefined,
+      keepAddressStep: true,
     });
   } catch (err) {
     if (err instanceof AryeoApiError) {

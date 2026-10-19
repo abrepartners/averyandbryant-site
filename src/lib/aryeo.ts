@@ -28,6 +28,11 @@ export type CreateSessionInput = {
   customer?: CustomerInput;
   address?: AddressInput;
   successUrl?: string;
+  /**
+   * Keep Aryeo's address step on screen even when the address is pre-filled.
+   * That step also asks the home size, which drives the size-priced products.
+   */
+  keepAddressStep?: boolean;
 };
 
 export class AryeoApiError extends Error {
@@ -56,6 +61,7 @@ export async function createOrderFormSession({
   customer,
   address,
   successUrl,
+  keepAddressStep,
 }: CreateSessionInput): Promise<string> {
   const apiKey = process.env.ARYEO_API_KEY;
   if (!apiKey) {
@@ -82,6 +88,9 @@ export async function createOrderFormSession({
     }
   }
   if (successUrl) body.success_url = successUrl;
+  if (keepAddressStep && body.address_data) {
+    body.step_visibility = { show_address_step: true };
+  }
 
   const res = await fetch(`${API_BASE_URL}/order-form-sessions`, {
     method: "POST",
