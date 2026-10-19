@@ -64,7 +64,7 @@ const verticals: {
     range: "From $299",
     rangeBasis: "per shoot",
     description:
-      "HDR photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 48-hour delivery.",
+      "Professional photos, aerial drone, cinematic video, virtual tours, floor plans, and social reels. 48-hour delivery.",
     packages: rows(realEstatePricing.packages),
     samples: "/gallery/real-estate",
   },

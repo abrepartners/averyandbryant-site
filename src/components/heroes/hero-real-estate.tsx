@@ -74,12 +74,12 @@ export function HeroRealEstate() {
         </h1>
 
         <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-secondary md:text-lg">
-          HDR photos, video, drone, 3D tours and floor plans for your listing.
+          Photos, video, drone, 3D tours and floor plans for your listing.
         </p>
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">
           <Link
-            href="/order/real-estate"
+            href="/book/home"
             className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
           >
             Book a Shoot

@@ -191,7 +191,7 @@ export default function ZillowShowcasePage() {
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/book"
+              href="/book/home"
               className="inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book Showcase Media
@@ -273,7 +273,7 @@ export default function ZillowShowcasePage() {
                 Showcase.
               </p>
               <Link
-                href="/book"
+                href="/book/home"
                 className="mt-8 inline-flex items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
               >
                 Book Showcase Media
@@ -412,7 +412,7 @@ export default function ZillowShowcasePage() {
             Going Showcase? Book the media in one visit.
           </h2>
           <Link
-            href="/book"
+            href="/book/home"
             className="mt-8 inline-block rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
           >
             Book Showcase Media

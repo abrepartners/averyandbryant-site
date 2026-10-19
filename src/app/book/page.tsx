@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 export const metadata = {
   alternates: { canonical: "/book" },
   title: "Book a Shoot | Little Rock & Central Arkansas | Avery & Bryant",
   description:
-    "Book professional real estate media across Central Arkansas. HDR photography, drone, video tours, and more. Book online in under 2 minutes.",
+    "Book professional real estate media across Central Arkansas. Listing photography, drone, video tours, and more. Book online in under 2 minutes.",
 };
 
 const expectations = [
@@ -40,16 +41,17 @@ export default function BookPage() {
       {/* Booking Card */}
       <section className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-[480px] px-6 md:px-12">
-          {/* Central Arkansas */}
-          <a
-            href="https://homes.averyandbryant.com/order"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Home listing */}
+          <Link
+            href="/book/home"
             className="group block rounded-lg border border-white/5 bg-card p-10 text-center transition-all hover:border-crimson/30 hover:bg-crimson/5 md:p-12"
           >
             <h2 className="font-display text-2xl font-extralight text-fg transition-colors group-hover:text-crimson md:text-3xl">
-              Central Arkansas
+              Home listing
             </h2>
+            <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
+              See your exact price by home size, then pick your date.
+            </p>
             <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
               Little Rock, Benton, Conway, Hot Springs & surrounding areas
             </p>
@@ -58,9 +60,22 @@ export default function BookPage() {
               <p>(501) 502-2925</p>
             </div>
             <div className="mt-8 inline-block rounded bg-crimson px-10 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all group-hover:bg-crimson-dark group-hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]">
-              Book a Shoot
+              Book a listing shoot
             </div>
-          </a>
+          </Link>
+          <div className="mt-8 text-sm text-fg-secondary">
+            <h2 className="text-fg">Other property types</h2>
+            <ul className="mt-3 space-y-3">
+              {[
+                ["/order/airbnb-rentals", "Airbnb and rentals"],
+                ["/order/multi-family", "Multi-family"],
+                ["/order/lot-land", "Lots and land"],
+                ["/order/builders", "Builders and business"],
+              ].map(([href, label]) => (
+                <li key={href}><Link href={href} className="transition-colors hover:text-crimson">{label}</Link></li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

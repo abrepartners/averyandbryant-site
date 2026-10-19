@@ -148,7 +148,7 @@ export function ServiceCard({ service }: { service: Service }) {
           )}
           <div className="mt-4 flex flex-wrap items-center gap-x-6">
             <Link
-              href="/book"
+              href="/book/home"
               className="inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-crimson transition-colors hover:text-white"
             >
               Book a shoot &rarr;
@@ -264,7 +264,7 @@ export function ServiceCard({ service }: { service: Service }) {
                 listing.
               </p>
               <Link
-                href="/book"
+                href="/book/home"
                 className="inline-flex items-center rounded bg-crimson px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark"
               >
                 Book a shoot

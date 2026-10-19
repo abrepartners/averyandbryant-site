@@ -116,7 +116,7 @@ export default function RootLayout({
                     itemOffered: {
                       "@type": "Service",
                       name: "Real Estate Photography",
-                      description: "Professional HDR listing photography",
+                      description: "Professional listing photography",
                     },
                   },
                   {
