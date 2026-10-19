@@ -89,7 +89,8 @@ export async function createOrderFormSession({
   }
   if (successUrl) body.success_url = successUrl;
   if (keepAddressStep && body.address_data) {
-    body.step_visibility = { show_address_step: true };
+    // Aryeo requires both flags whenever step_visibility is sent.
+    body.step_visibility = { show_address_step: true, show_customer_step: true };
   }
 
   const res = await fetch(`${API_BASE_URL}/order-form-sessions`, {
