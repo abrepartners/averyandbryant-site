@@ -22,22 +22,21 @@ const PACKAGES: { key: ProductKey; name: string }[] = [
   { key: "takeover", name: "Market Takeover Blueprint" },
 ];
 
-// Single services, in the order agents ask for them. upgradeTo names the
+// Single services, in the order agents ask for them, named as the booking form
+// names them so the visitor finds the same card there. upgradeTo names the
 // smallest package that already includes the service, shown as the better deal.
 const SINGLES: { key: ProductKey; label: string; upgradeTo?: string }[] = [
-  { key: "photos", label: "HDR photos", upgradeTo: "Listing Launch Kit" },
-  { key: "video", label: "Cinematic property video", upgradeTo: "Market Takeover Blueprint" },
-  { key: "drone", label: "Aerial drone photos and video", upgradeTo: "Listing Launch Kit" },
-  { key: "zillow3d", label: "Zillow 3D tour and interactive floor plan", upgradeTo: "Listing Domination System" },
-  { key: "floorPlan", label: "2D floor plan", upgradeTo: "Listing Launch Kit" },
-  { key: "reel", label: "Social reel", upgradeTo: "Listing Domination System" },
-  { key: "twilight", label: "Real twilight shoot" },
+  { key: "photos", label: "HDR Photography", upgradeTo: "Listing Launch Kit" },
+  { key: "video", label: "Cinematic Property Video", upgradeTo: "Market Takeover Blueprint" },
+  { key: "drone", label: "Aerial Drone Photos + Video", upgradeTo: "Listing Launch Kit" },
+  { key: "zillow3d", label: "Zillow 3D Tour + Interactive Floor Plan", upgradeTo: "Listing Domination System" },
+  { key: "floorPlan", label: "2D Floor Plan", upgradeTo: "Listing Launch Kit" },
+  { key: "reel", label: "Social Listing Reel", upgradeTo: "Listing Domination System" },
+  { key: "twilight", label: "Real Twilight Shoot" },
 ];
 
-/** "Small Shoot - 25 Photos" reads as "25 photos"; "90–120 seconds" as "90 to 120 seconds". */
+/** Option titles as the form shows them; any en dash reads as "to". */
 function optionLabel(title: string): string {
-  const photos = title.match(/(\d+)\s*photos/i);
-  if (photos) return `${photos[1]} photos`;
   return title.replace(/\s*–\s*/g, " to ");
 }
 

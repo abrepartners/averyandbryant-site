@@ -11,13 +11,15 @@ export const PRODUCT_IDS = {
   launch: "01a14604-b63f-71bc-95f7-8eababbea987",
   domination: "01a14604-e77b-704e-9822-fca50aa9215a",
   takeover: "01a14605-1950-7271-919c-ab527c36dab4",
-  photos: "019f4d81-bf02-73e5-b149-62734109a0ae",
-  video: "019f4d82-3860-7101-8525-5403640fb833",
-  drone: "019f4d83-0a21-710a-8ae4-9b81d70e73a9",
-  zillow3d: "01a143b7-0bc2-728b-949c-3df84bd4127a",
-  floorPlan: "019f4d84-47b7-72b2-85c0-960b6fa7e6a0",
-  twilight: "019f4d85-8cd7-7389-b72f-401d9ee5cd9d",
-  reel: "019f4d93-ee14-70ea-b534-e3e1b82d9715",
+  // Single services: the main products on the pilot form (B40, 2026-10-19),
+  // so the price here is the one the visitor adds there.
+  photos: "01a15293-6c9f-71c7-85f8-6fd4834e08f7",
+  video: "01a15293-9a91-701f-aa97-8945b1c09f16",
+  drone: "01a15295-639c-7229-b6a5-de715c18e456",
+  zillow3d: "01a15293-f4b0-7192-ae0e-72607d83b70a",
+  floorPlan: "01a15295-9154-712d-8275-1eb1dd98ebc6",
+  twilight: "01a15295-f286-71df-8945-5f5167dc6861",
+  reel: "01a15295-be26-7027-947d-f968746e6c5a",
 } as const;
 
 export type ProductKey = keyof typeof PRODUCT_IDS;

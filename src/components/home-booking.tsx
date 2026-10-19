@@ -357,8 +357,9 @@ export function HomeBooking({
                 {pending ? "Starting your order" : "Continue to scheduling"}
               </button>
               <p className="mt-4 text-xs leading-relaxed text-fg-secondary">
-                Next you&apos;ll enter the address and home size, pick the
-                same service and choose your date. The prices there match these.
+                Next you&apos;ll enter the address, home size and how we get in,
+                pick the same service and choose your date. The prices there
+                match these.
               </p>
             </div>
           </div>
