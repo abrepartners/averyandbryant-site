@@ -2,7 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { startHomeBooking, type HomeBookingState } from "@/app/book/home/actions";
-import { dollars, tierFor, type SizeTier } from "@/lib/size-tiers";
+import { dollars, tierFor, type SingleService, type SizeTier } from "@/lib/size-tiers";
 
 export type BookingPackage = {
   name: string;
@@ -40,12 +40,19 @@ function rangeLabel(t: SizeTier): string {
     : `${t.min.toLocaleString("en-US")} to ${t.max.toLocaleString("en-US")} sq ft`;
 }
 
+type Pick = {
+  label: string;
+  price: number | null;
+  /** A package that includes this single service, when it costs more than the service alone. */
+  upgrade?: { name: string; extra: number };
+};
+
 export function HomeBooking({
   packages,
-  zillowTiers,
+  singles,
 }: {
   packages: BookingPackage[];
-  zillowTiers: SizeTier[];
+  singles: SingleService[];
 }) {
   const [state, formAction, pending] = useActionState(startHomeBooking, initialState);
   const [typed, setTyped] = useState(String(START_SQFT));
@@ -59,9 +66,34 @@ export function HomeBooking({
   const tooBig = sqft > largest;
   const sized = sqft >= MIN_SQFT && !tooBig;
 
+  const [showSingles, setShowSingles] = useState(false);
+
+  const singlePrice = (s: SingleService, i: number): number | null =>
+    s.tiers ? (tierFor(s.tiers, sqft)?.price ?? null) : (s.options[i]?.price ?? null);
+
+  // Packages are keyed by name; single services by "one:<service>:<option>".
   const chosenPkg = packages.find((p) => p.name === chosen);
-  const chosenTier = chosenPkg ? tierFor(chosenPkg.tiers, sqft) : null;
-  const zillowTier = tierFor(zillowTiers, sqft);
+  let pick: Pick | null = null;
+  if (chosenPkg) {
+    pick = { label: chosenPkg.name, price: sized ? (tierFor(chosenPkg.tiers, sqft)?.price ?? null) : null };
+  } else if (chosen.startsWith("one:")) {
+    const [, key, idx] = chosen.split(":");
+    const s = singles.find((x) => x.key === key);
+    const i = Number(idx) || 0;
+    if (s) {
+      const price = sized ? singlePrice(s, i) : null;
+      const up = packages.find((p) => p.name === s.upgradeTo);
+      const upPrice = up && sized ? (tierFor(up.tiers, sqft)?.price ?? null) : null;
+      pick = {
+        label: s.options.length > 1 ? `${s.label}, ${s.options[i]?.label}` : s.label,
+        price,
+        upgrade:
+          up && upPrice !== null && price !== null && upPrice > price
+            ? { name: up.name, extra: upPrice - price }
+            : undefined,
+      };
+    }
+  }
 
   return (
     <form action={formAction} className="space-y-20">
@@ -130,7 +162,7 @@ export function HomeBooking({
             return (
               <label
                 key={p.name}
-                className={`relative flex cursor-pointer flex-col rounded-lg border bg-card p-6 transition-colors md:p-8 ${
+                className={`relative flex cursor-pointer flex-col rounded-lg border bg-card p-6 transition-colors has-[:focus-visible]:ring-1 has-[:focus-visible]:ring-crimson md:p-8 ${
                   selected ? "border-crimson/60" : "border-white/5 hover:border-white/20"
                 }`}
               >
@@ -187,13 +219,78 @@ export function HomeBooking({
             );
           })}
         </div>
-        {sized && zillowTier ? (
-          <p className="mt-6 text-sm text-fg-secondary">
-            Just need the Zillow 3D tour and interactive floor plan?{" "}
-            <span className="text-fg-strong">{dollars(zillowTier.price)}</span> for
-            this size. Add it on the next step.
-          </p>
-        ) : null}
+        <div className="mt-8">
+          <button
+            type="button"
+            aria-expanded={showSingles}
+            aria-controls="single-services"
+            onClick={() => setShowSingles((v) => !v)}
+            className="text-sm text-fg-strong underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-crimson"
+          >
+            {showSingles ? "Hide single services" : "Just need one service? See single services"}
+          </button>
+          {showSingles ? (
+            <div id="single-services" className="mt-6 rounded-lg border border-white/5 bg-card">
+              <ul className="divide-y divide-white/5">
+                {singles.map((s) => {
+                  const options = s.tiers ? [{ label: "Priced by home size", price: 0 }] : s.options;
+                  return (
+                    <li
+                      key={s.key}
+                      className="flex flex-col gap-3 p-5 md:flex-row md:items-center md:justify-between md:px-8"
+                    >
+                      <p className="text-sm text-fg">{s.label}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {options.map((o, i) => {
+                          const k = `one:${s.key}:${i}`;
+                          const selected = chosen === k;
+                          const price = sized ? singlePrice(s, i) : null;
+                          return (
+                            <label
+                              key={k}
+                              className={`cursor-pointer rounded border px-4 py-2 text-sm transition-colors has-[:focus-visible]:ring-1 has-[:focus-visible]:ring-crimson ${
+                                selected
+                                  ? "border-crimson bg-crimson/10 text-fg"
+                                  : "border-white/10 text-fg-secondary hover:border-white/30"
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name="package"
+                                value={k}
+                                checked={selected}
+                                onChange={() => setChosen(k)}
+                                className="sr-only"
+                              />
+                              {s.tiers ? null : <span>{o.label} </span>}
+                              <span className="tabular-nums text-fg-strong">
+                                {price !== null ? dollars(price) : tooBig ? "Quote" : "Enter size"}
+                              </span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+              {pick?.upgrade ? (
+                <p className="border-t border-white/5 p-5 text-sm leading-relaxed text-fg-secondary md:px-8">
+                  For <span className="tabular-nums text-fg-strong">{dollars(pick.upgrade.extra)}</span>{" "}
+                  more, the{" "}
+                  <button
+                    type="button"
+                    onClick={() => setChosen(pick.upgrade!.name)}
+                    className="text-fg-strong underline decoration-white/30 underline-offset-4 hover:decoration-crimson"
+                  >
+                    {pick.upgrade.name}
+                  </button>{" "}
+                  includes this and more.
+                </p>
+              ) : null}
+            </div>
+          ) : null}
+        </div>
       </fieldset>
 
       {/* 03 Contact */}
@@ -236,10 +333,10 @@ export function HomeBooking({
           <div className="flex flex-col justify-between gap-8 border-t border-white/5 pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0">
             <div>
               <p className={labelClass}>Your pick</p>
-              <p className="mt-3 font-display text-lg font-light text-fg">{chosenPkg?.name}</p>
-              {sized && chosenTier ? (
+              <p className="mt-3 font-display text-lg font-light text-fg">{pick?.label}</p>
+              {pick?.price != null ? (
                 <p className="mt-1 text-sm text-fg-secondary">
-                  <span className="tabular-nums text-fg-strong">{dollars(chosenTier.price)}</span> for{" "}
+                  <span className="tabular-nums text-fg-strong">{dollars(pick.price)}</span> for{" "}
                   {sqft.toLocaleString("en-US")} sq ft
                 </p>
               ) : null}
@@ -260,8 +357,8 @@ export function HomeBooking({
                 {pending ? "Starting your order" : "Continue to scheduling"}
               </button>
               <p className="mt-4 text-xs leading-relaxed text-fg-secondary">
-                Next you&apos;ll enter the address and home size, pick this
-                package and choose your date. The prices there match these.
+                Next you&apos;ll enter the address and home size, pick the
+                same service and choose your date. The prices there match these.
               </p>
             </div>
           </div>

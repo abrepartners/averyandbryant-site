@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/eyebrow";
 import { HomeBooking, type BookingPackage } from "@/components/home-booking";
-import { getSizedPrices } from "@/lib/live-prices";
+import { getLiveProducts, sizeTiers, type ProductKey } from "@/lib/live-prices";
 import { realEstatePricing } from "@/lib/pricing";
+import type { SingleService } from "@/lib/size-tiers";
 
 // Draft front door for home listings: size first, live prices, then the
 // Aryeo form pre-filled. Kept out of search and the nav until Thomas signs off.
@@ -15,18 +16,37 @@ export const metadata: Metadata = {
 
 export const revalidate = 600;
 
-const PACKAGE_NAMES = [
-  "Listing Launch Kit",
-  "Listing Domination System",
-  "Market Takeover Blueprint",
-] as const;
+const PACKAGES: { key: ProductKey; name: string }[] = [
+  { key: "launch", name: "Listing Launch Kit" },
+  { key: "domination", name: "Listing Domination System" },
+  { key: "takeover", name: "Market Takeover Blueprint" },
+];
+
+// Single services, in the order agents ask for them. upgradeTo names the
+// smallest package that already includes the service, shown as the better deal.
+const SINGLES: { key: ProductKey; label: string; upgradeTo?: string }[] = [
+  { key: "photos", label: "HDR photos", upgradeTo: "Listing Launch Kit" },
+  { key: "video", label: "Cinematic property video", upgradeTo: "Market Takeover Blueprint" },
+  { key: "drone", label: "Aerial drone photos and video", upgradeTo: "Listing Launch Kit" },
+  { key: "zillow3d", label: "Zillow 3D tour and interactive floor plan", upgradeTo: "Listing Domination System" },
+  { key: "floorPlan", label: "2D floor plan", upgradeTo: "Listing Launch Kit" },
+  { key: "reel", label: "Social reel", upgradeTo: "Listing Domination System" },
+  { key: "twilight", label: "Real twilight shoot" },
+];
+
+/** "Small Shoot - 25 Photos" reads as "25 photos"; "90–120 seconds" as "90 to 120 seconds". */
+function optionLabel(title: string): string {
+  const photos = title.match(/(\d+)\s*photos/i);
+  if (photos) return `${photos[1]} photos`;
+  return title.replace(/\s*–\s*/g, " to ");
+}
 
 export default async function BookHomePage() {
-  const prices = await getSizedPrices();
+  const live = await getLiveProducts();
 
-  const packages: BookingPackage[] = PACKAGE_NAMES.flatMap((name) => {
+  const packages: BookingPackage[] = PACKAGES.flatMap(({ key, name }) => {
     const p = realEstatePricing.packages.find((x) => x.name === name);
-    const tiers = prices[name];
+    const tiers = sizeTiers(live[key]);
     if (!p || !tiers) return [];
     return [
       {
@@ -35,6 +55,21 @@ export default async function BookHomePage() {
         inclusions: p.keyInclusions ?? [],
         recommended: Boolean(p.recommended),
         tiers,
+      },
+    ];
+  });
+
+  const singles: SingleService[] = SINGLES.flatMap(({ key, label, upgradeTo }) => {
+    const variants = live[key];
+    if (!variants) return [];
+    const tiers = sizeTiers(variants);
+    return [
+      {
+        key,
+        label,
+        tiers,
+        options: tiers ? [] : variants.map((v) => ({ label: optionLabel(v.title), price: v.price })),
+        upgradeTo,
       },
     ];
   });
@@ -53,10 +88,7 @@ export default async function BookHomePage() {
 
         <div className="mt-14">
           {packages.length > 0 ? (
-            <HomeBooking
-              packages={packages}
-              zillowTiers={prices["Zillow 3D Tour + Interactive Floor Plan"] ?? []}
-            />
+            <HomeBooking packages={packages} singles={singles} />
           ) : (
             <p className="rounded-lg border border-white/5 bg-card p-8 text-fg-secondary">
               Live prices are not loading right now. Call{" "}
