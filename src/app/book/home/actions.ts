@@ -25,57 +25,59 @@ type AddressData = {
   country?: string;
 };
 
-type PlaceComponent = { longText?: string; shortText?: string; types?: string[] };
+type CensusMatch = {
+  matchedAddress?: string;
+  coordinates?: { x?: number; y?: number };
+  addressComponents?: {
+    preDirection?: string;
+    streetName?: string;
+    suffixType?: string;
+    suffixDirection?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+  };
+};
+
+const title = (s: string) => s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
 /**
  * Turns the typed address into the shape Aryeo needs to pre-fill its address
- * step. Aryeo rejects an address without coordinates, so this asks Google
- * Places for them. Any failure returns null and the visitor simply types the
- * address again on the booking form.
+ * step. Aryeo rejects an address without coordinates, so this asks the US
+ * Census geocoder (free, no key) for them. Any failure returns null and the
+ * visitor simply types the address again on the booking form.
  */
 async function lookUpAddress(text: string, unit: string): Promise<AddressData | null> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  if (!apiKey || !text) return null;
+  if (!text) return null;
   try {
-    const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": "places.location,places.addressComponents",
-      },
-      body: JSON.stringify({ textQuery: text, regionCode: "US", maxResultCount: 1 }),
-      cache: "no-store",
-    });
+    const url =
+      "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?" +
+      new URLSearchParams({ address: text, benchmark: "Public_AR_Current", format: "json" });
+    const res = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
     if (!res.ok) {
       console.error("[book/home] address lookup failed", res.status);
       return null;
     }
-    const body = (await res.json()) as {
-      places?: {
-        location?: { latitude?: number; longitude?: number };
-        addressComponents?: PlaceComponent[];
-      }[];
-    };
-    const place = body.places?.[0];
-    const lat = place?.location?.latitude;
-    const lng = place?.location?.longitude;
+    const body = (await res.json()) as { result?: { addressMatches?: CensusMatch[] } };
+    const m = body.result?.addressMatches?.[0];
+    const lat = m?.coordinates?.y;
+    const lng = m?.coordinates?.x;
     if (typeof lat !== "number" || typeof lng !== "number") return null;
 
-    const part = (type: string, short = false) => {
-      const c = place?.addressComponents?.find((x) => x.types?.includes(type));
-      return (short ? c?.shortText : c?.longText) || undefined;
-    };
+    const c = m?.addressComponents ?? {};
+    const street = [c.preDirection, c.streetName, c.suffixType, c.suffixDirection]
+      .filter(Boolean)
+      .join(" ");
     return {
       latitude: lat,
       longitude: lng,
-      street_number: part("street_number"),
-      street_name: part("route"),
+      street_number: m?.matchedAddress?.match(/^\s*(\S+)/)?.[1],
+      street_name: street ? title(street) : undefined,
       unit_number: unit || undefined,
-      city: part("locality") ?? part("postal_town"),
-      state_or_province: part("administrative_area_level_1", true),
-      postal_code: part("postal_code"),
-      country: part("country", true),
+      city: c.city ? title(c.city) : undefined,
+      state_or_province: c.state || undefined,
+      postal_code: c.zip || undefined,
+      country: "US",
     };
   } catch (err) {
     console.error("[book/home] address lookup error", err);
