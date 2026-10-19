@@ -246,9 +246,9 @@ export function HomeBooking({
               </div>
               <div className="space-y-2">
                 <label htmlFor="phone" className={labelClass}>
-                  Phone
+                  Phone <span className="text-crimson">*</span>
                 </label>
-                <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputClass} />
+                <input id="phone" name="phone" type="tel" required autoComplete="tel" className={inputClass} />
               </div>
             </div>
           </div>

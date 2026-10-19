@@ -26,6 +26,8 @@ export async function submitOrder(
 
   const email = str(formData, "email");
   if (!email) return { error: "Email is required." };
+  // Aryeo rejects customer_data without a phone (422), which drops the pre-fill.
+  if (!str(formData, "phone")) return { error: "Phone is required." };
 
   let url: string;
   try {

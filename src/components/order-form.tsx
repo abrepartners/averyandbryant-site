@@ -64,12 +64,13 @@ export function OrderForm({ vertical }: { vertical: Vertical }) {
         </div>
         <div className="space-y-2">
           <label htmlFor="phone" className={labelClass}>
-            Phone
+            Phone <span className="text-crimson">*</span>
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
+            required
             autoComplete="tel"
             className={inputClass}
           />
