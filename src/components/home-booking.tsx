@@ -199,30 +199,10 @@ export function HomeBooking({
       {/* 03 Contact */}
       <fieldset disabled={pending || !sized}>
         <legend className="contents">
-          <StepLabel n="03">Where and who</StepLabel>
+          <StepLabel n="03">Who&apos;s booking</StepLabel>
         </legend>
         <div className="mt-8 grid gap-10 rounded-lg border border-white/5 bg-card p-6 md:grid-cols-[1fr_320px] md:p-10">
           <div className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-[1fr_140px]">
-              <div className="space-y-2">
-                <label htmlFor="address" className={labelClass}>
-                  Property address
-                </label>
-                <input
-                  id="address"
-                  name="address"
-                  autoComplete="street-address"
-                  placeholder="123 Main St, Little Rock, AR"
-                  className={inputClass}
-                />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="unit" className={labelClass}>
-                  Unit
-                </label>
-                <input id="unit" name="unit" className={inputClass} />
-              </div>
-            </div>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="first_name" className={labelClass}>
@@ -280,8 +260,8 @@ export function HomeBooking({
                 {pending ? "Starting your order" : "Continue to scheduling"}
               </button>
               <p className="mt-4 text-xs leading-relaxed text-fg-secondary">
-                Next you&apos;ll confirm the home size, pick this package and
-                choose your date. The prices there match these.
+                Next you&apos;ll enter the address and home size, pick this
+                package and choose your date. The prices there match these.
               </p>
             </div>
           </div>
