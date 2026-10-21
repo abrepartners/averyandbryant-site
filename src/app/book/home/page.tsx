@@ -3,15 +3,15 @@ import { Eyebrow } from "@/components/eyebrow";
 import { HomeBooking, type BookingPackage } from "@/components/home-booking";
 import { getLiveProducts, sizeTiers, type ProductKey } from "@/lib/live-prices";
 import { realEstatePricing } from "@/lib/pricing";
+import { serviceSamples, type SampleServiceKey } from "@/lib/service-samples";
 import type { SingleService } from "@/lib/size-tiers";
 
-// Draft front door for home listings: size first, live prices, then the
-// Aryeo form pre-filled. Kept out of search and the nav until Thomas signs off.
+// Home listings: size first, live prices, then the Aryeo form pre-filled.
 export const metadata: Metadata = {
   title: "Book a Listing Shoot | Avery & Bryant",
   description:
     "Enter the home's size, see your exact price, and book your listing shoot.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/book/home" },
 };
 
 export const revalidate = 600;
@@ -25,8 +25,8 @@ const PACKAGES: { key: ProductKey; name: string }[] = [
 // Single services, in the order agents ask for them, named as the booking form
 // names them so the visitor finds the same card there. upgradeTo names the
 // smallest package that already includes the service, shown as the better deal.
-const SINGLES: { key: ProductKey; label: string; upgradeTo?: string }[] = [
-  { key: "photos", label: "HDR Photography", upgradeTo: "Listing Launch Kit" },
+const SINGLES: { key: SampleServiceKey; label: string; upgradeTo?: string }[] = [
+  { key: "photos", label: "Listing Photography", upgradeTo: "Listing Launch Kit" },
   { key: "video", label: "Cinematic Property Video", upgradeTo: "Market Takeover Blueprint" },
   { key: "drone", label: "Aerial Drone Photos + Video", upgradeTo: "Listing Launch Kit" },
   { key: "zillow3d", label: "Zillow 3D Tour + Interactive Floor Plan", upgradeTo: "Listing Domination System" },
@@ -37,7 +37,7 @@ const SINGLES: { key: ProductKey; label: string; upgradeTo?: string }[] = [
 
 /** Option titles as the form shows them; any en dash reads as "to". */
 function optionLabel(title: string): string {
-  return title.replace(/\s*–\s*/g, " to ");
+  return title.replace(/\s*\u2013\s*/g, " to ");
 }
 
 export default async function BookHomePage() {
@@ -69,6 +69,7 @@ export default async function BookHomePage() {
         tiers,
         options: tiers ? [] : variants.map((v) => ({ label: optionLabel(v.title), price: v.price })),
         upgradeTo,
+        ...serviceSamples[key],
       },
     ];
   });

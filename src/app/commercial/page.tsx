@@ -185,7 +185,7 @@ export default function CommercialPage() {
                 Photos from $295, sized to your square footage.
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-secondary">
-                HDR interior and exterior photography in one visit, delivered
+                Interior and exterior photography in one visit, delivered
                 in 48 hours. A free 30-minute call sizes the shoot to your
                 property and produces the exact quote.
               </p>

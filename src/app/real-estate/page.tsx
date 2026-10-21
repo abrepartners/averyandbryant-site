@@ -17,7 +17,7 @@ export const metadata = {
   title:
     "Real Estate Media: Listing Launch Kit, Domination System & Market Takeover | Avery & Bryant",
   description:
-    "Professional HDR photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans for real estate listings across Arkansas. Packages from $299 with 48-hour delivery guarantee.",
+    "Professional photography, cinematic video tours, aerial drone, 3D virtual tours, and floor plans for real estate listings across Arkansas. Packages from $299 with 48-hour delivery guarantee.",
 };
 
 const heroFrame = {

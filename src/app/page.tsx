@@ -77,7 +77,7 @@ const services: Service[] = [
       "Every listing. Coverage (25, 40 or 55 photos) is the choice: more photos for larger homes and more rooms worth showing.",
     includedIn: "every listing package; the photo count sets the tier.",
     description:
-      "HDR photography calibrated for MLS, print, and social. 25, 40, or 55 photo shoots. Delivered within 48 hours.",
+      "Professional photography calibrated for MLS, print, and social. 25, 40, or 55 photo shoots. Delivered within 48 hours.",
     image: "/images/services/photos/great-room-beams-little-rock.jpg",
     imageAlt:
       "Beamed great room with a vaulted ceiling in a Little Rock home, photographed for the listing",
@@ -313,7 +313,7 @@ const oneProject = {
       src: "/images/real-estate/hot-springs-living-room.jpg",
       alt: "Two story great room with lake facing windows in a waterfront home listing in Hot Springs, Arkansas",
       job: "Explain the layout",
-      note: "Interior HDR photos, and on larger packages a floor plan and 3D tour, answer how the house lives.",
+      note: "Interior photos, and on larger packages a floor plan and 3D tour, answer how the house lives.",
     },
     {
       src: "/images/real-estate/hot-springs-lake-aerial.jpg",
@@ -817,7 +817,7 @@ export default function HomePage() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/book"
+              href="/book/home"
               className="inline-flex min-h-[44px] items-center justify-center rounded bg-crimson px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book a shoot

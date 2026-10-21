@@ -239,7 +239,7 @@ export function FeaturedHomes({
                   </a>
                 )}
                 <Link
-                  href="/book"
+                  href="/book/home"
                   className="inline-flex min-h-[44px] items-center rounded bg-crimson px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-crimson-dark"
                 >
                   Book a shoot

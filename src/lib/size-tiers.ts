@@ -15,6 +15,9 @@ export type ServiceOption = { label: string; price: number };
 export type SingleService = {
   key: string;
   label: string;
+  blurb?: string;
+  /** `contain` shows the whole image (floor plans), not a cropped frame. */
+  samples?: { kind: "image" | "video"; src: string; poster?: string; alt: string; vertical?: boolean; contain?: boolean }[];
   /** Priced by home size when set; otherwise priced by `options`. */
   tiers: SizeTier[] | null;
   options: ServiceOption[];

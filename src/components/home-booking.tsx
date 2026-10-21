@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState, useState } from "react";
 import { startHomeBooking, type HomeBookingState } from "@/app/book/home/actions";
 import { dollars, tierFor, type SingleService, type SizeTier } from "@/lib/size-tiers";
@@ -66,6 +67,7 @@ export function HomeBooking({
   const tooBig = sqft > largest;
   const sized = sqft >= MIN_SQFT && !tooBig;
 
+  const [openSamples, setOpenSamples] = useState<Record<string, boolean>>({});
   const [showSingles, setShowSingles] = useState(false);
 
   const singlePrice = (s: SingleService, i: number): number | null =>
@@ -237,38 +239,78 @@ export function HomeBooking({
                   return (
                     <li
                       key={s.key}
-                      className="flex flex-col gap-3 p-5 md:flex-row md:items-center md:justify-between md:px-8"
+                      className="min-w-0 overflow-hidden p-5 md:px-8"
                     >
-                      <p className="text-sm text-fg">{s.label}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {options.map((o, i) => {
-                          const k = `one:${s.key}:${i}`;
-                          const selected = chosen === k;
-                          const price = sized ? singlePrice(s, i) : null;
-                          return (
-                            <label
-                              key={k}
-                              className={`cursor-pointer rounded border px-4 py-2 text-sm transition-colors has-[:focus-visible]:ring-1 has-[:focus-visible]:ring-crimson ${
-                                selected
-                                  ? "border-crimson bg-crimson/10 text-fg"
-                                  : "border-white/10 text-fg-secondary hover:border-white/30"
-                              }`}
-                            >
-                              <input
-                                type="radio"
-                                name="package"
-                                value={k}
-                                checked={selected}
-                                onChange={() => setChosen(k)}
-                                className="sr-only"
-                              />
-                              {s.tiers ? null : <span>{o.label} </span>}
-                              <span className="tabular-nums text-fg-strong">
-                                {price !== null ? dollars(price) : tooBig ? "Quote" : "Enter size"}
-                              </span>
-                            </label>
-                          );
-                        })}
+                      <div className="flex min-w-0 flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div>
+                          <p className="text-sm text-fg">{s.label}</p>
+                          <button
+                            type="button"
+                            aria-expanded={Boolean(openSamples[s.key])}
+                            aria-controls={`samples-${s.key}`}
+                            onClick={() => setOpenSamples((v) => ({ ...v, [s.key]: !v[s.key] }))}
+                            className="mt-2 text-[11px] uppercase tracking-[0.2em] text-fg-secondary transition-colors hover:text-crimson"
+                          >
+                            {openSamples[s.key] ? "Hide" : "See what you get"}
+                          </button>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {options.map((o, i) => {
+                            const k = `one:${s.key}:${i}`;
+                            const selected = chosen === k;
+                            const price = sized ? singlePrice(s, i) : null;
+                            return (
+                              <label
+                                key={k}
+                                className={`cursor-pointer rounded border px-4 py-2 text-sm transition-colors has-[:focus-visible]:ring-1 has-[:focus-visible]:ring-crimson ${
+                                  selected
+                                    ? "border-crimson bg-crimson/10 text-fg"
+                                    : "border-white/10 text-fg-secondary hover:border-white/30"
+                                }`}
+                              >
+                                <input
+                                  type="radio"
+                                  name="package"
+                                  value={k}
+                                  checked={selected}
+                                  onChange={() => setChosen(k)}
+                                  className="sr-only"
+                                />
+                                {s.tiers ? null : <span>{o.label} </span>}
+                                <span className="tabular-nums text-fg-strong">
+                                  {price !== null ? dollars(price) : tooBig ? "Quote" : "Enter size"}
+                                </span>
+                              </label>
+                            );
+                          })}
+                        </div>
+                      </div>
+                      <div id={`samples-${s.key}`} hidden={!openSamples[s.key]} className="mt-4 min-w-0">
+                        <p className="text-sm text-fg-secondary">{s.blurb}</p>
+                        {s.samples?.length ? (
+                          <div className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3">
+                            {s.samples.map((sample) => (
+                              <div
+                                key={sample.src}
+                                className={`min-w-0 shrink-0 snap-start ${sample.vertical ? "w-[55%] md:w-full md:max-w-[220px]" : "w-[80%] md:w-auto"}`}
+                              >
+                                {sample.kind === "image" ? (
+                                  <div className={`relative aspect-[3/2] overflow-hidden rounded ${sample.contain ? "bg-white" : ""}`}>
+                                    <Image
+                                      src={sample.src}
+                                      alt={sample.alt}
+                                      fill
+                                      sizes="(max-width: 767px) 80vw, 320px"
+                                      className={sample.contain ? "object-contain" : "object-cover"}
+                                    />
+                                  </div>
+                                ) : (
+                                  <video src={sample.src} poster={sample.poster} aria-label={sample.alt} controls muted playsInline preload="none" className={`w-full rounded object-cover ${sample.vertical ? "aspect-[9/16]" : "aspect-video"}`} />
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
                       </div>
                     </li>
                   );

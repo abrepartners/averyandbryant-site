@@ -85,7 +85,7 @@ export const realEstatePricing: VerticalPricing = {
       bestFor: "Getting a listing live with photos, a floor plan and the MLS extras",
       priceBasis: "starting at",
       keyInclusions: [
-        "25+ HDR photos",
+        "25+ professional photos",
         "Aerial drone photos",
         "2D floor plan",
         "Proximity map",
@@ -93,7 +93,7 @@ export const realEstatePricing: VerticalPricing = {
         "MLS-ready property description",
       ],
       valueItems: [
-        { label: "25+ HDR Professional Photos", value: "$185" },
+        { label: "25+ Professional Photos", value: "$185" },
         { label: "Aerial Drone Photos", value: "$115" },
         { label: "2D Floor Plan", value: "$99" },
         { label: "Proximity Map", value: "$39" },
@@ -130,7 +130,7 @@ export const realEstatePricing: VerticalPricing = {
         "Showing the whole property and its surroundings: aerials, a 3D tour and one reel",
       priceBasis: "starting at",
       keyInclusions: [
-        "40+ HDR photos",
+        "40+ photos",
         "Aerial drone photos + video",
         "Zillow 3D Home tour with interactive floor plan",
         "1 Cinematic Listing Reel",
@@ -140,7 +140,7 @@ export const realEstatePricing: VerticalPricing = {
         "Adds to the Launch Kit: 15 more photos, drone video, the Zillow 3D tour, one reel, a virtual twilight hero and the Seller Wow Report.",
       valueItems: [
         { label: "Everything in Listing Launch Kit", value: "$860" },
-        { label: "Upgrade to 40+ HDR Photos", value: "$30" },
+        { label: "Upgrade to 40+ Photos", value: "$30" },
         { label: "Add Aerial Drone Video", value: "$35" },
         {
           label: "Zillow 3D Home tour with interactive floor plan",
@@ -166,7 +166,7 @@ export const realEstatePricing: VerticalPricing = {
         "Running a full launch campaign: cinematic video, four reels, staging and a property website",
       priceBasis: "starting at",
       keyInclusions: [
-        "50+ HDR photos",
+        "50+ photos",
         "Cinematic property video (60 to 90s)",
         "4 reels total: Cinematic Listing, Trailer-style (:10 to :15), Viral-style (with the realtor), Lifestyle (neighborhood)",
         "Virtual staging (3 rooms)",
@@ -185,7 +185,7 @@ export const realEstatePricing: VerticalPricing = {
           label: "Everything in Listing Domination System",
           value: "$1,407",
         },
-        { label: "Upgrade to 50+ HDR Photos", value: "$50" },
+        { label: "Upgrade to 50+ Photos", value: "$50" },
         { label: "Cinematic Property Video (60-90s)", value: "$295" },
         {
           label:
@@ -326,7 +326,7 @@ export const buildersPricing: VerticalPricing = {
         "Marketing one finished home or spec with photos, drone, video and reels",
       priceBasis: "per shoot",
       keyInclusions: [
-        "40+ HDR photos",
+        "40+ photos",
         "Aerial drone photos + video",
         "Cinematic video (60 to 90s)",
         "4-reel social pack + 2D floor plan",
@@ -334,7 +334,7 @@ export const buildersPricing: VerticalPricing = {
       stepUp:
         "A one-time finished-home shoot, separate from the monthly Build Tracker program.",
       valueItems: [
-        { label: "40+ HDR Photos", value: "$215" },
+        { label: "40+ Photos", value: "$215" },
         { label: "Aerial Drone Photos + Video", value: "$150" },
         { label: "Cinematic Video (60-90s)", value: "$295" },
         { label: "4-Reel Social Pack", value: "$595" },
@@ -418,13 +418,13 @@ export const airbnbPricing: VerticalPricing = {
       bestFor: "Launching or refreshing one listing's photos",
       priceBasis: "starting at",
       keyInclusions: [
-        "25 to 30 HDR photos",
+        "25 to 30 photos",
         "2D floor plan",
         "Airbnb photo sequencing guide",
         "Listing description written for Airbnb search",
       ],
       valueItems: [
-        { label: "25-30 HDR Photos", value: "$185" },
+        { label: "25-30 Photos", value: "$185" },
         { label: "2D Floor Plan", value: "$99" },
         {
           label: "Airbnb Photo Sequencing Guide",
@@ -459,7 +459,7 @@ export const airbnbPricing: VerticalPricing = {
         "Showing the amenities, the setting and the property from the air, plus one reel",
       priceBasis: "per shoot",
       keyInclusions: [
-        "40 HDR photos",
+        "40 photos",
         "Aerial drone photos + video",
         "1 social reel (property walkthrough)",
         "Guest experience shot list (amenity highlights)",
@@ -686,13 +686,13 @@ export const multiFamilyPricing: VerticalPricing = {
         "Refreshing one community: a model unit, the amenities, aerials and a 3D tour",
       priceBasis: "one-time",
       keyInclusions: [
-        "Model unit photography (25+ HDR)",
+        "Model unit photography (25+ photos)",
         "Amenity and common area coverage",
         "Aerial drone photos + video",
         "3D virtual tour (model unit)",
       ],
       valueItems: [
-        { label: "Model Unit Photography (25+ HDR)", value: "$185" },
+        { label: "Model Unit Photography (25+ Photos)", value: "$185" },
         { label: "Amenity & Common Area Coverage", value: "$199" },
         { label: "Aerial Drone Photos + Video", value: "$150" },
         { label: "3D Virtual Tour (model unit)", value: "$299" },
@@ -812,13 +812,13 @@ export const commercialPackages: Package[] = [
       "Listing one commercial property with photos, aerials and a twilight hero",
     priceBasis: "one-time",
     keyInclusions: [
-      "30+ HDR interior + exterior photos",
+      "30+ interior + exterior photos",
       "Aerial drone photos + video",
       "Real twilight hero shot",
       "Broker presentation kit (3 slides) + property brochure PDF",
     ],
     valueItems: [
-      { label: "30+ HDR Interior + Exterior Photos", value: "$215" },
+      { label: "30+ Interior + Exterior Photos", value: "$215" },
       { label: "Aerial Drone Photos + Video", value: "$150" },
       { label: "Real Twilight Hero Shot", value: "$245" },
       {
