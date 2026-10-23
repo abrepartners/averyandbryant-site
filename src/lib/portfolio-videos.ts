@@ -20,6 +20,10 @@ export const films = {
   lakeHome: film("film-lake-home-dock", "Cinematic film of a lake home with a dock and pavilion, Hot Springs Village"),
   lakePavilion: film("film-lake-pavilion-dock", "Cinematic film of a lake pavilion and dock, Hot Springs Village"),
   twilightEstate: film("film-twilight-estate", "Cinematic film of an estate at twilight with a sunset drone shot, Little Rock"),
+  poolEstate: film("film-pool-house-estate", "Cinematic film of an estate with a pool house, hosted by the listing agent, Little Rock"),
+  stoneModern: film("film-stone-modern-overhang", "Cinematic film of a stone modern home with a deep overhang and hot tub, Little Rock"),
+  craftsmanTrees: film("film-craftsman-in-the-trees", "Cinematic film of a craftsman home in the trees, Benton"),
+  whiteColonial: film("film-white-colonial", "Cinematic film of a white colonial home, hosted by the listing agent, Little Rock"),
   farmland: film("film-farmland-ponds", "Drone film of farmland with ponds, Cabot"),
   pasture: film("film-pasture-timber", "Drone film of pasture and timber with a pond, Austin"),
   lakeLand: film("film-lake-shoreline-land", "Drone film of wooded lake shoreline land, Malvern"),
@@ -38,6 +42,8 @@ export const reels = {
   neighborhood: film("reel-neighborhood-wood-ceilings", "Listing reel of a neighborhood from the air and wood ceilings inside, Little Rock"),
   whiteFarmhouse: film("reel-white-modern-farmhouse", "Listing reel of a white modern farmhouse new build, Alexander"),
   craftsman: film("reel-modern-craftsman", "Listing reel of a modern craftsman new build, Alexander"),
+  historicHome: film("reel-historic-home-pool", "Listing reel of a historic home with a pool, Little Rock"),
+  threeStoryModern: film("reel-three-story-modern", "Listing reel of a three story modern new build, hosted by the agent, Little Rock"),
 };
 
 export type PortfolioVertical = "real-estate" | "builders" | "lot-land" | "commercial" | "airbnb-rentals" | "zillow-showcase";
@@ -47,15 +53,15 @@ export const portfolioVideos: Record<PortfolioVertical, { eyebrow: string; title
     eyebrow: "Listing Films",
     title: "Films and reels from homes we delivered.",
     subtitle: "Real Arkansas listings.",
-    films: [films.villa, films.glassHouse, films.modernSunset, films.sculptedModern, films.riverAcreage, films.greekRevival],
-    reels: [reels.lakeModern, reels.greekRevival, reels.poolReveal, reels.neighborhood],
+    films: [films.villa, films.glassHouse, films.modernSunset, films.sculptedModern, films.riverAcreage, films.greekRevival, films.poolEstate, films.stoneModern, films.craftsmanTrees, films.whiteColonial],
+    reels: [reels.lakeModern, reels.greekRevival, reels.poolReveal, reels.neighborhood, reels.historicHome],
   },
   builders: {
     eyebrow: "Builder Films",
     title: "New construction, on film.",
     subtitle: "Delivered for Arkansas builders.",
     films: [films.modernSunset, films.farmhouseAcreage, films.whiteFarmhouse, films.craftsman],
-    reels: [reels.neighborhood, reels.whiteFarmhouse, reels.craftsman],
+    reels: [reels.neighborhood, reels.whiteFarmhouse, reels.craftsman, reels.threeStoryModern],
   },
   "lot-land": {
     eyebrow: "Land Films",

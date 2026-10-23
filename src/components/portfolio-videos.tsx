@@ -6,13 +6,15 @@ import { portfolioVideos, type PortfolioVertical } from "@/lib/portfolio-videos"
 
 function filmGrid(n: number) {
   if (n === 1) return "grid w-full gap-3 md:gap-4 lg:mx-auto lg:max-w-[960px]";
-  if (n === 2 || n === 4) return "grid gap-3 md:grid-cols-2 md:gap-4";
+  // Full rows only: three across when it divides, otherwise two.
+  if (n % 3 !== 0 && n % 2 === 0) return "grid gap-3 md:grid-cols-2 md:gap-4";
   return "grid gap-3 md:grid-cols-3 md:gap-4";
 }
 
 function reelGrid(n: number) {
   if (n === 2) return "grid w-full grid-cols-2 gap-3 md:gap-4 lg:mx-auto lg:max-w-[600px]";
   if (n === 4) return "grid grid-cols-2 gap-3 sm:grid-cols-4 md:gap-4";
+  if (n === 5) return "grid grid-cols-2 gap-3 sm:grid-cols-5 md:gap-4";
   return "grid w-full grid-cols-3 gap-3 md:gap-4 lg:mx-auto lg:max-w-[880px]";
 }
 
