@@ -8,6 +8,8 @@ import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { multiFamilyPricing } from "@/lib/pricing";
 import { consultUrl } from "@/lib/consult";
+import { VideoRows } from "@/components/portfolio-videos";
+import { multiFamilyVideos } from "@/lib/portfolio-videos";
 
 export const metadata = {
   alternates: { canonical: "/multi-family" },
@@ -127,8 +129,8 @@ export default function MultiFamilyPage() {
             <span className="text-fg-secondary">Shot from the air.</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-secondary">
-            Aerial frames from a finished drone video we delivered for an
-            Arkansas apartment community. Scale, site layout, and what sits
+            Aerial frames and finished films from Arkansas apartment and
+            townhome communities. Scale, site layout, amenities and what sits
             around the property, in the shots a leasing team actually uses.
           </p>
 
@@ -146,6 +148,10 @@ export default function MultiFamilyPage() {
                 </div>
               </figure>
             ))}
+          </div>
+
+          <div className="mt-6 md:mt-8">
+            <VideoRows films={multiFamilyVideos.films} reels={multiFamilyVideos.reels} />
           </div>
         </div>
       </section>

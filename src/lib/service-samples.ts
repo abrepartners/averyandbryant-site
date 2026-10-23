@@ -15,7 +15,8 @@ export const serviceSamples: Record<SampleServiceKey, Pick<SingleService, "blurb
     blurb: "A walkthrough film with smooth camera moves and music, made for the MLS, YouTube and social.",
     samples: [
       { kind: "video", src: "/images/services/video-tours/tour-1.mp4", poster: "/images/services/video-tours/tour-1-poster.jpg", alt: "Cinematic Tour, Clinton" },
-      { kind: "video", src: "/images/services/video-tours/tour-2.mp4", poster: "/images/services/video-tours/tour-2-poster.jpg", alt: "Cinematic Tour, Hot Springs" },
+      { kind: "video", src: "/videos/film-modern-villa-pool.mp4", poster: "/videos/film-modern-villa-pool.jpg", alt: "Cinematic Tour, Little Rock" },
+      { kind: "video", src: "/videos/film-glass-house-woods.mp4", poster: "/videos/film-glass-house-woods.jpg", alt: "Cinematic Tour with the agent, Little Rock" },
     ],
   },
   drone: {
@@ -41,8 +42,9 @@ export const serviceSamples: Record<SampleServiceKey, Pick<SingleService, "blurb
   reel: {
     blurb: "A short vertical video made for Instagram, Facebook and TikTok.",
     samples: [
-      { kind: "video", src: "/images/services/reels/reel-1.mp4", poster: "/images/services/reels/reel-1-poster.jpg", alt: "Listing Reel, Bryant", vertical: true },
-      { kind: "video", src: "/images/services/reels/reel-2.mp4", poster: "/images/services/reels/reel-2-poster.jpg", alt: "Second listing reel, Bryant", vertical: true },
+      { kind: "video", src: "/videos/reel-cabin-on-stilts.mp4", poster: "/videos/reel-cabin-on-stilts.jpg", alt: "Listing Reel, Little Rock", vertical: true },
+      { kind: "video", src: "/videos/reel-glass-modern-lake.mp4", poster: "/videos/reel-glass-modern-lake.jpg", alt: "Listing Reel with the agent, Hot Springs", vertical: true },
+      { kind: "video", src: "/videos/reel-greek-revival-mansion.mp4", poster: "/videos/reel-greek-revival-mansion.jpg", alt: "Listing Reel, historic Little Rock", vertical: true },
     ],
   },
   twilight: {

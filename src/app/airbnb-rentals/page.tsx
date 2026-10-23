@@ -7,6 +7,7 @@ import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { airbnbPricing } from "@/lib/pricing";
+import { PortfolioVideos } from "@/components/portfolio-videos";
 
 export const metadata = {
   alternates: { canonical: "/airbnb-rentals" },
@@ -270,6 +271,9 @@ export default function AirbnbRentalsPage() {
           </div>
         </div>
       </section>
+
+      {/* ── DELIVERED FILMS AND REELS ── */}
+      <PortfolioVideos vertical="airbnb-rentals" />
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

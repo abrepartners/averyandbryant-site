@@ -6,6 +6,7 @@ import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { lotLandPricing } from "@/lib/pricing";
+import { PortfolioVideos } from "@/components/portfolio-videos";
 
 export const metadata = {
   alternates: { canonical: "/lot-land" },
@@ -95,6 +96,9 @@ export default function LotLandPage() {
   return (
     <>
       <HeroLotLand />
+
+      {/* ── DELIVERED FILMS AND REELS ── */}
+      <PortfolioVideos vertical="lot-land" />
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

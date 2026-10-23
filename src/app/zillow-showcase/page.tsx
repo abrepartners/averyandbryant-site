@@ -4,6 +4,7 @@ import { ZillowTourEmbed } from "@/components/zillow-tour";
 import { FEATURED_LIVE_TOUR } from "@/lib/live-tours";
 import { Eyebrow } from "@/components/eyebrow";
 import { ScrollSteps, type ScrollStep } from "@/components/scroll-steps";
+import { PortfolioVideos } from "@/components/portfolio-videos";
 
 // Showcase package price, approved for display by Thomas 2026-10-09. Every
 // mention on this page reads from this one constant.
@@ -305,6 +306,9 @@ export default function ZillowShowcasePage() {
           </div>
         </div>
       </section>
+
+      {/* Delivered film */}
+      <PortfolioVideos vertical="zillow-showcase" bordered="border-border" />
 
       {/* Live tour */}
       <section
