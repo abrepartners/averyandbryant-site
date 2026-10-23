@@ -72,7 +72,7 @@ export const commercialGroups: PortfolioGroup[] = [
       },
       {
         src: "/images/commercial/north-little-rock-retail-storefronts.jpg",
-        alt: "Low aerial of a row of retail storefronts and the parking lot at a shopping center on East Broadway in North Little Rock, Arkansas",
+        alt: "Low aerial of a row of retail storefronts and the parking lot at a shopping center in North Little Rock, Arkansas",
       },
     ],
   },
@@ -81,11 +81,11 @@ export const commercialGroups: PortfolioGroup[] = [
     shots: [
       {
         src: "/images/commercial/pine-bluff-church-sanctuary.jpg",
-        alt: "Church sanctuary with warm wood and pews at 2400 West 31st Avenue in Pine Bluff, Arkansas",
+        alt: "Church sanctuary with warm wood and pews in Pine Bluff, Arkansas",
       },
       {
         src: "/images/commercial/little-rock-exterior.jpg",
-        alt: "Columned portico and front lawn of a Greek Revival mansion at 411 7th Street in Little Rock, Arkansas",
+        alt: "Columned portico and front lawn of a Greek Revival mansion in Little Rock, Arkansas",
       },
       {
         src: "/images/commercial/pine-bluff-church-exterior.jpg",
@@ -106,7 +106,7 @@ export const commercialGroups: PortfolioGroup[] = [
       },
       {
         src: "/images/commercial/little-rock-skyline-aerial.jpg",
-        alt: "Aerial photo over a historic Little Rock neighborhood with the downtown skyline behind it, from a shoot at 411 7th Street",
+        alt: "Aerial photo over a historic Little Rock neighborhood with the downtown skyline behind it",
       },
     ],
   },

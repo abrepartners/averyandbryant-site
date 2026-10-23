@@ -51,16 +51,20 @@ function Tile({ video, aspect }: { video: VideoSample; aspect: string }) {
 export function VideoSamples({
   videos,
   vertical = false,
+  className,
 }: {
   videos: VideoSample[];
   vertical?: boolean;
+  /** Replaces the default grid classes, for rows that are not three across. */
+  className?: string;
 }) {
   return (
     <div
       className={
-        vertical
+        className ??
+        (vertical
           ? "grid grid-cols-3 gap-3 md:gap-4 lg:mx-auto lg:max-w-[880px]"
-          : "grid gap-3 md:grid-cols-3 md:gap-4"
+          : "grid gap-3 md:grid-cols-3 md:gap-4")
       }
     >
       {videos.map((v) => (

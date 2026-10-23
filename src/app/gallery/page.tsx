@@ -4,20 +4,9 @@ import { GALLERY_VERTICALS, tileFor } from "@/lib/gallery";
 import curated from "../../../data/gallery-curated.json";
 import drone from "../../../data/drone-showcase.json";
 import { Eyebrow } from "@/components/eyebrow";
-import { VideoSamples, type VideoSample } from "@/components/video-samples";
+import { VideoSamples } from "@/components/video-samples";
 import { BeforeAfter, type BeforeAfterPair } from "@/components/before-after";
-
-const reels: VideoSample[] = [1, 2, 3].map((n) => ({
-  src: `/images/services/reels/reel-${n}.mp4`,
-  poster: `/images/services/reels/reel-${n}-poster.jpg`,
-  alt: "Vertical listing reel for Instagram and TikTok",
-}));
-
-const tours: VideoSample[] = [1, 2, 3].map((n) => ({
-  src: `/images/services/video-tours/tour-${n}.mp4`,
-  poster: `/images/services/video-tours/tour-${n}-poster.jpg`,
-  alt: "Cinematic listing video tour",
-}));
+import { bookingFilms as tours, bookingReels as reels } from "@/lib/portfolio-videos";
 
 const edits: BeforeAfterPair[] = [
   { label: "Virtual staging", before: "/images/showcase-staging-before.jpg", after: "/images/showcase-staging-after.jpg", alt: "Empty room virtually staged" },

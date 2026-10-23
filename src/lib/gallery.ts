@@ -37,7 +37,7 @@ export const GALLERY_VERTICALS: GalleryVertical[] = [
     interest: "real-estate",
     tile: {
       featuredId: "019f19ab-f680-7349-8b50-e93d097513c5",
-      alt: "Front exterior of a brick home on Ranch Boulevard in Little Rock, Arkansas",
+      alt: "Front exterior of a brick home in Little Rock, Arkansas",
     },
   },
   {
@@ -63,7 +63,7 @@ export const GALLERY_VERTICALS: GalleryVertical[] = [
     interest: "multi-family",
     tile: {
       featuredId: "0198ec33-a7a8-7362-b1e9-2b62ef5cafb5",
-      alt: "Brick apartment building on Reservoir Road in Little Rock, Arkansas",
+      alt: "Brick apartment building in Little Rock, Arkansas",
     },
   },
   {
@@ -76,7 +76,7 @@ export const GALLERY_VERTICALS: GalleryVertical[] = [
     interest: "commercial",
     tile: {
       featuredId: "019b7197-4e20-73cd-b3ea-de174b503ac0",
-      alt: "Front of a historic three-story brick office building on Scott Street in downtown Little Rock, Arkansas",
+      alt: "Front of a historic three-story brick office building in downtown Little Rock, Arkansas",
     },
   },
   {

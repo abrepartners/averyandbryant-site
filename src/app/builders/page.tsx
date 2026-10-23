@@ -9,6 +9,7 @@ import { PackageCard } from "@/components/pricing/package-card";
 import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { buildersPricing } from "@/lib/pricing";
+import { PortfolioVideos } from "@/components/portfolio-videos";
 
 export const metadata = {
   alternates: { canonical: "/builders" },
@@ -239,6 +240,9 @@ export default function BuildersPage() {
           </div>
         </div>
       </section>
+
+      {/* ── DELIVERED FILMS AND REELS ── */}
+      <PortfolioVideos vertical="builders" />
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

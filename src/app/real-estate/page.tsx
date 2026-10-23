@@ -11,6 +11,7 @@ import { AddOnsGrid } from "@/components/pricing/add-ons-grid";
 import { GuaranteeBadge } from "@/components/pricing/guarantee-badge";
 import { ScarcityBar } from "@/components/pricing/scarcity-bar";
 import { realEstatePricing } from "@/lib/pricing";
+import { PortfolioVideos } from "@/components/portfolio-videos";
 
 export const metadata = {
   alternates: { canonical: "/real-estate" },
@@ -149,6 +150,9 @@ export default function RealEstatePage() {
           </div>
         </div>
       </section>
+
+      {/* ── DELIVERED FILMS AND REELS ── */}
+      <PortfolioVideos vertical="real-estate" />
 
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">

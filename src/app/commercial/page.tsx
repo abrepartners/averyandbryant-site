@@ -11,6 +11,7 @@ import {
   commercialGuarantee,
 } from "@/lib/pricing";
 import { consultUrl } from "@/lib/consult";
+import { PortfolioVideos } from "@/components/portfolio-videos";
 
 export const metadata = {
   alternates: { canonical: "/commercial" },
@@ -172,6 +173,9 @@ export default function CommercialPage() {
           </div>
         </div>
       </section>
+
+      {/* ── DELIVERED FILMS AND REELS ── */}
+      <PortfolioVideos vertical="commercial" />
 
       {/* ── ONE-OFF PHOTOGRAPHY, SIZED TO SQUARE FOOTAGE ── */}
       <section className="border-t border-white/5 py-20 md:py-24">
