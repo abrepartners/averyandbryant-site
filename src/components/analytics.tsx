@@ -1,7 +1,10 @@
 import Script from "next/script";
 
 const GHL_WIDGET_ID = process.env.NEXT_PUBLIC_GHL_WIDGET_ID;
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+// Tag Manager container "www.averyandbryant.com" (Avery & Bryant account).
+// GA4 and the Meta pixel should be added inside this container, not via the
+// NEXT_PUBLIC_GA4_ID / NEXT_PUBLIC_META_PIXEL_ID env vars, or they fire twice.
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MKKZWZWC";
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
