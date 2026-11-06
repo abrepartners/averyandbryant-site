@@ -22,8 +22,9 @@ export function orderFormUrl(vertical: Vertical): string {
  * $395 / $695 / $995). Kept out of ORDER_FORMS on purpose: commercial has no
  * vertical form, and only self storage books online. Leave empty until the
  * Aryeo form exists; while empty, storage cards fall back to the consult call.
+ * Form "Self Storage Facilities" created 2026-11-06 (public, 50% deposit).
  */
-export const SELF_STORAGE_FORM_ID = "";
+export const SELF_STORAGE_FORM_ID = "01a1b2d7-8a3e-73e6-8315-817e7ffdba29";
 
 export function selfStorageOrderUrl(): string | null {
   return SELF_STORAGE_FORM_ID
