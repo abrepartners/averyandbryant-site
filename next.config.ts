@@ -32,6 +32,28 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── Business card QR short links (team kit, 2026-11) ──
+      // Each card QR encodes averyandbryant.com/c/<name>. Temporary (307), so the
+      // destination or offer can change later without reprinting the cards.
+      {
+        source: "/c/thomas",
+        destination:
+          "/order/real-estate?utm_source=card&utm_medium=print&utm_campaign=team&utm_content=thomas",
+        permanent: false,
+      },
+      {
+        source: "/c/cayden",
+        destination:
+          "/order/real-estate?utm_source=card&utm_medium=print&utm_campaign=team&utm_content=cayden",
+        permanent: false,
+      },
+      {
+        source: "/c/book",
+        destination:
+          "/order/real-estate?utm_source=card&utm_medium=print&utm_campaign=team&utm_content=book",
+        permanent: false,
+      },
+
       // ── Product rebrand: StudioAI → Vellum ──
       { source: "/studioai", destination: "/vellum", permanent: true },
 
