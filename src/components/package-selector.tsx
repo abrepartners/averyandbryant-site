@@ -121,7 +121,7 @@ const PROPERTY_TYPES: TypeOption[] = [
       href: consultUrl("commercial"),
       verticalPage: "/commercial",
       ctaLabel: CALENDARS.consult.label,
-      note: "One-off commercial photography starts at $295 and is sized to your square footage on the call. Monthly programs are scoped the same way.",
+      note: "Self storage facilities book set packages from $395 on the commercial page. Every other commercial shoot is quoted on the call, and monthly programs are scoped the same way.",
     },
     verticalPage: "/commercial",
   },

@@ -9,8 +9,10 @@ import {
   commercialPackages,
   commercialSpecialty,
   commercialGuarantee,
+  selfStoragePackages,
 } from "@/lib/pricing";
 import { consultUrl } from "@/lib/consult";
+import { selfStorageOrderUrl } from "@/lib/order-forms";
 import { PortfolioVideos } from "@/components/portfolio-videos";
 
 export const metadata = {
@@ -18,7 +20,7 @@ export const metadata = {
   title:
     "Commercial Media: CRE Launch, Command System, Dealership & Hospitality | Avery & Bryant",
   description:
-    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Photos from $295, sized to your square footage; listing packages from $995.",
+    "Professional commercial photography, drone, and video for dealerships, offices, retail, restaurants, industrial, and hospitality properties across Arkansas. Self storage packages from $395 book online; every other commercial shoot is quoted on a free call.",
 };
 
 const QUOTE_EMAIL =
@@ -74,7 +76,7 @@ const faqs = [
   {
     question: "How much does commercial photography cost in Arkansas?",
     answer:
-      "One-off commercial photography is sized to your square footage: photos start at $295 for a single suite or small building, and a free 30-minute scope call produces the exact number. The listing packages and hospitality package on this page are fixed prices; the dealership program is monthly and set up on a call.",
+      "Self storage facilities have set packages: Storage Essentials $395, Storage Showcase $695 and Storage Lease-Up $995, booked online. Every other commercial shoot is scoped on a free 30-minute call that ends with a written quote. The listing packages and hospitality package on this page are fixed prices; the dealership program is monthly and set up on a call.",
   },
   {
     question: "How fast do we get our media?",
@@ -177,21 +179,70 @@ export default function CommercialPage() {
       {/* ── DELIVERED FILMS AND REELS ── */}
       <PortfolioVideos vertical="commercial" />
 
-      {/* ── ONE-OFF PHOTOGRAPHY, SIZED TO SQUARE FOOTAGE ── */}
+      {/* ── SELF STORAGE: SET PACKAGES, BOOKED ONLINE ── */}
+      <section
+        id="self-storage"
+        className="border-t border-white/5 py-24 md:py-32"
+      >
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            Own a self storage facility?
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
+            Self storage packages.{" "}
+            <span className="text-fg-secondary">Book online from $395.</span>
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-secondary">
+            Renters pick a unit on their phone before they ever call. Every
+            package covers what they look for first: the sign, the office, the
+            gate and keypad, the drive aisles and the unit doors, plus aerials
+            of the whole site.
+          </p>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {selfStoragePackages.map((pkg) => {
+              const orderUrl = selfStorageOrderUrl();
+              return orderUrl ? (
+                <PackageCard
+                  key={pkg.name}
+                  pkg={pkg}
+                  ctaHref={orderUrl}
+                  ctaTarget="_blank"
+                  ctaLabel={`Book ${pkg.name}`}
+                />
+              ) : (
+                <PackageCard
+                  key={pkg.name}
+                  pkg={pkg}
+                  ctaHref={consultUrl("self-storage")}
+                  ctaTarget="_blank"
+                  ctaLabel="Book a free 30-min call"
+                />
+              );
+            })}
+          </div>
+          <p className="mt-8 text-sm text-fg-secondary">
+            Travel in the Little Rock area is included. Facilities farther out
+            add a travel fee.
+          </p>
+        </div>
+      </section>
+
+      {/* ── EVERYTHING ELSE COMMERCIAL: QUOTED ON A CALL ── */}
       <section className="border-t border-white/5 py-20 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="grid items-center gap-8 rounded-lg border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:grid-cols-[1.4fr_auto] md:p-12">
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
-                Just need photos of a building or suite?
+                Office, retail, industrial or something else?
               </p>
               <h2 className="mt-4 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
-                Photos from $295, sized to your square footage.
+                Every other commercial shoot is quoted on a call.
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-secondary">
-                Interior and exterior photography in one visit, delivered
-                in 48 hours. A free 30-minute call sizes the shoot to your
-                property and produces the exact quote.
+                A free 30-minute call scopes the shoot around your property and
+                how you will use the media, and ends with a written quote within
+                24 hours.
               </p>
             </div>
             <a
@@ -350,7 +401,7 @@ export default function CommercialPage() {
       <ConsultCTA
         interest="commercial"
         headline="Not sure which track you are on?"
-        subhead="Listing a property, or a business that needs content every month: the free 30-minute call sorts that out, sizes any one-off photography to your square footage, and ends with a written quote."
+        subhead="Listing a property, or a business that needs content every month: the free 30-minute call sorts that out, scopes any one-off shoot, and ends with a written quote."
       />
 
       {/* ── CTA ── */}

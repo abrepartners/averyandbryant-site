@@ -16,3 +16,17 @@ export type Vertical = keyof typeof ORDER_FORMS;
 export function orderFormUrl(vertical: Vertical): string {
   return `${ORDER_FORM_BASE}/${ORDER_FORMS[vertical]}`;
 }
+
+/**
+ * Self storage order form (owner ruling 2026-11-04, prices locked 2026-11-06:
+ * $395 / $695 / $995). Kept out of ORDER_FORMS on purpose: commercial has no
+ * vertical form, and only self storage books online. Leave empty until the
+ * Aryeo form exists; while empty, storage cards fall back to the consult call.
+ */
+export const SELF_STORAGE_FORM_ID = "";
+
+export function selfStorageOrderUrl(): string | null {
+  return SELF_STORAGE_FORM_ID
+    ? `${ORDER_FORM_BASE}/${SELF_STORAGE_FORM_ID}`
+    : null;
+}

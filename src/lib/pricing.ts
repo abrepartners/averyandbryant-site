@@ -941,6 +941,80 @@ export const commercialSpecialty: Package[] = [
   },
 ];
 
+// ─── Self storage (commercial) ───────────────────────────────
+// RULED 2026-11-04 by the owner: a commercial property type gets set prices
+// only once its scope repeats. Self storage qualifies (sign, office, gate and
+// keypad, drive aisles, unit doors, aerial on every shoot). Prices locked
+// 2026-11-06: $395 / $695 / $995. Every other commercial type is quoted on a
+// call with no published price. Source: abvault 40-Ops/Pricing & Packages.md.
+export const selfStoragePackages: Package[] = [
+  {
+    name: "Storage Essentials",
+    price: "$395",
+    tag: "Photos and aerials",
+    bestFor:
+      "A facility that is mostly full and needs its Google profile and listings to look current",
+    priceBasis: "per shoot",
+    keyInclusions: [
+      "25 ground photos",
+      "10 drone photos",
+      "Sign, office, gate and keypad, drive aisles, unit doors",
+    ],
+    valueItems: [
+      { label: "25 ground photos: sign, office exterior, gate and keypad, drive aisles, unit doors, an open unit, inside the office", value: "" },
+      { label: "10 drone photos of the site and its access roads", value: "" },
+      { label: "Edited and delivered within 72 hours", value: "" },
+    ],
+    totalValue: "",
+    savings: "",
+  },
+  {
+    name: "Storage Showcase",
+    price: "$695",
+    tag: "Photos, aerials and video",
+    recommended: true,
+    bestFor: "A facility with doors to fill before the May to August rush",
+    priceBasis: "per shoot",
+    keyInclusions: [
+      "40 ground photos",
+      "15 drone photos",
+      "60 to 90 second gate to unit video with drone",
+    ],
+    stepUp:
+      "Adds the video that shows renters how easy and secure the trip to their unit is, before they drive over.",
+    valueItems: [
+      { label: "40 ground photos", value: "" },
+      { label: "15 drone photos", value: "" },
+      { label: "60 to 90 second video that drives from the gate to the unit, with drone", value: "" },
+      { label: "Edited and delivered within 72 hours", value: "" },
+    ],
+    totalValue: "",
+    savings: "",
+  },
+  {
+    name: "Storage Lease-Up",
+    price: "$995",
+    tag: "Full launch set",
+    bestFor: "A new facility, an expansion, or a lot of open units",
+    priceBasis: "per shoot",
+    keyInclusions: [
+      "Everything in Showcase",
+      "Vertical social reel",
+      "30 second cut made for your Google profile",
+    ],
+    stepUp:
+      "Adds the short formats that reach renters where they search and scroll: Google and their phones.",
+    valueItems: [
+      { label: "Everything in Storage Showcase", value: "" },
+      { label: "Vertical social reel", value: "" },
+      { label: "30 second video cut made for your Google Business Profile", value: "" },
+      { label: "Edited and delivered within 72 hours", value: "" },
+    ],
+    totalValue: "",
+    savings: "",
+  },
+];
+
 export const commercialGuarantee: Guarantee = {
   name: "Satisfaction Reshoot Guarantee",
   text: "Not happy with your media? Tell us within 7 days of delivery and we'll reshoot it free. “Not happy” means an issue with our work: exposure, color, composition, or a missed shot from your agreed shot list. It doesn't cover property condition, weather, or changes made to the site after the shoot.",

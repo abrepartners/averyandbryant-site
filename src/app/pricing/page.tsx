@@ -9,6 +9,7 @@ import {
   buildersPricing,
   commercialPackages,
   commercialSpecialty,
+  selfStoragePackages,
   brandingPackages,
   type Package,
 } from "@/lib/pricing";
@@ -121,11 +122,15 @@ const verticals: {
     label: "Commercial",
     tag: "CRE & Specialty",
     headline: "Commercial Media",
-    range: "From $295",
-    rangeBasis: "photos, sized to your square footage",
+    range: "From $395",
+    rangeBasis: "self storage packages",
     description:
-      "One-off commercial photography is sized to your square footage and quoted on a call. Listing packages, a dealership program, and hospitality photography below.",
-    packages: [...rows(commercialPackages), ...rows(commercialSpecialty)],
+      "Self storage facilities book set packages online. Every other commercial shoot is quoted on a free 30-minute call. Listing packages, a dealership program, and hospitality photography below.",
+    packages: [
+      ...rows(selfStoragePackages),
+      ...rows(commercialPackages),
+      ...rows(commercialSpecialty),
+    ],
     samples: "/gallery/commercial",
   },
   {
