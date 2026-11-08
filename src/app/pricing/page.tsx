@@ -166,7 +166,7 @@ export default function PricingPage() {
       {/* ── HERO ── */}
       <section className="pt-32 pb-20 border-b border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Transparent Pricing
           </p>
           <h1 className="mt-4 font-display text-[clamp(36px,6vw,64px)] font-light tracking-tight text-fg leading-none">
@@ -181,7 +181,7 @@ export default function PricingPage() {
           </p>
           <Link
             href="/get-started"
-            className="mt-6 inline-flex items-center gap-2 rounded border border-crimson/30 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+            className="mt-6 inline-flex items-center gap-2 rounded border border-crimson/30 px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson-text transition-colors hover:border-crimson/60 hover:text-white"
           >
             Not sure which? Find your package &rarr;
           </Link>
@@ -267,7 +267,7 @@ export default function PricingPage() {
       {/* ── ADD-ONS REFERENCE ── */}
       <section className="py-16 border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60 mb-6">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text mb-6">
             A La Carte Add-Ons
           </p>
           <p className="text-[13px] text-fg-secondary mb-8 max-w-md">

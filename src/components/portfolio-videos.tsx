@@ -41,7 +41,7 @@ export function PortfolioVideos({ vertical, bordered = "border-white/5" }: { ver
   return (
     <section className={`border-b ${bordered} py-24 md:py-32`}>
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">{v.eyebrow}</p>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">{v.eyebrow}</p>
         <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
           {v.title} <span className="text-fg-secondary">{v.subtitle}</span>
         </h2>

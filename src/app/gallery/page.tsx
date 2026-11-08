@@ -178,7 +178,7 @@ export default function GalleryPage() {
                   Every project in one grid, filter by property type.
                 </span>
               </span>
-              <span className="shrink-0 text-[11px] uppercase tracking-[0.2em] text-crimson/80 group-open/all:hidden">
+              <span className="shrink-0 text-[11px] uppercase tracking-[0.2em] text-crimson-text group-open/all:hidden">
                 Open
               </span>
               <span className="hidden shrink-0 text-[11px] uppercase tracking-[0.2em] text-fg-secondary group-open/all:inline">

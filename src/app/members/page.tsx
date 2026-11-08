@@ -71,15 +71,15 @@ const accentMap: Record<string, { border: string; pill: string }> = {
   },
   tier2: {
     border: "border-crimson/20 hover:border-crimson/50",
-    pill: "text-crimson/90",
+    pill: "text-crimson-text",
   },
   tier3: {
     border: "border-crimson/20 hover:border-crimson/50",
-    pill: "text-crimson/90",
+    pill: "text-crimson-text",
   },
   tier4: {
     border: "border-crimson/20 hover:border-crimson/50",
-    pill: "text-crimson/90",
+    pill: "text-crimson-text",
   },
 };
 

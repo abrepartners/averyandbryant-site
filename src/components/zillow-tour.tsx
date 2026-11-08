@@ -176,7 +176,7 @@ export function LiveTourModal({
       >
         <div className="flex items-center justify-between gap-4 pb-3 md:pb-5">
           <div className="min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
               Live 3D tour
             </p>
             <h3 className="mt-1 truncate font-display text-lg font-light text-fg md:text-2xl">

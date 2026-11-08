@@ -198,7 +198,7 @@ export function ServiceCard({ service }: { service: Service }) {
           >
             <div className="flex items-start justify-between gap-6">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
                   Real Client Work
                 </p>
                 <h3 className="mt-2 font-display text-2xl font-light text-fg">

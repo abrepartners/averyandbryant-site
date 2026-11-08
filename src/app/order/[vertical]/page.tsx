@@ -73,7 +73,7 @@ export default async function OrderPage({
   return (
     <section className="relative py-24 md:py-32">
       <div className="relative mx-auto max-w-[720px] px-6 md:px-12">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
           {meta.tag}
         </p>
         <h1 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">

@@ -30,7 +30,7 @@ export function HeroBranding() {
 
           <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,76px)] font-extralight leading-[0.98] tracking-tight text-fg">
             Your face is{" "}
-            <span className="italic text-crimson/70">the brand.</span>
+            <span className="italic text-crimson-text">the brand.</span>
             <br />
             Let us make it look like it.
           </h1>
@@ -96,7 +96,7 @@ export function HeroBranding() {
                 running off the screen. Measured on one line, inside the
                 viewport, at 390, 360 and 320. */}
             <div className="absolute -bottom-5 left-0 right-0 z-30 mx-auto w-fit max-w-full rounded-full border border-white/15 bg-black/70 px-5 py-2 text-center backdrop-blur-md">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-crimson/80">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-crimson-text">
                 Every face, real client work
               </span>
             </div>

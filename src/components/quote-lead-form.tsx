@@ -62,7 +62,7 @@ export function QuoteLeadForm({ quote }: { quote: QuoteSummary }) {
 
   return (
     <form onSubmit={submit} className="mt-8 border-t border-white/10 pt-6">
-      <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+      <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
         Want this quote sent to you?
       </p>
       <p className="mt-2 text-sm text-fg-strong">

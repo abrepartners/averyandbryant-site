@@ -38,7 +38,7 @@ export function FaqSection({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
           FAQ
         </p>
         <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">

@@ -302,7 +302,7 @@ export default function BrandingPage() {
       {/* ── THE TWO PRICES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Priced on the page
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -337,7 +337,7 @@ export default function BrandingPage() {
 
           {/* How headshot days work, said plainly */}
           <div className="mt-8 rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:p-10">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
               How headshot days work
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-secondary">
@@ -359,7 +359,7 @@ export default function BrandingPage() {
       {/* ── THE $95 SESSION, FIVE REAL FACES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             The $95 session
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -399,7 +399,7 @@ export default function BrandingPage() {
       {/* ── THE $299 SESSION, ONE PERSON CHANGING LOOK ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             The $299 session
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -441,7 +441,7 @@ export default function BrandingPage() {
           </p>
 
           <div className="mt-16 border-t border-white/5 pt-16">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
               Two more sessions
             </p>
             <h3 className="mt-4 font-display text-[clamp(22px,3.5vw,32px)] font-light tracking-tight text-fg">
@@ -480,7 +480,7 @@ export default function BrandingPage() {
       {/* ── WHAT IS THE DIFFERENCE ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             In plain English
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -518,7 +518,7 @@ export default function BrandingPage() {
         className="scroll-mt-24 border-t border-white/5 py-24 md:py-32"
       >
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Scoped on a call
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -548,7 +548,7 @@ export default function BrandingPage() {
                 <h3 className="font-display text-2xl font-medium text-fg">
                   {service.name}
                 </h3>
-                <p className="mt-2 text-sm text-crimson/80">
+                <p className="mt-2 text-sm text-crimson-text">
                   {service.summary}
                 </p>
 
@@ -583,7 +583,7 @@ export default function BrandingPage() {
                   href={CONSULT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-block w-fit rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+                  className="mt-8 inline-block w-fit rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson-text transition-colors hover:border-crimson/60 hover:text-white"
                 >
                   Talk through {service.name}
                 </a>
@@ -596,7 +596,7 @@ export default function BrandingPage() {
       {/* ── WHERE WE SHOOT ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Where we shoot
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -639,7 +639,7 @@ export default function BrandingPage() {
           </div>
 
           <div className="mt-10 rounded border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:p-10">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
               Somewhere else
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-secondary">
@@ -668,7 +668,7 @@ export default function BrandingPage() {
       {/* ── HOW IT WORKS ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             How it works
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -697,7 +697,7 @@ export default function BrandingPage() {
           <div className="mt-10 grid gap-px overflow-hidden rounded border border-white/5 bg-white/5 sm:grid-cols-3">
             {trustSignals.map((signal) => (
               <div key={signal.label} className="bg-[#0d0d0d] p-6 md:p-8">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-crimson/70">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-crimson-text">
                   {signal.label}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-fg-secondary">
@@ -726,7 +726,7 @@ export default function BrandingPage() {
       {/* ── CTA ── */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Get started
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
