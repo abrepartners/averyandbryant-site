@@ -48,7 +48,7 @@ export function HeroAirbnbRentals() {
             More bookings
             <br />
             start with{" "}
-            <span className="italic text-crimson/70">better photos.</span>
+            <span className="italic text-crimson-text">better photos.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-fg-strong md:text-lg">
@@ -76,7 +76,7 @@ export function HeroAirbnbRentals() {
               <p className="font-display text-5xl font-light leading-none text-crimson">
                 19%
               </p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-crimson/60">
+              <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-crimson-text">
                 More bookings
               </p>
             </div>

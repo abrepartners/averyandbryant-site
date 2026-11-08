@@ -19,7 +19,7 @@ export default function GetStartedPage() {
     <main className="min-h-screen">
       <section className="border-b border-white/5 py-20 md:py-28">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Find your package
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.05] tracking-tight text-fg">

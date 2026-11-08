@@ -162,7 +162,7 @@ export function GalleryGrid({
             </div>
             <div className="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
                   {lightbox.label}, real client listing
                 </p>
                 <h3 className="mt-2 font-display text-xl font-light text-fg">

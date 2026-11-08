@@ -138,7 +138,7 @@ export function FeaturedHomes({
             {/* Top bar */}
             <div className="flex items-center justify-between gap-4 border-b border-white/5 px-5 py-3">
               <div className="min-w-0">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-crimson-text">
                   {home.label}
                 </span>
                 <span className="ml-3 text-sm text-fg">{home.city}</span>

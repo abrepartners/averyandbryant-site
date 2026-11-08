@@ -5,9 +5,10 @@
 
 /* ============================================================
    Avery & Bryant Design System
-   Source of truth: claude.ai/design project
-   "Avery & Bryant Design System" (ca12c779-8dbf-44b5-8a41-5357fffd05ac)
-   Mirrored in the vault at 30-Brand/AB-Design-System/.
+   Source of truth: the "Avery Bryant Design System" artifact in Claude
+   https://claude.ai/artifact/6HHN6Z9EWnfwCZXNsYLFFw (project/tokens.json).
+   The standalone claude.ai/design project closes 2026-12-14.
+   Vault audit: 10-Projects/A&B-Site-Design-System-Audit.md.
 
    Premium dark aesthetic. Crimson is the SINGLE brand accent.
    Amber is a rare secondary used ONLY for free-consult moments.
@@ -19,6 +20,10 @@
    2. Crimson-at-opacity is for glows, tints, and borders.
       It is NOT a text color. `text-crimson/20` renders at
       1.11:1 contrast, which is invisible.
+   2b. Small crimson text uses `text-crimson-text` (#E8556B, 5.6:1
+      on the page background). Full crimson #C41230 is 3.28:1 and
+      is only allowed as text at 24px and up (headings, prices).
+      Decided by Thomas 2026-11-08.
    3. Every vertical uses crimson. Per-page accent palettes are
       what caused the site to drift out of brand.
    ============================================================ */
@@ -54,6 +59,7 @@
   /* ---- Brand ------------------------------------------------ */
   --color-crimson: #c41230;
   --color-crimson-dark: #a00f28;
+  --color-crimson-text: #e8556b;  /* text-safe crimson, small text only */
   --color-primary: #c41230;
   --color-primary-foreground: #ffffff;
   --color-accent: #c41230;
@@ -202,7 +208,7 @@ body {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: var(--tracking-eyebrow);
-  color: rgba(196, 18, 48, 0.6);
+  color: #e8556b; /* crimson-text */
 }
 
 /* Page transition fade-in */

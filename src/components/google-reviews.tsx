@@ -64,7 +64,7 @@ export async function GoogleReviews({ max = 3 }: { max?: number }) {
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
               What clients say
             </p>
             <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">

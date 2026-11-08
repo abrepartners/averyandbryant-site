@@ -90,7 +90,7 @@ function Path({ label, items, play, flow }: { label: string; items: string[]; pl
   return (
     <div className={`${flow ? "relative" : "absolute inset-0"} flex items-center justify-center bg-[#111] p-6 md:p-12`}>
       <div className="w-full max-w-md">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">{label}</p>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">{label}</p>
         <ol className="mt-5 flex flex-col gap-3 md:gap-4">
           {items.map((item, i) => (
             <li

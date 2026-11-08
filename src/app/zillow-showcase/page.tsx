@@ -210,7 +210,7 @@ export default function ZillowShowcasePage() {
       {/* What Showcase needs: pinned media beside scrolling steps */}
       <section className="border-b border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             The requirement
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
@@ -229,7 +229,7 @@ export default function ZillowShowcasePage() {
       {/* The package */}
       <section className="border-b border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             The Showcase package
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
@@ -316,7 +316,7 @@ export default function ZillowShowcasePage() {
         className="scroll-mt-24 border-b border-border py-16 md:py-24"
       >
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             See it live
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">
@@ -334,7 +334,7 @@ export default function ZillowShowcasePage() {
       {/* Zillow's numbers */}
       <section className="border-b border-border py-16 md:py-24">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Why it matters
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(24px,4vw,44px)] font-extralight tracking-tight text-fg">

@@ -292,7 +292,7 @@ export default async function StudioPage({
       {/* ── ROOMS GRID — the heart of the page ── */}
       <section id="sets" className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             The Sets
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -368,7 +368,7 @@ export default async function StudioPage({
       {/* ── MEMBERSHIPS ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Memberships
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -420,7 +420,7 @@ export default async function StudioPage({
       {/* ── AMENITIES ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             What&apos;s Included
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -444,7 +444,7 @@ export default async function StudioPage({
       {/* ── PRICING ── */}
       <section id="pricing" className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Pricing
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -608,7 +608,7 @@ export default async function StudioPage({
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
               Hours
             </p>
             <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -653,7 +653,7 @@ export default async function StudioPage({
       {/* ── CTA ── */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Get Started
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">

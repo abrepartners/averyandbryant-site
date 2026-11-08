@@ -22,7 +22,7 @@ export function OrderForm({ vertical }: { vertical: Vertical }) {
       <input type="hidden" name="vertical" value={vertical} />
 
       <fieldset className="space-y-4" disabled={pending}>
-        <legend className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+        <legend className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
           Your info
         </legend>
         <div className="grid gap-4 md:grid-cols-2">

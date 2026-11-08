@@ -111,7 +111,7 @@ export default function RealEstatePage() {
       {/* ── RECENT LISTINGS (REAL DELIVERED WORK) ── */}
       <section className="border-b border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Recent Listings
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -157,7 +157,7 @@ export default function RealEstatePage() {
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Packages
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -203,7 +203,7 @@ export default function RealEstatePage() {
       {/* ── CTA ── */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Get Started
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">

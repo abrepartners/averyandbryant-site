@@ -112,7 +112,7 @@ export function QuotePopup() {
           <div className="mx-auto my-8 w-[min(960px,calc(100vw-2rem))] rounded-xl border border-white/10 bg-[#0d0d0f] p-6 md:p-10">
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
                   Quick quote
                 </p>
                 <h2 className="mt-2 font-display text-2xl font-light tracking-tight text-fg">

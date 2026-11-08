@@ -138,7 +138,7 @@ export function WorkingOn() {
               <span className="mt-2 text-sm leading-relaxed text-fg-secondary">
                 {job.blurb}
               </span>
-              <span className="mt-4 text-[11px] uppercase tracking-[0.2em] text-crimson/80">
+              <span className="mt-4 text-[11px] uppercase tracking-[0.2em] text-crimson-text">
                 {job.reveals
                   ? active
                     ? "Choose below"
@@ -189,7 +189,7 @@ export function WorkingOn() {
           id={`working-on-${openJob.id}`}
           className="mt-6 rounded-lg border border-crimson/20 bg-[rgba(17,17,17,0.6)] p-6 md:p-8"
         >
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             {openJob.title}
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

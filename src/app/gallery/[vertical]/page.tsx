@@ -66,7 +66,7 @@ export default async function VerticalGalleryPage({
           >
             &larr; All galleries
           </Link>
-          <p className="mt-6 text-[10px] uppercase tracking-[0.3em] text-crimson/70">
+          <p className="mt-6 text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Gallery
           </p>
           <h1 className="mt-3 font-display text-[clamp(32px,6vw,64px)] font-extralight leading-[1.1] tracking-tight text-fg">

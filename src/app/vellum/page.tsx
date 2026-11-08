@@ -241,7 +241,7 @@ export default function VellumPage() {
                   <span className="text-fg-secondary">{plan.period}</span>
                 </div>
                 {plan.annualNote && (
-                  <p className="mt-1 text-xs text-crimson/70">
+                  <p className="mt-1 text-xs text-crimson-text">
                     {plan.annualNote}
                   </p>
                 )}

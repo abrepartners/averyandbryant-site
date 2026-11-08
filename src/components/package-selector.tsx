@@ -280,7 +280,7 @@ export function PackageSelector({
       {/* Step 0: what are you working on */}
       {step === 0 && (
         <div>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Start here
           </p>
           <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
@@ -296,7 +296,7 @@ export function PackageSelector({
                   <span className="mt-1 text-sm text-fg-secondary">
                     {j.blurb}
                   </span>
-                  <span className="mt-4 text-[11px] uppercase tracking-[0.2em] text-crimson/80">
+                  <span className="mt-4 text-[11px] uppercase tracking-[0.2em] text-crimson-text">
                     {j.cta}
                   </span>
                 </>
@@ -371,7 +371,7 @@ export function PackageSelector({
               id="chooser-property-types"
               className="mt-6 rounded-lg border border-crimson/20 bg-[rgba(17,17,17,0.6)] p-6 md:p-8"
             >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
                 Step 1 of 3
               </p>
               <h3 className="mt-3 font-display text-[clamp(20px,3vw,28px)] font-light tracking-tight text-fg">
@@ -402,7 +402,7 @@ export function PackageSelector({
       {/* Q2: goal */}
       {step === 1 && (
         <div>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Step 2 of 3
           </p>
           <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
@@ -433,7 +433,7 @@ export function PackageSelector({
       {/* Q3: scope */}
       {step === 2 && (
         <div>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Step 3 of 3
           </p>
           <h2 className="mt-3 font-display text-[clamp(24px,4vw,40px)] font-light tracking-tight text-fg">
@@ -511,7 +511,7 @@ function Result({
         : CALENDARS.consult.label;
     return (
       <div className="rounded-lg border border-crimson/30 bg-[rgba(17,17,17,0.6)] p-8 md:p-10">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
           Your recommendation
         </p>
         <h2 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
@@ -568,7 +568,7 @@ function Result({
 
   return (
     <div className="rounded-lg border border-crimson/30 bg-[rgba(17,17,17,0.6)] p-8 md:p-10">
-      <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+      <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
         Recommended for you
       </p>
       <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
@@ -580,7 +580,7 @@ function Result({
         </span>
       </div>
       {pkg.tag && (
-        <span className="mt-3 inline-block rounded-full border border-crimson/30 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-crimson/80">
+        <span className="mt-3 inline-block rounded-full border border-crimson/30 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-crimson-text">
           {pkg.tag}
         </span>
       )}

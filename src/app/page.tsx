@@ -485,7 +485,7 @@ export default function HomePage() {
       {/* 3. WHAT ARE YOU WORKING ON */}
       <section id="start" className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Start here
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -504,7 +504,7 @@ export default function HomePage() {
       {/* 4. SEE WHAT ONE PROJECT BECOMES */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             One project
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -528,7 +528,7 @@ export default function HomePage() {
                   />
                 </div>
                 <figcaption className="mt-4">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-crimson/80">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-crimson-text">
                     {asset.job}
                   </p>
                   <p className="mt-1 text-sm leading-relaxed text-fg-secondary">
@@ -542,7 +542,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/real-estate"
-              className="inline-flex min-h-[44px] items-center justify-center rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson-text transition-colors hover:border-crimson/60 hover:text-white"
             >
               See the full listing kit
             </Link>
@@ -564,7 +564,7 @@ export default function HomePage() {
       {/* 5. THREE WAYS A&B HELPS */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Three ways we help
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -605,7 +605,7 @@ export default function HomePage() {
       {/* 6. UNDERSTAND THE MEDIA */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Understand the media
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -631,7 +631,7 @@ export default function HomePage() {
       {/* 7. CHOOSE COVERAGE */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Choose coverage
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -655,7 +655,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/get-started"
-              className="inline-flex min-h-[44px] items-center justify-center rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson/90 transition-colors hover:border-crimson/60 hover:text-white"
+              className="inline-flex min-h-[44px] items-center justify-center rounded border border-crimson/30 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-crimson-text transition-colors hover:border-crimson/60 hover:text-white"
             >
               Help me choose
             </Link>
@@ -672,7 +672,7 @@ export default function HomePage() {
       {/* 8. WHAT HAPPENS NEXT */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             What happens next
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -713,7 +713,7 @@ export default function HomePage() {
       {/* 9. CONNECTED CAPABILITIES */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Connected capabilities
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -805,7 +805,7 @@ export default function HomePage() {
       {/* 10. FINAL DECISION */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Ready when you are
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">

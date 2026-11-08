@@ -121,7 +121,7 @@ export default function MultiFamilyPage() {
       {/* ── COMMUNITY PORTFOLIO (REAL DELIVERED WORK) ── */}
       <section className="border-b border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Community Portfolio
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -161,7 +161,7 @@ export default function MultiFamilyPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="grid items-center gap-8 rounded-lg border border-white/5 bg-[rgba(17,17,17,0.5)] p-8 md:grid-cols-[1.4fr_auto] md:p-12">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
                 Just need photos?
               </p>
               <h2 className="mt-4 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
@@ -189,7 +189,7 @@ export default function MultiFamilyPage() {
       {/* ── PACKAGES ── */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             One-time packages
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -219,7 +219,7 @@ export default function MultiFamilyPage() {
       {/* ── WHY A&B ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Why Avery & Bryant
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -248,7 +248,7 @@ export default function MultiFamilyPage() {
       {/* ── HOW IT WORKS ── */}
       <section className="border-t border-white/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             How It Works
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
@@ -292,7 +292,7 @@ export default function MultiFamilyPage() {
       {/* ── CTA ── */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-[1280px] px-6 py-24 text-center md:px-12 md:py-32">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson/60">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-crimson-text">
             Get Started
           </p>
           <h2 className="mt-4 font-display text-[clamp(28px,5vw,48px)] font-light tracking-tight text-fg">
