@@ -5,7 +5,7 @@ import { PlanToSold } from "@/components/builders/plan-to-sold";
 import { CarryCalculator } from "@/components/builders/carry-calculator";
 import { ProofSlots } from "@/components/builders/proof-slots";
 import { StagePackages } from "@/components/builders/stage-packages";
-import { OfferTerms, SpecReview } from "@/components/builders/offer-terms";
+import { OfferTerms } from "@/components/builders/offer-terms";
 import { StickyCta } from "@/components/builders/sticky-cta";
 
 export const metadata = {
@@ -79,8 +79,6 @@ export default function BuildersPage() {
       <StagePackages packages={packages} />
 
       <OfferTerms guarantee={guarantee} />
-
-      <SpecReview />
 
       <FaqSection faqs={faqs} heading="Straight answers." />
 

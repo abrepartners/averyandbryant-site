@@ -28,7 +28,7 @@ To swap the opening home: edit `HERO_HOME` at the top of `plan-to-sold.tsx`. Use
 | Interaction | Scroll forward and back works; hero button and calculator fields reachable by keyboard and labeled; no console errors. |
 | Mobile | 390x844 and 390x664 (iPhone Safari visible height): no horizontal overflow, no clipped text, sticky button bar visible. The 664 overlap found in testing was fixed. |
 | Desktop | 1440x900: no overflow; photo sits where the model appears. |
-| Reduced motion | Code path exists (canvas easing off, global CSS block). Not emulated in this browser: unverified. |
+| Reduced motion | Tested 11/14 with reduced motion emulated at 390x844: photo, plan and stage follow the scroll forward and back, no errors. |
 | Performance | Overnight preview measured 625 KB transfer, 59 requests, load 3.9 s on desktop class headless. This candidate adds one priority hero image and six lazy photos; video loads on tap. Not measured on a real phone or throttled network: unverified. |
 | Conversion path | Buttons go to the existing Free Consultation calendar with `interest=builders`, `/order/builders` with the package name, and the office phone. No form was submitted. Calendar booking receipt not tested. |
 | Checks run | `tsc --noEmit` clean, `eslint` clean on the builders folders, `next build` succeeds. |
@@ -84,8 +84,14 @@ The bar: public pricing with a working phone order flow, and named builder proof
 5. The work. Real homes and films first, labeled placeholders for progress footage.
 6. Packages by stage, terms and guarantee, free review offer (proposal), FAQ, close.
 
+## Offer decisions (Thomas, 2026-11-14)
+
+- Approved and live on the page: "Late on our end, and that shoot is free."
+- Declined and removed: Sitting Spec Review (section, link and text or email buttons), Priority Launch Slot, published site cap. No "Proposal" tags remain.
+
 ## Open items
 
-- Four invented offers are tagged Proposal and need Thomas's yes or no each (Sitting Spec Review, late delivery is free, Priority Launch Slot, published cap). `SHOW_PROPOSAL_FLAGS` controls the tags.
-- Real build progress photos and a before and after video do not exist yet; the two slots stay labeled.
-- Next after approval: one vertical video and one carousel from the same home, timed.
+- Real build progress photos and a before and after video do not exist yet; the two slots stay labeled Placeholder.
+- Not yet checked on a physical iPhone or a slow connection.
+- Release is Thomas's call. This branch is for preview only.
+- Review evidence (15 second phone scroll recording, terms screenshot): `~/ab/notes/builders-review-evidence/`.

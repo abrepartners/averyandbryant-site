@@ -345,16 +345,6 @@ export function StagePackages({ packages }: { packages: Package[] }) {
           })}
         </div>
 
-        <p className="mt-10 text-sm leading-relaxed text-fg-secondary">
-          Finished and sitting?{" "}
-          <a
-            href="#review"
-            className="text-fg underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
-          >
-            Get a free Sitting Spec Review
-          </a>{" "}
-          before you touch the price.
-        </p>
       </div>
     </section>
   );
