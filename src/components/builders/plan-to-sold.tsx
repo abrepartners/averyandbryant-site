@@ -67,7 +67,6 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef(0);
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
@@ -80,7 +79,6 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
       const r = track.getBoundingClientRect();
       const total = r.height - window.innerHeight;
       const p = total > 0 ? clamp(-r.top / total) : 0;
-      progressRef.current = p;
 
       const idx = stageIndex(p);
       setStage((prev) => (prev === idx ? prev : idx));
@@ -125,7 +123,7 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
       className="relative h-[560svh]"
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden bg-black-deep">
-        <FilmScrub progressRef={progressRef} className="absolute inset-0 h-full w-full" />
+        <FilmScrub trackRef={trackRef} className="absolute inset-0 h-full w-full" />
 
         {/* ── scrims: keep the type readable over the film ── */}
         <div

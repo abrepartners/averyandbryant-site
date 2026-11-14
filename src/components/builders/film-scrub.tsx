@@ -4,8 +4,10 @@ import { useEffect, useRef, type RefObject } from "react";
 import { FILM, frameAt, frameUrl, stageIndex, stagePosition, type FilmCut } from "./film-data";
 
 type Props = {
-  /** Live scroll progress, 0 to 1. */
-  progressRef: RefObject<number>;
+  /** The tall scroll track the film is pinned inside. Progress through it
+   * (0 to 1) is measured here on every frame, so the picture can never lag
+   * behind the scroll position. */
+  trackRef: RefObject<HTMLElement | null>;
   className?: string;
 };
 
@@ -33,7 +35,7 @@ const MAX_PENDING = 6;
  * playhead and decode off the main thread. If the exact frame is not ready
  * the nearest loaded one is drawn, so the picture never blanks or jumps.
  */
-export function FilmScrub({ progressRef, className = "" }: Props) {
+export function FilmScrub({ trackRef, className = "" }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -179,7 +181,13 @@ export function FilmScrub({ progressRef, className = "" }: Props) {
       raf = 0;
       const dt = Math.min(64, now - (last || now));
       last = now;
-      const p = progressRef.current ?? 0;
+      const track = trackRef.current;
+      let p = 0;
+      if (track) {
+        const r = track.getBoundingClientRect();
+        const total = r.height - window.innerHeight;
+        p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
+      }
       const target = reduce.matches ? stageIndex(p) : stagePosition(p);
       if (cur < 0) cur = target;
       const before = cur;
@@ -242,7 +250,7 @@ export function FilmScrub({ progressRef, className = "" }: Props) {
       window.removeEventListener("scroll", onScroll);
       reduce.removeEventListener("change", onScroll);
     };
-  }, [progressRef]);
+  }, [trackRef]);
 
   return <canvas ref={canvasRef} aria-hidden="true" className={className} />;
 }
