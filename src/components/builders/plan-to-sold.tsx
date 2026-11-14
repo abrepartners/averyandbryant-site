@@ -1,25 +1,18 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { HouseCanvas } from "./house-canvas";
-import { stageIndex, type HouseOpts } from "./house-model";
+import { useEffect, useRef, useState } from "react";
+import { FilmScrub } from "./film-scrub";
+import { stageIndex } from "./film-data";
 
 /**
- * The opening scene. The visitor sees a real finished home first (a delivered
- * A&B photo), then the scroll rewinds to the floor plan on a blueprint grid
- * and raises it back into a finished, sold home. Each stage names the media
- * we capture there, so the story and the offer are the same thing.
+ * The opening scene. One continuous film of a home going from layout lines on
+ * bare dirt to sold, scrubbed by the visitor's scroll. The picture holds at
+ * each stage and names the media we capture there, so the story and the
+ * offer are the same thing.
  *
- * To change the opening home, edit HERO_HOME below. Use a wide photo with the
- * whole house centered: phones crop the sides.
+ * The film is an illustration (not a client build) and is labeled as one.
+ * Frames and timing live in film-data.ts.
  */
-
-const HERO_HOME = {
-  src: "/images/builders/bryant-front-exterior.jpg",
-  alt: "New construction home on a wooded lot in Bryant, Arkansas, photographed by Avery & Bryant",
-  caption: "Delivered photo. Bryant, Arkansas.",
-};
 
 const STAGES = [
   {
@@ -74,8 +67,6 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
-  const photoRef = useRef<HTMLDivElement>(null);
-  const modelRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
   const [stage, setStage] = useState(0);
 
@@ -102,16 +93,6 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
         hero.style.pointerEvents = o < 0.4 ? "none" : "auto";
         hero.style.visibility = o < 0.01 ? "hidden" : "visible";
       }
-      // The real home hands off to the drawn plan as the scroll begins.
-      const photo = photoRef.current;
-      if (photo) {
-        const o = 1 - sm(0.025, 0.08, p);
-        photo.style.opacity = String(o);
-        photo.style.visibility = o < 0.01 ? "hidden" : "visible";
-      }
-      if (modelRef.current) {
-        modelRef.current.style.opacity = String(sm(0.03, 0.095, p));
-      }
       if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
       if (hintRef.current) {
         hintRef.current.style.opacity = String(1 - sm(0.005, 0.03, p));
@@ -133,75 +114,42 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
     };
   }, []);
 
-  // Phones: the plan sits under the headline, then rises to the top half as
-  // the captions take the bottom. Desktop: the model holds the right side.
-  const getOpts = useCallback((p: number, w: number, h: number): HouseOpts => {
-    const settle = sm(0.03, 0.14, p);
-    if (w < 1024) {
-      const from = h > 700 ? 0.74 : 0.77;
-      return {
-        originY: from + (0.4 - from) * settle,
-        zoom: (w < 640 ? 0.86 : 0.7) + 0.1 * settle,
-      };
-    }
-    // Fit the model into the space right of the copy column.
-    const left = w * 0.43;
-    const right = w - 32;
-    const base = Math.min(w / 62, h / 48);
-    const zoom = Math.min(0.98, (right - left) / (56 * base), (h * 0.7) / (36 * base));
-    return {
-      originX: (left + right) / 2 / w,
-      originY: 0.52 + 0.02 * settle,
-      zoom,
-    };
-  }, []);
-
   const active = STAGES[stage];
+  const gutter = "max(48px, calc((100vw - 1280px) / 2 + 48px))";
 
   return (
     <section
       ref={trackRef}
       id="plan-to-sold"
       aria-label="From plan to sold"
-      className="relative h-[520svh]"
+      className="relative h-[560svh]"
     >
-      <div className="sticky top-0 h-[100svh] overflow-hidden">
-        <div ref={modelRef} className="absolute inset-0" style={{ opacity: 0 }}>
-          <HouseCanvas
-            progressRef={progressRef}
-            getOpts={getOpts}
-            className="absolute inset-0 h-full w-full [mask-image:radial-gradient(ellipse_78%_70%_at_50%_52%,#000_52%,transparent_100%)] lg:[mask-image:radial-gradient(ellipse_52%_78%_at_70%_52%,#000_55%,transparent_100%)]"
-          />
-        </div>
+      <div className="sticky top-0 h-[100svh] overflow-hidden bg-black-deep">
+        <FilmScrub progressRef={progressRef} className="absolute inset-0 h-full w-full" />
 
-        {/* ── the complete home, first (a real delivered photo) ── */}
+        {/* ── scrims: keep the type readable over the film ── */}
         <div
-          ref={photoRef}
-          className="absolute inset-x-0 top-0 h-[38svh] lg:inset-x-auto lg:right-[max(48px,calc((100vw-1280px)/2+48px))] lg:top-1/2 lg:h-auto lg:w-[min(46vw,620px)] lg:-translate-y-1/2"
-        >
-          <figure className="relative h-full w-full lg:aspect-[16/10] lg:h-auto lg:overflow-hidden lg:rounded lg:border lg:border-white/10">
-            <Image
-              src={HERO_HOME.src}
-              alt={HERO_HOME.alt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 620px, 100vw"
-              className="object-cover [object-position:center_42%]"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.55)_0%,rgba(10,10,10,0)_26%,rgba(10,10,10,0)_62%,#0a0a0a_100%)] lg:bg-[linear-gradient(to_top,rgba(10,10,10,0.7)_0%,rgba(10,10,10,0)_34%)]"
-            />
-            <figcaption className="absolute bottom-3 right-6 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-strong md:right-12 lg:bottom-4 lg:left-4 lg:right-auto">
-              {HERO_HOME.caption}
-            </figcaption>
-          </figure>
-        </div>
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[26%] bg-[linear-gradient(to_bottom,rgba(10,10,10,0.72),rgba(10,10,10,0))]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[68%] bg-[linear-gradient(to_top,#0a0a0a_0%,rgba(10,10,10,0.93)_34%,rgba(10,10,10,0.6)_62%,rgba(10,10,10,0)_100%)] lg:hidden"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(to_right,rgba(10,10,10,0.95)_0%,rgba(10,10,10,0.84)_26%,rgba(10,10,10,0.35)_46%,rgba(10,10,10,0)_62%)] lg:block"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-44 bg-[linear-gradient(to_top,#0a0a0a_8%,rgba(10,10,10,0))] lg:block"
+        />
 
         {/* ── hero copy (the Plan stage) ── */}
         <div
           ref={heroRef}
-          className="absolute inset-x-0 top-0 px-6 pt-[calc(38svh+14px)] will-change-transform md:px-12 md:pt-[calc(38svh+24px)] lg:inset-y-0 lg:flex lg:w-[50%] lg:items-center lg:pt-0 lg:pl-[max(48px,calc((100vw-1280px)/2+48px))]"
+          style={{ ["--gutter" as string]: gutter }}
+          className="absolute inset-x-0 bottom-0 px-6 pb-[92px] will-change-transform md:px-12 md:pb-[120px] lg:inset-y-0 lg:flex lg:w-[50%] lg:items-center lg:pb-0 lg:pl-[var(--gutter)]"
         >
           <div className="max-w-[560px]">
             <div className="inline-flex items-center gap-3">
@@ -210,12 +158,12 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
                 For Central Arkansas builders
               </span>
             </div>
-            <h1 className="mt-4 font-display text-[clamp(50px,13.4vw,104px)] font-light leading-[0.98] tracking-[-0.035em] text-fg md:mt-6">
+            <h1 className="mt-4 font-display text-[clamp(48px,13vw,104px)] font-light leading-[0.98] tracking-[-0.035em] text-fg md:mt-6">
               From plan
               <br />
               to sold<span className="text-crimson">.</span>
             </h1>
-            <p className="mt-4 max-w-[30ch] text-[15px] leading-relaxed text-fg-strong md:mt-7 md:max-w-[40ch] md:text-lg">
+            <p className="mt-4 max-w-[32ch] text-[15px] leading-relaxed text-fg-strong md:mt-7 md:max-w-[40ch] md:text-lg">
               Every day a finished home sits, it costs you. We start at the
               slab, so buyers are watching long before the keys.
             </p>
@@ -249,12 +197,9 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
 
         {/* ── stage captions ── */}
         <div
-          aria-hidden="true"
-          className={`pointer-events-none absolute inset-x-0 bottom-0 h-[52%] bg-[linear-gradient(to_top,#0a0a0a_62%,rgba(10,10,10,0))] transition-opacity duration-500 lg:hidden ${
-            stage > 0 ? "opacity-100" : "opacity-0"
-          }`}
-        />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 px-6 pb-[76px] md:px-12 md:pb-[104px] lg:inset-y-0 lg:flex lg:w-[42%] lg:items-center lg:py-0 lg:pl-[max(48px,calc((100vw-1280px)/2+48px))]">
+          style={{ ["--gutter" as string]: gutter }}
+          className="pointer-events-none absolute inset-x-0 bottom-0 px-6 pb-[92px] md:px-12 md:pb-[120px] lg:inset-y-0 lg:flex lg:w-[42%] lg:items-center lg:py-0 lg:pl-[var(--gutter)]"
+        >
           <div className="grid w-full max-w-[460px]">
             {STAGES.slice(1).map((s, i) => {
               const on = stage === i + 1;
@@ -262,7 +207,7 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
                 <div
                   key={s.name}
                   aria-hidden={!on}
-                  className={`[grid-area:1/1] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                  className={`self-end [grid-area:1/1] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] lg:self-auto ${
                     on
                       ? "translate-y-0 opacity-100"
                       : "translate-y-3 opacity-0"
@@ -279,7 +224,7 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
                   <p className="mt-3 text-[15px] leading-relaxed text-fg-strong md:mt-5 md:text-base">
                     {s.body}
                   </p>
-                  <p className="mt-4 border-l border-white/15 pl-3 text-xs leading-relaxed text-fg-secondary md:mt-6">
+                  <p className="mt-4 border-l border-white/15 pl-3 text-xs leading-relaxed text-fg-secondary md:mt-6 max-lg:[@media(max-height:720px)]:hidden">
                     {s.from}
                   </p>
                 </div>
@@ -289,19 +234,28 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
         </div>
 
         {/* ── sheet tag, top right ── */}
-        <div className="pointer-events-none absolute right-6 top-[84px] hidden text-right font-mono text-[10px] uppercase leading-relaxed tracking-[0.2em] text-fg-faint md:right-12 md:top-[104px] md:block">
+        <div className="pointer-events-none absolute right-6 top-[84px] hidden text-right font-mono text-[10px] uppercase leading-relaxed tracking-[0.2em] text-fg-secondary md:right-12 md:top-[104px] md:block">
           <p>Sheet {active.sheet}</p>
           <p>{active.name}</p>
+          <p className="text-fg-faint">Illustration</p>
         </div>
 
         {/* ── stage rail ── */}
-        <div className="absolute inset-x-6 bottom-5 md:inset-x-12 md:bottom-8 lg:inset-x-[max(48px,calc((100vw-1280px)/2+48px))]">
-          <div
-            ref={hintRef}
-            className="mb-3 flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-fg-secondary md:mb-4"
-          >
-            <span>Scroll back to the plan</span>
-            <span aria-hidden="true" className="h-px w-10 bg-white/25" />
+        <div
+          style={{ ["--gutter" as string]: gutter }}
+          className="absolute inset-x-6 bottom-5 md:inset-x-12 md:bottom-8 lg:inset-x-[var(--gutter)]"
+        >
+          <div className="mb-3 flex items-center justify-between md:mb-4">
+            <div
+              ref={hintRef}
+              className="flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-fg-secondary"
+            >
+              <span>Scroll to build</span>
+              <span aria-hidden="true" className="h-px w-10 bg-white/25" />
+            </div>
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-fg-secondary md:hidden">
+              Illustration
+            </p>
           </div>
           <div className="relative h-px w-full bg-white/10">
             <span

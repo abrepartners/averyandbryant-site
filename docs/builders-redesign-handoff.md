@@ -95,3 +95,14 @@ The bar: public pricing with a working phone order flow, and named builder proof
 - Not yet checked on a physical iPhone or a slow connection.
 - Release is Thomas's call. This branch is for preview only.
 - Review evidence (15 second phone scroll recording, terms screenshot): `~/ab/notes/builders-review-evidence/`.
+
+## Film hero (2026-11-14, later the same day)
+
+Thomas's call: the drawn floor plan looked cheap. The opening scene is now one continuous film of a home going from layout lines on bare dirt to sold, scrubbed by the scroll. This sits on `builders-redesign`, which now contains both commits from `builders-redesign-proof` plus the film.
+
+- How it was made: a Blender blockout fixed the house, lot, sun and camera for six stages; Nano Banana 2.1 turned each blockout frame into a photoreal still; Kling 3.0 made five clips with the start and end frame pinned, each starting on the real last frame of the one before. Run through Replicate, because this machine had no Higgsfield login. Source, prompts, clips and a receipt of every generation: `~/ab/tools/plan-to-sold-film/` (see `RECEIPT.md`).
+- In the site: `src/components/builders/film-scrub.tsx` (canvas player), `film-data.ts` (frame counts, stage key frames, scroll timing), frames in `public/builders/film/v1/` (landscape 1280x720 and phone 608x1080, 12 frames per second of film, WebP). `next.config.ts` caches that folder for a year; a new cut goes in `v2`.
+- The drawn house (`house-model.ts`, `house-canvas.tsx`) is removed. The stage picker and the two not-yet-shot proof slots use stills from the film.
+- Honesty rule kept: the film and every still from it are labeled "Illustration". The real photos and films in the proof section are unchanged.
+- Removed in this pass: the real photo that opened the page in the proof candidate. The film now opens it. To bring the photo back, restore `HERO_HOME` from commit 8c7e184.
+- To re-cut: `~/ab/tools/plan-to-sold-film/scripts/encode.sh`, then paste the printed counts and keys into `film-data.ts`.

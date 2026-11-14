@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        // Scroll film frames are versioned by folder (v1, v2...), so they
+        // can be cached for a year.
+        source: "/builders/film/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       // ── Canonical host: non-www → www (existing Google rankings live on www) ──

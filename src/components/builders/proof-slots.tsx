@@ -2,8 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { HouseCanvas } from "./house-canvas";
-import { STAGE_AT } from "./house-model";
+import { STAGE_STILLS } from "./film-data";
 import { VideoRows } from "@/components/portfolio-videos";
 import { portfolioVideos } from "@/lib/portfolio-videos";
 
@@ -15,9 +14,9 @@ import { portfolioVideos } from "@/lib/portfolio-videos";
  * public/images/builders) and the "builders" entry in src/lib/portfolio-videos.ts.
  *
  * Slots: build progress photos and the before and after video. That footage
- * is not in yet, so each slot holds a drawn stand-in from the house model,
- * labeled as a placeholder so nobody mistakes it for delivered media. To fill
- * a slot, swap the <HouseCanvas> inside its frame for an <Image> or <video>.
+ * is not in yet, so each slot holds a still from the opening film, labeled
+ * "Illustration" so nobody mistakes it for delivered media. To fill a slot,
+ * point its <Image> at the real photo or swap it for a <video>.
  */
 
 const DELIVERED_PHOTOS = [
@@ -49,7 +48,6 @@ const DELIVERED_PHOTOS = [
 
 const BUILDER_VIDEOS = portfolioVideos.builders;
 
-const VIEW = { yaw: 40, pitch: 24 };
 
 function Ticks() {
   const c = "absolute h-3 w-3 border-white/30";
@@ -102,10 +100,10 @@ function SlotHead({
 }
 
 const PROGRESS_FRAMES = [
-  { label: "Foundation", at: STAGE_AT.foundation },
-  { label: "Framing", at: STAGE_AT.framing },
-  { label: "Rough-in", at: STAGE_AT.roughIn },
-  { label: "Finished", at: STAGE_AT.finished },
+  { label: "Foundation", src: STAGE_STILLS.foundation },
+  { label: "Framing", src: STAGE_STILLS.framing },
+  { label: "Rough-in", src: STAGE_STILLS.roughIn },
+  { label: "Finished", src: STAGE_STILLS.finished },
 ];
 
 function BeforeAfter() {
@@ -132,19 +130,27 @@ function BeforeAfter() {
       onPointerUp={() => (dragging.current = false)}
       onPointerCancel={() => (dragging.current = false)}
     >
-      <HouseCanvas
-        progress={STAGE_AT.finished}
-        opts={{ view: VIEW, zoom: 1.18, originY: 0.56 }}
-        className="absolute inset-0 h-full w-full"
+      <Image
+        src={STAGE_STILLS.finished}
+        alt=""
+        fill
+        unoptimized
+        draggable={false}
+        sizes="(min-width: 1024px) 600px, 100vw"
+        className="pointer-events-none object-cover [object-position:62%_60%]"
       />
       <div
         className="absolute inset-0 bg-black-deep"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       >
-        <HouseCanvas
-          progress={STAGE_AT.framing}
-          opts={{ view: VIEW, zoom: 1.18, originY: 0.56 }}
-          className="absolute inset-0 h-full w-full"
+        <Image
+          src={STAGE_STILLS.framingMatched}
+          alt=""
+          fill
+          unoptimized
+          draggable={false}
+          sizes="(min-width: 1024px) 600px, 100vw"
+          className="pointer-events-none object-cover [object-position:62%_60%]"
         />
       </div>
       <Ticks />
@@ -153,6 +159,9 @@ function BeforeAfter() {
       </p>
       <p className="absolute right-4 top-4 font-mono text-[10px] uppercase tracking-[0.2em] text-fg-strong">
         After
+      </p>
+      <p className="absolute bottom-3 left-3 rounded-sm bg-[rgba(10,10,10,0.62)] px-2 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-fg">
+        Illustration
       </p>
       <div
         aria-hidden="true"
@@ -193,7 +202,7 @@ export function ProofSlots() {
           <p className="mt-5 text-base leading-relaxed text-fg-strong md:text-lg">
             The finished homes and films are real deliveries for Arkansas
             builders. Build progress and before and after footage is next,
-            so those two frames are drawn placeholders for now.
+            so those two frames are illustrations for now.
           </p>
         </div>
 
@@ -243,16 +252,19 @@ export function ProofSlots() {
               {PROGRESS_FRAMES.map((f, i) => (
                 <figure key={f.label}>
                   <div className="relative aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep">
-                    <HouseCanvas
-                      progress={f.at}
-                      opts={{ view: VIEW, zoom: 1.2, originY: 0.57, grid: true }}
-                      className="absolute inset-0 h-full w-full"
+                    <Image
+                      src={f.src}
+                      alt=""
+                      fill
+                      unoptimized
+                      sizes="(min-width: 1024px) 300px, 50vw"
+                      className="object-cover [object-position:66%_50%]"
                     />
                     <Ticks />
                   </div>
                   <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.18em]">
                     <span className="text-fg-strong">{f.label}</span>
-                    <span className="text-fg-secondary">Placeholder 0{i + 1}</span>
+                    <span className="text-fg-secondary">Illustration 0{i + 1}</span>
                   </figcaption>
                 </figure>
               ))}

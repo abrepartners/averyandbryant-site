@@ -4,11 +4,11 @@ import { useState } from "react";
 import type { Package } from "@/lib/pricing";
 import { OrderLink } from "@/components/order-link";
 import { consultUrl } from "@/lib/consult";
-import { HouseCanvas } from "./house-canvas";
-import { STAGE_AT } from "./house-model";
+import Image from "next/image";
+import { STAGE_STILLS } from "./film-data";
 
 /**
- * "Where's your build?" The builder picks a stage, the house model moves to
+ * "Where's your build?" The builder picks a stage, the picture moves to
  * that stage, and the package that fits it steps forward with its full stack.
  * Package names, prices and line values all come from src/lib/pricing.ts.
  */
@@ -18,31 +18,31 @@ type StageId = "foundation" | "framing" | "rough-in" | "finished";
 const STAGES: {
   id: StageId;
   label: string;
-  at: number;
+  still: string;
   line: string;
 }[] = [
   {
     id: "foundation",
     label: "Foundation",
-    at: STAGE_AT.foundation,
+    still: STAGE_STILLS.foundation,
     line: "The best moment to start. Every month from here is something a buyer can follow.",
   },
   {
     id: "framing",
     label: "Framing",
-    at: STAGE_AT.framing,
+    still: STAGE_STILLS.framing,
     line: "Still early. Start the record now and the finished home launches with a story behind it.",
   },
   {
     id: "rough-in",
     label: "Rough-in",
-    at: STAGE_AT.roughIn,
+    still: STAGE_STILLS.roughIn,
     line: "The last good window for progress media. Start now, and put your finished home shoot on the calendar.",
   },
   {
     id: "finished",
     label: "Finished",
-    at: STAGE_AT.finished,
+    still: STAGE_STILLS.finished,
     line: "One shoot, everything the listing needs, delivered within 48 hours.",
   },
 ];
@@ -312,13 +312,28 @@ export function StagePackages({ packages }: { packages: Package[] }) {
           </div>
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded border border-white/5 bg-black-deep lg:aspect-[5/4]">
-            <HouseCanvas
-              progress={current.at}
-              opts={{ annotate: false, zoom: 1.12, originY: 0.56 }}
-              className="absolute inset-0 h-full w-full [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_55%,transparent_100%)]"
+            {STAGES.map((st) => (
+              <Image
+                key={st.id}
+                src={st.still}
+                alt=""
+                fill
+                unoptimized
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className={`object-cover [object-position:68%_50%] transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                  st.id === current.id ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.55),rgba(10,10,10,0)_30%)]"
             />
-            <p className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.2em] text-fg-secondary">
+            <p className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.2em] text-fg-strong">
               Stage / {current.label}
+            </p>
+            <p className="absolute bottom-3 right-3 rounded-sm bg-[rgba(10,10,10,0.62)] px-2 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-fg">
+              Illustration
             </p>
           </div>
         </div>
