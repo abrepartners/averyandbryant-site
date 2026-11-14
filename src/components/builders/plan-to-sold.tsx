@@ -1,14 +1,25 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { HouseCanvas } from "./house-canvas";
 import { stageIndex, type HouseOpts } from "./house-model";
 
 /**
- * The opening scene. A floor plan drafts itself on a blueprint grid, then the
- * visitor's scroll raises it into a finished, sold home. Each stage names the
- * media we capture there, so the story and the offer are the same thing.
+ * The opening scene. The visitor sees a real finished home first (a delivered
+ * A&B photo), then the scroll rewinds to the floor plan on a blueprint grid
+ * and raises it back into a finished, sold home. Each stage names the media
+ * we capture there, so the story and the offer are the same thing.
+ *
+ * To change the opening home, edit HERO_HOME below. Use a wide photo with the
+ * whole house centered: phones crop the sides.
  */
+
+const HERO_HOME = {
+  src: "/images/builders/bryant-front-exterior.jpg",
+  alt: "New construction home on a wooded lot in Bryant, Arkansas, photographed by Avery & Bryant",
+  caption: "Delivered photo. Bryant, Arkansas.",
+};
 
 const STAGES = [
   {
@@ -63,6 +74,8 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
+  const photoRef = useRef<HTMLDivElement>(null);
+  const modelRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
   const [stage, setStage] = useState(0);
 
@@ -88,6 +101,16 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
         hero.style.transform = `translate3d(0,${-p * 320}px,0)`;
         hero.style.pointerEvents = o < 0.4 ? "none" : "auto";
         hero.style.visibility = o < 0.01 ? "hidden" : "visible";
+      }
+      // The real home hands off to the drawn plan as the scroll begins.
+      const photo = photoRef.current;
+      if (photo) {
+        const o = 1 - sm(0.025, 0.08, p);
+        photo.style.opacity = String(o);
+        photo.style.visibility = o < 0.01 ? "hidden" : "visible";
+      }
+      if (modelRef.current) {
+        modelRef.current.style.opacity = String(sm(0.03, 0.095, p));
       }
       if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
       if (hintRef.current) {
@@ -143,17 +166,42 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
       className="relative h-[520svh]"
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden">
-        <HouseCanvas
-          progressRef={progressRef}
-          playIntro
-          getOpts={getOpts}
-          className="absolute inset-0 h-full w-full [mask-image:radial-gradient(ellipse_78%_70%_at_50%_52%,#000_52%,transparent_100%)] lg:[mask-image:radial-gradient(ellipse_52%_78%_at_70%_52%,#000_55%,transparent_100%)]"
-        />
+        <div ref={modelRef} className="absolute inset-0" style={{ opacity: 0 }}>
+          <HouseCanvas
+            progressRef={progressRef}
+            getOpts={getOpts}
+            className="absolute inset-0 h-full w-full [mask-image:radial-gradient(ellipse_78%_70%_at_50%_52%,#000_52%,transparent_100%)] lg:[mask-image:radial-gradient(ellipse_52%_78%_at_70%_52%,#000_55%,transparent_100%)]"
+          />
+        </div>
+
+        {/* ── the complete home, first (a real delivered photo) ── */}
+        <div
+          ref={photoRef}
+          className="absolute inset-x-0 top-0 h-[38svh] lg:inset-x-auto lg:right-[max(48px,calc((100vw-1280px)/2+48px))] lg:top-1/2 lg:h-auto lg:w-[min(46vw,620px)] lg:-translate-y-1/2"
+        >
+          <figure className="relative h-full w-full lg:aspect-[16/10] lg:h-auto lg:overflow-hidden lg:rounded lg:border lg:border-white/10">
+            <Image
+              src={HERO_HOME.src}
+              alt={HERO_HOME.alt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 620px, 100vw"
+              className="object-cover [object-position:center_42%]"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.55)_0%,rgba(10,10,10,0)_26%,rgba(10,10,10,0)_62%,#0a0a0a_100%)] lg:bg-[linear-gradient(to_top,rgba(10,10,10,0.7)_0%,rgba(10,10,10,0)_34%)]"
+            />
+            <figcaption className="absolute bottom-3 right-6 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-strong md:right-12 lg:bottom-4 lg:left-4 lg:right-auto">
+              {HERO_HOME.caption}
+            </figcaption>
+          </figure>
+        </div>
 
         {/* ── hero copy (the Plan stage) ── */}
         <div
           ref={heroRef}
-          className="absolute inset-x-0 top-0 px-6 pt-[92px] will-change-transform md:px-12 md:pt-[120px] lg:inset-y-0 lg:flex lg:w-[50%] lg:items-center lg:pt-0 lg:pl-[max(48px,calc((100vw-1280px)/2+48px))]"
+          className="absolute inset-x-0 top-0 px-6 pt-[calc(38svh+14px)] will-change-transform md:px-12 md:pt-[calc(38svh+24px)] lg:inset-y-0 lg:flex lg:w-[50%] lg:items-center lg:pt-0 lg:pl-[max(48px,calc((100vw-1280px)/2+48px))]"
         >
           <div className="max-w-[560px]">
             <div className="inline-flex items-center gap-3">
@@ -182,7 +230,7 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
               </a>
               <a
                 href="#carry"
-                className="group inline-flex min-h-[44px] items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:text-white"
+                className="group inline-flex min-h-[44px] items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:text-white max-lg:[@media(max-height:720px)]:hidden"
               >
                 What does a day cost you
                 <span
@@ -252,7 +300,7 @@ export function PlanToSold({ consultHref }: { consultHref: string }) {
             ref={hintRef}
             className="mb-3 flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-fg-secondary md:mb-4"
           >
-            <span>Scroll to build</span>
+            <span>Scroll back to the plan</span>
             <span aria-hidden="true" className="h-px w-10 bg-white/25" />
           </div>
           <div className="relative h-px w-full bg-white/10">

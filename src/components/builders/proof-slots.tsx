@@ -1,18 +1,53 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { HouseCanvas } from "./house-canvas";
 import { STAGE_AT } from "./house-model";
+import { VideoRows } from "@/components/portfolio-videos";
+import { portfolioVideos } from "@/lib/portfolio-videos";
 
 /**
- * Slots for the real work: build progress photos, the before and after
- * video, and finished home films. Until that footage is in, each slot holds
- * a drawn stand-in from the house model, labeled as a placeholder so nobody
- * mistakes it for delivered media.
+ * The work, in two honest halves.
  *
- * To fill a slot, swap the <HouseCanvas> inside its frame for an <Image> or
- * <video>. The frames already carry the right aspect ratios.
+ * Delivered: real finished-home photos and films we shot for Arkansas
+ * builders. To change them, edit DELIVERED_PHOTOS below (files live in
+ * public/images/builders) and the "builders" entry in src/lib/portfolio-videos.ts.
+ *
+ * Slots: build progress photos and the before and after video. That footage
+ * is not in yet, so each slot holds a drawn stand-in from the house model,
+ * labeled as a placeholder so nobody mistakes it for delivered media. To fill
+ * a slot, swap the <HouseCanvas> inside its frame for an <Image> or <video>.
  */
+
+const DELIVERED_PHOTOS = [
+  {
+    src: "/images/builders/benton-front-exterior.jpg",
+    alt: "Acadian brick front elevation with dormers on a new construction home in Benton, Arkansas",
+  },
+  {
+    src: "/images/builders/little-rock-kitchen-2.jpg",
+    alt: "Kitchen with marble counters and backsplash, a wood island and a wood clad range hood in a new construction home in Little Rock, Arkansas",
+  },
+  {
+    src: "/images/builders/little-rock-front-exterior.jpg",
+    alt: "Modern white brick front elevation with black windows on a new construction home in Little Rock, Arkansas",
+  },
+  {
+    src: "/images/builders/bryant-kitchen.jpg",
+    alt: "White oak kitchen with black windows in a new construction home in Bryant, Arkansas",
+  },
+  {
+    src: "/images/builders/little-rock-front-exterior-3.jpg",
+    alt: "Finished brick and stone front elevation of a new construction home in Little Rock, Arkansas, with fresh sod, a young staked tree and a brown double garage door",
+  },
+  {
+    src: "/images/builders/bryant-aerial.jpg",
+    alt: "Aerial photo of a new construction home on a wooded lot in Bryant, Arkansas",
+  },
+];
+
+const BUILDER_VIDEOS = portfolioVideos.builders;
 
 const VIEW = { yaw: 40, pitch: 24 };
 
@@ -32,12 +67,14 @@ function SlotHead({
   n,
   title,
   spec,
+  tag = "Slot",
   wide = false,
   children,
 }: {
   n: string;
   title: string;
   spec: string;
+  tag?: string;
   wide?: boolean;
   children: React.ReactNode;
 }) {
@@ -47,7 +84,7 @@ function SlotHead({
     >
       <div>
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-          <span className="text-crimson-text">Slot {n}</span>
+          <span className="text-crimson-text">{tag} {n}</span>
           <span className="mx-2 text-fg-faint">/</span>
           {spec}
         </p>
@@ -154,72 +191,80 @@ export function ProofSlots() {
             What buyers see while you build.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-fg-strong md:text-lg">
-            Three kinds of media, one home. The frames below are drawn
-            placeholders. Real footage from Arkansas builds drops into each
-            one.
+            The finished homes and films are real deliveries for Arkansas
+            builders. Build progress and before and after footage is next,
+            so those two frames are drawn placeholders for now.
           </p>
         </div>
 
-        {/* Slot 01 */}
+        {/* Delivered 01: real finished-home photos */}
         <div className="mt-16 md:mt-24">
-          <SlotHead n="01" title="Build progress photos" spec="Photo set, 4 frames" wide>
-            Same angles, every visit. Buyers and lenders see the home move
-            from dirt to done.
+          <SlotHead tag="Delivered" n="01" title="Finished homes" spec="Photo, drone" wide>
+            Shot like the listing a buyer wants to walk into. Every frame
+            here went to a builder.
           </SlotHead>
-          <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
-            {PROGRESS_FRAMES.map((f, i) => (
-              <figure key={f.label}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep">
-                  <HouseCanvas
-                    progress={f.at}
-                    opts={{ view: VIEW, zoom: 1.2, originY: 0.57, grid: true }}
-                    className="absolute inset-0 h-full w-full"
-                  />
-                  <Ticks />
-                </div>
-                <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.18em]">
-                  <span className="text-fg-strong">{f.label}</span>
-                  <span className="text-fg-secondary">0{i + 1}</span>
-                </figcaption>
+          <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
+            {DELIVERED_PHOTOS.map((shot) => (
+              <figure
+                key={shot.src}
+                className="relative aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep"
+              >
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  fill
+                  sizes="(min-width: 1024px) 400px, 50vw"
+                  className="object-cover"
+                />
               </figure>
             ))}
           </div>
         </div>
 
-        {/* Slot 02 + 03 */}
+        {/* Delivered 02: real films and reels */}
+        <div className="mt-20 md:mt-28">
+          <SlotHead tag="Delivered" n="02" title="Finished home films" spec="Film, reel" wide>
+            The piece that sells it. Shot within days of the final clean.
+            Tap one to play.
+          </SlotHead>
+          <div className="mt-8">
+            <VideoRows films={BUILDER_VIDEOS.films} reels={BUILDER_VIDEOS.reels} />
+          </div>
+        </div>
+
+        {/* Slot 01 + 02: placeholders until the footage is in */}
         <div className="mt-20 grid gap-20 md:mt-28 lg:grid-cols-2 lg:gap-10">
+          <div>
+            <SlotHead n="01" title="Build progress photos" spec="Photo set, 4 frames">
+              Same angles, every visit. Buyers and lenders see the home move
+              from dirt to done.
+            </SlotHead>
+            <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4">
+              {PROGRESS_FRAMES.map((f, i) => (
+                <figure key={f.label}>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep">
+                    <HouseCanvas
+                      progress={f.at}
+                      opts={{ view: VIEW, zoom: 1.2, originY: 0.57, grid: true }}
+                      className="absolute inset-0 h-full w-full"
+                    />
+                    <Ticks />
+                  </div>
+                  <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.18em]">
+                    <span className="text-fg-strong">{f.label}</span>
+                    <span className="text-fg-secondary">Placeholder 0{i + 1}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+
           <div>
             <SlotHead n="02" title="Before and after video" spec="Video, drag to compare">
               Raw frame to finished home in one move. Drag the line.
             </SlotHead>
             <div className="mt-8">
               <BeforeAfter />
-            </div>
-          </div>
-
-          <div>
-            <SlotHead n="03" title="Finished home film" spec="Film, 60 to 90 seconds">
-              The piece that sells it. Shot within days of the final clean.
-            </SlotHead>
-            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded border border-white/10 bg-black-deep sm:aspect-video">
-              <HouseCanvas
-                progress={1}
-                opts={{ view: { yaw: 44, pitch: 22 }, zoom: 1.12, originY: 0.56 }}
-                className="absolute inset-0 h-full w-full"
-              />
-              <Ticks />
-              <span
-                aria-hidden="true"
-                className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-[rgba(10,10,10,0.55)] backdrop-blur-sm"
-              >
-                <span className="ml-1 h-0 w-0 border-y-[9px] border-l-[14px] border-y-transparent border-l-white" />
-              </span>
-              <p className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.2em] text-fg-strong">
-                Film slot
-              </p>
-              <p className="absolute bottom-4 right-4 font-mono text-[10px] tracking-[0.2em] text-fg-secondary">
-                00:00 / 01:30
-              </p>
             </div>
           </div>
         </div>
