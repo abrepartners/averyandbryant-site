@@ -247,6 +247,74 @@ main {
   text-shadow: var(--glow-price);
 }
 
+/* ============================================================
+   Builders page (plan to sold).
+   ============================================================ */
+
+/* Calculator slider: a hairline track with a filled lead-in. */
+.ab-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.ab-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.75) var(--fill, 0%),
+    rgba(255, 255, 255, 0.12) var(--fill, 0%)
+  );
+}
+.ab-range::-moz-range-track {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.ab-range::-moz-range-progress {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.75);
+}
+.ab-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 1.5px solid #fff;
+  transition: transform var(--dur-fast) var(--ease-brand),
+    border-color var(--dur-fast) var(--ease-brand);
+}
+.ab-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 1.5px solid #fff;
+}
+.ab-range:active::-webkit-slider-thumb,
+.ab-range:focus-visible::-webkit-slider-thumb {
+  transform: scale(1.15);
+  border-color: var(--color-crimson);
+}
+.ab-range:focus-visible {
+  outline: none;
+}
+
+/* This page has its own bottom-edge furniture (stage rail, phone action
+   bar), so the shared scroll-to-top button steps out of the way. */
+body:has([data-page="builders"]) button[aria-label="Scroll to top"] {
+  bottom: 96px;
+}
+@media (max-width: 767px) {
+  body:has([data-page="builders"]) button[aria-label="Scroll to top"] {
+    display: none;
+  }
+}
+
 /* Respect users who ask for less motion. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

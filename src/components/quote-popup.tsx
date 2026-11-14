@@ -10,9 +10,10 @@ import { PackageSelector } from "@/components/package-selector";
  * modal with lead capture wired to GHL. Dismissal is remembered per session.
  */
 
+// /builders is left out on purpose: that page has its own stage picker and a
+// phone action bar on the bottom edge, where this teaser would sit.
 const ACTIVE_PATHS = [
   "/real-estate",
-  "/builders",
   "/airbnb-rentals",
   "/lot-land",
   "/multi-family",
