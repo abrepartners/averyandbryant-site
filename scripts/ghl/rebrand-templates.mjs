@@ -5,7 +5,13 @@
 //
 // Run: node scripts/ghl/rebrand-templates.mjs
 
-const TOKEN = process.env.GHL_API_TOKEN || "pit-99cf08f1-8dea-4fd9-a792-b8566961caf3";
+const TOKEN = process.env.GHL_API_TOKEN;
+if (!TOKEN) {
+  console.error(
+    "GHL_API_TOKEN is not set. Put it in your shell env (for example via `vercel env pull`) and run again. Never paste a token into this file."
+  );
+  process.exit(1);
+}
 const LOC = process.env.GHL_LOCATION_ID || "iXhH37718q9nZnf4tkgF";
 const API = "https://services.leadconnectorhq.com";
 
