@@ -1,28 +1,17 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import { FILM, frameAt, frameUrl, stageIndex, stagePosition, type FilmCut } from "./film-data";
+import { FILM_A, captionAt, frameAt, positionAt, type Film, type FilmCut, type Fit } from "./film-data";
 
 type Props = {
   /** The tall scroll track the film is pinned inside. Progress through it
    * (0 to 1) is measured here on every frame, so the picture can never lag
    * behind the scroll position. */
   trackRef: RefObject<HTMLElement | null>;
+  /** Which cut of the film to play. Defaults to the first one built. */
+  film?: Film;
   className?: string;
 };
-
-/** How the picture sits in the frame at each stage: zoom over cover-fit, and
- * which side of the overflow to keep (0 = left/top, 1 = right/bottom). */
-type Fit = { zoom: number; ax: number; ay: number };
-const FIT_PORTRAIT: Fit[] = [
-  { zoom: 1.3, ax: 0.86, ay: 1 },
-  { zoom: 1.05, ax: 0.62, ay: 1 },
-  { zoom: 1.04, ax: 0.45, ay: 1 },
-  { zoom: 1.0, ax: 0.45, ay: 1 },
-  { zoom: 1.0, ax: 0.75, ay: 1 },
-  { zoom: 1.0, ax: 0.9, ay: 0.5 },
-];
-const FIT_LANDSCAPE: Fit = { zoom: 1, ax: 0.74, ay: 0.5 };
 
 const AHEAD = 30; // frames kept warm in front of the playhead
 const BEHIND = 10;
@@ -35,7 +24,7 @@ const MAX_PENDING = 6;
  * playhead and decode off the main thread. If the exact frame is not ready
  * the nearest loaded one is drawn, so the picture never blanks or jumps.
  */
-export function FilmScrub({ trackRef, className = "" }: Props) {
+export function FilmScrub({ trackRef, film = FILM_A, className = "" }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -45,7 +34,7 @@ export function FilmScrub({ trackRef, className = "" }: Props) {
     if (!ctx) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let cut: FilmCut = FILM.landscape;
+    let cut: FilmCut = film.landscape;
     let portrait = false;
     let cache = new Map<number, HTMLImageElement>();
     let pending = new Set<number>();
@@ -65,7 +54,7 @@ export function FilmScrub({ trackRef, className = "" }: Props) {
       const next = w / Math.max(1, h) < 0.8;
       if (next === portrait && cache.size + pending.size > 0) return;
       portrait = next;
-      cut = portrait ? FILM.portrait : FILM.landscape;
+      cut = portrait ? film.portrait : film.landscape;
       generation++;
       cache = new Map();
       pending = new Set();
@@ -80,7 +69,7 @@ export function FilmScrub({ trackRef, className = "" }: Props) {
       pending.add(i);
       const img = new Image();
       img.decoding = "async";
-      img.src = frameUrl(cut, i);
+      img.src = cut.url(i);
       const ready = img.decode
         ? img.decode()
         : new Promise<void>((res, rej) => {
@@ -136,11 +125,12 @@ export function FilmScrub({ trackRef, className = "" }: Props) {
     };
 
     const fitAt = (pos: number): Fit => {
-      if (!portrait) return FIT_LANDSCAPE;
-      const i = Math.min(FIT_PORTRAIT.length - 2, Math.floor(pos));
+      if (!portrait) return film.fitLandscape;
+      const fits = film.fitPortrait;
+      const i = Math.min(fits.length - 2, Math.floor(pos));
       const t = pos - i;
-      const a = FIT_PORTRAIT[i];
-      const b = FIT_PORTRAIT[i + 1];
+      const a = fits[i];
+      const b = fits[i + 1];
       return {
         zoom: a.zoom + (b.zoom - a.zoom) * t,
         ax: a.ax + (b.ax - a.ax) * t,
@@ -188,7 +178,7 @@ export function FilmScrub({ trackRef, className = "" }: Props) {
         const total = r.height - window.innerHeight;
         p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
       }
-      const target = reduce.matches ? stageIndex(p) : stagePosition(p);
+      const target = reduce.matches ? captionAt(film, p) : positionAt(film, p);
       if (cur < 0) cur = target;
       const before = cur;
       const k = reduce.matches ? 1 : 1 - Math.exp(-dt / 110);
@@ -250,7 +240,7 @@ export function FilmScrub({ trackRef, className = "" }: Props) {
       window.removeEventListener("scroll", onScroll);
       reduce.removeEventListener("change", onScroll);
     };
-  }, [trackRef]);
+  }, [trackRef, film]);
 
   return <canvas ref={canvasRef} aria-hidden="true" className={className} />;
 }

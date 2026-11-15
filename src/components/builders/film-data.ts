@@ -2,59 +2,150 @@
  * The plan to sold film: one continuous shot of a home going from layout
  * lines on bare dirt to sold, cut into frames and scrubbed by the scroll.
  *
- * Frame files live in public/builders/film/v1/{169,916}/f0000.webp and up.
- * `keys` are the frame numbers where the picture holds for each stage.
- * Regenerate with ~/ab/tools/plan-to-sold-film/scripts/encode.sh, which
- * prints the counts and keys to paste here.
+ * Two cuts of the page use it:
+ *   FILM_A  the film as first built (six stages, opens on the lot).
+ *   FILM_B  the same film with a blueprint opening in front of it (eight
+ *           stages: rolled blueprint, flat blueprint, lot, then the build).
+ *
+ * Frame files: public/builders/film/v1/{169,916}/f0000.webp and up (the
+ * build), public/builders/film/v2/{169,916}/p0000.webp and up (the blueprint
+ * opening). `keys` are the frame numbers where the picture holds for each
+ * stage. Regenerate with ~/ab/tools/plan-to-sold-film/scripts/encode.sh and
+ * encode-prelude.sh, which print the counts and keys to paste here.
  */
-export const FILM = {
-  base: "/builders/film/v1",
-  landscape: { dir: "169", count: 325, keys: [0, 60, 132, 204, 264, 324], w: 1280, h: 720 },
-  portrait: { dir: "916", count: 325, keys: [0, 60, 132, 204, 264, 324], w: 608, h: 1080 },
-} as const;
 
-export type FilmCut = (typeof FILM)["landscape"] | (typeof FILM)["portrait"];
+/** How the picture sits in the frame: zoom over cover-fit, and which side of
+ * the overflow to keep (0 = left/top, 1 = right/bottom). */
+export type Fit = { zoom: number; ax: number; ay: number };
 
-/**
- * Scroll progress to stage position. The picture holds still for a short
- * distance at each stage (flat steps), then moves to the next.
- * [progress, stage] pairs, stage 0 = plan ... 5 = sold.
- */
-const STOPS: [number, number][] = [
-  [0, 0],
-  [0.04, 0],
-  [0.19, 1],
-  [0.25, 1],
-  [0.4, 2],
-  [0.46, 2],
-  [0.61, 3],
-  [0.67, 3],
-  [0.8, 4],
-  [0.86, 4],
-  [0.96, 5],
-  [1, 5],
+export type FilmCut = {
+  count: number;
+  keys: readonly number[];
+  url: (i: number) => string;
+};
+
+export type Film = {
+  landscape: FilmCut;
+  portrait: FilmCut;
+  /** [scroll progress, stage] pairs. Flat steps are where the picture holds. */
+  stops: readonly (readonly [number, number])[];
+  /** Where each stage's caption takes over, in scroll progress. */
+  starts: readonly number[];
+  /** One entry per stage, used on phones. */
+  fitPortrait: readonly Fit[];
+  fitLandscape: Fit;
+};
+
+const BASE = "/builders/film/v1";
+const BASE_B = "/builders/film/v2";
+const pad = (i: number) => String(i).padStart(4, "0");
+
+const BUILD_COUNT = 325;
+const BUILD_KEYS = [0, 60, 132, 204, 264, 324] as const;
+
+const FIT_BUILD: Fit[] = [
+  { zoom: 1.3, ax: 0.86, ay: 1 },
+  { zoom: 1.05, ax: 0.62, ay: 1 },
+  { zoom: 1.04, ax: 0.45, ay: 1 },
+  { zoom: 1.0, ax: 0.45, ay: 1 },
+  { zoom: 1.0, ax: 0.75, ay: 1 },
+  { zoom: 1.0, ax: 0.9, ay: 0.5 },
 ];
 
-/** Where each stage's caption takes over, in scroll progress. */
-export const STAGE_STARTS = [0, 0.115, 0.325, 0.535, 0.735, 0.91];
+function buildCut(dir: string): FilmCut {
+  return {
+    count: BUILD_COUNT,
+    keys: BUILD_KEYS,
+    url: (i) => `${BASE}/${dir}/f${pad(i)}.webp`,
+  };
+}
 
-export function stageIndex(p: number) {
+export const FILM_A: Film = {
+  landscape: buildCut("169"),
+  portrait: buildCut("916"),
+  stops: [
+    [0, 0],
+    [0.04, 0],
+    [0.19, 1],
+    [0.25, 1],
+    [0.4, 2],
+    [0.46, 2],
+    [0.61, 3],
+    [0.67, 3],
+    [0.8, 4],
+    [0.86, 4],
+    [0.96, 5],
+    [1, 5],
+  ],
+  starts: [0, 0.115, 0.325, 0.535, 0.735, 0.91],
+  fitPortrait: FIT_BUILD,
+  fitLandscape: { zoom: 1, ax: 0.74, ay: 0.5 },
+};
+
+/** The blueprint opening: frames before the build film starts. */
+const PRELUDE = {
+  "169": { count: 120, flat: 60 },
+  "916": { count: 120, flat: 60 },
+} as const;
+
+function processCut(dir: "169" | "916"): FilmCut {
+  const pre = PRELUDE[dir];
+  return {
+    count: pre.count + BUILD_COUNT,
+    keys: [0, pre.flat, ...BUILD_KEYS.map((k) => k + pre.count)],
+    url: (i) =>
+      i < pre.count
+        ? `${BASE_B}/${dir}/p${pad(i)}.webp`
+        : `${BASE}/${dir}/f${pad(i - pre.count)}.webp`,
+  };
+}
+
+export const FILM_B: Film = {
+  landscape: processCut("169"),
+  portrait: processCut("916"),
+  stops: [
+    [0, 0],
+    [0.03, 0],
+    [0.12, 1],
+    [0.16, 1],
+    [0.25, 2],
+    [0.3, 2],
+    [0.4, 3],
+    [0.45, 3],
+    [0.56, 4],
+    [0.61, 4],
+    [0.72, 5],
+    [0.77, 5],
+    [0.86, 6],
+    [0.9, 6],
+    [0.98, 7],
+    [1, 7],
+  ],
+  starts: [0, 0.075, 0.205, 0.35, 0.505, 0.665, 0.815, 0.94],
+  // The blueprint and the lot share one framing, so the lines never move.
+  fitPortrait: [FIT_BUILD[0], FIT_BUILD[0], ...FIT_BUILD],
+  fitLandscape: { zoom: 1, ax: 0.74, ay: 0.5 },
+};
+
+/** Which stage's caption is showing at this scroll progress. */
+export function captionAt(film: Film, p: number) {
   let i = 0;
-  for (let k = 0; k < STAGE_STARTS.length; k++) if (p >= STAGE_STARTS[k]) i = k;
+  for (let k = 0; k < film.starts.length; k++) if (p >= film.starts[k]) i = k;
   return i;
 }
 
-/** Scroll progress (0..1) to stage position (0..5, fractional mid-move). */
-export function stagePosition(p: number) {
-  if (p <= 0) return 0;
-  for (let i = 1; i < STOPS.length; i++) {
-    const [p1, s1] = STOPS[i];
+/** Scroll progress (0..1) to stage position (fractional mid-move). */
+export function positionAt(film: Film, p: number) {
+  const s = film.stops;
+  if (p <= 0) return s[0][1];
+  for (let i = 1; i < s.length; i++) {
+    const [p1, s1] = s[i];
     if (p <= p1) {
-      const [p0, s0] = STOPS[i - 1];
+      const [p0, s0] = s[i - 1];
       return s0 + ((s1 - s0) * (p - p0)) / (p1 - p0 || 1);
     }
   }
-  return STOPS[STOPS.length - 1][1];
+  return s[s.length - 1][1];
 }
 
 /** Stage position to a fractional frame number for one cut of the film. */
@@ -64,15 +155,16 @@ export function frameAt(stagePos: number, cut: FilmCut) {
   return cut.keys[i] + (cut.keys[i + 1] - cut.keys[i]) * t;
 }
 
-export function frameUrl(cut: FilmCut, i: number) {
-  return `${FILM.base}/${cut.dir}/f${String(i).padStart(4, "0")}.webp`;
+/** Stage shown for the first cut of the page (kept for plan-to-sold.tsx). */
+export function stageIndex(p: number) {
+  return captionAt(FILM_A, p);
 }
 
 /** Stills of each stage, for the stage picker and the labeled slots. */
 export const STAGE_STILLS = {
-  foundation: `${FILM.base}/stage-foundation.webp`,
-  framing: `${FILM.base}/stage-framing.webp`,
-  roughIn: `${FILM.base}/stage-rough-in.webp`,
-  finished: `${FILM.base}/stage-finished.webp`,
-  framingMatched: `${FILM.base}/pair-framing.webp`,
+  foundation: `${BASE}/stage-foundation.webp`,
+  framing: `${BASE}/stage-framing.webp`,
+  roughIn: `${BASE}/stage-rough-in.webp`,
+  finished: `${BASE}/stage-finished.webp`,
+  framingMatched: `${BASE}/pair-framing.webp`,
 } as const;

@@ -47,24 +47,27 @@ const STAGES: {
   },
 ];
 
-function displayPrice(pkg: Package) {
+export function displayPrice(pkg: Package) {
   return pkg.priceBasis === "per month" && pkg.price.endsWith("/mo")
     ? pkg.price.slice(0, -3)
     : pkg.price;
 }
 
-function PackageCard({
+export function PackageCard({
   pkg,
   index,
   state,
   open,
   onToggle,
+  badge = "Fits your stage",
 }: {
   pkg: Package;
   index: number;
   state: "match" | "next" | "rest";
   open: boolean;
   onToggle: () => void;
+  /** Label on the highlighted card. */
+  badge?: string;
 }) {
   const isCall = pkg.ctaMode === "call";
   const label =
@@ -88,7 +91,7 @@ function PackageCard({
         </span>
         {state === "match" && (
           <span className="rounded-sm bg-crimson px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
-            Fits your stage
+            {badge}
           </span>
         )}
         {state === "next" && (

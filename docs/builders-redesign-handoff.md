@@ -106,3 +106,15 @@ Thomas's call: the drawn floor plan looked cheap. The opening scene is now one c
 - Honesty rule kept: the film and every still from it are labeled "Illustration". The real photos and films in the proof section are unchanged.
 - Removed in this pass: the real photo that opened the page in the proof candidate. The film now opens it. To bring the photo back, restore `HERO_HOME` from commit 8c7e184.
 - To re-cut: `~/ab/tools/plan-to-sold-film/scripts/encode.sh`, then paste the printed counts and keys into `film-data.ts`.
+
+## Two cuts side by side (2026-11-14, evening)
+
+Thomas asked for a blueprint opening and a page that follows the build, kept switchable against the first film cut so both can be looked at.
+
+- `/builders` is cut A: unchanged. Opens on the lot, stage picker lower down.
+- `/builders/process` is cut B: opens on a rolled blueprint that unrolls, lies flat and turns into the lot with its lines in the same place, then the same build film. Eight stages. Each stage names what we shoot there and the package that covers it with its price (from `src/lib/pricing.ts`). After the film: carry calculator, real work, packages in build order (`phase-packages.tsx`, no picker), terms, questions, close. Not indexed.
+- A small "A / B" switch sits under the header on both pages (`VersionSwitch` in `page-shared.tsx`). It never renders when `VERCEL_ENV` is `production`.
+- `film-data.ts` now holds two film definitions, `FILM_A` and `FILM_B`. B plays `public/builders/film/v2/{169,916}/p0000..p0119.webp` (the opening) and then the v1 frames, so the build frames are not duplicated.
+- No new offers or prices. The two new stage panels (Plan, Lot) only restate the free 30 minute call and that Build Tracker starts at the foundation.
+
+When Thomas picks one: delete the other page, `VersionSwitch`, and whichever of `plan-to-sold.tsx` + `stage-packages.tsx` picker or `process-film.tsx` + `phase-packages.tsx` is not used (keep `PackageCard`). If B wins, move it to `/builders`.
