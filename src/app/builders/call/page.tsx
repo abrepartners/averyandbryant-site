@@ -6,9 +6,10 @@ import { BUILDER_CALL } from "@/lib/consult";
 /**
  * The builder call: every "Book a builder call" button on the builders page
  * lands here. The page is ours; the calendar inside it is the CRM's Builder
- * Call calendar. ?for=shoot is the Market Your Build card's "Book this
- * shoot" button, which lands here only until the Aryeo builders form can
- * sell that shoot (SHOOT_BOOKS_ON_ARYEO in components/builders/quote-data).
+ * Call calendar. ?for=shoot is the fallback for the Market Your Build
+ * card's "Book this shoot" button: it lands here only while the Aryeo
+ * booking step is switched off (SHOOT_BOOKS_ON_ARYEO in
+ * components/builders/quote-data).
  */
 export const metadata: Metadata = {
   title: "Book a Builder Call | Avery & Bryant",

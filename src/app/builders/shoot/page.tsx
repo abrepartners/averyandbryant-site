@@ -34,7 +34,7 @@ const STEPS = [
   {
     n: "02",
     title: "Pick the home and the date",
-    body: "On the booking form you enter the address, choose a time and add anything extra. You see the full price before you pay.",
+    body: "On the booking form you enter the address and a few details about the build, choose a time and add anything extra. You see the full price before you pay.",
   },
   {
     n: "03",

@@ -93,14 +93,13 @@ export const SHOOT_STACK = [
 
 /**
  * The booking step for that shoot (/builders/shoot): who is booking, then
- * the Aryeo builders order form. It stays switched off until that Aryeo form
- * can sell the shoot. Checked 2026-11-16: the form still carries the old
- * catalog, "2026 Market Your Build" is inactive and on no form, and none of
- * the add-ons above are on it at these prices. While this is false, "Book
- * this shoot" goes to the builder call page and /builders/shoot sends
- * visitors there too. Turn it on only after the Aryeo form is fixed.
+ * the Aryeo builders order form. On since 2026-11-16, when a read-only walk
+ * of that form showed "2026 Market Your Build" at $185 as a main product and
+ * every add-on above at these prices. If the Aryeo form ever stops selling
+ * the shoot, set this to false: "Book this shoot" then goes to the builder
+ * call page and /builders/shoot sends visitors there too.
  */
-export const SHOOT_BOOKS_ON_ARYEO = false;
+export const SHOOT_BOOKS_ON_ARYEO = true;
 export const BUILDER_SHOOT_PATH = "/builders/shoot";
 
 export type PurposeId =
