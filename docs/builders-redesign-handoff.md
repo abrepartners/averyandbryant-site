@@ -159,3 +159,35 @@ Thomas said yes to reframing around being known rather than selling one house.
 - The carry calculator moved below the packages and is labeled "For spec homes". Its math is unchanged.
 - Work section heading is now "The work that makes the case."
 - Page order: film, work (five tabs), packages, spec home calculator, terms, questions, close.
+
+## Two ways in, quote questions, flipping headline word (2026-11-16, fourth pass)
+
+Thomas's direction: two main things on the page (one shoot a builder can book
+without a long talk, and a quote path that asks one question at a time), keep
+the rest consultative, make the last word of the headline flip in its own
+window, and decide whether the calculator belongs.
+
+- `builder-offers.tsx` replaces `phase-packages.tsx`. Left card: Market Your
+  Build (name and shot list are proposals). It is priced only from live Aryeo
+  products: the 25 image photo set ($185) with the regular add-ons. No new
+  price was invented and nothing was added to Aryeo. Its button books a call
+  until Thomas puts a builder product on the order form.
+- Right card: `quote-wizard.tsx` with data in `quote-data.ts`. Purpose,
+  services (pre-checked from the purpose), homes, how often, then a range that
+  is the live list prices added up (read from Aryeo 2026-11-16). The request
+  posts to the existing `/api/lead` route with no change to that route: the
+  contact is saved in the CRM with tag `quote-request` and a note listing what
+  they picked, the range they saw and which of our programs fits ("Our fit").
+  Tested with the network call stubbed; no test contact was created.
+- The three fixed packages are folded under one row (`#fixed-packages`). Film
+  stage links and the selling path in the quote open it.
+- `rotating-word.tsx`: build, plan, frame, finish, deliver. Plain "build" on
+  first paint and for reduced motion. Headline max size is 72px so it stays on
+  two lines at desktop width.
+- The carry calculator is off the page (recommendation: it argues for selling
+  one house faster, the page is about being known for the work, and the same
+  idea already lives in the CARRY carousel). `carry-calculator.tsx` is still
+  in the folder in case Thomas wants it back.
+- Before release: Thomas confirms the Market Your Build name and price basis,
+  and confirms the request reaches him (a CRM notification on the
+  `quote-request` tag).

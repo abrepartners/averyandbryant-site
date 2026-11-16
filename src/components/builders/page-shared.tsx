@@ -12,7 +12,7 @@ export const builderFaqs = [
   {
     question: "How much does builder photography cost in Arkansas?",
     answer:
-      "It depends on the scope. One-time model home shoots and monthly progress documentation are priced differently, so every builder package is listed on this page and you can compare across property types on our pricing page.",
+      "It depends on the scope. A marketing shoot of one finished home starts at $185, monthly progress documentation is $325 a month, and finished-home launch packages start at $1,395. For anything in between, the quote questions on this page give you a price range before you talk to anyone.",
   },
   {
     question: "How fast do we get our media?",

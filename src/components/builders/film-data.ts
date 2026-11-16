@@ -49,14 +49,6 @@ const FIT_BUILD: Fit[] = [
   { zoom: 1.0, ax: 0.9, ay: 0.5 },
 ];
 
-function buildCut(dir: string): FilmCut {
-  return {
-    count: BUILD_COUNT,
-    keys: BUILD_KEYS,
-    url: (i) => `${BASE}/${dir}/f${pad(i)}.webp`,
-  };
-}
-
 /** The blueprint opening: frames before the build film starts. */
 const PRELUDE = {
   "169": { count: 120, flat: 60 },

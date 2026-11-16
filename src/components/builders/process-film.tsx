@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Package } from "@/lib/pricing";
 import { FilmScrub } from "./film-scrub";
+import { RotatingWord } from "./rotating-word";
 import { FILM, captionAt } from "./film-data";
 import { displayPrice } from "./builder-package-card";
 
@@ -200,10 +201,16 @@ export function ProcessFilm({
                 For Central Arkansas builders
               </span>
             </div>
-            <h1 className="mt-4 font-display text-[clamp(44px,12.5vw,80px)] font-light leading-[1] tracking-[-0.035em] text-fg md:mt-6">
-              Be known for
-              <br />
-              how you build<span className="text-crimson">.</span>
+            <h1
+              aria-label="Be known for how you build."
+              className="mt-4 font-display text-[clamp(44px,12.5vw,72px)] font-light leading-[1.08] tracking-[-0.035em] text-fg md:mt-6"
+            >
+              <span aria-hidden="true">
+                Be known for
+                <br />
+                how you{" "}
+              </span>
+              <RotatingWord />
             </h1>
             <p className="mt-4 max-w-[32ch] text-[15px] leading-relaxed text-fg-strong md:mt-7 md:max-w-[40ch] md:text-lg">
               Your best marketing is the work itself. We film and photograph
@@ -307,7 +314,7 @@ export function ProcessFilm({
 
                   {pkg && (
                     <a
-                      href="#packages"
+                      href="#fixed-packages"
                       tabIndex={on ? 0 : -1}
                       className={`group mt-3 flex min-h-[56px] items-center justify-between gap-4 border-t border-white/15 pt-3 md:mt-4 lg:mt-6 lg:rounded lg:border lg:border-white/10 lg:bg-[rgba(10,10,10,0.8)] lg:px-5 lg:py-4 lg:backdrop-blur-md ${
                         on ? "pointer-events-auto" : "pointer-events-none"

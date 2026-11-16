@@ -44,11 +44,11 @@ export function StickyCta({ consultHref }: { consultHref: string }) {
           Book a builder call
         </a>
         <a
-          href="#packages"
+          href="#quote"
           tabIndex={show ? 0 : -1}
           className="inline-flex min-h-[46px] items-center justify-center rounded border border-white/15 px-5 text-[11px] font-medium uppercase tracking-[0.18em] text-fg"
         >
-          Packages
+          Get a quote
         </a>
       </div>
     </div>

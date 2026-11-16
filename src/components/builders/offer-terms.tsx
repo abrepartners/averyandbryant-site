@@ -17,7 +17,7 @@ export function OfferTerms({ guarantee }: { guarantee: Guarantee }) {
             </span>
           </div>
           <h2 className="mt-5 font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.04] tracking-[-0.025em] text-fg">
-            You carry the house. We carry the risk on the media.
+            You build the house. We carry the risk on the media.
           </h2>
         </div>
 
