@@ -53,7 +53,7 @@ vercel env add STRIPE_WEBHOOK_SECRET production
 # paste the whsec_... from the webhook config above
 
 vercel env add GHL_API_TOKEN production
-# value: pit-99cf08f1-8dea-4fd9-a792-b8566961caf3 (already known)
+# value: the GoHighLevel private integration token (GHL Settings, Private Integrations). Never write it in this repo.
 
 vercel env add GHL_LOCATION_ID production
 # value: iXhH37718q9nZnf4tkgF
