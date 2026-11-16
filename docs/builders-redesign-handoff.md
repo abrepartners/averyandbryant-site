@@ -199,7 +199,7 @@ Thomas's notes on the fourth pass, all applied on the preview branch.
 - **Get a quote is folded on a phone.** Below the `lg` breakpoint the quote card shows a short teaser and one button ("Start my quote"). Tapping it, the sticky "Get a quote" button, or any link to `#quote` opens the questions in place. On a wide screen the questions are always open beside Market Your Build.
 - **The builder shot list is a dropdown on a phone** (closed by default, "9 shots"). Always open on a wide screen.
 - **The headline word window fits the word.** `rotating-word.tsx` measures each word once (in em, again after the font loads) and animates the window's width to the current word. First render is still the plain word "build".
-- **Scroll cue is amber.** `Scroll to build` uses `amber-consult` with a down arrow. This is a one-off: the design kit reserves amber for consult and offer moments. Ask Thomas before making it a kit rule.
+- **Scroll cue is amber.** `Scroll to build` uses `amber-consult` with a down arrow. Thomas made this a kit rule on 2026-11-16: amber is allowed for one scroll cue per page. The design system artifact, `globals.css` and the vault summary carry it.
 - **The "Illustration" label is gone** from the hero, phone and desktop, on Thomas's instruction. The film is still an AI-made illustration, not a client build.
 - **Lead route (`src/app/api/lead/route.ts`).** Three changes, no change to the request or response shape other than one new optional field:
   - New optional `origin`. `origin: "builders"` adds the tag `builder-quote` beside `quote-request` and sets the source to `site-builders-quote`. Any other value changes nothing. The form cannot name its own tags.

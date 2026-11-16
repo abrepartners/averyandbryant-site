@@ -11,7 +11,8 @@
    Vault audit: 10-Projects/A&B-Site-Design-System-Audit.md.
 
    Premium dark aesthetic. Crimson is the SINGLE brand accent.
-   Amber is a rare secondary used ONLY for free-consult moments.
+   Amber is a rare secondary used ONLY for free-consult moments,
+   the offer stack, and one scroll cue per page (Thomas 2026-11-16).
    No blue, no purple, no gradients-as-brand.
 
    Rules that matter when editing this file:
@@ -66,7 +67,8 @@
   --color-accent-foreground: #ffffff;
   --color-ring: #c41230;
 
-  /* Amber is NOT a general accent. Free-consult moments only. */
+  /* Amber is NOT a general accent. Free-consult moments, the offer
+     stack, and one scroll cue per page. Nothing else. */
   --color-amber-consult: #fcd34d;
   --color-amber-consult-soft: #fde68a;
 

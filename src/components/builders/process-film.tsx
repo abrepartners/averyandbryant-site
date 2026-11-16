@@ -379,8 +379,8 @@ export function ProcessFilm({
               ref={hintRef}
               className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.25em] text-amber-consult"
             >
-              {/* Amber here is a one-off so the cue reads at a glance. The
-                  design kit keeps amber for consult and offer moments. */}
+              {/* Amber scroll cue: a sanctioned use in the design kit
+                  since 2026-11-16, one per page. */}
               <span>Scroll to build</span>
               <span aria-hidden="true" className="h-px w-10 bg-amber-consult/50" />
               <span aria-hidden="true">&darr;</span>
