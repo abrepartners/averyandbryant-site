@@ -10,6 +10,8 @@
  *   branding  Agent Branding Discovery, 30 min. Any branding conversation.
  *   headshot  Headshot Session, 30 min. Books the $95 session itself.
  *   demo      AI Demo Call, 15 min. Vellum and Answr demos.
+ *   Builder Call, 20 min (BUILDER_CALL below). Shown only inside
+ *             /builders/call, never linked to directly.
  * The Spot rooms are booked on gettothespot.com (link out, never embedded).
  * No other service calendars exist; do not invent any.
  */
@@ -56,16 +58,16 @@ export function calendarUrlFor(
 }
 
 /**
- * The builder call page on our own site (src/app/builders/call). Until the
- * Builder Call calendar exists in the CRM (vault Duet-Queue row D04), the
- * page shows the Free Consultation calendar with the interest prefilled.
- * When the new calendar exists, change the id and minutes here and nowhere
- * else.
+ * The builder call page on our own site (src/app/builders/call) and the
+ * calendar it shows: "Builder Call", 20 minutes, in the CRM's Builders
+ * calendar group, with its own dark booking form (vault Duet-Queue row D04,
+ * built 2026-11-16). It is not the Free Consultation calendar. The calendar
+ * saves ?interest= to the contact through a hidden form field.
  */
 export const BUILDER_CALL_PATH = "/builders/call";
 export const BUILDER_CALL = {
-  id: CALENDARS.consult.id,
-  minutes: CALENDARS.consult.minutes,
+  id: "MB2pWVGEIayO3pHQTIKz",
+  minutes: 20,
 };
 
 export const CONSULT_BASE = `${WIDGET}${CALENDARS.consult.id}`;

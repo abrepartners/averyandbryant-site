@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { track } from "@/lib/track";
 import {
   CADENCES,
   PURPOSES,
@@ -148,6 +149,14 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
           },
         }),
       });
+      if (res.ok) {
+        // A quote request is a lead. Only the picks are sent, never who.
+        track(
+          "generate_lead",
+          { lead_source: "builders_quote", lead_goal: purposeLabel || undefined },
+          { standard: "Lead" },
+        );
+      }
       setStatus(res.ok ? "sent" : "error");
     } catch {
       setStatus("error");

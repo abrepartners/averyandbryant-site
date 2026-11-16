@@ -4,9 +4,11 @@ import { CalendarEmbed } from "@/components/calendar-embed";
 import { BUILDER_CALL } from "@/lib/consult";
 
 /**
- * The builder call: every "Book a builder call" and "Book this shoot" button
- * on the builders page lands here. The page is ours; the calendar inside it
- * is the CRM's. ?for=shoot is sent by the Market Your Build card.
+ * The builder call: every "Book a builder call" button on the builders page
+ * lands here. The page is ours; the calendar inside it is the CRM's Builder
+ * Call calendar. ?for=shoot is the Market Your Build card's "Book this
+ * shoot" button, which lands here only until the Aryeo builders form can
+ * sell that shoot (SHOOT_BOOKS_ON_ARYEO in components/builders/quote-data).
  */
 export const metadata: Metadata = {
   title: "Book a Builder Call | Avery & Bryant",
@@ -70,7 +72,7 @@ export default async function BuilderCallPage({
         </div>
 
         <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-          <div className="overflow-hidden rounded border border-white/10 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+          <div className="overflow-hidden rounded border border-white/10 bg-[#0a0a0a] shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             <CalendarEmbed
               calendarId={BUILDER_CALL.id}
               interest={shoot ? "builders-market-your-build" : "builders"}

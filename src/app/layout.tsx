@@ -8,6 +8,7 @@ import { QuotePopup } from "@/components/quote-popup";
 import { Footer } from "@/components/footer";
 import { Analytics, AnalyticsNoScript } from "@/components/analytics";
 import { UtmCapture } from "@/components/utm-capture";
+import { CtaTracker } from "@/components/cta-tracker";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -155,6 +156,7 @@ export default function RootLayout({
         <AnalyticsNoScript />
         <Analytics />
         <UtmCapture />
+        <CtaTracker />
         <Nav />
         <main>{children}</main>
         <ScrollToTop />

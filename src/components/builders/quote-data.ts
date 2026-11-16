@@ -75,6 +75,34 @@ export const SERVICES: Service[] = [
   },
 ];
 
+const low = (id: ServiceId) => SERVICES.find((s) => s.id === id)?.low ?? 0;
+
+/**
+ * Market Your Build: the 25 image photo set with the regular add-ons, each
+ * at its live list price. Shown on the builders page card and again on the
+ * booking step (/builders/shoot) so the two never disagree.
+ */
+export const SHOOT_PRICE = low("photos");
+export const SHOOT_STACK = [
+  { label: "Marketing photo set, 25 finished images", price: low("photos"), add: false },
+  { label: "Aerial photos and video", price: low("aerial"), add: true },
+  { label: "A short reel", price: low("reels"), add: true },
+  { label: "A 60 second film", price: low("film"), add: true },
+  { label: "Twilight exterior", price: low("twilight"), add: true },
+];
+
+/**
+ * The booking step for that shoot (/builders/shoot): who is booking, then
+ * the Aryeo builders order form. It stays switched off until that Aryeo form
+ * can sell the shoot. Checked 2026-11-16: the form still carries the old
+ * catalog, "2026 Market Your Build" is inactive and on no form, and none of
+ * the add-ons above are on it at these prices. While this is false, "Book
+ * this shoot" goes to the builder call page and /builders/shoot sends
+ * visitors there too. Turn it on only after the Aryeo form is fixed.
+ */
+export const SHOOT_BOOKS_ON_ARYEO = false;
+export const BUILDER_SHOOT_PATH = "/builders/shoot";
+
 export type PurposeId =
   | "showcase"
   | "progress"

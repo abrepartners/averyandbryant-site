@@ -4,7 +4,18 @@ import { useEffect, useState } from "react";
 import type { Package } from "@/lib/pricing";
 import { PackageCard } from "./builder-package-card";
 import { QuoteWizard } from "./quote-wizard";
-import { SERVICES, money } from "./quote-data";
+import { BUILDER_CALL_PATH } from "@/lib/consult";
+import {
+  BUILDER_SHOOT_PATH,
+  SHOOT_BOOKS_ON_ARYEO,
+  SHOOT_PRICE,
+  SHOOT_STACK,
+  money,
+} from "./quote-data";
+
+const SHOOT_HREF = SHOOT_BOOKS_ON_ARYEO
+  ? BUILDER_SHOOT_PATH
+  : `${BUILDER_CALL_PATH}?for=shoot`;
 
 /**
  * Two ways in, side by side: one shoot a builder can book without a long
@@ -16,16 +27,6 @@ import { SERVICES, money } from "./quote-data";
  * photo set, with the regular add-ons). The name and the shot list are
  * proposals until Thomas signs off.
  */
-
-const price = (id: string) => SERVICES.find((s) => s.id === id)?.low ?? 0;
-
-const STACK = [
-  { label: "Marketing photo set, 25 finished images", value: money(price("photos")), add: false },
-  { label: "Aerial photos and video", value: money(price("aerial")), add: true },
-  { label: "A short reel", value: money(price("reels")), add: true },
-  { label: "A 60 second film", value: money(price("film")), add: true },
-  { label: "Twilight exterior", value: money(price("twilight")), add: true },
-];
 
 const SHOT_LIST = [
   "Front elevation",
@@ -45,7 +46,7 @@ const PHASES = [
   "At the finish, model home or community",
 ];
 
-function MarketYourBuild({ consultHref }: { consultHref: string }) {
+function MarketYourBuild() {
   // On a phone the shot list is folded so the card stays short.
   const [shots, setShots] = useState(false);
   return (
@@ -64,7 +65,7 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
       </h3>
       <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span className="font-display text-[44px] font-extralight leading-none tracking-[-0.03em] text-crimson">
-          {money(price("photos"))}
+          {money(SHOOT_PRICE)}
         </span>
         <span className="text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
           per shoot
@@ -77,7 +78,7 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
       </p>
 
       <ul className="mt-6 border-t border-white/10">
-        {STACK.map((item) => (
+        {SHOOT_STACK.map((item) => (
           <li
             key={item.label}
             className="flex items-baseline justify-between gap-4 border-b border-white/5 py-2.5 text-[13px]"
@@ -91,7 +92,7 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
               {item.label}
             </span>
             <span className="shrink-0 font-mono tabular-nums text-fg-secondary">
-              {item.add ? `+${item.value}` : item.value}
+              {item.add ? `+${money(item.price)}` : money(item.price)}
             </span>
           </li>
         ))}
@@ -142,13 +143,15 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
 
       <div className="mt-auto pt-6">
         <a
-          href={`${consultHref}?for=shoot`}
+          href={SHOOT_HREF}
           className="inline-flex min-h-[48px] w-full items-center justify-center rounded bg-crimson px-6 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
         >
           Book this shoot
         </a>
         <p className="mt-3 text-xs leading-relaxed text-fg-secondary">
-          Give us the home and a date. Photos are back within 48 hours.
+          {SHOOT_BOOKS_ON_ARYEO
+            ? "Tell us who is booking, then pick the home and the date. Photos are back within 48 hours."
+            : "Give us the home and a date. Photos are back within 48 hours."}
         </p>
       </div>
     </article>
@@ -273,7 +276,7 @@ export function BuilderOffers({
         </div>
 
         <div className="mt-12 grid gap-8 md:mt-16 lg:grid-cols-2 lg:gap-6">
-          <MarketYourBuild consultHref={consultHref} />
+          <MarketYourBuild />
           <QuoteWizard consultHref={consultHref} />
         </div>
 
