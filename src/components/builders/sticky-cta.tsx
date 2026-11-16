@@ -36,8 +36,6 @@ export function StickyCta({ consultHref }: { consultHref: string }) {
       <div className="flex gap-2">
         <a
           href={consultHref}
-          target="_blank"
-          rel="noopener noreferrer"
           tabIndex={show ? 0 : -1}
           className="inline-flex min-h-[46px] flex-1 items-center justify-center rounded bg-crimson px-4 text-[11px] font-medium uppercase tracking-[0.18em] text-white"
         >

@@ -440,8 +440,6 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
               </p>
               <a
                 href={consultHref}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="mt-3 inline-flex min-h-[44px] items-center text-[11px] uppercase tracking-[0.2em] text-fg-strong underline decoration-white/30 underline-offset-4 hover:text-white"
               >
                 Or pick a call time now
@@ -507,8 +505,6 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
                 </button>
                 <a
                   href={consultHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex min-h-[48px] items-center justify-center rounded border border-white/15 px-5 text-[11px] font-medium uppercase tracking-[0.2em] text-fg transition-colors duration-300 hover:border-white/40"
                 >
                   Pick a call time

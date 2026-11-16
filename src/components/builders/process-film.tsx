@@ -221,8 +221,6 @@ export function ProcessFilm({
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 md:mt-9">
               <a
                 href={consultHref}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex min-h-[48px] items-center justify-center rounded bg-crimson px-7 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
               >
                 Book a builder call
@@ -289,8 +287,6 @@ export function ProcessFilm({
                   {s.offer === "call" && (
                     <a
                       href={consultHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       tabIndex={on ? 0 : -1}
                       className={`group mt-3 flex min-h-[56px] items-center justify-between gap-4 border-t border-white/15 pt-3 md:mt-4 lg:mt-6 lg:rounded lg:border lg:border-white/10 lg:bg-[rgba(10,10,10,0.8)] lg:px-5 lg:py-4 lg:backdrop-blur-md ${
                         on ? "pointer-events-auto" : "pointer-events-none"

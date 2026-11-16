@@ -1,6 +1,6 @@
 import { FaqSection } from "@/components/faq-section";
 import { buildersPricing } from "@/lib/pricing";
-import { consultUrl } from "@/lib/consult";
+import { BUILDER_CALL_PATH } from "@/lib/consult";
 import { ProcessFilm } from "@/components/builders/process-film";
 import { ProofSlots } from "@/components/builders/proof-slots";
 import { BuilderOffers } from "@/components/builders/builder-offers";
@@ -27,7 +27,8 @@ export const metadata = {
 
 export default function BuildersPage() {
   const { packages, guarantee } = buildersPricing;
-  const consultHref = consultUrl("builders");
+  // Every call button on this page opens our own builder call page.
+  const consultHref = BUILDER_CALL_PATH;
 
   return (
     <div data-page="builders">

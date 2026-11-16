@@ -142,9 +142,7 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
 
       <div className="mt-auto pt-6">
         <a
-          href={consultHref}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`${consultHref}?for=shoot`}
           className="inline-flex min-h-[48px] w-full items-center justify-center rounded bg-crimson px-6 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
         >
           Book this shoot

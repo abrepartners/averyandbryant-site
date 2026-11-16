@@ -55,6 +55,19 @@ export function calendarUrlFor(
   return interest ? `${base}?interest=${encodeURIComponent(interest)}` : base;
 }
 
+/**
+ * The builder call page on our own site (src/app/builders/call). Until the
+ * Builder Call calendar exists in the CRM (vault Duet-Queue row D04), the
+ * page shows the Free Consultation calendar with the interest prefilled.
+ * When the new calendar exists, change the id and minutes here and nowhere
+ * else.
+ */
+export const BUILDER_CALL_PATH = "/builders/call";
+export const BUILDER_CALL = {
+  id: CALENDARS.consult.id,
+  minutes: CALENDARS.consult.minutes,
+};
+
 export const CONSULT_BASE = `${WIDGET}${CALENDARS.consult.id}`;
 
 /** Free Consultation calendar, optionally prefilled with the vertical. */

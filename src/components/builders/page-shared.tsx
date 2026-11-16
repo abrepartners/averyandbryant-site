@@ -68,8 +68,6 @@ export function BuildersClose({ consultHref }: { consultHref: string }) {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={consultHref}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex min-h-[52px] items-center justify-center rounded bg-crimson px-9 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
             >
               Book a builder call

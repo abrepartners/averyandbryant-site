@@ -2,7 +2,7 @@
 
 import type { Package } from "@/lib/pricing";
 import { OrderLink } from "@/components/order-link";
-import { consultUrl } from "@/lib/consult";
+import { BUILDER_CALL_PATH } from "@/lib/consult";
 
 /**
  * One builder package with its full stack. Names, prices and line values all
@@ -146,9 +146,7 @@ export function PackageCard({
       <div className="mt-auto pt-4">
         {isCall ? (
           <a
-            href={consultUrl("builders")}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={BUILDER_CALL_PATH}
             className={ctaClass}
           >
             {label}
