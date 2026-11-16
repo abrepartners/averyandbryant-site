@@ -1,14 +1,6 @@
-import Link from "next/link";
-
 /**
- * Pieces both cuts of the builders page share: the questions, the closing
- * call to action, and the preview switch between the two cuts.
- *
- *   /builders          cut A: opens on the lot, stage picker lower down
- *   /builders/process  cut B: opens on the blueprint, sections in build order
- *
- * The switch never shows on the production site. When Thomas picks a cut,
- * delete the other page and this switch.
+ * Shared pieces of the builders page: the questions and the closing call to
+ * action.
  */
 
 export const builderFaqs = [
@@ -52,38 +44,6 @@ export const builderFaqs = [
 /** "$1,395" to 1395. */
 export function dollars(price: string) {
   return Number(price.replace(/[^0-9.]/g, ""));
-}
-
-export function VersionSwitch({ current }: { current: "a" | "b" }) {
-  if (process.env.VERCEL_ENV === "production") return null;
-  const items = [
-    { id: "a", href: "/builders", label: "A", note: "Lot first" },
-    { id: "b", href: "/builders/process", label: "B", note: "Blueprint first" },
-  ] as const;
-  return (
-    <nav
-      aria-label="Preview versions"
-      className="fixed left-1/2 top-[72px] z-40 flex -translate-x-1/2 items-center gap-1 rounded-full border border-white/15 bg-[rgba(10,10,10,0.82)] p-1 font-mono text-[10px] uppercase tracking-[0.16em] backdrop-blur-xl md:top-[92px]"
-    >
-      {items.map((it) => (
-        <Link
-          key={it.id}
-          href={it.href}
-          aria-current={current === it.id ? "page" : undefined}
-          className={`inline-flex min-h-[36px] items-center gap-2 whitespace-nowrap rounded-full px-3.5 transition-colors ${
-            current === it.id
-              ? "bg-white/15 text-fg"
-              : "text-fg-secondary hover:text-fg"
-          }`}
-        >
-          <span className={current === it.id ? "text-crimson-text" : ""}>
-            {it.label}
-          </span>
-          {it.note}
-        </Link>
-      ))}
-    </nav>
-  );
 }
 
 export function BuildersClose({ consultHref }: { consultHref: string }) {

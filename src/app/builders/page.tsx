@@ -1,19 +1,24 @@
 import { FaqSection } from "@/components/faq-section";
 import { buildersPricing } from "@/lib/pricing";
 import { consultUrl } from "@/lib/consult";
-import { PlanToSold } from "@/components/builders/plan-to-sold";
+import { ProcessFilm } from "@/components/builders/process-film";
 import { CarryCalculator } from "@/components/builders/carry-calculator";
 import { ProofSlots } from "@/components/builders/proof-slots";
-import { StagePackages } from "@/components/builders/stage-packages";
+import { PhasePackages } from "@/components/builders/phase-packages";
 import { OfferTerms } from "@/components/builders/offer-terms";
 import { StickyCta } from "@/components/builders/sticky-cta";
 import {
   BuildersClose,
-  VersionSwitch,
   builderFaqs,
   dollars,
 } from "@/components/builders/page-shared";
 
+/**
+ * The builders page follows the build: blueprint, lot, foundation, framing,
+ * rough-in, finished, sold. Each stage in the film names what we shoot there
+ * and the package that covers it; the sections after the film stay in that
+ * order.
+ */
 export const metadata = {
   alternates: { canonical: "/builders" },
   title:
@@ -30,8 +35,7 @@ export default function BuildersPage() {
 
   return (
     <div data-page="builders">
-      <VersionSwitch current="a" />
-      <PlanToSold consultHref={consultHref} />
+      <ProcessFilm consultHref={consultHref} packages={packages} />
 
       <CarryCalculator
         packageName={launch.name}
@@ -40,7 +44,7 @@ export default function BuildersPage() {
 
       <ProofSlots />
 
-      <StagePackages packages={packages} />
+      <PhasePackages packages={packages} />
 
       <OfferTerms guarantee={guarantee} />
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import { FILM_A, captionAt, frameAt, positionAt, type Film, type FilmCut, type Fit } from "./film-data";
+import { FILM, captionAt, frameAt, positionAt, type Film, type FilmCut, type Fit } from "./film-data";
 
 type Props = {
   /** The tall scroll track the film is pinned inside. Progress through it
@@ -24,7 +24,7 @@ const MAX_PENDING = 6;
  * playhead and decode off the main thread. If the exact frame is not ready
  * the nearest loaded one is drawn, so the picture never blanks or jumps.
  */
-export function FilmScrub({ trackRef, film = FILM_A, className = "" }: Props) {
+export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

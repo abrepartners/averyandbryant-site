@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { Package } from "@/lib/pricing";
 import { FilmScrub } from "./film-scrub";
-import { FILM_B, captionAt } from "./film-data";
-import { displayPrice } from "./stage-packages";
+import { FILM, captionAt } from "./film-data";
+import { displayPrice } from "./builder-package-card";
 
 /**
  * The process cut of the opening scene. The page opens on a rolled blueprint.
@@ -119,7 +119,7 @@ export function ProcessFilm({
       const total = r.height - window.innerHeight;
       const p = total > 0 ? clamp(-r.top / total) : 0;
 
-      const idx = captionAt(FILM_B, p);
+      const idx = captionAt(FILM, p);
       setStage((prev) => (prev === idx ? prev : idx));
 
       const hero = heroRef.current;
@@ -165,7 +165,7 @@ export function ProcessFilm({
       <div className="sticky top-0 h-[100svh] overflow-hidden bg-black-deep">
         <FilmScrub
           trackRef={trackRef}
-          film={FILM_B}
+          film={FILM}
           className="absolute inset-0 h-full w-full"
         />
 

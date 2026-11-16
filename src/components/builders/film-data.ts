@@ -2,10 +2,7 @@
  * The plan to sold film: one continuous shot of a home going from layout
  * lines on bare dirt to sold, cut into frames and scrubbed by the scroll.
  *
- * Two cuts of the page use it:
- *   FILM_A  the film as first built (six stages, opens on the lot).
- *   FILM_B  the same film with a blueprint opening in front of it (eight
- *           stages: rolled blueprint, flat blueprint, lot, then the build).
+ * Eight stages: rolled blueprint, flat blueprint, lot, then the build.
  *
  * Frame files: public/builders/film/v1/{169,916}/f0000.webp and up (the
  * build), public/builders/film/v2/{169,916}/p0000.webp and up (the blueprint
@@ -60,28 +57,6 @@ function buildCut(dir: string): FilmCut {
   };
 }
 
-export const FILM_A: Film = {
-  landscape: buildCut("169"),
-  portrait: buildCut("916"),
-  stops: [
-    [0, 0],
-    [0.04, 0],
-    [0.19, 1],
-    [0.25, 1],
-    [0.4, 2],
-    [0.46, 2],
-    [0.61, 3],
-    [0.67, 3],
-    [0.8, 4],
-    [0.86, 4],
-    [0.96, 5],
-    [1, 5],
-  ],
-  starts: [0, 0.115, 0.325, 0.535, 0.735, 0.91],
-  fitPortrait: FIT_BUILD,
-  fitLandscape: { zoom: 1, ax: 0.74, ay: 0.5 },
-};
-
 /** The blueprint opening: frames before the build film starts. */
 const PRELUDE = {
   "169": { count: 120, flat: 60 },
@@ -100,7 +75,7 @@ function processCut(dir: "169" | "916"): FilmCut {
   };
 }
 
-export const FILM_B: Film = {
+export const FILM: Film = {
   landscape: processCut("169"),
   portrait: processCut("916"),
   stops: [
@@ -153,11 +128,6 @@ export function frameAt(stagePos: number, cut: FilmCut) {
   const i = Math.min(cut.keys.length - 2, Math.max(0, Math.floor(stagePos)));
   const t = Math.min(1, Math.max(0, stagePos - i));
   return cut.keys[i] + (cut.keys[i + 1] - cut.keys[i]) * t;
-}
-
-/** Stage shown for the first cut of the page (kept for plan-to-sold.tsx). */
-export function stageIndex(p: number) {
-  return captionAt(FILM_A, p);
 }
 
 /** Stills of each stage, for the stage picker and the labeled slots. */

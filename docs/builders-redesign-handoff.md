@@ -118,3 +118,23 @@ Thomas asked for a blueprint opening and a page that follows the build, kept swi
 - No new offers or prices. The two new stage panels (Plan, Lot) only restate the free 30 minute call and that Build Tracker starts at the foundation.
 
 When Thomas picks one: delete the other page, `VersionSwitch`, and whichever of `plan-to-sold.tsx` + `stage-packages.tsx` picker or `process-film.tsx` + `phase-packages.tsx` is not used (keep `PackageCard`). If B wins, move it to `/builders`.
+
+## B picked, real work added (2026-11-16)
+
+Thomas picked cut B. Cut A, the `/builders/process` route and the A / B switch are deleted; B is now `/builders`. `stage-packages.tsx` became `builder-package-card.tsx` (card and `displayPrice` only) and `film-data.ts` holds one film, `FILM`.
+
+The work section (`src/components/builders/proof-slots.tsx`) no longer has placeholders. Everything in it is real delivered media Thomas pointed to on 2026-11-16:
+
+- 01 Build progress photos: one Benton home, exterior, kitchen and great room on three visits (`public/images/builders/progress/benton-*`).
+- 02 Framing to finished: one Cabot home, four frames (`progress/cabot-*`).
+- 03 Progress reels: three vertical reels of the Benton home (`public/videos/reel-build-progress-early`, `reel-build-progress-visits`, `reel-new-build-finished`).
+- 04 One builder's film series, six films (`public/videos/film-builder-*`). These carry the builder's own logo and the community name on screen; that is how they were delivered. No street address appears.
+- 05 Renovations: two Little Rock homes, exterior drag to compare plus kitchen pairs (`renovation/`). The house number was painted out of both "after" exteriors.
+- 06 Previews: our photo beside an AI preview made from it (`preview/`). The preview half always carries a crimson "Preview, AI" label.
+- 07 and 08: the finished home photos and films that were already there.
+
+Rules followed: no street, house number or home name in any file name, caption or alt text. Every film was read at 4 frames a second for on-screen text and every exported photo was read once; the only text found is the builder's branding, tool and material brands, and newspaper clippings inside the family film.
+
+Source files, picks and scripts: `~/ab/tools/builders-content/` (`scripts/export.sh` lists every photo picked by gallery position and re-makes the web files). Films are full length at 960x540, about 54 MB in `public/videos` for the nine new files. Move video and film frames to file storage before a production release.
+
+Not done: check on a physical iPhone. The reels from the two renovations and a finished-home reel from Cabot were not used (the Cabot reel opens on a street address title).

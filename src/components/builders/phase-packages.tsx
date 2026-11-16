@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Package } from "@/lib/pricing";
-import { PackageCard } from "./stage-packages";
+import { PackageCard } from "./builder-package-card";
 
 /**
  * The packages, laid out in build order instead of behind a stage picker:
