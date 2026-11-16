@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { upsertContact, enrollInWorkflow, setCustomField } from "@/lib/ghl";
+import {
+  upsertContact,
+  addTags,
+  enrollInWorkflow,
+  setCustomField,
+} from "@/lib/ghl";
 
 // GHL custom field id for "Studio Schedule URL" (created 2026-04-20).
 const STUDIO_SCHEDULE_URL_FIELD_ID = "MeyPRVtDcNwSFyoh89ma";
@@ -182,12 +187,20 @@ export async function POST(req: Request) {
       email,
       phone,
       source: "stripe-checkout",
-      tags,
+      // No tags here on purpose. A tags list on an upsert REPLACES every tag
+      // the contact already has (seen on the test contact, 2026-11-16), so a
+      // buyer who was already an A&B contact lost their A&B tags at checkout.
+      // The tags are added further down with addTags, which only appends.
     });
     contactId = result.contact?.id;
-    console.info("[stripe-webhook] upserted contact", contactId, "tags", tags);
+    console.info("[stripe-webhook] upserted contact", contactId);
   } catch (err) {
     console.error("[stripe-webhook] GHL upsert failed", err);
+    return NextResponse.json({ error: "ghl upsert failed" }, { status: 500 });
+  }
+  if (!contactId) {
+    // A 500 makes Stripe send the event again.
+    console.error("[stripe-webhook] upsert returned no contact id", session.id);
     return NextResponse.json({ error: "ghl upsert failed" }, { status: 500 });
   }
 
@@ -203,6 +216,17 @@ export async function POST(req: Request) {
     } catch (err) {
       console.error("[stripe-webhook] schedule URL write failed", err);
     }
+  }
+
+  // Tags go on after the schedule link is saved, so anything in the CRM that
+  // starts on a studio tag already has the link to send. A failure here
+  // returns 500 so Stripe retries; nothing after this point has run yet.
+  try {
+    await addTags(contactId, tags);
+    console.info("[stripe-webhook] added tags", contactId, tags);
+  } catch (err) {
+    console.error("[stripe-webhook] GHL add tags failed", err);
+    return NextResponse.json({ error: "ghl add tags failed" }, { status: 500 });
   }
 
   // Enroll in the corresponding GHL workflow so published drip sequences fire.
