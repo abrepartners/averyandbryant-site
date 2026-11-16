@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import { FILM, captionAt, frameAt, positionAt, type Film, type FilmCut, type Fit } from "./film-data";
 
 type Props = {
@@ -26,6 +26,9 @@ const MAX_PENDING = 6;
  */
 export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // The first frame ships as a plain image so the page paints before any
+  // script runs; the canvas fades in over it once it has drawn.
+  const [drawn, setDrawn] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -49,6 +52,11 @@ export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
     let raf = 0;
     let last = 0;
     let dir = 1;
+    // Until the visitor scrolls (or the page has been idle a few seconds)
+    // only the frames at the playhead load, so the first paint is not
+    // competing with sixty frame downloads.
+    let warm = false;
+    let painted = false;
 
     const pickCut = () => {
       const next = w / Math.max(1, h) < 0.8;
@@ -95,14 +103,16 @@ export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
     const pump = () => {
       const f = Math.round(frameAt(Math.max(0, cur), cut));
       const want: number[] = [f];
-      for (let k = 1; k <= AHEAD; k++) {
+      const ahead = warm ? AHEAD : 2;
+      for (let k = 1; k <= ahead; k++) {
         want.push(f + k * dir);
-        if (k <= BEHIND) want.push(f - k * dir);
+        if (warm && k <= BEHIND) want.push(f - k * dir);
       }
       for (const i of want) {
         if (pending.size >= MAX_PENDING) return;
         load(i);
       }
+      if (!warm) return;
       for (let i = 0; i < cut.count; i += SPARSE) {
         if (pending.size >= MAX_PENDING) return;
         load(i);
@@ -165,6 +175,10 @@ export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
         place(cache.get(a)!, fit, 1);
       }
       ctx.globalAlpha = 1;
+      if (!painted) {
+        painted = true;
+        setDrawn(true);
+      }
     };
 
     const tick = (now: number) => {
@@ -216,7 +230,23 @@ export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
       kick();
     };
 
-    const onScroll = () => kick();
+    const warmUp = () => {
+      if (warm) return;
+      warm = true;
+      dirty = true;
+      kick();
+    };
+    const onScroll = () => {
+      warmUp();
+      kick();
+    };
+    let warmTimer = 0;
+    const afterLoad = () => {
+      warmTimer = window.setTimeout(warmUp, 3500);
+    };
+    if (document.readyState === "complete") afterLoad();
+    else window.addEventListener("load", afterLoad, { once: true });
+    window.addEventListener("pointerdown", warmUp, { passive: true, once: true });
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
     const io = new IntersectionObserver(([e]) => {
@@ -235,6 +265,9 @@ export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
     return () => {
       generation++;
       cancelAnimationFrame(raf);
+      window.clearTimeout(warmTimer);
+      window.removeEventListener("load", afterLoad);
+      window.removeEventListener("pointerdown", warmUp);
       ro.disconnect();
       io.disconnect();
       window.removeEventListener("scroll", onScroll);
@@ -242,5 +275,30 @@ export function FilmScrub({ trackRef, film = FILM, className = "" }: Props) {
     };
   }, [trackRef, film]);
 
-  return <canvas ref={canvasRef} aria-hidden="true" className={className} />;
+  return (
+    <>
+      <picture>
+        <source media="(max-aspect-ratio: 4/5)" srcSet={film.portrait.url(0)} />
+        <img
+          src={film.landscape.url(0)}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          className={`${className} object-cover [object-position:var(--film-x)_var(--film-y)]`}
+          style={
+            {
+              "--film-x": `${film.fitLandscape.ax * 100}%`,
+              "--film-y": `${film.fitLandscape.ay * 100}%`,
+            } as React.CSSProperties
+          }
+        />
+      </picture>
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className={`${className} transition-opacity duration-300 ${drawn ? "opacity-100" : "opacity-0"}`}
+      />
+    </>
+  );
 }

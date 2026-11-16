@@ -160,7 +160,7 @@ export function ProcessFilm({
       ref={trackRef}
       id="plan-to-sold"
       aria-label="From plan to sold"
-      className="relative h-[760svh]"
+      className="relative h-[660svh]"
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden bg-black-deep">
         <FilmScrub

@@ -60,8 +60,8 @@ export const portfolioVideos: Record<PortfolioVertical, { eyebrow: string; title
     eyebrow: "Builder Films",
     title: "New construction, on film.",
     subtitle: "Delivered for Arkansas builders.",
-    films: [films.modernSunset, films.farmhouseAcreage, films.whiteFarmhouse, films.craftsman],
-    reels: [reels.neighborhood, reels.whiteFarmhouse, reels.craftsman, reels.threeStoryModern],
+    films: [films.modernSunset, films.farmhouseAcreage],
+    reels: [],
   },
   "lot-land": {
     eyebrow: "Land Films",

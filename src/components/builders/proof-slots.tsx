@@ -2,58 +2,29 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { VideoRows } from "@/components/portfolio-videos";
 import { VideoSamples, type VideoSample } from "@/components/video-samples";
 import { portfolioVideos } from "@/lib/portfolio-videos";
 
 /**
- * The work. Everything in this section is real delivered media.
+ * The work, in five tabs so only one kind shows at a time. All of it is real
+ * delivered media.
  *
- *   01 to 03  build progress: the same homes photographed and filmed across
- *             visits (files in public/images/builders/progress, public/videos)
- *   04        one builder's film series, first footing to move-in
- *   05        renovations, before and after
- *   06        previews: our photo beside an AI preview of the finish. The
- *             preview half is always labeled "Preview, AI".
- *   07, 08    finished homes and finished home films
+ *   The build       one home on three visits, framing to finished, reels
+ *   You on camera   one builder's film series, a builder presenting a home
+ *   The craft       detail frames from custom homes, finished home films
+ *   Renovations     before and after photos and films
+ *   Previews        our photo beside an AI preview of the finish; the preview
+ *                   half is always labeled "Preview, AI"
  *
  * No street, house number or home name goes in a file name, caption or alt
- * text. City is fine. Every film was read frame by frame for on-screen
- * addresses before it was added (see ~/ab/tools/builders-content).
+ * text. City is fine. Every film and photo was read for on-screen addresses
+ * before it was added (see ~/ab/tools/builders-content).
  */
 
 const IMG = "/images/builders";
 
-const DELIVERED_PHOTOS = [
-  {
-    src: "/images/builders/benton-front-exterior.jpg",
-    alt: "Acadian brick front elevation with dormers on a new construction home in Benton, Arkansas",
-  },
-  {
-    src: "/images/builders/little-rock-kitchen-2.jpg",
-    alt: "Kitchen with marble counters and backsplash, a wood island and a wood clad range hood in a new construction home in Little Rock, Arkansas",
-  },
-  {
-    src: "/images/builders/little-rock-front-exterior.jpg",
-    alt: "Modern white brick front elevation with black windows on a new construction home in Little Rock, Arkansas",
-  },
-  {
-    src: "/images/builders/bryant-kitchen.jpg",
-    alt: "White oak kitchen with black windows in a new construction home in Bryant, Arkansas",
-  },
-  {
-    src: "/images/builders/little-rock-front-exterior-3.jpg",
-    alt: "Finished brick and stone front elevation of a new construction home in Little Rock, Arkansas, with fresh sod, a young staked tree and a brown double garage door",
-  },
-  {
-    src: "/images/builders/bryant-aerial.jpg",
-    alt: "Aerial photo of a new construction home on a wooded lot in Bryant, Arkansas",
-  },
-];
-
-const BUILDER_VIDEOS = portfolioVideos.builders;
-
 type Frame = { src: string; alt: string; label: string };
+type ComparePair = { before: string; after: string; alt: string };
 
 /** One home in Benton, the same three views on three visits. */
 const VISIT_ROWS: { room: string; frames: Frame[] }[] = [
@@ -83,12 +54,22 @@ const VISIT_ROWS: { room: string; frames: Frame[] }[] = [
   },
 ];
 
-/** One home in Cabot, open studs to the day it listed. */
-const FRAMING_TO_FINISHED: Frame[] = [
-  { label: "Framing", src: `${IMG}/progress/cabot-framing-1.jpg`, alt: "Hallway of open wall studs in a new construction home in Cabot, Arkansas" },
-  { label: "Framing", src: `${IMG}/progress/cabot-framing-2.jpg`, alt: "Open framed room with ceiling joists in the same Cabot home" },
-  { label: "Dried in", src: `${IMG}/progress/cabot-dried-in.jpg`, alt: "The same Cabot home wrapped and roofed, seen from the gravel drive" },
-  { label: "Finished", src: `${IMG}/progress/cabot-finished.jpg`, alt: "The same Cabot home finished, with stone, dark siding and a concrete drive" },
+/** One home in Cabot: the same two views, mid build and finished. */
+const FRAMING_PAIRS: (ComparePair & { what: string; labels: [string, string] })[] = [
+  {
+    what: "Entry hall",
+    labels: ["Framing", "Finished"],
+    before: `${IMG}/progress/cabot-framing-1.jpg`,
+    after: `${IMG}/progress/cabot-hall-finished.jpg`,
+    alt: "Entry hall of a new construction home in Cabot, Arkansas",
+  },
+  {
+    what: "From the drive",
+    labels: ["Dried in", "Finished"],
+    before: `${IMG}/progress/cabot-dried-in.jpg`,
+    after: `${IMG}/progress/cabot-finished.jpg`,
+    alt: "A new construction home in Cabot, Arkansas, seen from the drive",
+  },
 ];
 
 const vid = (slug: string, alt: string): VideoSample => ({
@@ -111,8 +92,6 @@ const SERIES: { title: string; video: VideoSample }[] = [
   { title: "Welcome home", video: vid("film-builder-welcome-home", "Builder film: the finished home, with a look back at the first day on the lot") },
   { title: "The family story", video: vid("film-builder-family-story", "Builder brand film: the family behind a home building company") },
 ];
-
-type ComparePair = { before: string; after: string; alt: string };
 
 const RENOVATION_EXTERIORS: ComparePair[] = [
   {
@@ -139,6 +118,48 @@ const RENOVATION_KITCHENS: ComparePair[] = [
     alt: "Kitchen of a second renovated home in Little Rock, Arkansas",
   },
 ];
+
+/** Detail-forward frames from two custom homes: the standard, not the listing. */
+const CRAFT_PHOTOS = [
+  { src: `${IMG}/craft/little-rock-entry-arch.jpg`, alt: "Arched brick entry with a hanging lantern on a custom home in Little Rock, Arkansas" },
+  { src: `${IMG}/craft/hot-springs-village-entry-timber.jpg`, alt: "Timber framed entry porch at dusk on a custom home in Hot Springs Village, Arkansas" },
+  { src: `${IMG}/craft/little-rock-window-wall.jpg`, alt: "Two story window wall with an arched door and wood columns in a custom home in Little Rock, Arkansas" },
+  { src: `${IMG}/craft/hot-springs-village-green-kitchen.jpg`, alt: "Kitchen with green cabinets, a wood island and a wood range hood in a custom home in Hot Springs Village, Arkansas" },
+  { src: `${IMG}/craft/little-rock-beams-fireplace.jpg`, alt: "Living room with wood ceiling beams and a stone fireplace in a custom home in Little Rock, Arkansas" },
+  { src: `${IMG}/craft/little-rock-kitchen-lanterns.jpg`, alt: "Kitchen with lantern pendants and a wood island in a custom home in Little Rock, Arkansas" },
+  { src: `${IMG}/craft/hot-springs-village-sunroom.jpg`, alt: "Sunroom with a wood plank ceiling in a custom home in Hot Springs Village, Arkansas" },
+  { src: `${IMG}/craft/little-rock-bath.jpg`, alt: "Primary bath with a glass shower, brass fixtures and timber posts in a custom home in Little Rock, Arkansas" },
+];
+
+const CRAFT_FILMS = portfolioVideos.builders.films;
+
+type Titled = {
+  title: string;
+  video: VideoSample;
+  vertical?: boolean;
+  link?: { href: string; label: string };
+};
+
+const HOST_FILMS: Titled[] = [
+  { title: "The builder, on his latest build", video: vid("film-builder-walks-the-home", "Builder film: the builder presents a newly finished custom home in Arkansas") },
+];
+
+const RENOVATION_FILMS: Titled[] = [
+  {
+    title: "Walked before, shown after",
+    video: vid("film-renovation-told-on-site", "Renovation film: the house walked and explained before the rebuild, then shown finished, Bryant"),
+  },
+  {
+    title: "The builder explains the idea",
+    vertical: true,
+    video: vid("reel-renovation-builder-on-site", "Renovation reel: a builder explains a bathroom design mid build, then the finished room"),
+    link: {
+      href: "https://www.instagram.com/reel/DUHmhtkDBS3/",
+      label: "One of our most watched reels. See it on Instagram",
+    },
+  },
+];
+
 
 /** Our photo beside an AI preview made from it. `after` is the preview. */
 const PREVIEWS: (ComparePair & { what: string })[] = [
@@ -177,44 +198,6 @@ function Ticks() {
       <span className={`${c} bottom-2 left-2 border-b border-l`} />
       <span className={`${c} bottom-2 right-2 border-b border-r`} />
     </span>
-  );
-}
-
-function SlotHead({
-  n,
-  title,
-  spec,
-  tag = "Slot",
-  wide = false,
-  children,
-}: {
-  n: string;
-  title: string;
-  spec: string;
-  tag?: string;
-  wide?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <div
-      className={`flex flex-col gap-3 ${wide ? "md:flex-row md:items-end md:justify-between md:gap-10" : ""}`}
-    >
-      <div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-          <span className="text-crimson-text">{tag} {n}</span>
-          <span className="mx-2 text-fg-faint">/</span>
-          {spec}
-        </p>
-        <h3 className="mt-3 font-display text-[clamp(24px,4vw,36px)] font-light tracking-tight text-fg">
-          {title}
-        </h3>
-      </div>
-      <p
-        className={`max-w-[44ch] text-sm leading-relaxed text-fg-secondary ${wide ? "md:text-right" : ""}`}
-      >
-        {children}
-      </p>
-    </div>
   );
 }
 
@@ -337,9 +320,253 @@ function Pair({
   );
 }
 
-export function ProofSlots() {
+function SubHead({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="border-t border-white/5 py-24 md:py-36">
+    <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-10">
+      <h3 className="font-display text-[clamp(22px,3.4vw,30px)] font-light tracking-tight text-fg">
+        {title}
+      </h3>
+      <p className="max-w-[46ch] text-sm leading-relaxed text-fg-secondary md:text-right">
+        {children}
+      </p>
+    </div>
+  );
+}
+
+function Captioned({ title, n, children }: { title: string; n?: number; children: React.ReactNode }) {
+  return (
+    <figure>
+      {children}
+      <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.18em]">
+        <span className="text-fg-strong">{title}</span>
+        {n ? <span className="text-fg-secondary">0{n}</span> : null}
+      </figcaption>
+    </figure>
+  );
+}
+
+function ProgressPanel() {
+  return (
+    <div className="grid gap-16 md:gap-20">
+      <div>
+        <SubHead title="One home, three visits">
+          Same views, every visit. Your buyers, lenders and owners watch
+          the home move without driving to the site.
+        </SubHead>
+        <div className="mt-8 grid gap-8 md:gap-10">
+          {VISIT_ROWS.map((row) => (
+            <div key={row.room}>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
+                {row.room}
+                <span className="ml-3 text-fg-secondary md:hidden">Swipe</span>
+              </p>
+              <div className="-mx-6 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
+                {row.frames.map((f) => (
+                  <div key={f.src} className="w-[78%] shrink-0 snap-center md:w-auto">
+                    <Shot frame={f} sizes="(min-width: 768px) 400px, 78vw" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SubHead title="Framing to finished">
+          Open studs to the finished home, from the same spot. The record
+          you keep and the story a buyer wants.
+        </SubHead>
+        <div className="mt-8 grid gap-x-4 gap-y-8 lg:grid-cols-2">
+          {FRAMING_PAIRS.map((p) => (
+            <Captioned key={p.before} title={p.what}>
+              <Pair pair={p} labels={p.labels} />
+            </Captioned>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SubHead title="Progress reels">
+          The same home cut for the phone: an early visit, a reel that
+          walks it across the visits, and the finished house.
+        </SubHead>
+        <div className="mt-8">
+          <VideoSamples videos={PROGRESS_REELS} vertical />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CameraPanel() {
+  return (
+    <div className="grid gap-16 md:gap-20">
+      <div>
+        <SubHead title="One builder, first footing to move-in">
+          A custom builder brought us in at the footing and kept the
+          cameras rolling through the welcome home. Their name is on every
+          frame, because it was made to be theirs.
+        </SubHead>
+        <div className="mt-8 grid gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+          {SERIES.map((s, i) => (
+            <Captioned key={s.video.src} title={s.title} n={i + 1}>
+              <VideoSamples videos={[s.video]} className="grid" />
+            </Captioned>
+          ))}
+        </div>
+      </div>
+      {HOST_FILMS.length > 0 && (
+        <div>
+          <SubHead title="The builder walks the home">
+            Nobody explains a build like the person who built it. We put
+            the builder in front of the lens and let the house back them up.
+          </SubHead>
+          <div className="mt-8 grid gap-x-4 gap-y-8 md:grid-cols-2">
+            {HOST_FILMS.map((s) => (
+              <Captioned key={s.video.src} title={s.title}>
+                <VideoSamples videos={[s.video]} className="grid" />
+              </Captioned>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CraftPanel() {
+  return (
+    <div className="grid gap-16 md:gap-20">
+      <div>
+        <SubHead title="The details you fought for">
+          Masonry, millwork, tile, light. Shot so a future client sees the
+          standard you build to, not just a house for sale.
+        </SubHead>
+        <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
+          {CRAFT_PHOTOS.map((shot) => (
+            <figure
+              key={shot.src}
+              className="relative aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep"
+            >
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                fill
+                sizes="(min-width: 1024px) 300px, 50vw"
+                className="object-cover"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+      {CRAFT_FILMS.length > 0 && (
+        <div>
+          <SubHead title="Finished home films">
+            The piece that shows the whole home at its best. Tap one to play.
+          </SubHead>
+          <div className="mt-8">
+            <VideoSamples videos={CRAFT_FILMS} className="grid gap-3 md:grid-cols-2 md:gap-4" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function RenovationPanel() {
+  return (
+    <div className="grid gap-16 md:gap-20">
+      <div>
+        <SubHead title="Before and after">
+          We shoot the house the day the work starts and again the day it
+          is done. Drag the line.
+        </SubHead>
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          {RENOVATION_EXTERIORS.map((p) => (
+            <Compare key={p.before} pair={p} />
+          ))}
+        </div>
+        <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          {RENOVATION_KITCHENS.map((p) => (
+            <Pair key={p.before} pair={p} labels={["Before", "After"]} />
+          ))}
+        </div>
+      </div>
+      {RENOVATION_FILMS.length > 0 && (
+        <div>
+          <SubHead title="The rebuild, on film">
+            The before told on site, the after shown finished.
+          </SubHead>
+          <div className="mt-8 grid items-start gap-x-4 gap-y-8 md:grid-cols-2">
+            {RENOVATION_FILMS.map((s) => (
+              <Captioned key={s.video.src} title={s.title}>
+                <VideoSamples
+                  videos={[s.video]}
+                  vertical={s.vertical}
+                  className={s.vertical ? "mx-auto grid w-3/5 md:w-1/2" : "grid"}
+                />
+                {s.link ? (
+                  <a
+                    href={s.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex min-h-[44px] items-center text-sm text-fg-strong underline decoration-white/30 underline-offset-4 hover:text-white"
+                  >
+                    {s.link.label}
+                  </a>
+                ) : null}
+              </Captioned>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PreviewPanel() {
+  return (
+    <div>
+      <SubHead title="Show the finish before it is finished">
+        Yard still dirt, rooms still empty? We add a preview of the sod,
+        the staging or the pool to our own photo of the home. The photo is
+        real. The preview is always labeled.
+      </SubHead>
+      <div className="mt-8 grid gap-x-4 gap-y-8 lg:grid-cols-2">
+        {PREVIEWS.map((p) => (
+          <Captioned key={p.before} title={p.what}>
+            <Pair pair={p} labels={["Photo", "Preview, AI"]} />
+          </Captioned>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const TABS = [
+  { id: "progress", label: "The build", Panel: ProgressPanel },
+  { id: "camera", label: "You on camera", Panel: CameraPanel },
+  { id: "craft", label: "The craft", Panel: CraftPanel },
+  { id: "renovation", label: "Renovations", Panel: RenovationPanel },
+  { id: "preview", label: "Previews", Panel: PreviewPanel },
+] as const;
+
+export function ProofSlots() {
+  const [tab, setTab] = useState<(typeof TABS)[number]["id"]>("progress");
+  const topRef = useRef<HTMLDivElement>(null);
+  const active = TABS.find((t) => t.id === tab) ?? TABS[0];
+  const Panel = active.Panel;
+
+  const pick = (id: (typeof TABS)[number]["id"]) => {
+    setTab(id);
+    // Keep the tab row in view when a long panel is swapped for a short one.
+    const top = topRef.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) topRef.current?.scrollIntoView({ block: "start" });
+  };
+
+  return (
+    <section id="work" className="border-t border-white/5 py-24 md:py-36">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-3">
@@ -349,156 +576,48 @@ export function ProofSlots() {
             </span>
           </div>
           <h2 className="mt-5 font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.04] tracking-[-0.025em] text-fg">
-            What buyers see while you build.
+            Be known for how you build.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-fg-strong md:text-lg">
-            Everything below is real work for Central Arkansas builders and
-            renovators: the progress visits, the films that follow a build,
-            and the finished home.
+            This is not listing media for one house. It is the work that
+            shows what your company can do. Everything here is real, made
+            for Central Arkansas builders. Pick a tab.
           </p>
         </div>
 
-        {/* 01: one home, three visits */}
-        <div className="mt-16 md:mt-24">
-          <SlotHead tag="Delivered" n="01" title="Build progress photos" spec="Photo, one home, three visits" wide>
-            Same views, every visit. Buyers, lenders and owners watch the
-            home move without driving to the site.
-          </SlotHead>
-          <div className="mt-8 grid gap-10 md:gap-12">
-            {VISIT_ROWS.map((row) => (
-              <div key={row.room}>
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
-                  {row.room}
-                </p>
-                <div className="-mx-6 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
-                  {row.frames.map((f) => (
-                    <div key={f.src} className="w-[78%] shrink-0 snap-center md:w-auto">
-                      <Shot frame={f} sizes="(min-width: 768px) 400px, 78vw" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-secondary md:hidden">
-            Swipe each row
-          </p>
+        <div ref={topRef} className="scroll-mt-20 md:scroll-mt-28" />
+        <div
+          role="tablist"
+          aria-label="Kinds of builder work"
+          className="sticky top-[60px] z-20 -mx-6 mt-10 flex gap-2 overflow-x-auto border-y border-white/10 bg-[rgba(10,10,10,0.92)] px-6 py-3 backdrop-blur-xl md:top-[76px] md:mx-0 md:mt-14 md:px-0"
+        >
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              role="tab"
+              id={`work-tab-${t.id}`}
+              aria-selected={tab === t.id}
+              aria-controls="work-panel"
+              onClick={() => pick(t.id)}
+              className={`inline-flex min-h-[44px] shrink-0 items-center whitespace-nowrap rounded-full border px-5 text-[11px] font-medium uppercase tracking-[0.18em] transition-colors ${
+                tab === t.id
+                  ? "border-crimson bg-crimson text-white"
+                  : "border-white/15 text-fg-strong hover:border-white/40"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
-        {/* 02: framing to finished */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="02" title="Framing to finished" spec="Photo, one home, 4 frames" wide>
-            Open studs to the day it listed. The record a builder keeps and
-            the story a buyer wants.
-          </SlotHead>
-          <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
-            {FRAMING_TO_FINISHED.map((f) => (
-              <Shot key={f.src} frame={f} sizes="(min-width: 1024px) 300px, 50vw" />
-            ))}
-          </div>
-        </div>
-
-        {/* 03: progress reels */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="03" title="Progress reels" spec="Reel, cut for the phone" wide>
-            The same home on film: an early visit, a reel that walks it
-            across the visits, and the finished house. Tap one to play.
-          </SlotHead>
-          <div className="mt-8">
-            <VideoSamples videos={PROGRESS_REELS} vertical />
-          </div>
-        </div>
-
-        {/* 04: one builder's series */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="04" title="One builder, first footing to move-in" spec="Film series, 6 films" wide>
-            A custom builder brought us in at the footing and kept the
-            cameras rolling through the welcome home. Their name is on every
-            frame, because it was made to be theirs.
-          </SlotHead>
-          <div className="mt-8 grid gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-            {SERIES.map((s, i) => (
-              <figure key={s.video.src}>
-                <VideoSamples videos={[s.video]} className="grid" />
-                <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.18em]">
-                  <span className="text-fg-strong">{s.title}</span>
-                  <span className="text-fg-secondary">0{i + 1}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-
-        {/* 05: renovations */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="05" title="Renovations, before and after" spec="Photo, drag to compare" wide>
-            Flips and remodels get the same treatment. We shoot the house
-            the day the work starts and again the day it lists.
-          </SlotHead>
-          <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            {RENOVATION_EXTERIORS.map((p) => (
-              <Compare key={p.before} pair={p} />
-            ))}
-          </div>
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
-            {RENOVATION_KITCHENS.map((p) => (
-              <Pair key={p.before} pair={p} labels={["Before", "After"]} />
-            ))}
-          </div>
-        </div>
-
-        {/* 06: previews */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="06" title="Show the finish before it is finished" spec="Photo plus AI preview" wide>
-            Yard still dirt, rooms still empty? We add a preview of the sod,
-            the staging or the pool to our own photo of the home. The photo
-            is real. The preview is always labeled.
-          </SlotHead>
-          <div className="mt-8 grid gap-x-4 gap-y-8 lg:grid-cols-2">
-            {PREVIEWS.map((p) => (
-              <figure key={p.before}>
-                <Pair pair={p} labels={["Photo", "Preview, AI"]} />
-                <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-strong">
-                  {p.what}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-
-        {/* 07: finished-home photos */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="07" title="Finished homes" spec="Photo, drone" wide>
-            Shot like the listing a buyer wants to walk into. Every frame
-            here went to a builder.
-          </SlotHead>
-          <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
-            {DELIVERED_PHOTOS.map((shot) => (
-              <figure
-                key={shot.src}
-                className="relative aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep"
-              >
-                <Image
-                  src={shot.src}
-                  alt={shot.alt}
-                  fill
-                  sizes="(min-width: 1024px) 400px, 50vw"
-                  className="object-cover"
-                />
-              </figure>
-            ))}
-          </div>
-        </div>
-
-        {/* 08: finished-home films and reels */}
-        <div className="mt-20 md:mt-28">
-          <SlotHead tag="Delivered" n="08" title="Finished home films" spec="Film, reel" wide>
-            The piece that sells it. Shot within days of the final clean.
-            Tap one to play.
-          </SlotHead>
-          <div className="mt-8">
-            <VideoRows films={BUILDER_VIDEOS.films} reels={BUILDER_VIDEOS.reels} />
-          </div>
+        <div
+          id="work-panel"
+          role="tabpanel"
+          aria-labelledby={`work-tab-${tab}`}
+          className="mt-12 md:mt-16"
+        >
+          <Panel />
         </div>
       </div>
     </section>

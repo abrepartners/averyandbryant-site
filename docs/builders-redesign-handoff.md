@@ -138,3 +138,15 @@ Rules followed: no street, house number or home name in any file name, caption o
 Source files, picks and scripts: `~/ab/tools/builders-content/` (`scripts/export.sh` lists every photo picked by gallery position and re-makes the web files). Films are full length at 960x540, about 54 MB in `public/videos` for the nine new files. Move video and film frames to file storage before a production release.
 
 Not done: check on a physical iPhone. The reels from the two renovations and a finished-home reel from Cabot were not used (the Cabot reel opens on a street address title).
+
+## Tabs, builder-first framing, speed (2026-11-16, second pass)
+
+Thomas's notes after the phone review: too much scrolling, show what a builder is capable of (not listing media), drop the crossed-out finished films and reels, use four more projects.
+
+- The work section is now five tabs (`proof-slots.tsx`): The build, You on camera, The craft, Renovations, Previews. Only the open tab renders, so the section is about a third of its old height on a phone. Heading is now "Be known for how you build."
+- Removed: all four finished-home reels and two of the four finished-home films (`builders` entry in `src/lib/portfolio-videos.ts`). The old finished-home photo grid is replaced by eight detail frames from two custom homes (`public/images/builders/craft/`).
+- Added films: a builder presenting his latest build (`film-builder-walks-the-home`), a renovation walked before and shown after (`film-renovation-told-on-site`, house number on the porch blurred from 32.9s to 36.0s), and our Instagram reel of a builder explaining a bathroom mid build (`reel-renovation-builder-on-site`, with a link to the reel).
+- Framing to finished is now two matched pairs from one Cabot home: entry hall and the view from the drive.
+- Scroll film: 760svh down to 660svh. The first frame now ships as a plain image in the HTML and the canvas fades in over it; frames beyond the playhead wait until the visitor scrolls or the page has been idle 3.5 seconds (`film-scrub.tsx`).
+- Speed test (Lighthouse, local production build): desktop 100 performance, 100 accessibility. Phone 71 performance, 97 accessibility before the contrast fix; first paint 0.9 s, speed index 1.3 s, blocking time 230 ms (was 1,010 ms). The phone "largest paint" number is not meaningful on this page: Chrome ignores a full-screen image and a canvas, so it reports no candidate. Remaining phone cost is mostly the site-wide tracking scripts.
+- Not changed: the hero and carry calculator still speak to selling the finished home. Package and positioning proposals went to Thomas in chat; nothing new is priced or published.
