@@ -15,7 +15,8 @@ import { displayPrice } from "./builder-package-card";
  * the build order is the order of the page.
  *
  * Package names and prices come from src/lib/pricing.ts through `packages`.
- * The film is an illustration (not a client build) and is labeled as one.
+ * The film is an illustration, not a client build. Thomas had the on-screen
+ * "Illustration" label removed on 2026-11-16.
  */
 
 type Stage = {
@@ -366,7 +367,6 @@ export function ProcessFilm({
         <div className="pointer-events-none absolute right-6 top-[84px] hidden text-right font-mono text-[10px] uppercase leading-relaxed tracking-[0.2em] text-fg-secondary md:right-12 md:top-[104px] md:block">
           <p>Sheet {active.sheet}</p>
           <p>{active.name}</p>
-          <p className="text-fg-faint">Illustration</p>
         </div>
 
         {/* ── stage rail ── */}
@@ -377,14 +377,14 @@ export function ProcessFilm({
           <div className="mb-3 flex items-center justify-between md:mb-4">
             <div
               ref={hintRef}
-              className="flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-fg-secondary"
+              className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.25em] text-amber-consult"
             >
+              {/* Amber here is a one-off so the cue reads at a glance. The
+                  design kit keeps amber for consult and offer moments. */}
               <span>Scroll to build</span>
-              <span aria-hidden="true" className="h-px w-10 bg-white/25" />
+              <span aria-hidden="true" className="h-px w-10 bg-amber-consult/50" />
+              <span aria-hidden="true">&darr;</span>
             </div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-fg-secondary md:hidden">
-              Illustration
-            </p>
           </div>
           <div className="relative h-px w-full bg-white/10">
             <span

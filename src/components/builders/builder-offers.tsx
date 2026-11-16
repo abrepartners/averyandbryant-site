@@ -46,6 +46,8 @@ const PHASES = [
 ];
 
 function MarketYourBuild({ consultHref }: { consultHref: string }) {
+  // On a phone the shot list is folded so the card stays short.
+  const [shots, setShots] = useState(false);
   return (
     <article className="relative flex min-w-0 flex-col rounded border border-crimson/60 bg-[rgba(17,17,17,0.85)] p-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)] md:p-8">
       <div className="flex min-h-[22px] items-center justify-between gap-3">
@@ -95,22 +97,48 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
         ))}
       </ul>
 
-      <p className="mt-6 text-[10px] font-medium uppercase tracking-[0.2em] text-fg-secondary">
+      <button
+        type="button"
+        onClick={() => setShots((v) => !v)}
+        aria-expanded={shots}
+        aria-controls="builder-shot-list"
+        className="mt-6 flex min-h-[48px] w-full items-center justify-between gap-3 border-y border-white/10 text-left lg:hidden"
+      >
+        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-fg-strong">
+          The builder shot list
+        </span>
+        <span className="flex shrink-0 items-center gap-3 text-[11px] text-fg-secondary">
+          {SHOT_LIST.length} shots
+          <span
+            aria-hidden="true"
+            className={`text-xl leading-none transition-transform duration-300 ${shots ? "rotate-45" : ""}`}
+          >
+            +
+          </span>
+        </span>
+      </button>
+      <p className="mt-6 hidden text-[10px] font-medium uppercase tracking-[0.2em] text-fg-secondary lg:block">
         The builder shot list
       </p>
-      <ul className="mt-3 flex flex-wrap gap-1.5">
-        {SHOT_LIST.map((shot) => (
-          <li
-            key={shot}
-            className="rounded-sm border border-white/10 px-2.5 py-1.5 text-[12px] text-fg-strong"
-          >
-            {shot}
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3 text-xs leading-relaxed text-fg-secondary">
-        We skip the spare bedrooms and closets unless you are listing the home.
-      </p>
+      <div
+        id="builder-shot-list"
+        className={`${shots ? "block" : "hidden"} lg:block`}
+      >
+        <ul className="mt-3 flex flex-wrap gap-1.5">
+          {SHOT_LIST.map((shot) => (
+            <li
+              key={shot}
+              className="rounded-sm border border-white/10 px-2.5 py-1.5 text-[12px] text-fg-strong"
+            >
+              {shot}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-3 text-xs leading-relaxed text-fg-secondary">
+          We skip the spare bedrooms and closets unless you are listing the
+          home.
+        </p>
+      </div>
 
       <div className="mt-auto pt-6">
         <a

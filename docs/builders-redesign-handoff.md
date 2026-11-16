@@ -191,3 +191,19 @@ window, and decide whether the calculator belongs.
 - Before release: Thomas confirms the Market Your Build name and price basis,
   and confirms the request reaches him (a CRM notification on the
   `quote-request` tag).
+
+## Folded quote, fitted headline word, builder tag (2026-11-16, fifth pass)
+
+Thomas's notes on the fourth pass, all applied on the preview branch.
+
+- **Get a quote is folded on a phone.** Below the `lg` breakpoint the quote card shows a short teaser and one button ("Start my quote"). Tapping it, the sticky "Get a quote" button, or any link to `#quote` opens the questions in place. On a wide screen the questions are always open beside Market Your Build.
+- **The builder shot list is a dropdown on a phone** (closed by default, "9 shots"). Always open on a wide screen.
+- **The headline word window fits the word.** `rotating-word.tsx` measures each word once (in em, again after the font loads) and animates the window's width to the current word. First render is still the plain word "build".
+- **Scroll cue is amber.** `Scroll to build` uses `amber-consult` with a down arrow. This is a one-off: the design kit reserves amber for consult and offer moments. Ask Thomas before making it a kit rule.
+- **The "Illustration" label is gone** from the hero, phone and desktop, on Thomas's instruction. The film is still an AI-made illustration, not a client build.
+- **Lead route (`src/app/api/lead/route.ts`).** Three changes, no change to the request or response shape other than one new optional field:
+  - New optional `origin`. `origin: "builders"` adds the tag `builder-quote` beside `quote-request` and sets the source to `site-builders-quote`. Any other value changes nothing. The form cannot name its own tags.
+  - Tags are no longer sent on the upsert. The CRM's upsert replaces every tag a contact already has (its API docs say so), so tags are now added with the add-tags call after the contact is saved. If that call fails the visitor sees the error line, because the tag is what starts the alert.
+  - The quote summary is also written to a contact field with the key `site_quote_summary`, so a workflow can put it in an alert email (a workflow cannot read a note). The field has to be created in the CRM; until then that one write fails quietly and the note still carries the text.
+- **Not changed, flagged:** `src/app/api/stripe/webhook/route.ts` still sends tags on its upsert, so by the same docs a returning buyer's tags are replaced. It is billing code, left alone here.
+- **CRM side still to build (not in this repo):** no workflow listens for `quote-request` or `builder-quote` today. The alert workflow and the summary field are a CRM job.

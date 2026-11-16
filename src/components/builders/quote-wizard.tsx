@@ -46,6 +46,26 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
     "idle",
   );
 
+  // On a phone the questions stay folded behind one button, so the page is
+  // not a long scroll. On a wide screen they are always open.
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      if (window.location.hash === "#quote") setOpen(true);
+    };
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement | null)?.closest?.('a[href="#quote"]');
+      if (a) setOpen(true);
+    };
+    check();
+    window.addEventListener("hashchange", check);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("hashchange", check);
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
+
   // Move focus to the new question, but never on first load.
   const headRef = useRef<HTMLHeadingElement>(null);
   const first = useRef(true);
@@ -106,6 +126,7 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
           email: email || undefined,
           phone: phone || undefined,
           company,
+          origin: "builders",
           quote: {
             vertical: "Builders (quote questions on the builders page)",
             goal: purposeLabel,
@@ -138,6 +159,42 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
       id="quote"
       className="flex min-w-0 scroll-mt-24 flex-col rounded border border-white/10 bg-[rgba(17,17,17,0.6)] p-6 md:p-8"
     >
+      {/* folded state, phones only */}
+      <div className={open ? "hidden" : "lg:hidden"}>
+        <div className="flex min-h-[22px] items-center justify-between gap-3">
+          <span className="font-mono text-[11px] tracking-[0.2em] text-fg-secondary">
+            02
+          </span>
+          <span className="rounded-sm border border-white/15 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-fg-strong">
+            4 quick questions
+          </span>
+        </div>
+        <h3 className="mt-6 font-display text-[26px] font-normal leading-tight tracking-tight text-fg">
+          Get a quote
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-fg-strong">
+          Tell us the goal, tap through a few questions and see a price range
+          before you talk to anyone.
+        </p>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-expanded={open}
+          aria-controls="quote-questions"
+          className="mt-5 inline-flex min-h-[48px] w-full items-center justify-center gap-3 rounded border border-crimson/70 bg-crimson/10 px-6 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-crimson/20"
+        >
+          Start my quote <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+
+      <div
+        id="quote-questions"
+        className={
+          open
+            ? "flex flex-1 flex-col"
+            : "hidden lg:flex lg:flex-1 lg:flex-col"
+        }
+      >
       <div className="flex min-h-[22px] items-center justify-between gap-3">
         <span className="font-mono text-[11px] tracking-[0.2em] text-fg-secondary">
           02
@@ -474,6 +531,7 @@ export function QuoteWizard({ consultHref }: { consultHref: string }) {
           <span aria-hidden="true">&larr;</span> Back
         </button>
       )}
+      </div>
     </div>
   );
 }

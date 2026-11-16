@@ -84,6 +84,21 @@ export async function addContactNote(contactId: string, body: string) {
   return ghl("POST", `/contacts/${contactId}/notes`, { body });
 }
 
+/**
+ * Write a contact custom field by its key (the part after "contact." in the
+ * CRM). Used for fields a workflow reads back into an alert email, since a
+ * workflow cannot read a contact note.
+ */
+export async function setCustomFieldByKey(
+  contactId: string,
+  key: string,
+  value: string,
+) {
+  return ghl("PUT", `/contacts/${contactId}`, {
+    customFields: [{ key, field_value: value }],
+  });
+}
+
 export async function setCustomField(
   contactId: string,
   fieldId: string,
