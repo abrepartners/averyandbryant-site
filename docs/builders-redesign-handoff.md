@@ -135,7 +135,7 @@ The work section (`src/components/builders/proof-slots.tsx`) no longer has place
 
 Rules followed: no street, house number or home name in any file name, caption or alt text. Every film was read at 4 frames a second for on-screen text and every exported photo was read once; the only text found is the builder's branding, tool and material brands, and newspaper clippings inside the family film.
 
-Source files, picks and scripts: `~/ab/tools/builders-content/` (`scripts/export.sh` lists every photo picked by gallery position and re-makes the web files). Films are full length at 960x540, about 54 MB in `public/videos` for the nine new files. Move video and film frames to file storage before a production release.
+Source files, picks and scripts: `~/ab/tools/builders-content/` (`scripts/export.sh` lists every photo picked by gallery position and re-makes the web files). Films are full length at 960x540, about 54 MB in `public/videos` for the nine new files. Not moving video and film frames to file storage (decided 2026-11-16): main already serves about 250 MB of media from `public/` the same way, visitors get the same CDN speed either way, and a storage bucket would add a second service and a cross-origin hop on the hero. Revisit only if the repo nears GitHub's size guidance.
 
 Not done: check on a physical iPhone. The reels from the two renovations and a finished-home reel from Cabot were not used (the Cabot reel opens on a street address title).
 
@@ -209,3 +209,10 @@ Thomas's notes on the fourth pass, all applied on the preview branch.
 - **CRM side still to build (not in this repo):** no workflow listens for `quote-request` or `builder-quote` today. The alert workflow and the summary field are a CRM job.
 - **Checked against the live CRM (2026-11-16)** with `scripts/test-lead-local.sh`, which runs the built site locally with the CRM keys and posts one request as the Inspector Brown test contact: status 200, the contact's four existing tags were kept, `quote-request` and `builder-quote` were added, the source became `site-builders-quote`, the note landed, and the summary field write returned OK even though the field does not exist yet (the CRM accepts an unknown key without an error). Test tags were removed afterward; the note is marked TEST.
 - **Preview deployments cannot save a quote.** `GHL_LOCATION_ID` is not set for the Preview environment in Vercel (runtime log, 2026-11-16), so the form shows its error line on any preview link. Production is where it will work.
+
+## Release candidate (2026-11-16, afternoon)
+
+- Thomas approved the look on his phone and confirmed the five headline words (build, plan, frame, finish, deliver).
+- Main (0d9406b, token removal in setup scripts) merged into the branch; tsc, eslint and build pass.
+- Not released. Thomas's go is needed for the exact revision before any merge to main.
+- After release: send one quote as the test contact from the live page, confirm the alert email, clean up the test contact's tags.
