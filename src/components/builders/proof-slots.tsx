@@ -576,7 +576,7 @@ export function ProofSlots() {
             </span>
           </div>
           <h2 className="mt-5 font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.04] tracking-[-0.025em] text-fg">
-            Be known for how you build.
+            The work that makes the case.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-fg-strong md:text-lg">
             This is not listing media for one house. It is the work that

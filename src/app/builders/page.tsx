@@ -24,7 +24,7 @@ export const metadata = {
   title:
     "Builder & Construction Media: Build Tracker, Marketing System & Model Home Launch | Avery & Bryant",
   description:
-    "Professional photography, drone aerials, and video tours for builders, construction projects, and model homes across Arkansas. Finished-home packages from $1,395; monthly progress documentation from $325 per month, set up on a call.",
+    "Photography, film and build documentation that show Central Arkansas what your company can build. Progress visits, builder films, craft photography and finished-home packages from $1,395; monthly progress documentation from $325 per month, set up on a call.",
 };
 
 export default function BuildersPage() {
@@ -37,14 +37,15 @@ export default function BuildersPage() {
     <div data-page="builders">
       <ProcessFilm consultHref={consultHref} packages={packages} />
 
+      <ProofSlots />
+
+      <PhasePackages packages={packages} />
+
+      {/* Spec builders only: the cost of a finished home that sits. */}
       <CarryCalculator
         packageName={launch.name}
         packagePrice={dollars(launch.price)}
       />
-
-      <ProofSlots />
-
-      <PhasePackages packages={packages} />
 
       <OfferTerms guarantee={guarantee} />
 

@@ -150,3 +150,12 @@ Thomas's notes after the phone review: too much scrolling, show what a builder i
 - Scroll film: 760svh down to 660svh. The first frame now ships as a plain image in the HTML and the canvas fades in over it; frames beyond the playhead wait until the visitor scrolls or the page has been idle 3.5 seconds (`film-scrub.tsx`).
 - Speed test (Lighthouse, local production build): desktop 100 performance, 100 accessibility. Phone 71 performance, 97 accessibility before the contrast fix; first paint 0.9 s, speed index 1.3 s, blocking time 230 ms (was 1,010 ms). The phone "largest paint" number is not meaningful on this page: Chrome ignores a full-screen image and a canvas, so it reports no candidate. Remaining phone cost is mostly the site-wide tracking scripts.
 - Not changed: the hero and carry calculator still speak to selling the finished home. Package and positioning proposals went to Thomas in chat; nothing new is priced or published.
+
+## Top of the page reframed (2026-11-16, third pass)
+
+Thomas said yes to reframing around being known rather than selling one house.
+
+- Hero: "Be known for how you build." with "See the work" as the second link (was "From plan to sold." and the carry link). Headline size capped at 80px so it stays on two lines.
+- The carry calculator moved below the packages and is labeled "For spec homes". Its math is unchanged.
+- Work section heading is now "The work that makes the case."
+- Page order: film, work (five tabs), packages, spec home calculator, terms, questions, close.

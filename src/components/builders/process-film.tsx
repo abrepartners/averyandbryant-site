@@ -200,14 +200,15 @@ export function ProcessFilm({
                 For Central Arkansas builders
               </span>
             </div>
-            <h1 className="mt-4 font-display text-[clamp(48px,13vw,104px)] font-light leading-[0.98] tracking-[-0.035em] text-fg md:mt-6">
-              From plan
+            <h1 className="mt-4 font-display text-[clamp(44px,12.5vw,80px)] font-light leading-[1] tracking-[-0.035em] text-fg md:mt-6">
+              Be known for
               <br />
-              to sold<span className="text-crimson">.</span>
+              how you build<span className="text-crimson">.</span>
             </h1>
             <p className="mt-4 max-w-[32ch] text-[15px] leading-relaxed text-fg-strong md:mt-7 md:max-w-[40ch] md:text-lg">
-              Every day a finished home sits, it costs you. We start at the
-              slab, so buyers are watching long before the keys.
+              Your best marketing is the work itself. We film and photograph
+              it from the plan to the front door, so the next client trusts
+              you before the first call.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 md:mt-9">
               <a
@@ -219,10 +220,10 @@ export function ProcessFilm({
                 Book a builder call
               </a>
               <a
-                href="#carry"
+                href="#work"
                 className="group inline-flex min-h-[44px] items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-fg-strong transition-colors hover:text-white max-lg:[@media(max-height:720px)]:hidden"
               >
-                What does a day cost you
+                See the work
                 <span
                   aria-hidden="true"
                   className="transition-transform duration-300 group-hover:translate-y-0.5"
@@ -333,13 +334,13 @@ export function ProcessFilm({
 
                   {!s.offer && s.offer !== 0 && (
                     <a
-                      href="#carry"
+                      href="#work"
                       tabIndex={on ? 0 : -1}
                       className={`group mt-3 flex min-h-[56px] items-center justify-between gap-4 border-t border-white/15 pt-3 text-sm text-fg md:mt-4 lg:mt-6 lg:rounded lg:border lg:border-white/10 lg:bg-[rgba(10,10,10,0.8)] lg:px-5 lg:py-4 lg:backdrop-blur-md ${
                         on ? "pointer-events-auto" : "pointer-events-none"
                       }`}
                     >
-                      What does a day cost you
+                      See real builds
                       <span
                         aria-hidden="true"
                         className="transition-transform duration-300 group-hover:translate-y-0.5"

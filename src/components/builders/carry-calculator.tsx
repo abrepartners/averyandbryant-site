@@ -169,15 +169,15 @@ export function CarryCalculator({
           <div className="inline-flex items-center gap-3">
             <span aria-hidden="true" className="h-px w-8 bg-crimson" />
             <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-fg-strong">
-              The carry
+              For spec homes
             </span>
           </div>
           <h2 className="mt-5 font-display text-[clamp(32px,6vw,64px)] font-light leading-[1.04] tracking-[-0.025em] text-fg">
-            What does one unsold day cost you?
+            Building on spec? What one unsold day costs.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-fg-strong md:text-lg">
-            Your loan, your carry, your days. Change the example numbers to
-            yours and watch the meter.
+            Custom work sells on reputation. A spec home also runs a clock.
+            Change the example numbers to yours and watch the meter.
           </p>
         </div>
 
