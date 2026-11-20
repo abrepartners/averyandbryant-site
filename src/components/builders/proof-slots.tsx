@@ -345,6 +345,89 @@ function Captioned({ title, n, children }: { title: string; n?: number; children
   );
 }
 
+/** Small segmented control: every option visible, one tap to switch. */
+function Segments({
+  label,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  options: string[];
+  value: number;
+  onChange: (i: number) => void;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label={label}
+      className="grid rounded-full border border-white/15 p-1"
+      style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}
+    >
+      {options.map((o, i) => (
+        <button
+          key={o}
+          type="button"
+          aria-pressed={value === i}
+          onClick={() => onChange(i)}
+          className={`min-h-[40px] truncate rounded-full px-2 text-[10px] font-medium uppercase tracking-[0.14em] transition-colors ${
+            value === i ? "bg-white text-black" : "text-fg-strong"
+          }`}
+        >
+          {o}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Phones only: the three rooms and three visits in one frame instead of
+ * three stacked swipe rows. Pick the room, then step through the visits;
+ * the photo changes in place, so the build visibly moves.
+ */
+function VisitViewer() {
+  const [room, setRoom] = useState(0);
+  const [visit, setVisit] = useState(0);
+  const row = VISIT_ROWS[room];
+  return (
+    <div className="mt-8 md:hidden" data-cta-area="visits">
+      <Segments
+        label="Room"
+        options={VISIT_ROWS.map((r) => r.room)}
+        value={room}
+        onChange={setRoom}
+      />
+      <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded border border-white/10 bg-black-deep">
+        {row.frames.map((f, i) => (
+          <Image
+            key={f.src}
+            src={f.src}
+            alt={f.alt}
+            fill
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-300 ${
+              i === visit ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+        <Ticks />
+        <p className="absolute left-3 top-3 rounded-sm bg-[rgba(10,10,10,0.62)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-fg">
+          {row.frames[visit].label}
+        </p>
+      </div>
+      <div className="mt-4">
+        <Segments
+          label="Visit"
+          options={row.frames.map((f) => f.label)}
+          value={visit}
+          onChange={setVisit}
+        />
+      </div>
+    </div>
+  );
+}
+
 function ProgressPanel() {
   return (
     <div className="grid gap-16 md:gap-20">
@@ -353,18 +436,16 @@ function ProgressPanel() {
           Same views, every visit. Your buyers, lenders and owners watch
           the home move without driving to the site.
         </SubHead>
-        <div className="mt-8 grid gap-8 md:gap-10">
+        <VisitViewer />
+        <div className="mt-8 hidden gap-10 md:grid">
           {VISIT_ROWS.map((row) => (
             <div key={row.room}>
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-secondary">
                 {row.room}
-                <span className="ml-3 text-fg-secondary md:hidden">Swipe</span>
               </p>
-              <div className="-mx-6 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
+              <div className="mt-3 grid grid-cols-3 gap-4">
                 {row.frames.map((f) => (
-                  <div key={f.src} className="w-[78%] shrink-0 snap-center md:w-auto">
-                    <Shot frame={f} sizes="(min-width: 768px) 400px, 78vw" />
-                  </div>
+                  <Shot key={f.src} frame={f} sizes="400px" />
                 ))}
               </div>
             </div>
@@ -554,12 +635,14 @@ const TABS = [
 
 export function ProofSlots() {
   const [tab, setTab] = useState<(typeof TABS)[number]["id"]>("progress");
+  const [menuOpen, setMenuOpen] = useState(false);
   const topRef = useRef<HTMLDivElement>(null);
   const active = TABS.find((t) => t.id === tab) ?? TABS[0];
   const Panel = active.Panel;
 
   const pick = (id: (typeof TABS)[number]["id"]) => {
     setTab(id);
+    setMenuOpen(false);
     // Keep the tab row in view when a long panel is swapped for a short one.
     const top = topRef.current?.getBoundingClientRect().top ?? 0;
     if (top < 0) topRef.current?.scrollIntoView({ block: "start" });
@@ -581,15 +664,56 @@ export function ProofSlots() {
           <p className="mt-5 text-base leading-relaxed text-fg-strong md:text-lg">
             This is not listing media for one house. It is the work that
             shows what your company can do. Everything here is real, made
-            for Central Arkansas builders. Pick a tab.
+            for Central Arkansas builders. Pick a kind of work.
           </p>
         </div>
 
         <div ref={topRef} className="scroll-mt-20 md:scroll-mt-28" />
+        <div className="sticky top-[60px] z-20 -mx-6 mt-10 border-y border-white/10 bg-[rgba(10,10,10,0.92)] px-6 py-3 backdrop-blur-xl md:hidden">
+          <button
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls="work-menu"
+            onClick={() => setMenuOpen((o) => !o)}
+            className="flex min-h-[44px] w-full items-center justify-between rounded-full border border-crimson bg-crimson px-5 text-white"
+          >
+            <span className="text-[11px] font-medium uppercase tracking-[0.18em]">
+              {active.label}
+            </span>
+            <span className="flex items-center gap-3 font-mono text-[10px] tracking-[0.12em] text-white/80">
+              {TABS.indexOf(active) + 1} of {TABS.length}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 12 12"
+                className={`h-3 w-3 transition-transform ${menuOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </span>
+          </button>
+          {menuOpen && (
+            <ul id="work-menu" className="mt-2 grid gap-1">
+              {TABS.map((t, i) => (
+                <li key={t.id}>
+                  <button
+                    type="button"
+                    onClick={() => pick(t.id)}
+                    className={`flex min-h-[44px] w-full items-center justify-between rounded px-5 text-left text-[11px] font-medium uppercase tracking-[0.18em] ${
+                      tab === t.id ? "bg-white/10 text-fg" : "text-fg-strong"
+                    }`}
+                  >
+                    {t.label}
+                    <span className="font-mono text-[10px] text-fg-secondary">0{i + 1}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         <div
           role="tablist"
           aria-label="Kinds of builder work"
-          className="sticky top-[60px] z-20 -mx-6 mt-10 flex gap-2 overflow-x-auto border-y border-white/10 bg-[rgba(10,10,10,0.92)] px-6 py-3 backdrop-blur-xl md:top-[76px] md:mx-0 md:mt-14 md:px-0"
+          className="sticky top-[76px] z-20 mt-14 hidden gap-2 border-y border-white/10 bg-[rgba(10,10,10,0.92)] py-3 backdrop-blur-xl md:flex"
         >
           {TABS.map((t) => (
             <button
