@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Package } from "@/lib/pricing";
+import { OrderLink } from "@/components/order-link";
 import { PackageCard } from "./builder-package-card";
 import { QuoteWizard } from "./quote-wizard";
 import { SERVICES, money } from "./quote-data";
@@ -45,7 +46,7 @@ const PHASES = [
   "At the finish, model home or community",
 ];
 
-function MarketYourBuild({ consultHref }: { consultHref: string }) {
+function MarketYourBuild() {
   // On a phone the shot list is folded so the card stays short.
   const [shots, setShots] = useState(false);
   return (
@@ -141,14 +142,15 @@ function MarketYourBuild({ consultHref }: { consultHref: string }) {
       </div>
 
       <div className="mt-auto pt-6">
-        <a
-          href={consultHref}
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* A shoot is an order: same order page and Aryeo builders form as
+            the fixed package cards. The call calendar is for calls. */}
+        <OrderLink
+          vertical="builders"
+          params={{ package: "Market Your Build" }}
           className="inline-flex min-h-[48px] w-full items-center justify-center rounded bg-crimson px-6 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-crimson-dark hover:shadow-[0_8px_32px_rgba(196,18,48,0.25)]"
         >
           Book this shoot
-        </a>
+        </OrderLink>
         <p className="mt-3 text-xs leading-relaxed text-fg-secondary">
           Give us the home and a date. Photos are back within 48 hours.
         </p>
@@ -275,7 +277,7 @@ export function BuilderOffers({
         </div>
 
         <div className="mt-12 grid gap-8 md:mt-16 lg:grid-cols-2 lg:gap-6">
-          <MarketYourBuild consultHref={consultHref} />
+          <MarketYourBuild />
           <QuoteWizard consultHref={consultHref} />
         </div>
 
